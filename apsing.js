@@ -1,9 +1,8 @@
 
 //const url = "https://umeauniversity-my.sharepoint.com/:u:/g/personal/maslrk02_ad_umu_se/EQt-imastydEjZIFkT0uIQ0BO7_nv1NXPrjQycoD06XULw?download=1"
-const url = "lonlyspace.mp3";
-const url2 = "testprat.mp3";
+const url = "/tester/lonlyspace.mp3";
+const url2 = "/tester/testprat.mp3";
 const url3 = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3";
-
 var music = new Audio();
 const URLs = [url,url2,url3];
 music.src = URLs[0];

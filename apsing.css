@@ -1,0 +1,358 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+}
+
+tw-story{background-color: #555;}
+
+@media (min-width: 576px){
+tw-sidebar{ /* display: none; */
+    text-align: left;
+    font-size: 1rem;
+    line-height: normal;
+    left: -9em;
+    width: 6em;
+}
+}
+
+
+tw-icon { display:none; }
+
+tw-story {
+    font-family:'Courier New', Courier, monospace;
+    font-size: 1.3em;
+}
+tw-passage{
+    font-family: 'Areal', sans-serif;
+}
+
+tw-link {color: #ced6a0;}
+tw-link:hover {	color: #7ec4b5; }
+tw-link.visited { color: #ced6a0; }
+tw-link.visited:hover { color: #7ec4b5; }
+
+tw-dialog {
+  font-family: 'Nothing You Could Do', sans-serif;
+  font-size: larger;
+	z-index: 999997;
+	border: rgb(138, 138, 138) solid 4px;
+  border-radius: 7px;
+	padding: 2em;
+	color: rgb(41, 41, 95);
+	background-color: rgb(148, 148, 148);
+	display: block;
+}
+
+tw-dialog-links tw-link {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+  border-radius: 2px;
+  border-width: 1px;
+  background-color: rgb(136, 133, 133) ;
+}
+
+ljudfx{
+  background-color: rgb(153, 51, 51);  
+}
+
+ljudfx.pling::after{
+  background-color: green;
+  /*
+  content: url(https://umeauniversity-my.sharepoint.com/:u:/g/personal/maslrk02_ad_umu_se/ETR8UZvQuj1MoDRfIpaTUh4BfXVa95QNdVY2a_OFTOe7nw?download=1);
+  content: "<audio url='https://umeauniversity-my.sharepoint.com/:u:/g/personal/maslrk02_ad_umu_se/ETR8UZvQuj1MoDRfIpaTUh4BfXVa95QNdVY2a_OFTOe7nw?download=1' autoplay></audio>";
+  content:url("robot1.ogg");
+  background:url('javascript:testar(2)');
+  */
+  content: url("javascript:testar(3)");
+
+}
+
+header{
+/*    background-color: #272318;
+    background-image: url("https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F392-backpack-512.png");*/
+    /*
+    background-image: url("https://umeauniversity-my.sharepoint.com/:i:/g/personal/maslrk02_ad_umu_se/EUKMpOfl-rZLoaMup0XIsTYBkrptfZs2saKeHpEVZzlRfg?download=1");
+    background-image: url("./assets/backpack_ph_s2.png");
+    background-image: url("https://mattislindmark.github.io/multiplication/GisBack_3.gif");
+    
+    background-image: url("https://cdn.discordapp.com/attachments/901649354937479168/1036986235853492234/backpack_ph_s2.png");
+    */
+    background-image: url("./assets/backpack_ph_s2.png");
+    
+    background-repeat: no-repeat;
+    background-size: 3rem;
+    overflow: hidden;
+ /*   display: flex; */
+    display: inline-block;
+    position: fixed;
+    margin-left: auto;
+    padding: 1px 10px;
+    align-items: center;
+    top: 20px;
+    left: 40px;
+    max-width: 3rem;
+    max-height: 3rem;
+    transition: all .3s ease-in-out;
+    z-index:2;
+/*    transition: max-height 1s ease;*/
+
+}
+header:hover {
+    background-color: #272318;
+    max-width: 10rem;
+    max-height: 20rem;
+/*    max-height: fit-content;  <-- denna funkar, men animationen blir lite skum.*/
+}
+
+.specialtext1 {
+    font-family: 'Nothing You Could Do', sans-serif;
+    color: rgb(217, 255, 0);
+    transform: rotate(-2deg);
+    display: inline-block;   
+}
+
+titelblock {
+    font-family: 'Amatic SC', sans-serif;
+    font-size: clamp(4rem,1rem + 10vw,8rem);
+    line-height: 1em;
+}
+
+rubrikblock {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 100;
+    font-size: clamp(1rem, .5rem + 4vw, 3rem);
+    display: block;
+    padding-left: 8rem;
+    /*text-align: center;
+    font-size: 3rem;
+    */
+}
+
+/*
+========================= Animations
+*/
+
+FullBgrBox{
+  width: 150vw;
+  height: 100vh;
+  position: absolute;
+  left: -40%;
+  top: -20%;
+  z-index:0;
+}
+
+.BgrAnimFire{
+  background: radial-gradient(circle, rgb(243, 255, 149) 0%, rgb(143, 27, 27) 25%, rgb(18, 18, 26) 95%);
+  background-size: 200% 200%;
+  background-position: 15% 10%;
+  animation: fire 5s ease-out infinite alternate;
+}
+.BgrAnimA{
+  background: radial-gradient(circle, rgb(243, 255, 149) 0%, rgb(143, 27, 27) 15%,rgb(55, 20, 20) 25%, rgb(18, 18, 26) 95%);
+  background-size: 200% 200%;
+  animation: gradientB 5s ease infinite alternate;
+}
+.BgrAnimB{
+  background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 24%, rgba(2,0,36,1) 95%);
+ background-size: 200% 200%;
+ animation: gradientC 5s ease infinite alternate;
+}
+.BgrAnimC{
+ background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(54,121,9,1) 24%, rgba(2,0,36,1) 95%);
+ background-size: 200% 200%;
+ animation: gradientC 5s ease infinite alternate;
+}
+
+@keyframes gradientB {
+  to {
+    background-size: 350% 350%;
+    background-position: 40% 40%;
+  }
+  50%{ background-position-x: 30%;
+    background-size: 250% 350%;
+  }
+}
+@keyframes gradientC {
+  to {
+    background-size: 240% 240%;
+    background-position: 80% 50%;
+  }
+}
+
+@keyframes fire {
+  0%, 20% {
+    background-size: 200% 300%;
+  }
+ 10%,36%,50%,72%{
+    background-size: 240% 340%;
+  }
+  40%,63%,83%{
+    background-size: 200% 180%;
+  }
+  95% {
+          background-size: 200% 240%;
+  }
+  100% {background-size: 240% 200%;}
+ }
+
+
+
+simpleAnim
+{
+    -webkit-animation: focus-anim 3s linear infinite;
+    animation: rotate-anim 3s ease-in-out infinite;
+    display: inline-block !important
+}
+
+.animfocus
+{
+    -webkit-animation: focus-anim 7s linear infinite;
+    animation: focus-anim 7s linear infinite;
+    display: inline-block !important
+}
+
+@keyframes rotate-anim{
+    0%, 100% {transform: rotate(0deg);}
+    20%,80% {transform: rotate(-2deg);}
+    50% {transform: rotate(2deg);}
+}
+
+@keyframes focus-anim {
+    0%, 100% {  filter: blur(8px) ;}
+    40%, 70%, 85% {  filter: blur(2px) ;}
+    25%, 75%, 85% {  filter: blur(1px) ;}
+    50%, 60% {  filter: blur(0px) ;}
+    0%, 100% { opacity: 0.5; }
+    40%, 70% { opacity: 1; }
+  }
+
+  .sfx1
+  {
+    height: 300px;
+    position: relative;
+    width: 300px;
+  }
+.sfx1::before,
+.sfx1::after{  
+  animation: pulsecircle 2s linear infinite;
+  border: #fff solid 8px;
+  border-radius: 9999px;
+  outline: 2px dotted rgb(255, 255, 255);  
+  box-sizing: border-box;
+  content: ' ';
+  height: 140%;
+  left: -20%;
+  opacity: .6;
+  position: absolute;
+  top: -20%;
+  transform: scale(0.02);
+  width: 140%;
+  z-index: auto;
+/*  animation: pulse 1s linear infinite, cycle-colors 6s linear infinite;*/
+}
+.sfx1::after
+{
+  animation-delay: 1s;
+}
+
+sfx2
+{
+    height: 300px;
+    position: absolute;
+    width: 300px;
+}
+sfx2::before,
+sfx2::after{
+    animation: rotatesq 2s linear infinite;
+    border: #fff solid 5px;
+    border-radius: 20px;
+    box-sizing: border-box;
+    content: ' ';
+    height: 140%;
+    left: -20%;
+    opacity: 1;
+    position: absolute;
+    top: -20%;
+    transform: rotate(0deg) scale(0.02);
+    width: 140%;
+    z-index: auto;
+}
+sfx2::after
+{
+    animation-delay: 1s;
+}
+
+@keyframes pulsecircle {
+    to {
+      opacity: 0;
+      transform: scale(2);
+    }
+  }
+  @keyframes rotatesq {
+    to {
+      opacity: 0;
+      transform: rotate(-180deg) scale(2);
+    }
+  }
+
+
+/*
+=========== Ändra i de befintliga macros som kan läggas på text.
+*/
+[data-t8n^=pulse].transition-in {
+	animation: pulse .8s;
+	display: inline-block !important
+}
+
+[data-t8n^=pulse].transition-out {
+	animation: pulse .8s reverse;
+	display: inline-block !important
+}
+
+[data-t8n^=shudder].transition-in {
+	display: inline-block !important;
+	animation: shudder-in .8s
+}
+
+[data-t8n^=shudder].transition-out {
+	display: inline-block !important;
+	animation: shudder-in .8s reverse
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0, 0)
+	}
+
+	20% {
+		transform: scale(1, 2.2)
+	}
+
+	40% {
+		transform: scale(0.9, 0.9)
+	}
+
+	60% {
+		transform: scale(2.05, 1.05)
+	}
+
+	80% {
+		transform: scale(0.925, 0.925)
+	}
+
+	to {
+		transform: scale(1, 1)
+	}
+}
