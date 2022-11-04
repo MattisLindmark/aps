@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+    hej!
+<script>        
+function playMusic()
+{
+    var audio = document.createElement('audio');
+    audio.src= 'https://umeauniversity-my.sharepoint.com/personal/maslrk02_ad_umu_se/Documents/DeladeSaker/publichtml/lonlyspace.mp3?ga=1';
+    audio.loop = true;
+    audio.play();
+}
+
+function playMusicB()
+{
+    let music = new Audio("https://umeauniversity-my.sharepoint.com/personal/maslrk02_ad_umu_se/Documents/DeladeSaker/publichtml/lonlyspace.mp3?ga=1");
+    music.play();
+}
+
+
+</script>
+<button onclick="playMusic()">Try it</button>
+<button onclick="playMusicB()">Try itB</button>
+<button onclick='(function(){ let music = new Audio("https://umeauniversity-my.sharepoint.com/personal/maslrk02_ad_umu_se/Documents/DeladeSaker/publichtml/lonlyspace.mp3?ga=1");
+music.play(); })();'>anonym</button>
+
+</body>
+</html>

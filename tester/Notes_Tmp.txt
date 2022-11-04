@@ -1,0 +1,63 @@
+tw-dialog {
+	z-index: 999997;
+	border: #fff solid 2px;
+	padding: 2em;
+	color: #fff;
+	background-color: #000;
+	display: block
+}
+
+@media(min-width: 576px) {
+	tw-dialog {
+		max-width: 50vw
+	}
+}
+
+tw-dialog input[type=text] {
+	font-size: inherit;
+	width: 100%;
+	border: solid #fff !important
+}
+
+tw-dialog-links {
+	text-align: right;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: end;
+	justify-content: flex-end
+}
+
+tw-backdrop {
+	z-index: 999996;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .8);
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: center;
+	align-items: center;
+	-ms-flex-pack: center;
+	justify-content: center
+}
+
+tw-backdrop~tw-backdrop {
+	display: none
+}
+
+---
+tw-dialog-links {
+	padding-top: 1.5em
+}
+
+tw-dialog-links tw-link {
+	border-radius: 16px;
+	border-style: solid;
+	border-width: 2px;
+	text-align: center;
+	padding: 0px 8px;
+	display: block;
+	display: inline-block
+}
