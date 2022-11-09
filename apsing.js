@@ -3,8 +3,10 @@
 const url = "lonlyspace.mp3";
 const url2 = "testprat.mp3";
 const url3 = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3";
+const url4 =  "../assets/music/skuggan_hypnos_low.mp3";
+const url5 = "../assets/music/skuggan1_lvol.mp3";
 var music = new Audio();
-const URLs = [url,url2,url3];
+const URLs = [url,url2,url3,url4,url5];
 music.src = URLs[0];
 musicIndex = 0;
 
@@ -12,6 +14,7 @@ music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
 
 function playMusic()
 {
+    updateDebuggInfo();
     music.play();
 }
 
@@ -33,12 +36,20 @@ async function AsyncmusicByt()
     console.log("end");
     musicIndex = (musicIndex+1)%URLs.length;
     music.src = URLs[musicIndex];
+    updateDebuggInfo();
     //musicVolume(orgV);
     music.play();
     await FadeAsync(true, 1000, orgV);
 }
 
-
+function updateDebuggInfo()
+{
+    console.log("ojojoj "+URLs[musicIndex]);
+    try{
+        let tmp = document.getElementById('fileinfo');
+        tmp.innerHTML="Fil: "+URLs[musicIndex];
+    } catch{}
+}
 
 /*
 async function FadeAsyncLerp(isFadeUp=false, duration=800, targetVolume)

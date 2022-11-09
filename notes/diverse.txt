@@ -1,0 +1,8 @@
+
+Audio diverse fade: Jquery och div metoder längre ned.
+https://stackoverflow.com/questions/7451508/html5-audio-playback-with-fade-in-and-fade-out
+
+
+
+
+https://github.com/miohtama/Krusovice/blob/master/src/tools/fade.js

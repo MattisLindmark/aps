@@ -1,9 +1,11 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Mr+Dafoe&display=swap');
  @import url('https://fonts.googleapis.com/css2?family=Exo:wght@900&display=swap');
+ @import url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
 */
 
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+@import url('https://fontlibrary.org//face/opendyslexic');
 
 html,
 body {
@@ -27,6 +29,12 @@ tw-sidebar{ /* display: none; */
 }
 }
 
+@font-face {
+  font-family: 'opendyslexic';
+	src: url('http://dyslexicfonts.com/fonts/OpenDyslexic-Regular.otf');
+	font-style: normal;
+	font-weight: normal;
+} 
 
 tw-icon { display:none; }
 
@@ -35,7 +43,14 @@ tw-story {
     font-size: 1.3em;
 }
 tw-passage{
-    font-family: 'Areal', sans-serif;
+  font-family:'OpenDyslexic3Regular';
+  font-weight: normal;
+  font-style: normal;
+
+  /*
+  font-family: 'Nothing You Could Do', sans-serif;  
+  font-family: 'Areal', sans-serif;
+*/
 }
 
 tw-link {color: #ced6a0;}
