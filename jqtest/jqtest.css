@@ -13,10 +13,19 @@ bult{
     background-color: blueviolet;
 }
 
+music{
+    background-color: coral;
+}
+/*
 whatever::before{
     content: '\a';
     white-space: pre;
 }
+*/
+#byt{
+    background-color: burlywood;
+}
+
 whatever{
     background-color: brown;
     position: absolute;
