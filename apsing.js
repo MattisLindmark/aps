@@ -1,5 +1,7 @@
 
 //const url = "https://umeauniversity-my.sharepoint.com/:u:/g/personal/maslrk02_ad_umu_se/EQt-imastydEjZIFkT0uIQ0BO7_nv1NXPrjQycoD06XULw?download=1"
+
+// MUSIK setup
 const url = "lonlyspace.mp3";
 const url2 = "testprat.mp3";
 const url3 = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3";
@@ -10,7 +12,35 @@ const URLs = [url,url2,url3,url4,url5];
 music.src = URLs[0];
 musicIndex = 0;
 
+// SoundFX setup
+var FXsounds = [
+    { name:"pling", value:"pling.mp3"},
+    { name:"flepp", value:"messFlepp.ogg"},
+    { name:"robot", value:"robot1.ogg"}
+]
+var FXsoundsBaseUrl = "./tester/"
+var sounds = new Audio();
+
+
 music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
+
+function playSoundFX(name)
+{
+    var surl = "none";
+    try{
+        surl = FXsounds.find(p => p.name ===name).value;
+    } catch
+    {
+        surl = "none";
+    }
+    console.log("SoundFX function "+surl);
+    if (surl != "none"){
+        sounds.src = FXsoundsBaseUrl+surl;
+        sounds.play();
+    }
+
+
+}
 
 function playMusic()
 {
@@ -157,7 +187,7 @@ function musicJumpTime()
 function testar(hej)
 {
     console.log("Variabel: "+hej);
-    alert('hejsan '+hej);
+    //alert('hejsan '+hej);
 }
 
 function playMusicOld()
@@ -174,7 +204,6 @@ function stopMusicOld()
     audio.pause();
 }
 
-
 class MyTag extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `<p>Custom tagg här!</p> `;
@@ -190,4 +219,39 @@ class MyTag extends HTMLElement {
     }
 }
 
+class SoundFX extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = 'Debugg ljud';
+        var name = "undefined";
+        try{
+            name = this.attributes.name.value;
+        } catch{
+            name = "undefined";
+        }
+        if (name.length > 0 && name != "undefined"){
+           console.log("PlaySoundFX(name)"+name);
+           playSoundFX(name);
+        }
+    }   
+}
+
+
+/*
+class SoundFX extends HTMLelement {
+    connectedCallback() {
+        this.innerHTML = 'Debugg ljud';
+        var name = "undefined";
+        try{
+            name = this.attributes.name.value;
+        } catch{
+            name = "undefined";
+        }
+        if (name.length > 0 && name != "undefined"){
+           console.log("PlaySoundFX(name)");
+        }
+    }   
+}
+*/
+//customElements.define('soundfx',SoundFX);
 customElements.define('my-tag', MyTag);
+customElements.define('play-sound', SoundFX);
