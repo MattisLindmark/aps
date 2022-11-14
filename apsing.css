@@ -17,7 +17,9 @@ body {
   width: 100vw;
 }
 
-tw-story{background-color: #555;}
+/*tw-story{background-color: #555;}*/
+tw-story{background-color: #000;}
+
 
 @media (min-width: 576px){
 tw-sidebar{ /* display: none; */
@@ -46,6 +48,7 @@ tw-passage{
   font-family:'OpenDyslexic3Regular';
   font-weight: normal;
   font-style: normal;
+  color: rgb(230, 228, 214);
 
   /*
   font-family: 'Nothing You Could Do', sans-serif;  
@@ -53,10 +56,22 @@ tw-passage{
 */
 }
 
-tw-link {color: #ced6a0;}
-tw-link:hover {	color: #7ec4b5; }
+tw-link {
+  color: #ced6a0;
+  background-color: #2d3232;
+  padding-left: .8rem;
+  padding-right: 0.8rem;
+  padding-bottom: .2rem;
+}
+tw-link:hover {	
+  color: #7ec4b5; 
+  background-color: #4b5353;
+}
 tw-link.visited { color: #ced6a0; }
-tw-link.visited:hover { color: #7ec4b5; }
+tw-link.visited:hover { 
+  color: #7ec4b5; 
+//  background-color: #4b5353;
+}
 
 tw-dialog {
   font-family: 'Nothing You Could Do', sans-serif;
