@@ -93,6 +93,18 @@ ljudfx.pling::after{
   content: url("javascript:testar(3)");
 }
 
+borderbar{
+  border:1px solid #000!important;
+}
+
+scorebar{
+  background-color: greenyellow;
+  height:25px;
+  width: 50%;
+  display: block;
+    
+}
+
 backpack{
 /*    background-color: #272318;
     background-image: url("https://cdn2.iconfinder.com/data/icons/animals-nature-2/50/1F392-backpack-512.png");*/

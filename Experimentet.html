@@ -112,10 +112,7 @@ exempel:
 (transition-arrive: &quot;slide-right&quot;)[[Gå till start med en slide right|start]]</tw-passagedata><tw-passagedata pid="6" name="transitionsdisolve" tags="" position="800,575" size="100,100">Här har vi en sida som innehåller innehåll.
 
 (after:1s)[(transition-depart: &quot;dissolve&quot;)[[transitions]]]
-</tw-passagedata><tw-passagedata pid="7" name="Header" tags="header" position="500,450" size="100,100">&lt;backpack&gt;
-(text-style:&quot;subscript&quot;)[(text-colour:orange)[I ryggsäcken:(if:$ficklampa is 1)[* Ficklampa ](if:$jordnötter is 1)[* Jordnötter](if:$pendel is 1)[* Guldpendel ](if:$kniv is 1)[* Kökskniv ](if:$nyckel is 1)[* Nyckelknippa ]
-(if:$koffein is 1)[* Du är Koffeinstinn.]]]
-&lt;/backpack&gt;</tw-passagedata><tw-passagedata pid="8" name="Startup" tags="startup" position="450,625" size="100,100">(set: $ficklampa to 1)
+</tw-passagedata><tw-passagedata pid="7" name="Header" tags="header" position="400,425" size="100,100">(text-style:&quot;subscript&quot;)[(text-colour:green)[-$hypnos-                             ](text-colour:red)[-$död-  ]   (if:$koffein is 1)[(text-colour:#964B00)[      -DU ÄR KOFFEINSTINN-]]]</tw-passagedata><tw-passagedata pid="8" name="Startup" tags="startup" position="450,625" size="100,100">(set: $ficklampa to 1)
 (set: $källare to 0)
 (set: $sovtid to 10)
 (set: $nyckel to 1)
@@ -132,7 +129,11 @@ exempel:
 (set: $rösten to 0)
 (set: $bruten to 0)
 (set: $personalrum to 0)
-(set: $populära to 0)</tw-passagedata><tw-passagedata pid="9" name="Header2" tags="" position="325,450" size="100,100">Hej header!</tw-passagedata><tw-passagedata pid="10" name="andra effekter" tags="" position="1325,600" size="100,100">&lt;FullBgrBox class=&quot;BgrAnimB&quot;&gt;&lt;/FullBgrBox&gt;
+(set: $populära to 0)</tw-passagedata><tw-passagedata pid="9" name="Header2" tags="footer" position="250,425" size="100,100">&lt;backpack&gt;
+(text-style:&quot;subscript&quot;)[(text-colour:orange)[I ryggsäcken:(if:$ficklampa is 1)[* Ficklampa ](if:$jordnötter is 1)[* Jordnötter](if:$pendel is 1)[* Guldpendel ](if:$kniv is 1)[* Kökskniv ](if:$nyckel is 1)[* Nyckelknippa ]
+(if:$koffein is 1)[* Du är Koffeinstinn.]]]
+&lt;/backpack&gt;
+</tw-passagedata><tw-passagedata pid="10" name="andra effekter" tags="" position="1325,600" size="100,100">&lt;FullBgrBox class=&quot;BgrAnimB&quot;&gt;&lt;/FullBgrBox&gt;
 &lt;div class=&quot;sfx1&quot;&gt;Specialfx 1 i en div. &lt;/div&gt;
 &lt;sfx2&gt;
 SFX2 i ett block.
