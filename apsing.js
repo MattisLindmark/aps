@@ -16,9 +16,10 @@ musicIndex = 0;
 var FXsounds = [
     { name:"pling", value:"pling.mp3"},
     { name:"flepp", value:"messFlepp.ogg"},
-    { name:"robot", value:"robot1.ogg"}
+    { name:"robot", value:"robot1.ogg"},
+    { name:"snap", value:"177494__snapper4298__snap-3.wav"}
 ]
-var FXsoundsBaseUrl = "./tester/"
+var FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
 
@@ -33,9 +34,14 @@ function playSoundFX(name)
     {
         surl = "none";
     }
-    console.log("SoundFX function "+surl);
-    if (surl != "none"){
-        sounds.src = FXsoundsBaseUrl+surl;
+    //    console.log("SoundFX function "+surl);
+    if (surl != "none") {
+        if (surl.includes("https://")) {
+            sounds.src = surl;
+        }
+        else {
+            sounds.src = FXsoundsBaseUrl + surl;
+        }
         sounds.play();
     }
 
@@ -221,7 +227,12 @@ class MyTag extends HTMLElement {
 
 class SoundFX extends HTMLElement {
     connectedCallback() {
-        this.innerHTML = 'Debugg ljud';
+        //this.innerHTML = 'Debugg ljud';
+// Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
+        if (document.querySelector('tw-transition-container') != null){
+            return;
+//            this.innerHTML = 'is child ';
+        }        
         var name = "undefined";
         try{
             name = this.attributes.name.value;
