@@ -59,9 +59,13 @@ tw-passage{
 tw-link {
   color: #ced6a0;
   background-color: #2d3232;
+  line-height: normal;
+  margin: .1rem;
   padding-left: .8rem;
   padding-right: 0.8rem;
   padding-bottom: .2rem;
+  padding-top: .2rem;
+  display: inline-block;
 }
 tw-link:hover {	
   color: #7ec4b5; 
@@ -194,6 +198,12 @@ FullBgrBox{
   z-index:0;
 }
 
+.pendel{
+  background: radial-gradient(circle,rgb(230, 223, 167) 1%, rgb(124, 121, 92) 3%, rgb(0, 0, 0) 20%);
+  opacity: .6;
+  background-size: 80% 80%;
+  animation: gradientC 3.5s ease-in-out infinite alternate;
+}
 .BgrAnimFire{
   background: radial-gradient(circle, rgb(243, 255, 149) 0%, rgb(143, 27, 27) 25%, rgb(18, 18, 26) 95%);
   background-size: 200% 200%;
@@ -205,13 +215,13 @@ FullBgrBox{
   background-size: 200% 200%;
   animation: gradientB 5s ease infinite alternate;
 }
-.BgrAnimB{
-  background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 24%, rgba(2,0,36,1) 95%);
+.BgrAnimC{
+ background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(54,121,9,1) 24%, rgba(2,0,36,1) 95%);
  background-size: 200% 200%;
  animation: gradientC 5s ease infinite alternate;
 }
-.BgrAnimC{
- background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(54,121,9,1) 24%, rgba(2,0,36,1) 95%);
+.BgrAnimB{
+  background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 24%, rgba(2,0,36,1) 95%);
  background-size: 200% 200%;
  animation: gradientC 5s ease infinite alternate;
 }
@@ -230,6 +240,8 @@ FullBgrBox{
     background-size: 240% 240%;
     background-position: 80% 50%;
   }
+  0%{opacity: 0;}
+  50%{opacity: 0.5;}
 }
 
 @keyframes fire {
