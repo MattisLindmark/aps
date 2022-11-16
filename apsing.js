@@ -38,6 +38,7 @@ music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
 
 function playSoundFX(name)
 {
+    sounds.pause();
     var surl = "none";
     try{
         surl = FXsounds.find(p => p.name ===name).value;
@@ -53,6 +54,7 @@ function playSoundFX(name)
         else {
             sounds.src = FXsoundsBaseUrl + surl;
         }
+        
         sounds.play();
     }
 }
@@ -236,7 +238,7 @@ class SoundFX extends HTMLElement {
 
 class MusicPlay extends HTMLElement {
     connectedCallback() {
-        this.innerHTML = 'Debugg music';
+//        this.innerHTML = 'Debugg music';
         // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
         if (document.querySelector('tw-transition-container') != null) {
             return;
