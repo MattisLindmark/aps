@@ -34,7 +34,7 @@ const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
 
-music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
+//music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
 
 function playSoundFX(name)
 {
@@ -76,12 +76,14 @@ function playMusic(name)
 
     if (surl != "none") {
         if (surl.includes("https://")) {
-            music.src = surl;
+            surl = surl;
         }
         else {
-            music.src = musicBaseUrl + surl;
+            surl = musicBaseUrl + surl;
         }
-        music.play();
+        fastFadeAndStop(music, ()=>{music.src = surl;music.play()});
+//        setTimeout(()=>{music.play()},1000);
+        //music.play();
     }
 
     if (surl == "none")
@@ -157,6 +159,26 @@ function musicVolume(v)
     music.volume = v;
 }
 
+function fastFadeAndStop(ao, onDone)
+{
+    orginalVolym = ao.volume;
+    v = orginalVolym;
+    var zapper = setInterval(() => {
+        if (v <= 0) {
+            ao.volume = 0;
+            ao.pause();
+            ao.volume = orginalVolym;
+            clearInterval(zapper);
+            onDone();
+        } else {
+            ao.volume = v;
+            v -= 0.01;
+            v = v.toFixed(4);
+           // console.log("wtf" + v);
+           // v = Math.min(Math.max(v, 0), 1);
+        }
+    }, 10);
+}
 
 function fadeVolumeDown(onDone)
 {
@@ -251,10 +273,11 @@ class MusicPlay extends HTMLElement {
             name = "undefined";
         }
         if (name.length > 0 && name != "undefined") {
-            console.log("PlayMusic" + name);
+            //console.log("PlayMusic" + name);            
             playMusic(name);
+        }else{
+         console.log("Dit not PlayMusic" + name);
         }
-        console.log("Do not PlayMusic" + name);
     }
 }
 
