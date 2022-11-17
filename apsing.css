@@ -17,7 +17,7 @@ body {
   width: 100vw;
 }
 
-*/
+/*
 tw-transition-container{
   background-color: #fff;
   
@@ -48,14 +48,14 @@ tw-sidebar{ /* display: none; */
 tw-icon { display:none; }
 
 tw-story {
-    font-family:'Courier New', Courier, monospace;
+    /*font-family:'Courier New', Courier, monospace;*/
+    font-family:'OpenDyslexic3Regular';
     font-size: 1.3em;
+    color: rgb(230, 228, 214);
 }
 tw-passage{
-  font-family:'OpenDyslexic3Regular';
   font-weight: normal;
   font-style: normal;
-  color: rgb(230, 228, 214);
 
   /*
   font-family: 'Nothing You Could Do', sans-serif;  
@@ -85,24 +85,27 @@ tw-link.visited:hover {
 }
 
 tw-dialog {
-  font-family: 'Nothing You Could Do', sans-serif;
   font-size: larger;
+/*  font-family: 'Nothing You Could Do', sans-serif;*/
 	z-index: 999997;
-	border: rgb(138, 138, 138) solid 4px;
-  border-radius: 7px;
-	padding: 2em;
-	color: rgb(41, 41, 95);
-	background-color: rgb(148, 148, 148);
+	border: rgb(15, 15, 15) solid 4px;
+  border-radius: 5px;
+	padding: 3rem;
+	background-color: rgb(4, 4, 4);
+  color: #E6E4D6; /*<-- kolla om denna hex är samma som tidigare rgb.*/
 	display: block;
 }
 
+
 tw-dialog-links tw-link {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif; 
   font-size: 1rem;
-  border-radius: 2px;
-  border-width: 1px;
+  border-radius: 0px;
+  border-width: 0px;
+  padding: .5rem;
   background-color: rgb(136, 133, 133) ;
 }
+
 
 ljudfx{
   background-color: rgb(153, 51, 51);  
