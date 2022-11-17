@@ -25,6 +25,11 @@ var sounds = new Audio();
 
 music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
 
+window.onload = (event) => {
+    console.log("page is fully loaded");
+  };
+
+
 function playSoundFX(name)
 {
     var surl = "none";

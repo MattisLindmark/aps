@@ -1,4 +1,5 @@
 
+
 //const url = "https://umeauniversity-my.sharepoint.com/:u:/g/personal/maslrk02_ad_umu_se/EQt-imastydEjZIFkT0uIQ0BO7_nv1NXPrjQycoD06XULw?download=1"
 
 // MUSIK setup
@@ -84,7 +85,13 @@ const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
 
+// === startup setup typ ===
 //music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
+
+//console.log("-----------Körs------");
+
+//===
+
 
 function playSoundFX(name)
 {
@@ -331,11 +338,49 @@ class MusicPlay extends HTMLElement {
     }
 }
 
+class VisualFX extends HTMLElement {
+    connectedCallback() {
+        //this.innerHTML = 'Debugg anim';
+
+        // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
+        if (document.querySelector('tw-transition-container') != null) {
+            return;
+        }
+        var name = "undefined";
+        try {
+            name = this.attributes.name.value;
+        } catch {
+            name = "undefined";
+        }
+        if (name.length > 0 && name != "undefined") {
+            //console.log("VisualFX" + name);            
+            HandleVisualFX(this, name);
+        }else{
+         console.log("Did not show visualFX" + name);
+        }
+    }
+}
+
+
 
 //customElements.define('soundfx',SoundFX);
 customElements.define('my-tag', MyTag);
 customElements.define('play-sound', SoundFX);
 customElements.define('play-music', MusicPlay);
+customElements.define('visual-fx', VisualFX);
+
+
+
+function HandleVisualFX(myElement, myName)
+{
+    if (myName == "hypnos1")
+    {
+        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
+         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
+
+    }
+}
+
 
 /*
 function playMusicOld()
@@ -401,3 +446,4 @@ function lerp (start, end, amt){
     return (1-amt)*start+amt*end
   }
 */
+

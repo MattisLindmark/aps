@@ -1,0 +1,96 @@
+/*
+Uppdelad för få lite mer överblick.
+*/
+
+.centerVFX{
+    display: block;
+    color: aliceblue;
+    align-items: center;
+    justify-content: center;
+    margin-top: calc(50vh - 200px);
+    margin-left: calc(40vw - 200px);
+    position: fixed;
+
+  }
+
+    @media (max-width: 450px) {
+      .centerVFX {
+        margin-left: 35vw;
+      }
+    }
+  
+    @media (min-width: 1100px) {
+      .centerVFX {
+        margin-left: 10vw;
+      }
+    }
+  
+
+
+.circles {
+    margin: 0 auto;
+    width: 200px;
+    height: 200px;
+    border: 4px solid white;
+    opacity: 0;
+    border-radius: 45%;
+    position:absolute;
+    margin-left: 40%;
+    top:40%;
+  }
+  .one {
+    animation: circles 2.4s infinite linear;
+  }
+  .two {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 0.3s;
+  
+  }
+  .three {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 0.6s;
+  
+  }
+  .four {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 0.9s;
+  
+  }
+  .five {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 1.2s;
+  
+  }
+  .six {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 1.5s;
+  
+  }
+  .seven {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 1.8s;
+  
+  }
+  .eight {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 2.1s;
+  
+  }
+  .nine {
+    animation: circles 2.4s infinite linear;
+    animation-delay: 2.4s;
+  
+  }
+  @keyframes circles {
+      from {
+          transform: scale(0.1) rotate(0deg);
+      display: none;
+      opacity: 0;
+      }
+      to {   
+          transform: scale(6) rotate(180deg);
+      }
+    1%{opacity: .2;}
+    80%{ opacity: .6;}
+    100%{ opacity: 0;}
+  }
