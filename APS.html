@@ -12,10 +12,10 @@
 <tw-storydata name="APS" startnode="100" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://mattislindmark.github.io/aps/apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
 script.src = "apsing.js";
 document.head.appendChild(script)</script><tw-tag name="startup" color="none"></tw-tag><tw-tag name="spel" color="yellow"></tw-tag><tw-tag name="Hypnos" color="purple"></tw-tag><tw-tag name="rum" color="blue"></tw-tag><tw-tag name="grej" color="orange"></tw-tag><tw-tag name="slut" color="green"></tw-tag><tw-passagedata pid="1" name="matsalen" tags="rum grej" position="925,650" size="100,100">(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is 0)[(set: $percentage to (random: 100))(if: $percentage &gt; 85)[(go-to: &quot;rösten&quot;)]]Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
-(link:&quot;...&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad. 
-(link:&quot;...&quot;)[ (if:$populära is 1)[I hörnet sitter populära gänget och sover i en hög.][(if:$populära is 0)[I hörnet sitter populära gänget i sina perfekta märkeskläder(if:$kläder is &quot;moderiktiga&quot;)[, dina kompisar från paralellklassen. Du önskar de varit vakna för att säga något snällt om din outfit för dagen, vad som helst som fått den här dagen att kännas normal
+(link:&quot;Jag hör ingenting&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad. 
+(link:&quot;Orättvist&quot;)[ (if:$populära is 1)[I hörnet sitter populära gänget och sover i en hög.][(if:$populära is 0)[I hörnet sitter populära gänget i sina perfekta märkeskläder(if:$kläder is &quot;moderiktiga&quot;)[, dina kompisar från paralellklassen. Du önskar de varit vakna för att säga något snällt om din outfit för dagen, vad som helst som fått den här dagen att kännas normal
 
-(link:&quot;Försök väcka dina vänner&quot;)[Du skakar i dina vänner och viskar förstiktigt till dem att vakna, men istället råkar du putta till din bästis som ramlar ned från stolen och slår hårt i golvet, du skriker till så det ekar i matsalen, hoppas ingen hörde.(set: $populära to 1)]](if:$kläder is &quot;bekväma&quot;)[ men istället för att glo nedlåtande och skrika kommentarer mot dig när du går förbi sitter de nu lutande mot varandra och dreglar i sömnen. Du tänker på alla gånger de retat dig för att du bara har bekväma mjukisbyxor och sköna tröjor, de ropat äckel efter dig trots att du duschar oftare än dem som bara stinker parfym. Fördelen är att de aldrig kan springa ikapp dig och göra något då du alltid har snabba praktiska gympaskor på dig.
+(link:&quot;Försök väcka mina vänner&quot;)[Du skakar i dina vänner och viskar förstiktigt till dem att vakna, men istället råkar du putta till din bästis som ramlar ned från stolen och slår hårt i golvet, du skriker till så det ekar i matsalen, hoppas ingen hörde.(set: $populära to 1)]](if:$kläder is &quot;bekväma&quot;)[ men istället för att glo nedlåtande och skrika kommentarer mot dig när du går förbi sitter de nu lutande mot varandra och dreglar i sömnen. Du tänker på alla gånger de retat dig för att du bara har bekväma mjukisbyxor och sköna tröjor, de ropat äckel efter dig trots att du duschar oftare än dem som bara stinker parfym. Fördelen är att de aldrig kan springa ikapp dig och göra något då du alltid har snabba praktiska gympaskor på dig.
 
 (link:&quot;Hämnas på mobbarna&quot;)[Du tar ett glas äppeljuice och häller i grenen på deras perfekta vita byxor. När de vaknar kommer det att se ut som att de kissat på sig i sömnen, rätt åt dem. Om de vaknar, någonsin, hmmm, du borde kanske fokusera på att försöka väcka alla.(set: $populära to 1)]](if:$kläder is &quot;utstickande&quot;)[ men istället för att glo nedlåtande och skrika kommentarer på er som går förbi sitter de nu lutande mot varandra och dreglar i sömnen. Du tänker på alla gånger de retat dig för din stil. Ropat att du är konstig, ett freak, att du bara vill ha uppmärksamhet. De fattar ingenting, du mår ju helt enkelt bra av alla färger och mönster, känner dig som dig själv, och ju mer de retar dig för dina kläder desto viktigare känns de för dig
 
@@ -73,7 +73,7 @@ på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv P
 [[Jag vill fortsätta sova-&gt;Fortsätt sova]] (if:$sovtid &gt; 105)[
 [[Varför sover jag?-&gt;Varför sover jag?]]]
 [[Vakna-&gt;klassrummet]]
-(set: $sovtid to $sovtid + 5)(set: $showFooter to 0)</tw-passagedata><tw-passagedata pid="9" name="städskrubben" tags="rum grej" position="1550,900" size="100,100">Det plaskar om fötterna när du kommer in i städskrubben, det är blött på golvet. (if:visits is &lt;= 1)[Du ser städaren som har somnat med huvudet i skurhinken, bubblor kommer upp, hen håller på att drunkna!
+(set: $sovtid to $sovtid + 5)(set: $showFooter to 0)</tw-passagedata><tw-passagedata pid="9" name="städskrubben" tags="rum grej" position="1300,1025" size="100,100">Det plaskar om fötterna när du kommer in i städskrubben, det är blött på golvet. (if:visits is &lt;= 1)[Du ser städaren som har somnat med huvudet i skurhinken, bubblor kommer upp, hen håller på att drunkna!
 (if:$ficklampa is 0)[(link:&quot;Leta igenom städskrubben&quot;)[Du gräver runt på hyllorna och bland såpflaskor och skurdukar hittar du en ficklampa. (set: $ficklampa to 1)&lt;play-sound name=&quot;pling&quot;&gt;&lt;/play-sound&gt;]]
 (link:&quot;Dra upp städaren ur skurhinken&quot;)[(if:$städare &gt; 0)[Du får ta i med alla dina krafter för att lyfta upp städaren ur skurhinken, hen ramlar ihop på golvet och hostar upp bubblande såpvatten, lever, men sover fortfarande.](if:$städare is 0)[Du får ta i med alla dina krafter för att lyfta upp städaren ur skurhinken, men du var för långsam, hens kalla döda kropp faller ihop en en pöl av bubblande såpvatten. ](if:$ficklampa is 1)[ Men du har i alla fall en ficklampa...]](set: $städare to 1)
 (after:30s)[(set: $städare to 0)]]
@@ -168,15 +168,8 @@ Du har lyckats väcka dina vänner, men är också en mördare, var det värt de
 Hypnos
 Hypnos (ytterst av antik grekiska ὕπνος (hýpnos), &quot;sömn&quot;) är ett transartat tillstånd mellan vakenhet och sömn, karaktäriserat av avslappning, fantasi, öppenhet för förslag och ett starkt fokus, samt metoden att uppnå detta tillstånd.
 
-&lt;img src= &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hypnotisk_seans_av_Richard_Bergh_1887.jpg/1280px-Hypnotisk_seans_av_Richard_Bergh_1887.jpg&quot; width=&quot;500&quot; height=&quot;400&quot;/&gt;
-
-Definition
-Hypnotisören är den som försätter en person i ett hypnotiskt tillstånd. Detta kan ske på flera olika sätt, exempelvis genom att låta personen fokusera på ett glänsande objekt, exempelvis en klocka, som hypnotisören låter dingla framför personens ögon. Hypnos kan även framkallas genom upprepade monotona rörelser eller genom en starkt rogivande, lugnande röst eller ett normalt tonfall med suggestioner om att slappna av. Väl hypnotiserad befinner sig personen i ett diffust tillstånd i vilket denna förefaller ovanligt öppen för förslag och frågor och uppmaningar. Den hypnotiserade är inte drömmande eller sovande, utan mycket medveten, men medveten på ett annat sätt än vanligt. Ibland liknas detta tillstånd vid ett sorts trans. Exakt vad som sker i en hypnos är än idag omtvistat.
-
-(after:20s)[Jaha, betyder det att alla du trott sover egentligen är medvetna om allt som händer, att de har sett allt du gjort när du trott du gått runt ensam i skolan? (if:$rädsla is &quot;misslyckande&quot;)[HJÄLP, det här kan vara det absolut pinsammaste du någonsin varit med om i ditt liv!!!]]
-
-(set: $hypnos to $hypnos +1)
-[[Gå tillbaka-&gt;datorn]]</tw-passagedata><tw-passagedata pid="24" name="biblioteket" tags="rum" position="1425,650" size="100,100">(if:$kläder is &quot;moderiktiga&quot;)[Biblioteket, skolans tråkigaste plats, bara en torr bibliotekarie och en massa tråkiga böcker. Du föredrar att hänga med dina polare i matsalen. Men ibland går du in hit för att spela spel i smyg på datorn](if:$kläder is not &quot;moderiktiga&quot;)[Skolbiblioteket, skolans normalt sett tryggaste plats. Här finns alltid en bibliotekarie som du kan vara i närheten av, som kan säga till mobbarna att vara tysta och gå därifrån. Enda nackdelen är att hon sen tvingar på dig en bok som du måste sitta och läsa. Du minns fortfarande när hon försåg dig med (if:$rädsla is &quot;mörker&quot;)[en samling spökhistorier som bara handlade om folk som låstes in i mörka källare. Så läskigt att du nästan föredragit mobbargänget.](if:$rädsla is &quot;kryp&quot;)[en faktabok om insekter så du fick sitta och föreställa dig hur de kröp från boksidorna och upp längst dina armar. Huvvaligen, du hade kanske ändå föredragot mobbargänget, kanske.](if:$rädsla is &quot;misslyckas&quot;)[Berts dagbok och du översköljdes av pinsamheterna i hans alla misslyckanden. Det var så obehagligt att du nästan föredragit mobbargänget, men bara nästan]]
+[[Det låter ju som det jag utsatts för!-&gt;wikipedia2]]
+&lt;img src= &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Hypnotisk_seans_av_Richard_Bergh_1887.jpg/1280px-Hypnotisk_seans_av_Richard_Bergh_1887.jpg&quot; width=&quot;500&quot; height=&quot;400&quot;/&gt;</tw-passagedata><tw-passagedata pid="24" name="biblioteket" tags="rum" position="1425,650" size="100,100">(if:$kläder is &quot;moderiktiga&quot;)[Biblioteket, skolans tråkigaste plats, bara en torr bibliotekarie och en massa tråkiga böcker. Du föredrar att hänga med dina polare i matsalen. Men ibland går du in hit för att spela spel i smyg på datorn](if:$kläder is not &quot;moderiktiga&quot;)[Skolbiblioteket, skolans normalt sett tryggaste plats. Här finns alltid en bibliotekarie som du kan vara i närheten av, som kan säga till mobbarna att vara tysta och gå därifrån. Enda nackdelen är att hon sen tvingar på dig en bok som du måste sitta och läsa. Du minns fortfarande när hon försåg dig med (if:$rädsla is &quot;mörker&quot;)[en samling spökhistorier som bara handlade om folk som låstes in i mörka källare. Så läskigt att du nästan föredragit mobbargänget.](if:$rädsla is &quot;kryp&quot;)[en faktabok om insekter så du fick sitta och föreställa dig hur de kröp från boksidorna och upp längst dina armar. Huvvaligen, du hade kanske ändå föredragot mobbargänget, kanske.](if:$rädsla is &quot;misslyckas&quot;)[Berts dagbok och du översköljdes av pinsamheterna i hans alla misslyckanden. Det var så obehagligt att du nästan föredragit mobbargänget, men bara nästan]]
 (link:&quot;...&quot;)[Men nu ligger bibliotekarien och sover i myshörnan, i och för sig kanske hon gjorde det redan innan, hon brukar alltid sitta där med en bok då inga barn är i biblioteket.
 (link:&quot;...&quot;)[Du ser även att dörren till städskrubben står på glänt och du hör ett underligt gurglande därifrån.
 
@@ -187,12 +180,7 @@ Hypnotisören är den som försätter en person i ett hypnotiskt tillstånd. Det
 
 &lt;img src= &quot;https://fantasyhyllan.se/produktbilder/9789177154174-molly-moons-fantastiska-bok-om-hypnos-1.jpg&quot; width=&quot;400&quot; height=&quot;500&quot;/&gt;
 
-&quot;Molly Moon är en osäker, inte särskilt vacker eller populär 10-åring som har tillbringat hela sitt liv på ett eländigt barnhem. Hon har inga vänner förutom Rocky som blir bortadopterad och flyttar till New York. Nu är Molly alldeles ensam.
-En dag hittar Molly en mystisk bok om hypnos på stadens bibliotek och upptäcker att hon har en alldeles speciell talang hon kan genom att se någon djupt i ögonen få denne att lyda hennes minsta vink!
-Molly rymmer från barnhemmet för att leta reda på Rocky: Men vad Molly inte vet är att en ondskefull professor har fått nys om hennes hypnotiska förmåga och han är fast besluten att utnyttja henne för att kunna genomföra århundradets kupp.&quot;
-
-(link:&quot;...&quot;)[Hmmmm, kanske är det den här Molly Moon som hemsöker er skola? eller en ondskefull professor? Men vänta nu, det här är ju en roman, ett påhitt, och det som händer på din skola nu är på fullt verkligt blodigt allvar.
-[[Gå tillbaka-&gt;biblioteket]]]</tw-passagedata><tw-passagedata pid="26" name="Läs skolfokusfoldern" tags="" position="1675,650" size="100,100">&#39;&#39;Hitta ert skolfokus!&#39;&#39;
+[[Läs på baksidan-&gt;baksidan]]</tw-passagedata><tw-passagedata pid="26" name="Läs skolfokusfoldern" tags="" position="1675,650" size="100,100">&#39;&#39;Hitta ert skolfokus!&#39;&#39;
 
 Har dina elever svårt att sitta still i klassrummet? Lyssnar de inte på vad du säger? Får du dagligen huvudvärk av de höga ljudnivåerna?
 
@@ -233,7 +221,7 @@ Eller så kan du göra samma sak, släppa dem fria från mig, men passa på att 
 
 Det här är helt ditt val att göra, visst borde det skönt (if:$kläder is not &quot;moderiktiga&quot;)[att sluta behöva stå ut med mobbargängets trakasserier, få alla att acceptera dig för vem du är och bli bjuden på alla kalas.](if:$kläder is &quot;moderiktiga&quot;)[att slippa behöva följa populära gängets minsta nycker. Köpa nya kläder bara för att de fått för sig att något är ute och veta att de kommer gilla dig oavsett hur du ser ut.]
 ]]
-[[Gå tillbaka-&gt;rektorsexpeditionen]]</tw-passagedata><tw-passagedata pid="30" name="rektorslut" tags="slut" position="1150,1150" size="100,100">Din röst tystnar och ett tag sitter du kvar där i rektorns kontor, i tystnaden. 
+[[Gå tillbaka-&gt;rektorsexpeditionen]]</tw-passagedata><tw-passagedata pid="30" name="rektorslut" tags="slut" position="1150,1175" size="100,100">Din röst tystnar och ett tag sitter du kvar där i rektorns kontor, i tystnaden. 
 (link: &quot;...&quot;)[Sen hör du ljudet av kroppar som rör sig i korridoren, gäspningar och förvirrade röster.
 (link: &quot;...&quot;)[Du öppnar dörren och tittar ut i korridoren, där, bara tio meter bort från dig står han, i sin perfekta kostym och sina blanka skor. Sören Mesmer, han stirrar på dig, (if:$pendel is 0)[ lyfter sin pendel], öppnar munnen och gör sig redo.
 (link: &quot;...&quot;)[Precis då kommer rektorn ut från matsalen och ropar åt dig -Hallå där, vad gör du i mitt kontor!!?? Hur kom du in där?
@@ -702,14 +690,14 @@ Du börjar spela ett väldigt svårt spel där du ska jaga en pendel som svänge
 Du får en tillsägning för att ha stulit rektorns nycklar och får aldrig en chans att förklara vad som egentligen hände, de försök du gör är det ändå ingen som tror på. 
 (link:&quot;...&quot;)[Att alla somnade skylls på dålig luftkvalitet och de byter ut ventilationen på hela skolan.
 (link: &quot;...&quot;)[Men något har förändrats, din röst har en ny otroligt påverkan på dina klasskamrater, som helt förändrar ditt liv.
-(link: &quot;...&quot;)[(if: $kläder is not &quot;moderiktiga&quot;)[(go-to: &quot;rektorslut22&quot;)](if: $kläder is &quot;moderiktiga&quot;)[(go-to: &quot;rektorslut21&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="97" name="rektorslut21" tags="slut" position="1275,1150" size="100,100">Dina vänner lyssnar på allt du säger, och plötsligt är det du som bestämmer vilka kläder som är moderiktiga, alla vill se ut och vara som dig.
+(link: &quot;...&quot;)[(if: $kläder is not &quot;moderiktiga&quot;)[(go-to: &quot;rektorslut22&quot;)](if: $kläder is &quot;moderiktiga&quot;)[(go-to: &quot;rektorslut21&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="97" name="rektorslut21" tags="slut" position="1275,1175" size="100,100">Dina vänner lyssnar på allt du säger, och plötsligt är det du som bestämmer vilka kläder som är moderiktiga, alla vill se ut och vara som dig.
 (link:&quot;...&quot;)[Du blir skolans mittpunkt, alla vill vara din vän, alla vill vara tillsammans med dig, gör allt för att ställa sig in.
 (link:&quot;...&quot;)[Men du undrar vad som händer när du byter skola, kommer allt försvinna då?
 (link:&quot;...&quot;)[Eller kan du kanske använda din nyfunna hypnotiska kunskap för att få alla att älska dig om, och om, igen.
 (link: &quot;...&quot;)[Och Sören Mesmer är ju fortfarande fri, frågan är om han kommer söka upp dig för att hämnas, kanske kan du i så fall istället övertala honom att bli din lärare.
 (link: &quot;...&quot;)[Så blir ni två Hypnotisörer som tillsammans kan lägga världen lägga världen under er.
 
-[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="98" name="rektorslut22" tags="slut" position="1400,1150" size="100,100">Du säger åt en mobbare att hålla tyst och sedan säger han ingenting på tre dagar. Snart vågar ingen jävlas med dig längre, de är rädda.
+[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="98" name="rektorslut22" tags="slut" position="1400,1175" size="100,100">Du säger åt en mobbare att hålla tyst och sedan säger han ingenting på tre dagar. Snart vågar ingen jävlas med dig längre, de är rädda.
 (link:&quot;...&quot;)[Förutom de du vill ska dras till dig, de blir dina vänner, eller mer än så, de gör allt du ber om, uppfyller alla dina önskningar, tillber dig.
 (link:&quot;...&quot;)[Men du undrar vad som händer när du byter skola, kommer allt försvinna då. 
 (link:&quot;...&quot;)[Eller kan du kanske använda din nyfunna hypnotiska kunskap för att få alla att älska dig om, och om, igen.
@@ -802,7 +790,25 @@ SLUTA LYSSNA! Du känner hur hans hypnotiska röst börjar dra in dig men du få
 (link:&quot;Jag springer!&quot;)[Du borde ha valt bekvämare skor, de här är snygga men opraktiska.
 (link:&quot;Jävla skor!&quot;)[Du tappar plötsligt balansen och snubblar över en bänk ned på golvet.
 (link:&quot;Jag faller!&quot;)[Några fotsteg senare är han ifatt dig, ser dig djupt i ögonen och börjar tala till dig
-[[Han fick mig-&gt;sov]]]]]</tw-passagedata></tw-storydata>
+[[Han fick mig-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="116" name="baksidan" tags="" position="1425,900" size="100,100">&quot;Molly Moon är en osäker, inte särskilt vacker eller populär 10-åring som har tillbringat hela sitt liv på ett eländigt barnhem. Hon har inga vänner förutom Rocky som blir bortadopterad och flyttar till New York. Nu är Molly alldeles ensam.
+En dag hittar Molly en mystisk bok om hypnos på stadens bibliotek och upptäcker att hon har en alldeles speciell talang hon kan genom att se någon djupt i ögonen få denne att lyda hennes minsta vink!
+Molly rymmer från barnhemmet för att leta reda på Rocky: Men vad Molly inte vet är att en ondskefull professor har fått nys om hennes hypnotiska förmåga och han är fast besluten att utnyttja henne för att kunna genomföra århundradets kupp.&quot;
+
+[[Jag undrar...]]</tw-passagedata><tw-passagedata pid="117" name="Jag undrar..." tags="" position="1425,1025" size="100,100">Hmmmm, kanske är det den här Molly Moon som hemsöker din skola? eller en ondskefull professor? 
+(link:&quot;Jag har en teori!&quot;)[Men vänta nu, det här är ju en roman, ett påhitt, och det som händer på din skola nu är på fullt verkligt blodigt allvar.
+
+[[Gå tillbaka-&gt;biblioteket]]]</tw-passagedata><tw-passagedata pid="118" name="wikipedia2" tags="" position="1550,900" size="100,100">Definition:
+Hypnotisören är den som försätter en person i ett hypnotiskt tillstånd. 
+(link:&quot;Jag tror hypnotisören är Sören Mesmer&quot;)[Detta kan ske på flera olika sätt, exempelvis genom att låta personen fokusera på ett glänsande objekt, exempelvis en klocka, som hypnotisören låter dingla framför personens ögon. 
+(link:&quot;Jag tror Sören hade nån sorts pendel!&quot;)[Hypnos kan även framkallas genom upprepade monotona rörelser eller genom en starkt rogivande, lugnande röst eller ett normalt tonfall med suggestioner om att slappna av. 
+
+(link:&quot;Jag minns en väldigt hypnotisk röst&quot;)[Väl hypnotiserad befinner sig personen i ett diffust tillstånd i vilket denna förefaller ovanligt öppen för förslag och frågor och uppmaningar. 
+(link:&quot;Ja tror han försökte få mig att göra något&quot;)[Den hypnotiserade är inte drömmande eller sovande, utan mycket medveten, men medveten på ett annat sätt än vanligt. Ibland liknas detta tillstånd vid ett sorts trans. Exakt vad som sker i en hypnos är än idag omtvistat.
+(link:&quot;Betyder det att alla kommer minnas vad jag gjort?&quot;)[(if:$rädsla is &quot;misslyckande&quot;)[HJÄLP, det här kan vara det absolut pinsammaste du någonsin varit med om i ditt liv!!!](if:$rädsla is not &quot;misslyckande&quot;)[Om ingen använder hypnos för att få dem att glömma allt förstås...]
+
+(set: $hypnos to $hypnos +1)
+[[Gå tillbaka-&gt;datorn]]]]]]]
+&lt;img src= &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg/2560px-Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg&quot; width=&quot;600&quot; height=&quot;400&quot;/&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
