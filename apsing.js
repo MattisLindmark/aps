@@ -84,12 +84,19 @@ var FXsounds = [
 const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
-
 // === startup setup typ ===
 //music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
 
 //console.log("-----------Körs------");
 
+$(function(){ // används ej, försöker få till globala variabler 20 nov 22
+    console.log("--- jq fungerar---");
+
+    if (!window.harlowe) {
+        //window.harlowe = {"State": State};
+    }
+    //console.log("var "+harlowe.State.variables['var']);
+});
 //===
 
 

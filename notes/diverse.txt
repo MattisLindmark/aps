@@ -6,3 +6,7 @@ https://stackoverflow.com/questions/7451508/html5-audio-playback-with-fade-in-an
 
 
 https://github.com/miohtama/Krusovice/blob/master/src/tools/fade.js
+
+
+OBS OBS OBS kolla upp denna, custom macros for harlowe:
+https://twinelab.net/harlowe-macro-api/#/
