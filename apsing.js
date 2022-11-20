@@ -340,23 +340,28 @@ class MusicPlay extends HTMLElement {
 
 class VisualFX extends HTMLElement {
     connectedCallback() {
-        //this.innerHTML = 'Debugg anim';
-
-        // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
-        if (document.querySelector('tw-transition-container') != null) {
-            return;
-        }
+        // Get the values
         var name = "undefined";
         try {
             name = this.attributes.name.value;
         } catch {
             name = "undefined";
         }
-        if (name.length > 0 && name != "undefined") {
-            //console.log("VisualFX" + name);            
-            HandleVisualFX(this, name);
-        }else{
-         console.log("Did not show visualFX" + name);
+        //------
+
+        if (document.querySelector('tw-transition-container') == null) {     // null = andra laddningen efter transition. Truel = 1a laddningen då den wrappar allt.
+            //this.style.animationPlayState = 'running';
+           // this.innerHTML = "<div class='centerVFX'><div class='circles fixed'></div></div>";
+            return;
+        }
+        else {
+            if (name.length > 0 && name != "undefined") {
+                //console.log("VisualFX" + name);            
+                HandleVisualFX(this, name);
+                //this.style.animationPlayState = 'paused';
+            } else {
+                console.log("Did not show visualFX" + name);
+            }
         }
     }
 }
@@ -375,9 +380,11 @@ function HandleVisualFX(myElement, myName)
 {
     if (myName == "hypnos1")
     {
-        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
-         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
-
+        var contentEndloop = '<div class="circles endloopa"></div><div class="circles endloopb"></div>';
+        var content = '<div class="circles one"></div><div class="circles three"></div><div class="circles five"></div><div class="circles seven"></div><div class="circles nine"></div>';
+//        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
+        content += contentEndloop;
+        myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
     }
 }
 

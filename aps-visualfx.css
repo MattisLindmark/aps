@@ -9,8 +9,11 @@ Uppdelad för få lite mer överblick.
     justify-content: center;
     margin-top: calc(50vh - 200px);
     margin-left: calc(40vw - 200px);
-    position: fixed;
-
+    position: fixed;    
+  }
+.centerVFX::after
+  {
+    animation-play-state: paused;
   }
 
     @media (max-width: 450px) {
@@ -25,7 +28,9 @@ Uppdelad för få lite mer överblick.
       }
     }
   
-
+.hide {
+  opacity: 0;
+}
 
 .circles {
     margin: 0 auto;
@@ -37,6 +42,13 @@ Uppdelad för få lite mer överblick.
     position:absolute;
     margin-left: 40%;
     top:40%;
+    transform: scale(0.1) rotate(0deg);
+  }
+  .fixed{ /*experiment för att köra olika cirklar i preload och efter preload. Funkar dåligt.  */
+    transform: scale(.1);
+    opacity: .3;
+    border: 15px solid white;
+    animation: circles .5s forwards linear;
   }
   .one {
     animation: circles 2.4s infinite linear;
@@ -81,11 +93,30 @@ Uppdelad för få lite mer överblick.
     animation-delay: 2.4s;
   
   }
+  .endloopa{
+    transform: scale(1) rotate(40deg);
+    opacity: 0;
+    animation: circles 2s forwards linear;
+  }
+  
+  .endloopb{
+    transform: scale(3) rotate(60deg);
+    opacity: 0;
+    animation: circles .7s forwards linear;
+  }
+  .endloopc{
+    transform: scale(5) rotate(100deg);
+    opacity: .3;
+    animation: circles .5s forwards linear;
+  }
+
+
+
   @keyframes circles {
       from {
-          transform: scale(0.1) rotate(0deg);
-      display: none;
-      opacity: 0;
+        /*transform: scale(0.1) rotate(0deg);*/
+        display: none;
+        opacity: 0;
       }
       to {   
           transform: scale(6) rotate(180deg);
