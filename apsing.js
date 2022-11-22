@@ -30,6 +30,8 @@ var FXsounds = [
     { name:"flepp", value:"messFlepp.ogg"},
     { name:"robot", value:"robot1.ogg"},
     { name:"snap", value:"177494__snapper4298__snap-3.wav"},
+    { name:"papper", value:"paper.mp3"},
+    { name:"pappersark", value:"papersheet.mp3"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
@@ -86,15 +88,23 @@ var sounds = new Audio();
 
 // === startup setup typ ===
 //music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
+//document.readystatechange = (event) => {console.log("Document DOM content loaded event");};
+// window.onclick = (event) => { console.log("Window click event");};
 
 //console.log("-----------Körs------");
 
+// --- varför funkar state i story js men ej här?
+//var _state = require('state');
+//console.log(_state.variables);
+
+window.hypnos = 0;
+window.deaths = 0;
+
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
     console.log("--- jq fungerar---");
-
-    if (!window.harlowe) {
+//    if (!window.harlowe) {
         //window.harlowe = {"State": State};
-    }
+//    }
     //console.log("var "+harlowe.State.variables['var']);
 });
 //===
@@ -145,7 +155,7 @@ function playMusic(name)
         else {
             surl = musicBaseUrl + surl;
         }
-        fastFadeAndStop(music, ()=>{music.src = surl;music.play()});
+        fastFadeAndStop(music, ()=>{music.src = surl;music.volume=0.5;music.play()});
 //        setTimeout(()=>{music.play()},1000);
         //music.play();
     }
@@ -216,6 +226,7 @@ async function FadeAsync(isFadeUp=false, duration=800, targetVolume)  //TODO: Fi
         }, 40);
     });
 }
+
 
 function musicVolume(v)
 {
@@ -373,6 +384,40 @@ class VisualFX extends HTMLElement {
     }
 }
 
+class ScoreBar extends HTMLElement {
+    connectedCallback(){
+
+        if (document.querySelector('tw-transition-container') == null) {          
+            console.log("");//return;
+        }
+
+        //this.innerHTML = 'Debugg score-bar';
+        var typ = "undefined";
+        var value = -1;
+        try {
+            typ = this.attributes.type.value;
+            value = this.attributes.value.value;
+        } catch {
+            if (typ == null)
+             typ = "undefined1";
+            if (value == null)
+             value = -1;
+        }
+
+//        if (document.querySelector('tw-transition-container') != null)
+//            return;
+
+        if (typ.length > 0)
+        {
+           // console.log("Values = "+typ+" and "+value+" and inne html: "+this.innerHTML);
+            HandleScorebar(this, typ, value);
+        }
+
+
+    }
+
+}
+
 
 
 //customElements.define('soundfx',SoundFX);
@@ -380,6 +425,7 @@ customElements.define('my-tag', MyTag);
 customElements.define('play-sound', SoundFX);
 customElements.define('play-music', MusicPlay);
 customElements.define('visual-fx', VisualFX);
+customElements.define('score-bar',ScoreBar);
 
 
 
@@ -393,6 +439,62 @@ function HandleVisualFX(myElement, myName)
         content += contentEndloop;
         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
     }
+}
+
+function HandleScorebar(myElement, myType, myValue)
+{
+    //console.log(window);
+
+    //myElement.innerHTML = window.hypnos;
+    /*
+    if (myValue < 0)
+    {
+        myValue = parseInt(this.innerHTML);
+    }
+*/
+    
+let _procent = ((window.hypnos/10)*100).toFixed(0);
+let _deathcount = ((window.deaths/6)*100).toFixed(0);
+
+let tmpstate = null;
+if (typeof window.statevar.hypnos !== 'undefined'){
+    tmpstate = window.statevar; 
+    console.log("Using state var");
+   // console.log(tmpstate.hypnos);   
+    _procent = ((tmpstate.hypnos/10)*100).toFixed(0);
+    _deathcount = ((tmpstate.död/6)*100).toFixed(0);
+} else
+{
+    console.log("NOT Using state var");
+}
+
+if (myType == "a" || myType == "A") // to lower vore najs
+{
+    myElement.innerHTML = ' <borderbar> <scorebar style="width:'+_procent+'%">'+_procent+'%</scorebar></borderbar>';
+}
+if (myType == "b" || myType == "B") // to lower vore najs
+{ 
+    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*6)/100).toFixed(0)+'ggr</scorebar></borderbar>';
+}
+    
+    if (myType == "update")
+    {
+        let e = document.getElementById('updatearea');
+        let tmp = e.innerHTML;
+        console.log("Score bar update is called. "+tmp);
+        e.innerHTML = tmp;
+    }
+  
+    if (myType == "updateb")
+    {
+        let tmpstate = window.statevar;
+        console.log(tmpstate.hypnos);
+        
+        console.log("Update B, this is what i got "+myElement.innerHTML);
+        
+    }
+
+
 }
 
 
@@ -459,5 +561,19 @@ async function FadeAsyncLerp(isFadeUp=false, duration=800, targetVolume)
 function lerp (start, end, amt){
     return (1-amt)*start+amt*end
   }
+
+
+        try{ 
+            var str = JSON.stringify( window.statevar);
+            var tmpobj = JSON.parse(str);
+            console.log(tmpobj.hypnos);
+        }
+        catch{
+            console.log("Json did not work.");
+            console.log(window.statevar);
+        }
+
+
+
 */
 

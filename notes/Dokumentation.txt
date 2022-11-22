@@ -1,0 +1,65 @@
+Detta är inte en fullständig dokumentation:
+
+2022-11-22
+Följande i storyns Javascript:
+---
+var script = document.createElement('script');
+script.src = "apsing.js";
+
+function setupGlobals()
+{  
+  	var _state = require('state');
+	console.log('require state');
+	console.log(_state.variables);
+	window.statevar = _state.variables;
+}
+
+setTimeout(() => {
+  console.log("Delayed statevarupdate for 1 second.");
+  setupGlobals();
+}, 1000)
+
+setupGlobals();
+
+document.head.appendChild(script)
+
+---
+
+
+
+
+Följande i header (den utkommenterade översta raden kan tas bort): 
+---
+<!-- (text-style:"subscript")[(text-colour:green)[-$hypnos-                             ](text-colour:red)[-$död-  ]  ] -->
+
+<span  id="updatearea">
+<score-bar type="a">$hypnos</score-bar><score-bar type="b">$död</score-bar>
+</span>
+
+<script>
+console.log("Header script is running.");
+window.hypnos = $hypnos;
+window.deaths = $död;
+</script>
+---
+(och ha kvar play sound stop och sånt)
+
+
+Nya taggar:
+Där man skriver <score-bar type="a"> eller "b" hamnar a=hypnos b=döds baren.
+(Det som står mellan taggarna kommer ej att synas)
+
+Där man vill att score-bar ska uppdateras omedelbart sätter man in en <score-bar type="update">Tomt eller text man vill ska synas.</score-bar>
+Ofta för länkar funkar det bäst att köra print-macron.
+Exempel:
+(link: "Set hypnos till 4")[(set: $hypnos to 4)(print: "<score-bar type='update'>Oj oj, du känner dig hypnotiserad!</score-bar>")]
+(link: "Minska död")[(set: $död to it-1)(print: "<score-bar type='update'>Ett steg närmare döden!</score-bar>")]
+
+(texten mellan scroe-bare taggarna kommer som text på sidan där länken var, kan lämnas tom.)
+
+OBS: Det är mkt lätt att glömma - i </score-bar> för mig iaf. Dvs man skriver första rätt men slut-taggen fel. Då får man error och fattar noll...
+
+--- ljud ---
+ljud vid namn: papper samt pappersark har lagts till. Kan användas för affishen.
+Jag har hårdkodat sänkt musikens volym temporärt, den var så hög jämfört med pratet (tyckte jag)... Får slutjustera nivåer på ljud senare.
+

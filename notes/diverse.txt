@@ -10,3 +10,13 @@ https://github.com/miohtama/Krusovice/blob/master/src/tools/fade.js
 
 OBS OBS OBS kolla upp denna, custom macros for harlowe:
 https://twinelab.net/harlowe-macro-api/#/
+
+
+
+För session storage, typ...
+
+console.log('before breake');
+if (window.sessionStorage.getItem('flagga') !== null)
+    return;
+ console.log('after breake');
+ window.sessionStorage.setItem('flagga','true');

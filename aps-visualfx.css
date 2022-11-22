@@ -102,7 +102,7 @@ Uppdelad för få lite mer överblick.
   .endloopb{
     transform: scale(3) rotate(60deg);
     opacity: 0;
-    animation: circles .7s forwards linear;
+    animation: circles .8s forwards linear;
   }
   .endloopc{
     transform: scale(5) rotate(100deg);
