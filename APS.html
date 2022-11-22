@@ -83,7 +83,7 @@ på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv P
 (if:$städare is 1)[Städaren snarkar så det kommer såpbubblor ur näsan som stiger upp mot taket i städskrubben.]
 (if:$städare is 0)[Du ser städarens döda kropp ligga i såpvattnet, om du bara varit snabbare hade hen kanske fortfarande levt...]
 (if:$ficklampa is 0)[(link:&quot;Leta igenom städskrubben&quot;)[Du gräver runt på hyllorna och bland såpflaskor och skurdukar hittar du en ficklampa. (set: $ficklampa to 1)&lt;play-sound name=&quot;pling&quot;&gt;&lt;/play-sound&gt;]]]
-[[Gå tillbaka -&gt;biblioteket]]</tw-passagedata><tw-passagedata pid="10" name="höger" tags="rum" position="1000,525" size="100,100">Korridoren till resten av skolan är barrikaderad av en hel lågstadieklass som somnat på väg ut från klassrummet. De ligger i en stor hög och snarkar i kapp.(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is &gt;= 1)[(set: $percentage to (random: 100))(if: $percentage &gt; 50)[(go-to: &quot;fotsteg&quot;)]]
+[[Gå tillbaka -&gt;biblioteket]]</tw-passagedata><tw-passagedata pid="10" name="höger" tags="rum" position="1000,525" size="100,100">Korridoren till resten av skolan är barrikaderad av en hel lågstadieklass som somnat på väg ut från klassrummet. De ligger i en stor hög och snarkar i kapp.(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is &gt;= 1)[(set: $percentage to (random: 100))(if: $percentage &gt; 70)[(go-to: &quot;fotsteg&quot;)]]
 (if:$bruten is 1)[På golvet ser du pojken som du trampade på, du kan inte fatta att han fortfarande sover, armen ser ju helt sned ut.
 (if:$nyckelknippa is 0)[Lågstadieklassen har ramlat igen dörren i korridoren som nu är låst, du behöver hitta en nyckel.](If:$nyckelknippa is 1)
 [(link:&quot;Lås upp korridorsdörren&quot;)[[[Gå till biblioteket-&gt;biblioteket]]
@@ -98,7 +98,7 @@ på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv P
 [[Gå tillbaka-&gt;korridoren]](set: $tillbaka to &quot;höger&quot;)
 
 </tw-passagedata><tw-passagedata pid="11" name="vänster" tags="rum" position="750,525" size="100,100">Korridoren slutar i en ytterdörr, där ser du hur en tjock kedja dragits kring dörrhandtagen och ett stort hänglås förseglar effektivt utgången. Det verkar som om någon antingen vill låsa in er på skolan eller hålla folk utifrån från att komma in. 
-(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is &gt;= 1)[(set: $percentage to (random: 100))(if: $percentage &gt; 50)[(go-to: &quot;fotsteg&quot;)]]
+(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is &gt;= 1)[(set: $percentage to (random: 100))(if: $percentage &gt; 70)[(go-to: &quot;fotsteg&quot;)]]
 [[Gå till fiket-&gt;fiket]]
 (if:$Personalrum is 0)[(set: $personalrum to (random:0,1))(if:$personalrum is 0)[[Gå till personalrummet-&gt;personalrummet]]](if:$personalrum is 1)[[[Gå till personalrummet-&gt;personalrumsöverraskning]]](if:$personalrum is 2)[[Gå till personalrummet-&gt;personalrummet]]
 [[Ta trappan ned till källaren-&gt;källaren]]
