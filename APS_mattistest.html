@@ -136,7 +136,7 @@ Inte igen, nej nu börjar det här bli tröttsamt, det är som att du är fast i
 [[Jag känner en underlig känsla...-&gt;koffein]]]](set: $showFooter to 0)</tw-passagedata><tw-passagedata pid="14" name="Smyg dig fram och försök brotta ned gestalten" tags="" position="450,775" size="100,100">På lätta darrande fötter smyger du in i korridoren, du hör hur gestalten verkar skruva i ett elskåp och muttrar för sig själv om urgamla högtalarsystem som aldrig fungerar. Du känner igen det långa håret och den svarta kostymen på Sören Mesmer som skulle besöka er klass idag. 
 (after:10s)[Precis då du ska kasta dig över honom trampar du på en trasig glödlampa som krasar till, han vänder sig emot dig och spänner sina vilda ögon i dig
 (link-reveal-goto: &quot;Försök brotta ned honom ändå&quot;, &quot;sov&quot;)[(dialog:&quot;Du tar tag i hans kavaj och försöker slita ned honom på golvet men då börjar hans hypnotiska röst tala, du tappar greppet och faller...&quot;)(set: $källare to 2)]
-[[Fly i vild panik upp för trappan-&gt;vänster]]]</tw-passagedata><tw-passagedata pid="15" name="Kläder" tags="Hypnos" position="275,125" size="100,100">Tack, nu vill jag att du berättar lite om dig själv, vi börjar med ytan, hur brukar du klä dig?
+[[Fly i vild panik upp för trappan-&gt;vänster]]]</tw-passagedata><tw-passagedata pid="15" name="Kläder" tags="Hypnos" position="275,125" size="100,100">Tack, Hej $namn. Nu vill jag att du berättar lite om dig själv, vi börjar med ytan, hur brukar du klä dig?
 
 (link: &quot;Jag klär mig moderiktigt, smälter in i mängden, en del av helheten&quot;)[(set: $kläder to &quot;moderiktiga&quot;)(go-to: &quot;favoritfika&quot;)]
 
@@ -724,8 +724,8 @@ Du får en tillsägning för att ha stulit rektorns nycklar och får aldrig en c
 (link: &quot;...&quot;)[Och Sören Mesmer är ju fortfarande fri, frågan är om han kommer söka upp dig för att hämnas, kanske kan du i så fall istället övertala honom att bli din lärare.
 (link: &quot;...&quot;)[Så blir ni två Hypnotisörer som tillsammans kan lägga världen lägga världen under er.
 
-[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="99" name="Du" tags="" position="275,0" size="100,100">&lt;play-music name=&quot;skuggan2&quot;&gt;&lt;/play-music&gt;(t8n:&quot;blur&quot;)+(t8n-time:9s)+(after:5s)[&lt;img src=&quot;https://thumbs.dreamstime.com/b/hypnotic-1227349.jpg width=&quot;400&quot; height=&quot;200&quot;&gt;]
-(after:14s)[(link:&quot;Jag sitter bekvämt&quot;)[DU sitter på DIN stol, i DITT klassrum, bland alla DINA klasskamrater.&lt;play-sound name=&quot;lyssna1&quot;&gt;&lt;/play-sound&gt;
+[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="99" name="Du" tags="" position="275,0" size="100,100">&lt;play-music name=&quot;skuggan2&quot;&gt;&lt;/play-music&gt;(t8n:&quot;blur&quot;)+(t8n-time:9s)+(after:3s)[&lt;img src=&quot;https://thumbs.dreamstime.com/b/hypnotic-1227349.jpg width=&quot;500&quot; height =&quot;300&quot;&gt;]
+(after:9s)[(link:&quot;Jag sitter bekvämt&quot;)[DU sitter på DIN stol, i DITT klassrum, bland alla DINA klasskamrater.&lt;play-sound name=&quot;lyssna1&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag sitter i mitt klassrum&quot;)[DU går i mellanstadiet, det här är en miljö som DU känner väl, DU är trygg här.&lt;play-sound name=&quot;lyssna2&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag går i mellanstadiet&quot;)[Jag heter Sören Mesmer och arbetar som inspirationsföreläsare, proffspedagog och mind hacker. Idag ska jag föreläsa för din klass.&lt;play-sound name=&quot;lyssna3&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag ska lyssna på föreläsning&quot;)[Jag är här för att inspirera DIG till att bli DITT bästa jag. 
