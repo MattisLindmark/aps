@@ -81,6 +81,8 @@ Egentligen var det flera experiment. Och flera dagar.
 
 Den senaste fullskärmseffektsidan [[hypnofx]]
 
+Sidor med style som styrs av taggar: [[taggar]]
+
 Börja med [[Textpåverkan]]
 
 eller börja med: [[Textfx|textfx]]
@@ -324,7 +326,15 @@ document.getElementById(&quot;utput&quot;).innerHTML=str;
 &lt;/script&gt;
 
 [[stringify]]
-[[start]]</tw-passagedata></tw-storydata>
+[[start]]</tw-passagedata><tw-passagedata pid="21" name="taggar" tags="mattis1" position="975,850" size="100,100">Denna sida är taggad med mattis1 och på så vis kan man styra hur den ser ut.
+[[en annan tagg]]
+[[Två taggar på samma]]
+[[start]]</tw-passagedata><tw-passagedata pid="22" name="Två taggar på samma" tags="mattis1 mattis2" position="975,975" size="100,100">Mattis 1 och 2 är denna sida taggad med.
+
+[[taggar]]</tw-passagedata><tw-passagedata pid="23" name="en annan tagg" tags="mattis2" position="1150,925" size="100,100">Denna är taggade med mattis2
+[[samma tagg igen]]
+[[taggar]]</tw-passagedata><tw-passagedata pid="24" name="samma tagg igen" tags="mattis2" position="1325,950" size="100,100">testar hur taggandet påverkar övergångar.
+[[en annan tagg]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
