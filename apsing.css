@@ -65,6 +65,7 @@ tw-passage{
 */
 }
 
+
 tw-link {
   color: #ced6a0;
   background-color: #2d3232;
@@ -232,9 +233,10 @@ FullBgrBox{
 
 .pendel{
   background: radial-gradient(circle,rgb(230, 223, 167) 1%, rgb(124, 121, 92) 3%, rgb(0, 0, 0) 20%);
-  opacity: .6;
+  opacity: 0; /* 0.6*/
   background-size: 80% 80%;
   animation: gradientC 3.5s ease-in-out infinite alternate;
+  animation-delay: 1s;
 }
 .BgrAnimFire{
   background: radial-gradient(circle, rgb(243, 255, 149) 0%, rgb(143, 27, 27) 25%, rgb(18, 18, 26) 95%);
@@ -274,6 +276,7 @@ FullBgrBox{
   }
   0%{opacity: 0;}
   50%{opacity: 0.5;}
+  100%{opacity: 0.6;}
 }
 
 @keyframes fire {

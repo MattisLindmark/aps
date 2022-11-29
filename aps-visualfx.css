@@ -125,3 +125,51 @@ Uppdelad för få lite mer överblick.
     80%{ opacity: .6;}
     100%{ opacity: 0;}
   }
+
+  
+  /* ==== Snurra ett varv typ ===
+  tw-passage[tags~="Hypnos"]{
+    transform: scale(1) rotate(0deg);
+    animation: HypnosEnd 1s alternate linear;  
+  }
+  @keyframes HypnosEnd {
+    to{
+      transform: rotate(360deg);
+    }
+    60%{transform: scale(2) rotate(190deg)  
+    };
+  }
+  
+  */
+
+  *
+  
+  
+  tw-passage[tags~="Hypnos_off"]{
+    transform: skew(0);
+    animation: skeva 2s infinite linear alternate-reverse;
+  }
+  
+  @keyframes skeva {
+    0% {
+      transform: skew(25deg);
+    }
+    50%{
+      transform: skew(0deg);
+    }
+    100% {
+      transform: skew(-25deg);
+    }    
+  }
+
+  /* Detta karschade chrome...?
+  
+  tw-story[tags~="pendel"]{
+    background: radial-gradient(circle,rgb(230, 223, 167) 1%, rgb(124, 121, 92) 3%, rgb(0, 0, 0) 20%);
+    background-color: black;
+    opacity: .6;
+    background-size: 80% 80%;
+    animation: gradientC 3.5s ease-in-out infinite alternate;
+  }
+  
+  */

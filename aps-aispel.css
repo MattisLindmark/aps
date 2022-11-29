@@ -16,7 +16,7 @@ tw-story[tags~="spel"]{
 tw-passage[tags~="spel"]{
     background-color: #353;
     font-family: 'VT323', monospace;
-    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); 
+/*    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');  <- tror ej denna påverkar något*/
     font-size: 2rem;
     color: lightgreen;
     padding-left: 2rem;
@@ -26,14 +26,29 @@ tw-passage[tags~="spel"]{
 
 tw-passage[tags~="mattis2"]{
     background-color: aqua;
+
 }
 
-tw-passage[tags~="mattis1"]{
+tw-passage[tags~="mattis1"]{ 
     background-color: #700;
 }
 
-tw-passage[tags~="mattis1 mattis3"]{
-    background-color: #008;
+tw-story[tags~="mattis2"]{
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+        );
+    
+    background-size: 100% 8px;
+    background-color: #040;
+    animation: lines 2.4s infinite alternate linear;
+}
+
+@keyframes lines {
+    to{
+        background-color: rgb(20, 121, 20); /*#161;*/
+    }    
 }
 
 /*

@@ -28,7 +28,7 @@ setTimeout(() => {
 
 setupGlobals();
 
-document.head.appendChild(script)</script><tw-tag name="startup" color="none"></tw-tag><tw-tag name="spel" color="yellow"></tw-tag><tw-tag name="Hypnos" color="purple"></tw-tag><tw-tag name="rum" color="blue"></tw-tag><tw-tag name="grej" color="orange"></tw-tag><tw-tag name="slut" color="green"></tw-tag><tw-tag name="UPPDATERA" color="red"></tw-tag><tw-passagedata pid="1" name="matsalen" tags="rum grej" position="925,650" size="100,100">(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is 0)[(set: $percentage to (random: 100))(if: $percentage &gt; 85)[(go-to: &quot;rösten&quot;)]]Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
+document.head.appendChild(script)</script><tw-tag name="spel" color="yellow"></tw-tag><tw-tag name="Hypnos" color="purple"></tw-tag><tw-tag name="rum" color="blue"></tw-tag><tw-tag name="grej" color="orange"></tw-tag><tw-tag name="slut" color="green"></tw-tag><tw-tag name="UPPDATERA" color="red"></tw-tag><tw-passagedata pid="1" name="matsalen" tags="rum grej" position="925,650" size="100,100">(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is 0)[(set: $percentage to (random: 100))(if: $percentage &gt; 85)[(go-to: &quot;rösten&quot;)]]Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
 (link:&quot;Jag hör ingenting&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad. 
 (link:&quot;Orättvist&quot;)[ (if:$populära is 1)[I hörnet sitter populära gänget och sover i en hög.][(if:$populära is 0)[I hörnet sitter populära gänget i sina perfekta märkeskläder(if:$kläder is &quot;moderiktiga&quot;)[, dina kompisar från paralellklassen. Du önskar de varit vakna för att säga något snällt om din outfit för dagen, vad som helst som fått den här dagen att kännas normal
 
@@ -155,7 +155,7 @@ Inte igen, nej nu börjar det här bli tröttsamt, det är som att du är fast i
 (link: &quot;Jag drömmer mardrömmar om allt som kryper, spindlar och insekter som tar sig in överallt, huvva&quot;)[(set: $rädsla to &quot;kryp&quot;)	(go-to: &quot;Introduktion&quot;)]
 
 (link: &quot;Jag är livrädd för att misslyckas, att göra fel, att andra tittar på mig och skrattar&quot;)[(set: $rädsla to &quot;misslyckas&quot;)(go-to: &quot;Introduktion&quot;)]</tw-passagedata><tw-passagedata pid="18" name="Ropa &quot;hallå där!&quot;" tags="grej" position="450,900" size="100,100">[Gestalten springer plötsligt mot dig i otrolig hastighet, puttar dig åt sidan in i väggen, och försvinner upp för trappan, när du återhämtat dig inser du att du inte har en chans att hinna ifatt men du ser att gestalten tappade något på golvet, en pendel, alltså ett snöre med en liten droppformad bit i vad som ser ut att vara rent guld. (set: $pendel to 1)&lt;play-sound name=&quot;pling&quot;&gt;&lt;/play-sound&gt;(set: $källare to 2)(set: $hypnos to $hypnos +1)](set: $källare to 1)
-[[Ställ dig upp-&gt;källaren]]</tw-passagedata><tw-passagedata pid="19" name="Nedräkning" tags="Hypnos" position="400,375" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;(link:&quot;Jag ser pendeln&quot;)[
+[[Ställ dig upp-&gt;källaren]]</tw-passagedata><tw-passagedata pid="19" name="Nedräkning" tags="Hypnos pendel" position="400,375" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;(link:&quot;Jag ser pendeln&quot;)[
 (after:5)[Kan du kanske den i ögonvrån samtidigt som DU lyssnar på min röst?
 (link:&quot;Jag lyssnar&quot;)[Minns känslan när DU just ska somna, eller när DU just vaknat helt fokuserad på min röst nu när jag räknar NED från:
 [(link:&quot;Fem&quot;)[För varje steg NED kan det hända att du faller djupare ned.
@@ -529,7 +529,7 @@ Du har blivit less på hur jag leder dig genom den här berättelsen, tvingar di
 [[Vakna-&gt;klassrummet]] </tw-passagedata><tw-passagedata pid="76" name="Vänta nu!" tags="Hypnos" position="50,825" size="100,100">Ja, du avslöjade mig, även om du fick fylla i några enstaka ord så var det ändå jag som bestämde slutet utifrån tre tydliga val som JAG hade bestämt åt dig. Och du ville ju bestämma själv, så absolut, jag ger dig makten att helt själv bestämma hur den här historien ska sluta, varsågod, skriv ditt eget slut.
 
 (input-box:2bind $egenslut,&quot;X&quot;,5)
-[[Färdig]]</tw-passagedata><tw-passagedata pid="77" name="credits" tags="" position="750,1100" size="100,200">I den här passagen lägger vi credits
+[[Färdig]]</tw-passagedata><tw-passagedata pid="77" name="credits" tags="" position="1000,1450" size="100,200">I den här passagen lägger vi credits
 
 Bland annat ett tack till $namn för att du skapat din speciella berättelse.
 
@@ -537,7 +537,7 @@ Du har nu hittat $slut av minst 9 möjliga slut på den här berättelsen.
 
 [[Spela igen-&gt;Start]] 
 
-(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 6)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to &quot;utstickande&quot;)(set: $fika to &quot;chokladbollar&quot;)(set: $rädsla to &quot;mörker&quot;)(set: $namn to &quot;Testnamn&quot;)(restart:)</tw-passagedata><tw-passagedata pid="78" name="Färdig" tags="slut" position="250,1150" size="100,100">$egenslut
+(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 4)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to &quot;utstickande&quot;)(set: $fika to &quot;chokladbollar&quot;)(set: $rädsla to &quot;mörker&quot;)(set: $namn to &quot;Testnamn&quot;)(reload:)</tw-passagedata><tw-passagedata pid="78" name="Färdig" tags="slut" position="250,1150" size="100,100">$egenslut
 
 Skrivet av: $namn
 
@@ -721,7 +721,7 @@ Du får en tillsägning för att ha stulit rektorns nycklar och får aldrig en c
 (link: &quot;...&quot;)[Och Sören Mesmer är ju fortfarande fri, frågan är om han kommer söka upp dig för att hämnas, kanske kan du i så fall istället övertala honom att bli din lärare.
 (link: &quot;...&quot;)[Så blir ni två Hypnotisörer som tillsammans kan lägga världen lägga världen under er.
 
-[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="98" name="rektorslut22" tags="slut" position="1400,1175" size="100,100">Du säger åt en mobbare att hålla tyst och sedan säger han ingenting på tre dagar. Snart vågar ingen jävlas med dig längre, de är rädda.
+[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="98" name="rektorslut22" tags="slut" position="1500,1250" size="100,100">Du säger åt en mobbare att hålla tyst och sedan säger han ingenting på tre dagar. Snart vågar ingen jävlas med dig längre, de är rädda.
 (link:&quot;...&quot;)[Förutom de du vill ska dras till dig, de blir dina vänner, eller mer än så, de gör allt du ber om, uppfyller alla dina önskningar, tillber dig.
 (link:&quot;...&quot;)[Men du undrar vad som händer när du byter skola, kommer allt försvinna då. 
 (link:&quot;...&quot;)[Eller kan du kanske använda din nyfunna hypnotiska kunskap för att få alla att älska dig om, och om, igen.
@@ -737,12 +737,13 @@ Ansvarsfull, Produktiv, Snäll. &lt;play-sound name=&quot;lyssna4&quot;&gt;&lt;/
 (link:&quot;Jag ska inspireras&quot;)[Det här är en upplevelse som handlar om DIG, ja precis DU som sitter där.
 Andra Person Singular.
 (link:&quot;Det handlar om mig&quot;)[Bra, nu behöver jag veta vem du är.&lt;play-sound name=&quot;lyssna16&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Mitt namn&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Kläder&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="100" name="Start" tags="mattis1" position="25,25" size="200,200">(text-style:&quot;bold&quot;,&quot;emboss&quot;)[&#39;&#39;APS - Andra Person Singular&#39;&#39;]
+(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Mitt namn&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Kläder&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="100" name="Start" tags="mattis1" position="50,50" size="200,200">(text-style:&quot;bold&quot;,&quot;emboss&quot;)[&#39;&#39;APS - Andra Person Singular&#39;&#39;]
 
 Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet och sett till att du inte blir störd.
 
 [[Jag är redo-&gt;Du]]
 [[Jag vill fuska|Fortsätt sova]]
+[[Jag vill fuska supermycket|rektorslut22]]
 [[Direkt till AI-spelet|Spela!]]
 (link: &quot;Öka hypnos med update&quot;)[(set: $hypnos to it+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)]\
 
@@ -751,7 +752,7 @@ Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet 
 (link: &quot;Minska död&quot;)[(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;Ett steg närmare döden!&lt;/score-bar&gt;&quot;)]\
 
 [[Ladda om start sidan|Start]]
-(link: &quot;Restart med restart&quot;)[(restart:)]</tw-passagedata><tw-passagedata pid="101" name="död2" tags="Hypnos" position="1125,25" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
+[[Extrasida testa reload-restart|extrasida]]</tw-passagedata><tw-passagedata pid="101" name="död2" tags="Hypnos" position="1125,25" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
 (link:&quot;Jag är i trans&quot;)[Du inser samtidigt att du varit här förut, det är något som är fel.
 (link:&quot;Jag har varit här förut&quot;)[Du minns vad du varit med om men det är också vagt, som att minnas en dröm.
 (link:&quot;Jag är i en dröm&quot;)[Bit för bit kommer det tillbaka till dig, du var den enda som vaknade, du måste försöka vakna igen!
@@ -846,7 +847,10 @@ Hypnotisören är den som försätter en person i ett hypnotiskt tillstånd.
 
 [[Somna om-&gt;Fortsätt sova]]
 [[Ring 112]]
-[[Gå ut i korridoren-&gt;korridoren]]]]</tw-passagedata></tw-storydata>
+[[Gå ut i korridoren-&gt;korridoren]]]]</tw-passagedata><tw-passagedata pid="120" name="extrasida" tags="" position="300,1575" size="100,100">Denna sida testar restart och reload.
+[[Gå till start som vanligt|Start]]
+(link: &quot;Restart med restart&quot;)[(restart:)]
+(link: &quot;Restart med reload&quot;)[(reload:)]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
