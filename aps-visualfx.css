@@ -42,6 +42,7 @@ Uppdelad för få lite mer överblick.
     position:absolute;
     margin-left: 40%;
     top:40%;
+    pointer-events: none;
     transform: scale(0.1) rotate(0deg);
   }
   .fixed{ /*experiment för att köra olika cirklar i preload och efter preload. Funkar dåligt.  */

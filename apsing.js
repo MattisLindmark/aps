@@ -438,6 +438,12 @@ function HandleVisualFX(myElement, myName)
 //        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
         content += contentEndloop;
         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
+
+        let moveMe = myElement;
+        let moveTo = document.querySelector("tw-story");
+        if (moveTo != null)
+            moveTo.appendChild(moveMe);
+
     }
 }
 
