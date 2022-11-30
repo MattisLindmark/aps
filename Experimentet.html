@@ -83,7 +83,7 @@ Den senaste fullskärmseffektsidan [[hypnofx]]
 
 Sidor med style som styrs av taggar: [[taggar]]
 
-Börja med [[Textpåverkan]]
+Börja med [[Textpåverkan]] eller [[skrivmaskin]]
 
 eller börja med: [[Textfx|textfx]]
 
@@ -116,6 +116,8 @@ Kan man länka till startup?
 Denna text är fristående.
 
 (prepend:?text1)[Denna text stoppas in före.]
+
+
 
 [[Tillbaka till start|start]]</tw-passagedata><tw-passagedata pid="3" name="textfx" tags="" position="1125,600" size="100,100">Här experimenterar vi med texteffekter.
 Exempelvis: (t8n:&quot;pulse&quot;)[Pulserande text.]
@@ -334,7 +336,17 @@ document.getElementById(&quot;utput&quot;).innerHTML=str;
 [[taggar]]</tw-passagedata><tw-passagedata pid="23" name="en annan tagg" tags="mattis2" position="1150,925" size="100,100">Denna är taggade med mattis2
 [[samma tagg igen]]
 [[taggar]]</tw-passagedata><tw-passagedata pid="24" name="samma tagg igen" tags="mattis2" position="1325,950" size="100,100">testar hur taggandet påverkar övergångar.
-[[en annan tagg]]</tw-passagedata></tw-storydata>
+[[en annan tagg]]</tw-passagedata><tw-passagedata pid="25" name="skrivmaskin" tags="" position="1600,150" size="100,100">Nu ska vi se om skrivmaskin funkar.
+
+&lt;type-write speed=10&gt;
+Denna text ska, om allt fungerar korrekt, skrivas ut som en typewriter-text.
+Det kan ju vara kul ibland. Kanske. ÅÄö
+&lt;/type-write&gt;
+
+[[Som sagt, en länk till baka hit|skrivmaskin]]
+[[start]]
+
+</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

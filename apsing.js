@@ -418,6 +418,24 @@ class ScoreBar extends HTMLElement {
 
 }
 
+class TypeWriter extends HTMLElement {
+    connectedCallback(){
+        if (document.querySelector('tw-transition-container') == null) {          
+            return;
+        }
+
+        let speed = 20;
+        try {
+            speed = parseInt(this.attributes.speed.value);
+        } catch {
+            if (speed == null)
+             speed = 20;
+        }
+
+        HandleTypeWrite(this,speed);
+    }
+
+}
 
 
 //customElements.define('soundfx',SoundFX);
@@ -426,8 +444,29 @@ customElements.define('play-sound', SoundFX);
 customElements.define('play-music', MusicPlay);
 customElements.define('visual-fx', VisualFX);
 customElements.define('score-bar',ScoreBar);
+customElements.define('type-write',TypeWriter);
 
 
+function HandleTypeWrite(myElement, speed){
+    
+    var string = myElement.innerHTML;
+    string = string.replace(/<br>/g, "¤");
+    myElement.innerHTML = "";
+
+    if (string == null || string == "")
+        return;
+    
+	var str = string.split("");
+	var el = myElement;//document.getElementById('writehere');
+	(function animate() {
+        let char = str.shift();
+        if (char == "¤")
+           char = "<br>";
+	str.length > 0 ? el.innerHTML += char : clearTimeout(running);
+    let rnd = Math.floor(Math.random() * 30) + 10; 
+	var running = setTimeout(animate, rnd);
+	})();
+}
 
 function HandleVisualFX(myElement, myName)
 {
@@ -501,6 +540,19 @@ if (myType == "b" || myType == "B") // to lower vore najs
     }
 
 
+}
+
+
+//================================== UTILS ============
+
+function remove_tags(html) {
+    html = html.replace(/<br>/g, "$br$");
+    html = html.replace(/(?:\r\n|\r|\n)/g, '$br$');
+    var tmp = document.createElement("DIV");
+    tmp.innerHTML = html;
+    html = tmp.textContent || tmp.innerText;
+    html = html.replace(/\$br\$/g, "<br>");
+    return html;
 }
 
 
