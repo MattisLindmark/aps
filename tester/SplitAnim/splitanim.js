@@ -2,16 +2,19 @@
 
 //console.log('Connected.');
 //Splitting({ target: '#target', by: 'chars'});
+// ny kl 12:40
 
 function DoSplit(){
     Splitting();
-    Splitting({target: '#target', by: 'chars'});
+   
 
-
+     setTimeout(() => {
+       Splitting({target: '#target', by: 'chars'});  
+    }, 3000)
 
 
 }
-}
+
 
 /*
 (if: (history: where its name contains "biblioteket")'s length is >= 1)
