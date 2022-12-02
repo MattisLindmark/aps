@@ -117,7 +117,7 @@ Inte igen, nej nu börjar det här bli tröttsamt, det är som att du är fast i
 (Link:&quot;Tre&quot;)[DU känner hur DU blir tröttare och tröttare.&lt;play-sound name=&quot;sov1&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Två&quot;)[Hela din kropp slappnar av och ditt medvetande sjunker djupare och djupare NED.&lt;play-sound name=&quot;sov2&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Ett&quot;)[Dina ögon sluter sig och Du glider NED i en djup, stillsam sömn.&lt;play-sound name=&quot;sov3&quot;&gt;&lt;/play-sound&gt;
-(if:$koffein is 0)[(if:$död is 6)[(go-to: &quot;död&quot;)](if:$död is 5)[(go-to: &quot;död2&quot;)](if:$död is 4)[(go-to: &quot;död3&quot;)](if:$död is 3)[(go-to: &quot;död4&quot;)](if:$död is 2)[(go-to: &quot;död5&quot;)](if:$död is 1)[(go-to: &quot;död6&quot;)](if:$död is 0)[(go-to: &quot;död7&quot;)]]]]](if:$koffein is &gt; 0)[
+(if:$koffein is 0)[(if:$död is 5)[(go-to: &quot;död&quot;)](if:$död is 4)[(go-to: &quot;död2&quot;)](if:$död is 3)[(go-to: &quot;död3&quot;)](if:$död is 2)[(go-to: &quot;död4&quot;)](if:$död is 1)[(go-to: &quot;död5&quot;)](if:$död is 0)[(go-to: &quot;död6&quot;)](if:$död is 0)[(go-to: &quot;död7&quot;)]]]]](if:$koffein is &gt; 0)[
 [[Jag känner en underlig känsla...-&gt;koffein]]]](set: $showFooter to 0)</tw-passagedata><tw-passagedata pid="14" name="Smyg dig fram och försök brotta ned gestalten" tags="" position="475,775" size="100,100">På lätta darrande fötter smyger du in i korridoren, du hör hur gestalten verkar skruva i ett elskåp och muttrar för sig själv om urgamla högtalarsystem som aldrig fungerar. Du känner igen det långa håret och den svarta kostymen på Sören Mesmer som skulle besöka er klass idag. 
 (after:10s)[Precis då du ska kasta dig över honom trampar du på en trasig glödlampa som krasar till, han vänder sig emot dig och spänner sina vilda ögon i dig
 (link-reveal-goto: &quot;Försök brotta ned honom ändå&quot;, &quot;sov&quot;)[(dialog:&quot;Du tar tag i hans kavaj och försöker slita ned honom på golvet men då börjar hans hypnotiska röst tala, du tappar greppet och faller...&quot;)(set: $källare to 2)]
@@ -247,7 +247,7 @@ Två
 Tre
 -Ni känner hur era ögonlock börjar darra, hur de alldeles snart kommer att öppna sig, och hur ni kommer att vakna pigga och utvilade och helt fria.
 (link: &quot;...&quot;)[
-(link: &quot;VAKNA!&quot;)[(goto: &quot;rektorslut&quot;)]]]]]</tw-passagedata><tw-passagedata pid="32" name="Startup" tags="startup" position="150,375" size="100,100">(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 6)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to &quot;bekväma&quot;)(set: $fika to &quot;bananer&quot;)(set: $rädsla to &quot;kryp&quot;)(set:$nyckelknippa to 0)(set: $namn to &quot;Testnamn&quot;)(set: $tillbaka to &quot;höger&quot;)</tw-passagedata><tw-passagedata pid="33" name="Starta datorn" tags="" position="1650,525" size="100,100">Attans, matteläraren har varit och satt mattekluringar som lösenord på alla biblioteksdatorerna.
+(link: &quot;VAKNA!&quot;)[(goto: &quot;rektorslut&quot;)]]]]]</tw-passagedata><tw-passagedata pid="32" name="Startup" tags="startup" position="150,375" size="100,100">(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 5)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to &quot;bekväma&quot;)(set: $fika to &quot;bananer&quot;)(set: $rädsla to &quot;kryp&quot;)(set:$nyckelknippa to 0)(set: $namn to &quot;Testnamn&quot;)(set: $tillbaka to &quot;höger&quot;)</tw-passagedata><tw-passagedata pid="33" name="Starta datorn" tags="" position="1650,525" size="100,100">Attans, matteläraren har varit och satt mattekluringar som lösenord på alla biblioteksdatorerna.
 
 &lt;img src= &quot;https://www.arla.se/49c69f/globalassets/arlakadabra/facit/kluringar/bondegardskluring-matte-900x1000.png&quot; width=&quot;400&quot; height=&quot;500&quot;&gt;
 
@@ -290,7 +290,12 @@ Du hittar en video, någon slags avslappningsövning och en särskild flik för 
 (else:)[
 	(dialog: [Fel lösenord])[(go-to: &quot;APS&quot;)]
 ]]
-[[Jag går tillbaka -&gt;datorn]] ]]]</tw-passagedata><tw-passagedata pid="36" name="Header" tags="header" position="50,275" size="100,100">(text-style:&quot;subscript&quot;)[(text-colour:green)[-$hypnos-                             ](text-colour:red)[-$död-  ]  ]&lt;play-sound name=&quot;stop&quot;&gt;&lt;/play-sound&gt;
+[[Jag går tillbaka -&gt;datorn]] ]]]</tw-passagedata><tw-passagedata pid="36" name="Header" tags="header" position="50,275" size="100,100">&lt;span  id=&quot;updatearea&quot;&gt;
+&lt;score-bar type=&quot;a&quot;&gt;$hypnos&lt;/score-bar&gt;&lt;score-bar type=&quot;b&quot;&gt;$död&lt;/score-bar&gt;&lt;/span&gt;&lt;script&gt;
+console.log(&quot;Header script is running.&quot;);
+window.hypnos = $hypnos;
+window.deaths = $död;
+&lt;/script&gt;&lt;play-sound name=&quot;stop&quot;&gt;&lt;/play-sound&gt;
 
 </tw-passagedata><tw-passagedata pid="37" name="Slutet där alla förblir hypnotiserade" tags="slut" position="650,1150" size="100,100">Du vaknar upp, och ser klassen runt omkring dig vakna, shit vilken tråkig föreläsning det måste ha varit om alla somnade.  
 (link:&quot;Jag måste ha somnat&quot;)[Du försöker minnas vad den handlade om men det är svårt att fånga minnet i tanken, som att det långsamt glider längre och längre bort ifrån dig.
@@ -376,7 +381,7 @@ Nu kommer du att få se hur det känns att förlora allt du har.
 (link:&quot;...&quot;)[Nej, nu är han här, mina sensorer känner hans närvaro, min mikrofon uppfattar hans hypnotiska röst!
 
 (link-reveal-goto: &quot;Jag lyssnar på rösten&quot;, &quot;sov&quot;)[Sov]
- ]]]]]]]</tw-passagedata><tw-passagedata pid="57" name="koffein" tags="Hypnos" position="1200,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Du blinkar med ögonen och börjar vakna till, förstår inte riktigt vad som händer, dina fötter går av sig själv genom korridoren, du vet att du är på väg att sätta dig i din bänk och fortsätta sova, men vet inte varför, minns bara en röst som talade till dig som det var omöjligt att sluta lyssna på.
+ ]]]]]]]</tw-passagedata><tw-passagedata pid="57" name="koffein" tags="Hypnos" position="1100,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Du blinkar med ögonen och börjar vakna till, förstår inte riktigt vad som händer, dina fötter går av sig själv genom korridoren, du vet att du är på väg att sätta dig i din bänk och fortsätta sova, men vet inte varför, minns bara en röst som talade till dig som det var omöjligt att sluta lyssna på.
 Men den pirrande oroliga känslan i kroppen, smaken av kaffe i munnen, återför dig till den vakna världen.
 Steg för steg återfår du kontrollen över dig själv.
 (set: $koffein to 0)
@@ -508,7 +513,7 @@ Du har nu hittat $slut av minst 9 möjliga slut på den här berättelsen.
 
 [[Spela igen-&gt;Start]] 
 
-(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 6)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to &quot;utstickande&quot;)(set: $fika to &quot;chokladbollar&quot;)(set: $rädsla to &quot;mörker&quot;)(set: $namn to &quot;Testnamn&quot;)(restart:)</tw-passagedata><tw-passagedata pid="77" name="Färdig" tags="slut" position="275,1150" size="100,100">$egenslut
+(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 5)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to &quot;utstickande&quot;)(set: $fika to &quot;chokladbollar&quot;)(set: $rädsla to &quot;mörker&quot;)(set: $namn to &quot;Testnamn&quot;)(restart:)</tw-passagedata><tw-passagedata pid="77" name="Färdig" tags="slut" position="275,1150" size="100,100">$egenslut
 
 Skrivet av: $namn
 
@@ -719,21 +724,19 @@ Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet 
 (link:&quot;Jag är i en dröm&quot;)[Bit för bit kommer det tillbaka till dig, du var den enda som vaknade, du måste försöka vakna igen!
 
 [[Jag vill inte sova längre!-&gt;Du sover]](set: $sovtid to 10)]]]</tw-passagedata><tw-passagedata pid="101" name="död3" tags="Hypnos" position="1000,125" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Du är här igen, i transen, medveten men samtidigt i djup sömn.
-(link:&quot;Jag är medveten om att jag sover&quot;)[Du minns allt du varit med om men  det känns samtidigt som en dröm, som att det kanske inte hänt.
+(link:&quot;Jag är medveten om att jag sover&quot;)[Jag är ledsen, han fick dig ännu en gång.
+(link:&quot;Jag är hypnotiserad&quot;)[Du minns allt du varit med om men  det känns samtidigt som en dröm, som att det kanske inte hänt.
 (link:&quot;Jag tror att det har hänt&quot;)[Du börjar minnas hur du  gick i trans, som en sömngångare, genom korridoren och satte dig på din plats i klassrummet.
-[[Jag vill inte sova längre!-&gt;Du sover]](set: $sovtid to 10)]]</tw-passagedata><tw-passagedata pid="102" name="död4" tags="Hypnos" position="1100,125" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Jag är ledsen, han fick dig ännu en gång.
-(link:&quot;Jag är hypnotiserad&quot;)[Precis, men den här gången minns du tydligt hur det gick till, hans röst, som fick dig att sluta tänka och gå tillbaka till klassrummet.
-(link:&quot;Jag tänker nu!&quot;)[Just det, det är för att jag försöker väcka dig, för att du ska kunna väcka resten av skolan!
-[[Jag vill vakna!-&gt;Du sover]](set: $sovtid to 10)]]</tw-passagedata><tw-passagedata pid="103" name="död5" tags="Hypnos" position="1200,125" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Du måste vara försiktigare, jag känner hur han blivit misstänksam och jag orkar inte kämpa emot mycket längre.
+[[Jag vill inte sova längre!-&gt;Du sover]](set: $sovtid to 10)]]]</tw-passagedata><tw-passagedata pid="102" name="död4" tags="Hypnos" position="1100,125" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Du måste vara försiktigare, jag känner hur han blivit misstänksam och jag orkar inte kämpa emot mycket längre.
 (link:&quot;Jag är inte säker på vad du menar&quot;)[Snart kommer han upptäcka mig i sitt undermedvetna och stänga mig ute, då finns det ingen som kan väcka dig.
-[[Jag ska vara försiktig-&gt;Du sover]](set: $sovtid to 10)]</tw-passagedata><tw-passagedata pid="104" name="död6" tags="Hypnos" position="1000,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Ånej, jag känner hur han blivit medveten om mig, han kämpar emot.
+[[Jag ska vara försiktig-&gt;Du sover]](set: $sovtid to 10)]</tw-passagedata><tw-passagedata pid="103" name="död5" tags="Hypnos" position="1200,125" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to $död - 1)Ånej, jag känner hur han blivit medveten om mig, han kämpar emot.
 (link:&quot;Jag vet inte om jag förstår&quot;)[Snart har han tryckt ned mig i sitt mörkaste undermedvetna och då kommer jag inte kunna väcka dig igen, det här kan vara din sista chans!
-[[Jag tar chansen-&gt;Du sover]](set: $sovtid to 10)]</tw-passagedata><tw-passagedata pid="105" name="död7" tags="Hypnos" position="1100,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Du glider bort, långsamt, in i den trygga sömnen. Efter alla gånger du vaknat och somnat igen kan du äntligen få ro, en riktigt lugn trygg sömn. 
+[[Jag tar chansen-&gt;Du sover]](set: $sovtid to 10)]</tw-passagedata><tw-passagedata pid="104" name="död6" tags="Hypnos" position="1000,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Du glider bort, långsamt, in i den trygga sömnen. Efter alla gånger du vaknat och somnat igen kan du äntligen få ro, en riktigt lugn trygg sömn. 
 (link:&quot;Jag ska sova tryggt&quot;)[Det känns som att du ligger i din säng hemma, i det där tillståndet just innan du ska vakna, när du säger till dig själv att du måste försöka minnas din dröm. För du hade en sån spännande dröm. 
 (link:&quot;Allt var en dröm&quot;)[Det var något om skolan, att alla hade somnat, du försöker minnas varför, det var någon där, kanske någon som jagade dig.
 (link:&quot;Jag drömde om skolan&quot;)[Men det blir dimmigare och dimmigare, typisk drömmar, du har läst någonstans att de bara är hjärnans sätt att sammanfatta vad den varit med om under dagen, att den gör det genom att berätta en berättelse för sig själv. 
 (link:&quot;Jag fantiserade ihop allt&quot;)[Det måste vara det du gjort, berättat en historia för dig själv, något spännande som hotade hela skolan, alla dina vänner, löjligt egentligen, det finns ju ingen plats som är tryggare än skolan. 
-[[Jag vaknar-&gt;Slutet där alla förblir hypnotiserade]]]]](set: $showFooter to 0)]</tw-passagedata><tw-passagedata pid="106" name="klassrum2" tags="rum" position="1075,400" size="100,100">Dörren till klassrummet bredvid står på glänt.
+[[Jag vaknar-&gt;Slutet där alla förblir hypnotiserade]]]]](set: $showFooter to 0)]</tw-passagedata><tw-passagedata pid="105" name="klassrum2" tags="rum" position="1075,400" size="100,100">Dörren till klassrummet bredvid står på glänt.
 (link:&quot;Jag kikar in&quot;)[Du ser hur Sören Mesmer står framför klassen, alla stirrar hypnotiserat in i hans ögon och lyssnar på hans röst.
 (link:&quot;Jag smyglyssnar&quot;)[Då är det dags för APS, Aktiv personlighetsstrukturering
 -Från och med idag kommer du vara en lydig elev som alltid sitter stilla på sin plats hela lektionen.
@@ -742,39 +745,39 @@ Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet 
 (link:&quot;Jag gör som de vuxna säger&quot;)[
 SLUTA LYSSNA! Du känner hur hans hypnotiska röst börjar dra in dig men du får inte lyssna, det är ju det här vi försöker förhindra!
 
-[[Jag vill fortsätta lyssna-&gt;död7]]
+[[Jag vill fortsätta lyssna-&gt;död6]]
 [[Jag stänger dörren-&gt;korridoren]]]
-]]]]</tw-passagedata><tw-passagedata pid="107" name="klassrum3" tags="rum" position="1175,400" size="100,100">Det är tyst och stilla i klassrummet, Sören måste ha gått någon annanstans.
+]]]]</tw-passagedata><tw-passagedata pid="106" name="klassrum3" tags="rum" position="1175,400" size="100,100">Det är tyst och stilla i klassrummet, Sören måste ha gått någon annanstans.
 (link:&quot;Han har gått&quot;)[Hela klassen sover lutade över sina bänkar, precis som din klass.
 (link:&quot;Alla sover&quot;)[Sören har programmerat dem alla att bli lydiga mönsterelever.
 (link:&quot;De är hjärntvättade&quot;)[Jag är ledsen för det, men till hans försvar tror han att han gör en god gärning.
 (link:&quot;Jag förstår inte&quot;)[Han var nämligen själv lärare tidigare men blev utbränd av stökiga elever.
 (link:&quot;Vänta nu...&quot;)[Han lärde sig hypnos för att rädda stressade kollegor från samma öde
 (link:&quot;Hur vet du det!?&quot;)[(if:(history: where its name contains &quot;Undrar vem det är som pratar med mig?&quot;)&#39;s length is 0)[Du är inte redo än, men jag lovar att förklara snart.](if:(history: where its name contains &quot;Undrar vem det är som pratar med mig?&quot;)&#39;s length &gt;= 1)[Jag har ju sagt det, JAG är Sörens överjag, hans dåliga samvete som försöker hindra honom från att hypnotisera fler barn.]
-[[Jag går tillbaka-&gt;korridoren]] ]]]]]]</tw-passagedata><tw-passagedata pid="108" name="Jag gör som jag blir tillsagd" tags="" position="650,1275" size="100,100">Rasterna blir också lugnare, du och dina vänner sitter bara på olika ställen på skolgården och väntar på att en lärare ska föreslå en aktivitet, då gör alla den entusiastiskt för att sedan sätta sig och vänta på att det ringer in.
+[[Jag går tillbaka-&gt;korridoren]] ]]]]]]</tw-passagedata><tw-passagedata pid="107" name="Jag gör som jag blir tillsagd" tags="" position="650,1275" size="100,100">Rasterna blir också lugnare, du och dina vänner sitter bara på olika ställen på skolgården och väntar på att en lärare ska föreslå en aktivitet, då gör alla den entusiastiskt för att sedan sätta sig och vänta på att det ringer in.
 (link:&quot;Jag längtar till lektionen&quot;)[Du och dina klasskamrater uppnår allesammans målen i era ämnen, rektorn håller ett överlyckligt tal för hela skolan om hur bra ni arbetar. Ingen springer i korridorerna, ingen klottrar på bänkarna, ingen hittar på nya bus och lekar.
 (link:&quot;Jag arbetar bra&quot;)[På svenskalektionen blir er lärare förvirrad, du och dina klasskamrater har alla lämnat in nästan exakt samma berättelse på det fria skrivandet. 
 (link:&quot;Jag skriver från fantasin&quot;)[En spännande saga om ett barn som får sitt sinne övertaget av en ond trollkarl och helt förlorar sin fria vilja, som vandrar genom världen likt en viljelös zombie och utför instruktioner. Som alltid ler glatt och tacksamt mot sin mästare.
 (link:&quot;Allt var i min fantasi&quot;)[Det är en bra berättelse, så ni blir alla godkända, men läraren tittar oroligt på er och undrar hur det ska gå för er sen, när ni lämnar skolans trygga väggar och ger er ut i den kaotiska världen utanför.
 
-[[Slut-&gt;credits]]]]]](if:visits is 1)[(set: $slut to $slut +1)]</tw-passagedata><tw-passagedata pid="109" name="bänk" tags="" position="175,675" size="100,100">Du kryper in under en bänk och drar in armar och ben, hoppas att han inte kan se dig. 
+[[Slut-&gt;credits]]]]]](if:visits is 1)[(set: $slut to $slut +1)]</tw-passagedata><tw-passagedata pid="108" name="bänk" tags="" position="175,675" size="100,100">Du kryper in under en bänk och drar in armar och ben, hoppas att han inte kan se dig. 
 (link:&quot;Jag är gömd&quot;)[Fotstegen kommer närmare och han är alldeles bredvid dig nu. 
 (link:&quot;Jag är knäpptyst&quot;)[-Om du vill kunna gömma dig borde du kanske inte ha tagit på dig sådär färgglada kläder.
 (link:&quot;Jag är upptäckt!&quot;)[Han lutar sig ned under bänken, ser på dig med sina hypnotiska ögon och börjar tala.
-[[Jag kan inte stå emot-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="110" name="bänk2" tags="" position="175,775" size="100,100">Du kryper in under en bänk och drar in armar och ben, försöker ligga helt still.
+[[Jag kan inte stå emot-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="109" name="bänk2" tags="" position="175,775" size="100,100">Du kryper in under en bänk och drar in armar och ben, försöker ligga helt still.
 (link:&quot;Jag ligger stilla&quot;)[Du hör Sörens skor smälla mot korridorgolvet då han går förbi dig, bara en halvmeter bort.
 (link:&quot;Jag är knäpptyst&quot;)[Du håller andan tills han försvinner runt ett hörn och är borta.
 (link-goto: &quot;Jag klarade mig&quot;, $tillbaka)
-]]</tw-passagedata><tw-passagedata pid="111" name="Jag tacklar honom!" tags="" position="300,575" size="100,100">Du springer rakt mot honom och lyfter axeln till en mördande tackling. 
+]]</tw-passagedata><tw-passagedata pid="110" name="Jag tacklar honom!" tags="" position="300,575" size="100,100">Du springer rakt mot honom och lyfter axeln till en mördande tackling. 
 (link:&quot;Jag anfaller!&quot;)[&lt;play-sound name=&quot;snap&quot;&gt;&lt;/play-sound&gt;Men så hör du hur han knäpper med fingrarna och du stannar, fryst mitt i ett steg.
 (link:&quot;Jag kan inte röra mig&quot;)[Du kan inte göra annat än lyssna på hans röst.
 
-[[Jag kan inte stå emot-&gt;sov]]]]</tw-passagedata><tw-passagedata pid="112" name="spring" tags="" position="300,675" size="100,100">Du sätter fart genom korridoren, springer allt du kan.
+[[Jag kan inte stå emot-&gt;sov]]]]</tw-passagedata><tw-passagedata pid="111" name="spring" tags="" position="300,675" size="100,100">Du sätter fart genom korridoren, springer allt du kan.
 (link:&quot;Jag springer!&quot;)[Tur att du har dina praktiska gympaskor.
 (link:&quot;Allt jag kan!&quot;)[I ögonvrån ser du honom komma runt ett hörn precis när du hunnit runt ett annat.
 (link:&quot;Jag kommer undan!&quot;)[Du stannar inte förrän du står utanför klassrummet.
 
-[[Jag klarade det!-&gt;korridoren]]]]]</tw-passagedata><tw-passagedata pid="113" name="pendel2" tags="" position="1075,1050" size="100,100">&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;Mina ögon vidgas och jag försöker stamma fram något.
+[[Jag klarade det!-&gt;korridoren]]]]]</tw-passagedata><tw-passagedata pid="112" name="pendel2" tags="" position="1075,1050" size="100,100">&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;Mina ögon vidgas och jag försöker stamma fram något.
 
 (link:&quot;DU känner hur dina ögonlock blir tyngre och tyngre och börjar falla NED&quot;)[NEJ, snälla, sluta! försöker jag skrika innan mina ögonlock faller samman och jag blundar mot min vilja.
 
@@ -782,18 +785,18 @@ SLUTA LYSSNA! Du känner hur hans hypnotiska röst börjar dra in dig men du få
 
 [[Jag vill att du lämnar över dig själv till polisen och erkänner dina brott]]
 
-[[Jag vill att du låter ditt undermedvetna jag ta över och använder dina krafter för att ställa allt till rätta]]]]</tw-passagedata><tw-passagedata pid="114" name="spring2" tags="" position="300,775" size="100,100">Du vänder dig om och börjar bort springa i korridoren.
+[[Jag vill att du låter ditt undermedvetna jag ta över och använder dina krafter för att ställa allt till rätta]]]]</tw-passagedata><tw-passagedata pid="113" name="spring2" tags="" position="300,775" size="100,100">Du vänder dig om och börjar bort springa i korridoren.
 (link:&quot;Jag springer!&quot;)[Du borde ha valt bekvämare skor, de här är snygga men opraktiska.
 (link:&quot;Jävla skor!&quot;)[Du tappar plötsligt balansen och snubblar över en bänk ned på golvet.
 (link:&quot;Jag faller!&quot;)[Några fotsteg senare är han ifatt dig, ser dig djupt i ögonen och börjar tala till dig
-[[Han fick mig-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="115" name="baksidan" tags="" position="1525,900" size="100,100">&quot;Molly Moon är en osäker, inte särskilt vacker eller populär 10-åring som har tillbringat hela sitt liv på ett eländigt barnhem. Hon har inga vänner förutom Rocky som blir bortadopterad och flyttar till New York. Nu är Molly alldeles ensam.
+[[Han fick mig-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="114" name="baksidan" tags="" position="1525,900" size="100,100">&quot;Molly Moon är en osäker, inte särskilt vacker eller populär 10-åring som har tillbringat hela sitt liv på ett eländigt barnhem. Hon har inga vänner förutom Rocky som blir bortadopterad och flyttar till New York. Nu är Molly alldeles ensam.
 En dag hittar Molly en mystisk bok om hypnos på stadens bibliotek och upptäcker att hon har en alldeles speciell talang hon kan genom att se någon djupt i ögonen få denne att lyda hennes minsta vink!
 Molly rymmer från barnhemmet för att leta reda på Rocky: Men vad Molly inte vet är att en ondskefull professor har fått nys om hennes hypnotiska förmåga och han är fast besluten att utnyttja henne för att kunna genomföra århundradets kupp.&quot;
 
-[[Jag undrar...]]</tw-passagedata><tw-passagedata pid="116" name="Jag undrar..." tags="" position="1525,1025" size="100,100">Hmmmm, kanske är det den här Molly Moon som hemsöker din skola? eller en ondskefull professor? 
+[[Jag undrar...]]</tw-passagedata><tw-passagedata pid="115" name="Jag undrar..." tags="" position="1525,1025" size="100,100">Hmmmm, kanske är det den här Molly Moon som hemsöker din skola? eller en ondskefull professor? 
 (link:&quot;Jag har en teori!&quot;)[Men vänta nu, det här är ju en roman, ett påhitt, och det som händer på din skola nu är på fullt verkligt blodigt allvar.
 
-[[Jag går tillbaka-&gt;biblioteket]]]</tw-passagedata><tw-passagedata pid="117" name="wikipedia2" tags="" position="1650,900" size="100,100">Definition:
+[[Jag går tillbaka-&gt;biblioteket]]]</tw-passagedata><tw-passagedata pid="116" name="wikipedia2" tags="" position="1650,900" size="100,100">Definition:
 Hypnotisören är den som försätter en person i ett hypnotiskt tillstånd. 
 (link:&quot;Jag tror hypnotisören är Sören Mesmer&quot;)[Detta kan ske på flera olika sätt, exempelvis genom att låta personen fokusera på ett glänsande objekt, exempelvis en klocka, som hypnotisören låter dingla framför personens ögon. 
 (link:&quot;Jag tror Sören hade nån sorts pendel!&quot;)[Hypnos kan även framkallas genom upprepade monotona rörelser eller genom en starkt rogivande, lugnande röst eller ett normalt tonfall med suggestioner om att slappna av. 
@@ -804,33 +807,33 @@ Hypnotisören är den som försätter en person i ett hypnotiskt tillstånd.
 
 (set: $hypnos to $hypnos +1)
 [[Jag går tillbaka-&gt;datorn]]]]]]]
-&lt;img src= &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg/2560px-Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg&quot; width=&quot;600&quot; height=&quot;400&quot;/&gt;</tw-passagedata><tw-passagedata pid="118" name="klassrumtillbaka" tags="" position="625,250" size="100,100">Du kommer in i klassrummet igen, alla sover, din lärare snarkar med sin telefon i knäet.
+&lt;img src= &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg/2560px-Une_le%C3%A7on_clinique_%C3%A0_la_Salp%C3%AAtri%C3%A8re.jpg&quot; width=&quot;600&quot; height=&quot;400&quot;/&gt;</tw-passagedata><tw-passagedata pid="117" name="klassrumtillbaka" tags="" position="625,250" size="100,100">Du kommer in i klassrummet igen, alla sover, din lärare snarkar med sin telefon i knäet.
 
 [[Somna om-&gt;Fortsätt sova]]
 [[Ring 112]]
-[[Gå ut i korridoren-&gt;korridoren]]]]</tw-passagedata><tw-passagedata pid="119" name="Högtalarsystemet" tags="" position="2350,275" size="100,100">Sätt en knapp till högtalarsystemet i källaren
+[[Gå ut i korridoren-&gt;korridoren]]]]</tw-passagedata><tw-passagedata pid="118" name="Högtalarsystemet" tags="" position="2350,275" size="100,100">Sätt en knapp till högtalarsystemet i källaren
 
 Första gången du går ned så säger han att han fixat klart den. Sen har du valet att stänga av.
 
 Han är nere för att starta det. Efteråt går det att stänga av.
- Byt plats på fotsteg och utrop, låt endast en vara aktiv i taget.</tw-passagedata><tw-passagedata pid="120" name="Passage utan namn 1" tags="" position="2325,375" size="100,100">Lägg till något om rösten i kälklarne</tw-passagedata><tw-passagedata pid="121" name="källarröst" tags="" position="350,900" size="100,100">Någonting är fel, du är inte ensam här nere, plötsligt hör du en röst som börjar tala.
+ Byt plats på fotsteg och utrop, låt endast en vara aktiv i taget.</tw-passagedata><tw-passagedata pid="119" name="Passage utan namn 1" tags="" position="2325,375" size="100,100">Lägg till något om rösten i kälklarne</tw-passagedata><tw-passagedata pid="120" name="källarröst" tags="" position="350,900" size="100,100">Någonting är fel, du är inte ensam här nere, plötsligt hör du en röst som börjar tala.
 
-(link-reveal-goto: &quot;Jag hör en röst&quot;, &quot;sov&quot;)[Sov]</tw-passagedata><tw-passagedata pid="122" name="Lägg in kommentarer från överjaget" tags="" position="2450,375" size="100,100"></tw-passagedata><tw-passagedata pid="123" name="Skriv in AIn i fiktionen" tags="" position="2475,150" size="100,100"></tw-passagedata><tw-passagedata pid="124" name="Byt färg på föremål som hittas" tags="" position="2225,500" size="100,100"></tw-passagedata><tw-passagedata pid="125" name="Lös biblioteket" tags="" position="2325,500" size="100,100"></tw-passagedata><tw-passagedata pid="126" name="Byt färg på kostym" tags="" position="2450,525" size="100,100"></tw-passagedata><tw-passagedata pid="127" name="Rektornyckel efter kontoret" tags="" position="2575,275" size="100,100"></tw-passagedata><tw-passagedata pid="128" name="Jag häller vatten på elden" tags="" position="950,900" size="100,100">Du skriker till när eldslågor och brinnande olja slår upp från grytan, innan du lyckas släcka dem bränner du dina armar.
+(link-reveal-goto: &quot;Jag hör en röst&quot;, &quot;sov&quot;)[Sov]</tw-passagedata><tw-passagedata pid="121" name="Lägg in kommentarer från överjaget" tags="" position="2450,375" size="100,100"></tw-passagedata><tw-passagedata pid="122" name="Skriv in AIn i fiktionen" tags="" position="2475,150" size="100,100"></tw-passagedata><tw-passagedata pid="123" name="Byt färg på föremål som hittas" tags="" position="2225,500" size="100,100"></tw-passagedata><tw-passagedata pid="124" name="Lös biblioteket" tags="" position="2325,500" size="100,100"></tw-passagedata><tw-passagedata pid="125" name="Byt färg på kostym" tags="" position="2450,525" size="100,100"></tw-passagedata><tw-passagedata pid="126" name="Rektornyckel efter kontoret" tags="" position="2575,275" size="100,100"></tw-passagedata><tw-passagedata pid="127" name="Jag häller vatten på elden" tags="" position="950,900" size="100,100">Du skriker till när eldslågor och brinnande olja slår upp från grytan, innan du lyckas släcka dem bränner du dina armar.
 (link:&quot;Jag brinner!&quot;)[Du sätter händerna under kranen för att svalka dig och hör därför inte när dörren öppnas bakom dig
 (link:&quot;Jag märker ingenting&quot;)[Innan du vänder dig om börjar en röst tala lugnt och hypnotiskt(set: $köksbrand to 2)
-(link:&quot;Jag kan inte stå emot&quot;)[(go-to: &quot;sov&quot;)]]]</tw-passagedata><tw-passagedata pid="129" name="Jag sätter locket på kastrullen" tags="" position="1050,900" size="100,100">Du bränner handen lite men lyckas till slut släcka elden. 
+(link:&quot;Jag kan inte stå emot&quot;)[(go-to: &quot;sov&quot;)]]]</tw-passagedata><tw-passagedata pid="128" name="Jag sätter locket på kastrullen" tags="" position="1050,900" size="100,100">Du bränner handen lite men lyckas till slut släcka elden. 
 (link:&quot;Jag släckte elden&quot;)[Tänk om elden spridit sig medan alla sov. De skulle ha brunnit inne, du har rättat livet på hela din skola!
 (link:&quot;Hurra för mig!&quot;)[Problemet är bara att de fortfarande sover... (set:$köksbrand to 1)
-(link:&quot;Jag måste väcka mina vänner...&quot;)[(go-to: &quot;köket&quot;)]]]</tw-passagedata><tw-passagedata pid="130" name="Jag springer ut genom dörren" tags="" position="725,875" size="100,100">Precis då du springer ut i korridoren ser honom, klädd i vit kostym och blanka skor. 
+(link:&quot;Jag måste väcka mina vänner...&quot;)[(go-to: &quot;köket&quot;)]]]</tw-passagedata><tw-passagedata pid="129" name="Jag springer ut genom dörren" tags="" position="725,875" size="100,100">Precis då du springer ut i korridoren ser honom, klädd i vit kostym och blanka skor. 
 (link:&quot;Jag står rakt framför&quot;)Sören Mesmer som höll i er föreläsning ser förvånad ut
 -Är du vaken?
 
 (link:&quot;Jag är vaken!&quot;)[Han lyfter en guldpendel och svingar den framför dina ögon, du tappar bort dig i hans hypnotiska röst.
 
-(link:&quot;Jag tappar bort mig&quot;)[(go-to: &quot;sov&quot;)]]</tw-passagedata><tw-passagedata pid="131" name="vänta" tags="" position="825,875" size="100,100">Dörren öppnas och du ser honom, klädd i vit kostym och svarta blanka skor. 
+(link:&quot;Jag tappar bort mig&quot;)[(go-to: &quot;sov&quot;)]]</tw-passagedata><tw-passagedata pid="130" name="vänta" tags="" position="825,875" size="100,100">Dörren öppnas och du ser honom, klädd i vit kostym och svarta blanka skor. 
 (link:&quot;Jag ser honom&quot;)[Sören Mesmer går in i personalrummetoch upptäcker dig genast.
 (link:&quot;Jag är upptäckt&quot;)[Han lyfter en guldpendel som han svingar framför dina ögon och du tappar bort dig i hans hypnotiska röst.
-(link:&quot;Jag tappar bort mig&quot;)[(go-to: &quot;sov&quot;)]]]</tw-passagedata><tw-passagedata pid="132" name="Jag är  less på det här!" tags="" position="750,400" size="100,100"></tw-passagedata></tw-storydata>
+(link:&quot;Jag tappar bort mig&quot;)[(go-to: &quot;sov&quot;)]]]</tw-passagedata><tw-passagedata pid="131" name="Jag är  less på det här!" tags="" position="750,400" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
