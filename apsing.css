@@ -9,8 +9,13 @@
 @import url('aps-visualfx.css');
 @import url('aps-aispel.css');
 
+:root{
+  --death-var: 0%; /* Could (should?) be named death-width and hypno-width? */
+  --hypno-var: 0%;
+}
+
 html,
-body {
+body {  
   margin: 0;
   padding: 0;
 }
@@ -71,10 +76,11 @@ tw-link {
   background-color: #2d3232;
   line-height: normal;
   margin: .1rem;
+  margin-top: .5rem;
   padding-left: .8rem;
   padding-right: 0.8rem;
   padding-bottom: .2rem;
-  padding-top: .2rem;
+  padding-top: .1rem;
   display: inline-block;
 }
 tw-link:hover {	
@@ -131,30 +137,85 @@ borderbar{
   margin: 0.1rem;
   padding: 0px;
   border-radius: .2rem;
- /* box-shadow: 2px 2px grey;*/
+ /* box-shadow: 2px 2px grey; */
   display: inline-block;
   width: 20rem;
-  
-
-/*  -webkit-box-reflect: below 5px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
+  /*  -webkit-box-reflect: below 5px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4)); */
 }
 
 scorebar{
-  background-color: rgb(148, 217, 44);
-/*  background: linear-gradient(90deg, rgb(244, 29, 29) 1rem,rgb(246, 253, 66) 5rem, rgba(42,219,32,1) 10rem);
-*/
-  background-image: repeating-radial-gradient(rgb(95, 1, 1), rgb(201, 250, 179) 5%, rgb(0, 0, 0) 15%);
-  background-size: 50px 50px;
-  background-repeat: repeat-x;
+  background-color: hsl(0, 0%, 32%);
   height:20px;
-  font-size: small;
-  width: 0%;
+  width: 0%; /*Not filled by default*/
+  font-size: 30px;
   display: block;
-  transition: width 2s; 
+  transition: width 2s;
+}
+scorebar.hypno{
+  background-color: rgb(148, 217, 44);
+  background: linear-gradient(90deg, rgb(244, 29, 29) 1rem,rgb(246, 253, 66) 5rem, rgba(42,219,32,1) 10rem);
+  width: var(--hypno-var);
+  text-align: left;
+  float: left;
+  /* 
+  fult mönster:
+  background-image: repeating-radial-gradient(rgb(95, 1, 1), rgb(201, 250, 179) 5%, rgb(0, 0, 0) 15%); 
+  background-repeat: repeat-x;
+  background-size: 50px 50px;
+  */
 }
 scorebar.death{
+  width: var(--death-var);
   background: linear-gradient(90deg, rgb(72, 7, 7) 1rem,rgb(85, 86, 69) 5rem, rgb(244, 29, 29) 10rem);
+  float: right;
+  text-align: right;
 }
+
+
+inventory{
+  background-color: grey;
+  margin: 1rem;
+  padding: 0.2rem;
+  border-radius: 5px;
+  height: fit-content;
+  display: inline-block;
+}
+.symbol
+{
+  font-size: 2rem;
+  height: 10px;
+  opacity: .5;
+  display: inline-block;
+}
+.symbol:hover
+{
+  font-size: 2rem;
+  opacity: 1;
+  z-index: 2;
+ /* background-color: red;
+  display: inline-block;*/
+}
+
+.symbol > .tooltip
+{
+  font-size: 1.2rem;
+  opacity: 0;
+  display: block;
+  box-shadow: -2px -2px #555;
+  border-radius: 5px;
+  padding: 5px;
+  transform: translate(30px, -15px);
+  position: absolute;
+  transition: opacity .3s;
+}
+.symbol:hover > .tooltip 
+{
+  background-color: darkgrey;
+  opacity: 1;
+  display: block;
+  position: absolute;
+}
+
 
 
 backpack{
@@ -237,6 +298,7 @@ FullBgrBox{
   background-size: 80% 80%;
   animation: gradientC 3.5s ease-in-out infinite alternate;
   animation-delay: 1s;
+  pointer-events: none;
 }
 .BgrAnimFire{
   background: radial-gradient(circle, rgb(243, 255, 149) 0%, rgb(143, 27, 27) 25%, rgb(18, 18, 26) 95%);

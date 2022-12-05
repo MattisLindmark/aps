@@ -109,6 +109,11 @@ $(function(){ // används ej, försöker få till globala variabler 20 nov 22
 });
 //===
 
+// ==== Test av CSS variabler for scorebar
+var r= document.querySelector(':root');
+//var rs=getComputedStyle(r);
+
+//=========
 
 function playSoundFX(name)
 {
@@ -498,28 +503,35 @@ function HandleScorebar(myElement, myType, myValue)
     }
 */
     
-let _procent = ((window.hypnos/10)*100).toFixed(0);
-let _deathcount = ((window.deaths/6)*100).toFixed(0);
+let _hypnocount = ((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur window.variablerna används. Om dom används.
+let _deathcount = ((window.deaths/5)*100).toFixed(0);
 
 let tmpstate = null;
 if (typeof window.statevar.hypnos !== 'undefined'){
     tmpstate = window.statevar; 
     console.log("Using state var");
    // console.log(tmpstate.hypnos);   
-    _procent = ((tmpstate.hypnos/10)*100).toFixed(0);
-    _deathcount = ((tmpstate.död/6)*100).toFixed(0);
+    _hypnocount = ((tmpstate.hypnos/5)*100).toFixed(0);
+    _deathcount = ((tmpstate.död/5)*100).toFixed(0);
+    console.log("----------------"+_deathcount );
+    r.style.setProperty('--death-var', (100-_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont!
+    r.style.setProperty('--hypno-var', _hypnocount+'%');
 } else
 {
-    console.log("NOT Using state var");
+    console.log("WARNING: is NOT Using state var");
 }
 
 if (myType == "a" || myType == "A") // to lower vore najs
 {
-    myElement.innerHTML = ' <borderbar> <scorebar style="width:'+_procent+'%">'+_procent+'%</scorebar></borderbar>';
+//    myElement.innerHTML = ' <borderbar> <scorebar style="width:'+_procent+'%">'+_procent+'%</scorebar></borderbar>';
+        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*5)/100)+'</scorebar></borderbar>';
 }
 if (myType == "b" || myType == "B") // to lower vore najs
-{ 
-    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*6)/100).toFixed(0)+'ggr</scorebar></borderbar>';
+{
+//    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';
+    
+      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*5)/100).toFixed(0)+'</scorebar></borderbar>';
+
 }
     
     if (myType == "update")
