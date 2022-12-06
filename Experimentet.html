@@ -79,6 +79,7 @@ den verkar försöka importera URLen som en JS fil??
 Dagen är kommen för det stora experimentet!
 Egentligen var det flera experiment. Och flera dagar.
 
+Inventory-sida [[inventory]]
 Den senaste fullskärmseffektsidan [[hypnofx]]
 
 Sidor med style som styrs av taggar: [[taggar]]
@@ -169,17 +170,17 @@ window.deaths = $död;
 &lt;/span&gt;
 &lt;!-- variabel: [$hypnos]&lt;hyp| --&gt;
 </tw-passagedata><tw-passagedata pid="8" name="Startup" tags="startup" position="400,600" size="100,100">&lt;span style=&quot;display: none&quot;&gt;
-(set: $ficklampa to 1)
+(set: $ficklampa to 0)
 (set: $källare to 0)
 (set: $sovtid to 10)
-(set: $nyckel to 1)
-(set: $pendel to 1)
+(set: $nyckel to 0)
+(set: $pendel to 0)
 (set: $jordnötter to 0)
 (set: $allergi to 0)
 (set: $hypnos to 0)
 (set: $städare to 0)
-(set: $kniv to 1)
-(set: $död to 6)
+(set: $kniv to 0)
+(set: $död to 5)
 (set:$köksbrand to 1)
 (set: $affisch to 0)
 (set: $koffein to 0)
@@ -187,15 +188,72 @@ window.deaths = $död;
 (set: $bruten to 0)
 (set: $personalrum to 0)
 (set: $populära to 0)
-&lt;/span&gt;</tw-passagedata><tw-passagedata pid="9" name="Header2" tags="footer" position="250,425" size="100,100">&lt;backpack&gt;
+&lt;/span&gt;
+&lt;!--
+(set: $ficklampa to 1)\
+(set: $källare to 0)\
+(set: $sovtid to 60)\
+(set: $nyckel to 0)\
+(set: $pendel to 0)\
+(set: $jordnötter to 1)\
+(set: $allergi to 0)\
+(set: $hypnos to 0)\
+(set: $städare to 0)\
+(set: $kniv to 0)\
+(set: $död to 5)\
+(set:$köksbrand to 0)\
+(set: $affisch to 0)\
+(set: $koffein to 0)\
+(set: $rösten to 0)\
+(set: $bruten to 0)\
+(set: $personalrum to 0)\
+(set: $populära to 0)\
+(set: $showFooter to 0)\
+(set: $slut to 0)\
+(set: $APS to 0)\
+(set: $kläder to &quot;bekväma&quot;)\
+(set: $fika to &quot;bananer&quot;)\
+(set: $rädsla to &quot;kryp&quot;)\
+(set:$nyckelknippa to 0)\
+(set: $namn to &quot;Testnamn&quot;)\
+(set: $tillbaka to &quot;höger&quot;)\
+(set: $system to &quot;0&quot;)
+--&gt;</tw-passagedata><tw-passagedata pid="9" name="Header2" tags="footer" position="250,425" size="100,100">&lt;backpack&gt;
 (text-style:&quot;subscript&quot;)[(text-colour:orange)[I ryggsäcken:(if:$ficklampa is 1)[* Ficklampa ](if:$jordnötter is 1)[* Jordnötter](if:$pendel is 1)[* Guldpendel ](if:$kniv is 1)[* Kökskniv ](if:$nyckel is 1)[* Nyckelknippa ]
 (if:$koffein is 1)[* Du är Koffeinstinn.]]]
 &lt;/backpack&gt;
-(replace: ?Sidebar)[&lt;inventory&gt;
+&lt;!--
+(append: ?Sidebar)[&lt;inventory&gt;
 &lt;div class=&quot;symbol&quot;&gt; 📜 &lt;div class=&quot;tooltip&quot;&gt;affisch&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;symbol&quot;&gt; 🗝️ &lt;div class=&quot;tooltip&quot;&gt;Rektorns&lt;/br&gt;nyckel&lt;/div&gt;&lt;/div&gt;
 &lt;div class=&quot;symbol&quot;&gt; 🥱 &lt;div class=&quot;tooltip&quot;&gt;Trött!&lt;/div&gt;&lt;/div&gt;
-&lt;/inventory&gt;]</tw-passagedata><tw-passagedata pid="10" name="andra effekter" tags="" position="1325,600" size="100,100">&lt;FullBgrBox class=&quot;BgrAnimB&quot;&gt;&lt;/FullBgrBox&gt;
+&lt;/inventory&gt;]
+
+
+&lt;inventory&gt;\
+&lt;div class=&quot;symbol&quot;&gt;📜&lt;div class=&quot;tooltip&quot;&gt;affisch&lt;/div&gt;&lt;/div&gt;\
+&lt;div class=&quot;symbol&quot;&gt;🗝️&lt;div class=&quot;tooltip&quot;&gt;Rektorns&lt;/br&gt;nyckel&lt;/div&gt;&lt;/div&gt;\
+&lt;div class=&quot;symbol&quot;&gt;🥜&lt;div class=&quot;tooltip&quot;&gt;jordnötter&lt;/div&gt;&lt;/div&gt;\
+&lt;div class=&quot;symbol&quot;&gt; 🥱 &lt;div class=&quot;tooltip&quot;&gt;Trött!&lt;/div&gt;&lt;/div&gt;\
+&lt;div class=&quot;symbol&quot;&gt; Hej &lt;div class=&quot;tooltip&quot;&gt;Tjenare!&lt;/div&gt;&lt;/div&gt;\
+&lt;div class=&quot;symbol&quot;&gt;&lt;img src=&quot;assets/icons/icon_flampa.png&quot;&gt;&lt;div class=&quot;tooltip&quot;&gt;Lampa...&lt;/div&gt;&lt;/div&gt;\
+&lt;div class=&quot;symbol&quot;&gt;&lt;img src=&quot;assets/icons/icon_affisch.png&quot;&gt;&lt;div class=&quot;tooltip&quot;&gt;Affishen handlar om mesmer.&lt;/div&gt;&lt;/div&gt;\
+&lt;/inventory&gt;
+
+&lt;inventory&gt;&lt;div class=&quot;symbol&quot;&gt; 📜 &lt;div class=&quot;tooltip&quot;&gt;affisch&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;symbol&quot;&gt; 🗝️ &lt;div class=&quot;tooltip&quot;&gt;Rektorns&lt;/br&gt;nyckel&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;symbol&quot;&gt; 🥱 &lt;div class=&quot;tooltip&quot;&gt;Trött!&lt;/div&gt;&lt;/div&gt;&lt;/inventory&gt;
+--&gt;
+&lt;span  id=&quot;updatearea&quot;&gt;
+&lt;inventory id=&quot;inventoryUpdate&quot;&gt;\
+(if:$ficklampa is 1)[&lt;div class=&quot;symbol&quot;&gt;&lt;img src=&quot;assets/icons/icon_flampa.png&quot;&gt;&lt;div class=&quot;tooltip&quot;&gt;Den är lysande!&lt;/div&gt;&lt;/div&gt;]\
+(if:$jordnötter is 1)[&lt;div class=&quot;symbol&quot;&gt;🥜&lt;div class=&quot;tooltip&quot;&gt;jordnötter&lt;/div&gt;&lt;/div&gt;]\
+(if:$pendel is 1)[&lt;div class=&quot;symbol&quot;&gt;&lt;img src=&quot;assets/icons/icon_pendel.png&quot;&gt;&lt;div class=&quot;tooltip&quot;&gt;Hypnotisörens pendel&lt;/div&gt;&lt;/div&gt;]\
+(if:$kniv is 1)[&lt;div class=&quot;symbol&quot;&gt;&lt;img src=&quot;assets/icons/icon_kniv.png&quot;&gt;&lt;div class=&quot;tooltip&quot;&gt;kökskniv&lt;/div&gt;&lt;/div&gt;]\
+(if:$nyckelknippa is 1)[&lt;div class=&quot;symbol&quot;&gt;🗝️&lt;div class=&quot;tooltip&quot;&gt;nyckelknippa&lt;/div&gt;&lt;/div&gt;]\
+(if:$affisch is 1)[&lt;div class=&quot;symbol&quot;&gt;&lt;img src=&quot;assets/icons/icon_affisch.png&quot;&gt;&lt;div class=&quot;tooltip&quot;&gt;Affisch&lt;/div&gt;&lt;/div&gt;]\
+(if:$nyckel is 1)[&lt;div class=&quot;symbol&quot;&gt;🗝️&lt;div class=&quot;tooltip&quot;&gt;Nyckel&lt;/div&gt;&lt;/div&gt;]\
+(if:$koffein is 1)[&lt;div class=&quot;symbol&quot;&gt;☕&lt;div class=&quot;tooltip&quot;&gt;Du är &lt;br&gt;coffeinstinn!&lt;/div&gt;&lt;/div&gt;\]
+&lt;/inventory&gt;
+&lt;/span&gt;</tw-passagedata><tw-passagedata pid="10" name="andra effekter" tags="" position="1325,600" size="100,100">&lt;FullBgrBox class=&quot;BgrAnimB&quot;&gt;&lt;/FullBgrBox&gt;
 &lt;div class=&quot;sfx1&quot;&gt;Specialfx 1 i en div. &lt;/div&gt;
 &lt;sfx2&gt;
 SFX2 i ett block.
@@ -246,6 +304,7 @@ Vilken musik önskas höras?
 [[start]]</tw-passagedata><tw-passagedata pid="15" name="variabler" tags="" position="550,300" size="100,100">(set: _testvar to &quot;&quot;)
 (set: _title to &quot;&quot;)
 (link: &quot;set hypnos to 4&quot;)[(set: $hypnos to 4) (print: &quot;&lt;score-bar type=&#39;update&#39;&gt;hej update&lt;/score-bar&gt;&quot;)]
+(link: &quot;set hypnos to 2-MnimalUppdate&quot;)[(set: $hypnos to 2)(print: &quot;&lt;score-bar&gt;&quot;)]
 
 &lt;script&gt;
 _title += &quot; &quot;+document.title.bold();
@@ -352,7 +411,18 @@ Det kan ju vara kul ibland. Kanske. ÅÄö
 [[Som sagt, en länk till baka hit|skrivmaskin]]
 [[start]]
 
-</tw-passagedata></tw-storydata>
+</tw-passagedata><tw-passagedata pid="26" name="inventory" tags="" position="1700,375" size="100,100">(link: &quot;ficklampa 1&quot;)[(set: $ficklampa to 1)(print: &quot;&lt;score-bar type=&#39;updateinventory&#39;&gt;&lt;/score-bar&gt;&quot;)]
+(link: &quot;Jordnötter 1&quot;)[(set: $jordnötter to 1)]
+(link: &quot;pendel 1&quot;)[(set: $pendel to 1)]
+(link: &quot;kniv 1&quot;)[(set: $kniv to 1)]
+(link: &quot;nyckelknippa 1&quot;)[(set: $nyckelknippa to 1)]
+(link: &quot;affisch 1&quot;)[(set: $affisch to 1)]
+(link: &quot;nyckel 1&quot;)[(set: $nyckel to 1)]
+(link: &quot;koffein 1&quot;)[(set: $koffein to 1)]
+(link: &quot;Modda hypnos värde utan update&quot;)[(set: $hypnos to 3)]
+
+[[Ladda om denna sida ba|inventory]]
+(link: &quot;Restart&quot;)[(reload:)]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

@@ -99,6 +99,8 @@ var sounds = new Audio();
 
 window.hypnos = 0;
 window.deaths = 0;
+const hypnosMax = 5;
+const deathMax = 5; // för att slippa hårdkopda längre ned.
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
     console.log("--- jq fungerar---");
@@ -511,8 +513,8 @@ if (typeof window.statevar.hypnos !== 'undefined'){
     tmpstate = window.statevar; 
     console.log("Using state var");
    // console.log(tmpstate.hypnos);   
-    _hypnocount = ((tmpstate.hypnos/5)*100).toFixed(0);
-    _deathcount = ((tmpstate.död/5)*100).toFixed(0);
+    _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
+    _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.
     console.log("----------------"+_deathcount );
     r.style.setProperty('--death-var', (100-_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont!
     r.style.setProperty('--hypno-var', _hypnocount+'%');
@@ -524,24 +526,37 @@ if (typeof window.statevar.hypnos !== 'undefined'){
 if (myType == "a" || myType == "A") // to lower vore najs
 {
 //    myElement.innerHTML = ' <borderbar> <scorebar style="width:'+_procent+'%">'+_procent+'%</scorebar></borderbar>';
-        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*5)/100)+'</scorebar></borderbar>';
+        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*hypnosMax)/100)+'</scorebar></borderbar>';
 }
 if (myType == "b" || myType == "B") // to lower vore najs
 {
 //    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';
     
-      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*5)/100).toFixed(0)+'</scorebar></borderbar>';
+      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
 
 }
     
-    if (myType == "update")
+    if (myType == "update") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
     {
         let e = document.getElementById('updatearea');
         let tmp = e.innerHTML;
         console.log("Score bar update is called. "+tmp);
-        e.innerHTML = tmp;
+//        e.innerHTML = tmp;
     }
-  
+
+    if (myType == "updateinventory") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
+    {
+        let e = document.getElementById('inventoryUpdate');
+        let tmp = e.innerHTML;
+        let tokig = "Här ska uppdaterad inventory hamna";//'<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>';
+/*
+<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>
+*/              
+        console.log("InventoryUpdate on Score-bar is called with: "+tmp);
+        e.innerText = tokig;
+    }
+
+    
     if (myType == "updateb")
     {
         let tmpstate = window.statevar;

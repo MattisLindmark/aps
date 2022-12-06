@@ -68,10 +68,13 @@ Till skillnad från klassrummets hårda stolar har de bekväma mjuka soffor. Ist
 [[Jag vill fortsätta sova-&gt;Fortsätt sova]] (if:$sovtid &gt; 80)[
 [[Varför sover jag?-&gt;Varför sover jag?]]]
 [[Vakna-&gt;klassrummet]]
-(set: $sovtid to $sovtid + 5)(set: $showFooter to 0)</tw-passagedata><tw-passagedata pid="8" name="städskrubben" tags="rum grej" position="1650,1000" size="100,100">Det plaskar om fötterna när du kommer in i städskrubben, det är blött på golvet. (if:visits is &lt;= 1)[Du ser städaren som har somnat med huvudet i skurhinken, bubblor kommer upp, hen håller på att drunkna!
+(set: $sovtid to $sovtid + 5)(set: $showFooter to 0)</tw-passagedata><tw-passagedata pid="8" name="städskrubben" tags="rum grej" position="2375,1150" size="100,100">Det plaskar om fötterna när du kommer in i städskrubben, det är blött på golvet. (if:visits is &lt;= 1)[Du ser städaren som har somnat med huvudet i skurhinken, bubblor kommer upp, hen håller på att drunkna!
 (if:$ficklampa is 0)[(link:&quot;Leta igenom städskrubben&quot;)[Du gräver runt på hyllorna och bland såpflaskor och skurdukar hittar du en ficklampa. (set: $ficklampa to 1)&lt;play-sound name=&quot;pling&quot;&gt;&lt;/play-sound&gt;]]
+(after:5s)[det bubblar allt långsammare ur skurhinken.]
 (link:&quot;Dra upp städaren ur skurhinken&quot;)[(if:$städare is 0)[Du får ta i med alla dina krafter för att lyfta upp städaren ur skurhinken, hen ramlar ihop på golvet och hostar upp bubblande såpvatten, lever, men sover fortfarande.(set: $städare to 1)](if:$städare is 2)[Du får ta i med alla dina krafter för att lyfta upp städaren ur skurhinken, men du var för långsam, hens kalla döda kropp faller ihop en en pöl av bubblande såpvatten. ](if:$ficklampa is 1)[ Men du har i alla fall en ficklampa...]]
-(after:30s)[(set: $städare to 2)]]
+
+
+(after:10s)[(set: $städare to 2)]]
 
 (if:visits &gt;= 2)[
 (if:$städare is 1)[Städaren snarkar så det kommer såpbubblor ur näsan som stiger upp mot taket i städskrubben.]
@@ -751,6 +754,9 @@ Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet 
 (link: &quot;Set hypnos till 4&quot;)[(set: $hypnos to 4)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;Oh no, du känner dig 40% hypnotiserad!&lt;/score-bar&gt;&quot;)]
 
 (link: &quot;Minska död&quot;)[(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;Ett steg närmare döden!&lt;/score-bar&gt;&quot;)]\
+
+[[Jag säger något i högtalarsystemet]]
+[[städskrubben]]
 
 [[Ladda om start sidan|Start]]
 [[Extrasida testa reload-restart|extrasida]]</tw-passagedata><tw-passagedata pid="99" name="död2" tags="Hypnos" position="1200,25" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
