@@ -94,7 +94,7 @@ Till skillnad från klassrummets hårda stolar har de bekväma mjuka soffor. Ist
 </tw-passagedata><tw-passagedata pid="10" name="vänster" tags="rum" position="800,500" size="100,100">Korridoren slutar i en ytterdörr, där ser du hur en tjock kedja dragits kring dörrhandtagen och ett stort hänglås förseglar effektivt utgången. Det verkar som om någon antingen vill låsa in er på skolan eller hålla folk utifrån från att komma in. 
 (if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is &gt;= 1)[(set: $percentage to (random: 100))(if: $percentage &gt; 70)[(go-to: &quot;fotsteg&quot;)]]
 [[Gå till fiket-&gt;fiket]]
-(if:$Personalrum is 0)[(set: $personalrum to (random:0,1))(if:$personalrum is 0)[[Gå till personalrummet-&gt;personalrummet]]](if:$personalrum is 1)[[[Gå till personalrummet-&gt;personalrumsöverraskning]]](if:$personalrum is 2)[[Gå till personalrummet-&gt;personalrummet]]
+(if:$personalrum is 0)[(set: $personalrum to (random:0,1))(if:$personalrum is 0)[[Gå till personalrummet-&gt;personalrummet]]](if:$personalrum is 1)[[[Gå till personalrummet-&gt;personalrumsöverraskning]]](if:$personalrum is 2)[[Gå till personalrummet-&gt;personalrummet]]
 [[Ta trappan ned till källaren-&gt;källaren]]
 [[Jag går tillbaka-&gt;korridoren]](set: $tillbaka to &quot;vänster&quot;)</tw-passagedata><tw-passagedata pid="11" name="klassrummet" tags="rum" position="625,150" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;(set: $showFooter to 1)(t8n:&quot;blur&quot;)+(t8n-time:9s)[Du vaknar efter en skön tupplur, det känns som att du sovit typ $sovtid minuter, mitt under skoldagen, på lektionen. Varför somnade du? Det måste ha varit en väldigt tråkig lektion.
 (link:&quot;Jag måste ha somnat...&quot;)[(if: $död is 5)[Det här känns bekant, har det här hänt förut? Allt är lite dimmigt, men så är det ju ibland när du är nyvaken...](if:$död is 4)[
@@ -389,11 +389,11 @@ Steg för steg återfår du kontrollen över dig själv.
 (link-reveal-goto: &quot;Håll för öronen&quot;, &quot;vänster&quot;)[(dialog:&quot;Du pressar händerna över öronen för att hålla rösten ute, försöker febrilt tänka på något annat för att inte höra ett ord den säger. 
 $fika, $fika, $fika
 Äntligen tystnar den och du vågar ta bort händerna från öronen igen.&quot;)]
-(set: $rösten to $rösten + 1)</tw-passagedata><tw-passagedata pid="59" name="personalrumsöverraskning" tags="" position="975,750" size="100,100">&lt;play-music name=&quot;skuggan1&quot;&gt;&lt;/play-music&gt;Du kommer in i det heligaste, lärarnas hemliga krypin där de kan gömma sig från skrikande elever och prata skit om er och varandra.
+(set: $rösten to $rösten + 1)</tw-passagedata><tw-passagedata pid="59" name="personalrumsöverraskning" tags="" position="975,750" size="100,100">(set: $personalrum to 2)&lt;play-music name=&quot;skuggan1&quot;&gt;&lt;/play-music&gt;Du kommer in i det heligaste, lärarnas hemliga krypin där de kan gömma sig från skrikande elever och prata skit om er och varandra.
 (link:&quot;Jag är i det allra heligaste&quot;)[Plötsligt hör du steg ute i korridoren, någon är på väg hit.
 [[Jag gömmer mig under soffan]]
 [[Jag springer ut genom dörren]]
-(after:15s)[(goto: &quot;vänta&quot;)]]</tw-passagedata><tw-passagedata pid="60" name="fotsteg" tags="" position="175,575" size="100,100">&lt;play-music name=&quot;skuggan1&quot;&gt;&lt;/play-music&gt;Du hör fotsteg närma dig i korridoren, men alla sover ju, då ser du, på avstånd, det är han, Sören Mesmer, han är på väg rakt emot dig, vad gör du?
+(after:30s)[(goto: &quot;vänta&quot;)]]</tw-passagedata><tw-passagedata pid="60" name="fotsteg" tags="" position="175,575" size="100,100">&lt;play-music name=&quot;skuggan1&quot;&gt;&lt;/play-music&gt;Du hör fotsteg närma dig i korridoren, men alla sover ju, då ser du, på avstånd, det är han, Sören Mesmer, han är på väg rakt emot dig, vad gör du?
 
 (if: $kläder is &quot;utstickande&quot;)[[[Jag gömmer mig under en bänk!-&gt;bänk]]]
 (if: $kläder is not &quot;utstickande&quot;)[[[Jag gömmer mig under en bänk!-&gt;bänk2]]]
@@ -823,7 +823,7 @@ Han är nere för att starta det. Efteråt går det att stänga av.
 (link:&quot;Jag är vaken!&quot;)[Han lyfter en guldpendel och svingar den framför dina ögon, du tappar bort dig i hans hypnotiska röst.
 
 (link:&quot;Jag tappar bort mig&quot;)[(go-to: &quot;sov&quot;)]]</tw-passagedata><tw-passagedata pid="127" name="vänta" tags="" position="1075,850" size="100,100">Dörren öppnas och du ser honom, klädd i vit kostym och svarta blanka skor. 
-(link:&quot;Jag ser honom&quot;)[Sören Mesmer går in i personalrummetoch upptäcker dig genast.
+(link:&quot;Jag ser honom&quot;)[Sören Mesmer går in i personalrummet och upptäcker dig genast.
 (link:&quot;Jag är upptäckt&quot;)[Han lyfter en guldpendel som han svingar framför dina ögon och du tappar bort dig i hans hypnotiska röst.
 (link:&quot;Jag tappar bort mig&quot;)[(go-to: &quot;sov&quot;)]]]</tw-passagedata><tw-passagedata pid="128" name="GPT3" tags="spel" position="1350,500" size="100,100">&lt;aispel&gt;Hejsan människa, Jag är GPT-3, en AI som arbetar för Sören Mesmer.
 (link:&quot;Jag pratar med en AI&quot;)[Jag har  hackat skolans ITsystem och blockerar nu all utgående kommunikation.
