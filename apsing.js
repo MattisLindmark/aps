@@ -104,6 +104,7 @@ const deathMax = 5; // för att slippa hårdkopda längre ned.
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
     console.log("--- jq fungerar---");
+
 //    if (!window.harlowe) {
         //window.harlowe = {"State": State};
 //    }
@@ -483,9 +484,11 @@ function HandleVisualFX(myElement, myName)
         var content = '<div class="circles one"></div><div class="circles three"></div><div class="circles five"></div><div class="circles seven"></div><div class="circles nine"></div>';
 //        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
         content += contentEndloop;
+        console.log('------------------------------------ FELSÖK-----------');
         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
 
         let moveMe = myElement;
+        moveMe.attributes.name.value = 'undefined'; // <-- Före elementet flyttas till story (med appendChild). För att undvika att hypnos-effekten triggas igen i en loop. Alternativ vore att ignorera callbacks för story element, osäker om det skulle funka dock.
         let moveTo = document.querySelector("tw-story");
         if (moveTo != null)
             moveTo.appendChild(moveMe);
@@ -548,12 +551,21 @@ if (myType == "b" || myType == "B") // to lower vore najs
     {
         let e = document.getElementById('inventoryUpdate');
         let tmp = e.innerHTML;
+        console.log('ficklampa is '+window.statevar.ficklampa);
+        console.log('Jordnötter is '+window.statevar.jordnötter);
+        
+        let strTmp = window.statevar.ficklampa?'inherit':'none';
+        let strTmpN = window.statevar.jordnötter?'inherit':'none';
+        r.style.setProperty('--inv-ficklampa',strTmp);
+        r.style.setProperty('--inv-notter',strTmpN);
+
         let tokig = "Här ska uppdaterad inventory hamna";//'<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>';
 /*
 <inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>
 */              
         console.log("InventoryUpdate on Score-bar is called with: "+tmp);
-        e.innerText = tokig;
+        printInventory();
+        //e.innerText = tokig;
     }
 
     
@@ -569,6 +581,56 @@ if (myType == "b" || myType == "B") // to lower vore najs
 
 }
 
+function printInventoryOld()
+{
+    let allStateVars = window.statevar;
+    let keys = Object.keys(allStateVars);    
+
+    keys.forEach(element => {
+        //console.log('Statevar loop: '+element);
+        if (element == 'ficklampa'){
+            console.log('Hittade ficklampan, den har värde:'+allStateVars[element]); // <-- gud så stört. jag har ju elementet men kan ej få ut värdet typ!
+        }
+        if (element == 'kniv'){
+            console.log('Hittade kniv, den har värde:'+allStateVars[element]);
+        }
+    });
+}
+
+function printInventory()//printInventoryEntryMethod()
+{
+    let allStateVars = window.statevar;
+    let entr = Object.entries(allStateVars);
+    console.log('söker entry ficklampan');
+    entr.forEach(element => {
+        if (element[1] === 0 || element[1] === 1){
+            console.log(element[0] + 'värde:'+element[1]);}
+        if (element[0] == 'ficklampa'){
+            console.log('Hittade entry ficklampan, den har värde:'+element[1]);
+        }        
+    });
+}
+
+/*
+affisch: 0
+allergi:0
+bruten:0
+död:5
+ficklampa:0
+hypnos:0
+jordnötter:0
+kniv:0
+koffein:0
+källare:0
+köksbrand:1
+nyckel:0
+pendel:0
+personalrum:0
+populära:0
+rösten:0
+sovtid:10
+städare:0
+*/
 
 //================================== UTILS ============
 
@@ -582,6 +644,34 @@ function remove_tags(html) {
     return html;
 }
 
+// class TMP extends HTMLElement {
+//     connectedCallback(){
+//         if (document.querySelector('tw-transition-container') == null) {          
+//             return;
+//         }
+
+//         let speed = 20;
+//         try {
+//             speed = parseInt(this.attributes.speed.value);
+//         } catch {
+//             if (speed == null)
+//              speed = 20;
+//         }
+
+//         HandleTypeWrite(this,speed);
+//     }
+
+// }
+
+function debuggWriteCaption(){
+try{
+    let d = document.querySelector('tw-passagedata');
+    console.log('Debugg: Found '+d.attributes.name.value);
+
+}catch{    
+    console.log('Debugg: no passage-data found.');
+}
+}
 
 /*
 function playMusicOld()

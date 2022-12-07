@@ -14,7 +14,7 @@ script.src = "apsing.js";
 
 function setupGlobals()
 {
-      var _state = require('state');
+    var _state = require('state');
     window.statevar = _state.variables;
 }
 
@@ -24,8 +24,7 @@ setTimeout(() => {
 }, 1000)
 
 setupGlobals();
-
-document.head.appendChild(script)</script><tw-tag name="startup" color="none"></tw-tag><tw-tag name="spel" color="yellow"></tw-tag><tw-tag name="Hypnos" color="purple"></tw-tag><tw-tag name="rum" color="blue"></tw-tag><tw-tag name="grej" color="orange"></tw-tag><tw-tag name="slut" color="green"></tw-tag><tw-tag name="UPPDATERA" color="red"></tw-tag><tw-passagedata pid="1" name="matsalen" tags="rum grej" position="1275,625" size="100,100">(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is 0)[(set: $percentage to (random: 100))(if: $percentage &gt; 85)[(go-to: &quot;rösten&quot;)]]Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
+document.head.appendChild(script);</script><tw-tag name="startup" color="none"></tw-tag><tw-tag name="spel" color="yellow"></tw-tag><tw-tag name="Hypnos" color="purple"></tw-tag><tw-tag name="rum" color="blue"></tw-tag><tw-tag name="grej" color="orange"></tw-tag><tw-tag name="slut" color="green"></tw-tag><tw-tag name="UPPDATERA" color="red"></tw-tag><tw-passagedata pid="1" name="matsalen" tags="rum grej" position="1275,625" size="100,100">(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is 0)[(set: $percentage to (random: 100))(if: $percentage &gt; 85)[(go-to: &quot;rösten&quot;)]]Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
 (link:&quot;Jag hör ingenting&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad. 
 (link:&quot;Orättvist&quot;)[ (if:$populära is 1)[I hörnet sitter populära gänget och sover i en hög.][(if:$populära is 0)[I hörnet sitter populära gänget i sina perfekta märkeskläder(if:$kläder is &quot;moderiktiga&quot;)[, dina kompisar från paralellklassen. Du önskar de varit vakna för att säga något snällt om din outfit för dagen, vad som helst som fått den här dagen att kännas normal
 
@@ -473,8 +472,14 @@ Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där d
 ](if:$nyckel is 1)[Rektorns nyckel
 (if:$koffein is 1)[Koffeinstinn]]]]
 &lt;/backpack&gt;]
-
-</tw-passagedata><tw-passagedata pid="69" name="Ring 112" tags="" position="625,350" size="100,100">Du plockar upp lärarens mobil och ringer 112
+&lt;script&gt;
+try{
+    let d = document.querySelector(&#39;tw-passagedata&#39;);
+    console.log(&#39;Debugg: Found &#39;+d.attributes.name.value);
+}catch{    
+    console.log(&#39;Debugg: no passage-data found.&#39;);
+}
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="69" name="Ring 112" tags="" position="625,350" size="100,100">Du plockar upp lärarens mobil och ringer 112
 Tuuuut
 (link:&quot;...&quot;)[Tuuuut
 (link:&quot;...&quot;)[Tuuuut
