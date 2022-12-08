@@ -86,6 +86,17 @@ var FXsounds = [
 const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
+var inventoryList =[
+    { name:"ficklampa ", icon:"icon_ficklampa.png", value: 0},
+    { name:"nyckel", icon:"icon_nyckel.png", value: 0},
+    { name:"pendel", icon:"icon_pendel.png",value: 0},
+    { name:"jordnötter", icon:"icon_jordnotter.png",value: 0},
+    { name:"kniv", icon:"icon_kniv.png",value: 0},
+    { name:"affisch", icon:"icon_affisch.png",value: 0},
+    { name:"koffein", icon:"icon_koffein.png",value: 0},
+    { name:"nyckelknippa", icon:"icon_nyckelknippa.png",value: 0}
+]
+
 // === startup setup typ ===
 //music.onvolumechange = (event) => { console.log("Volym nu: "+music.volume);};
 //document.readystatechange = (event) => {console.log("Document DOM content loaded event");};
@@ -445,6 +456,26 @@ class TypeWriter extends HTMLElement {
 
 }
 
+class WriteInventory extends HTMLElement {
+    connectedCallback(){
+        if (document.querySelector('tw-transition-container') != null) {          
+            return;
+        }
+        
+        let typ = "undefined";
+        try {
+            typ = this.attributes.type.value;
+        } catch {
+             typ = "undefined";
+        }
+
+        HandleWriteInventory(this,typ);
+
+
+    }
+
+}
+
 
 //customElements.define('soundfx',SoundFX);
 customElements.define('my-tag', MyTag);
@@ -453,7 +484,22 @@ customElements.define('play-music', MusicPlay);
 customElements.define('visual-fx', VisualFX);
 customElements.define('score-bar',ScoreBar);
 customElements.define('type-write',TypeWriter);
+customElements.define('write-inventory',WriteInventory);
 
+
+function HandleWriteInventory(myElement, typ)
+{
+    updateInventoryList();
+    
+    if (typ == "update"){
+        myElement = document.getElementById("mainInventory");
+    }
+    if (myElement == null){
+        console.log("To update inventory there needs to be an inventory with ID mainInventory");
+        return;
+    }
+    printInventory(myElement);   
+}
 
 function HandleTypeWrite(myElement, speed){
     
@@ -484,7 +530,6 @@ function HandleVisualFX(myElement, myName)
         var content = '<div class="circles one"></div><div class="circles three"></div><div class="circles five"></div><div class="circles seven"></div><div class="circles nine"></div>';
 //        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
         content += contentEndloop;
-        console.log('------------------------------------ FELSÖK-----------');
         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
 
         let moveMe = myElement;
@@ -546,7 +591,7 @@ if (myType == "b" || myType == "B") // to lower vore najs
         console.log("Score bar update is called. "+tmp);
 //        e.innerHTML = tmp;
     }
-
+// XXX delete from inventory from scorebar
     if (myType == "updateinventory") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
     {
         let e = document.getElementById('inventoryUpdate');
@@ -564,7 +609,7 @@ if (myType == "b" || myType == "B") // to lower vore najs
 <inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>
 */              
         console.log("InventoryUpdate on Score-bar is called with: "+tmp);
-        printInventory();
+        //printInventory();
         //e.innerText = tokig;
     }
 
@@ -597,7 +642,7 @@ function printInventoryOld()
     });
 }
 
-function printInventory()//printInventoryEntryMethod()
+function printInventory_EntryTEST()//printInventoryEntryMethod()
 {
     let allStateVars = window.statevar;
     let entr = Object.entries(allStateVars);
@@ -609,6 +654,54 @@ function printInventory()//printInventoryEntryMethod()
             console.log('Hittade entry ficklampan, den har värde:'+element[1]);
         }        
     });
+}
+
+function updateInventoryList(){
+    let allStateVars = window.statevar;
+    let entr = Object.entries(allStateVars);
+    
+    entr.forEach(element => {
+        let itm = inventoryList.find(p => p.name === element[0]);
+        if (itm != null)
+            itm.value = element[1];
+    });
+
+    // inventoryList.forEach(element => {
+    //     console.log(element.name +" har värde "+element.value);        
+    // });
+}
+
+function printInventory(myElement)
+{
+    let contentHTML = "";
+    let aktiva = inventoryList.filter(p => p.value > 0);
+    aktiva.forEach(element => {
+//        console.log(element.name +" Ska vara över 0 "+element.value);
+        contentHTML += "<div class='symbol'><img src='/assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
+    });
+    myElement.innerHTML = contentHTML;
+}
+
+function setupInventoryHTML()
+{
+    console.log("setting upp inventory HTML.");
+//    document.querySelector("tw-story");
+    var inventoryArea = document.querySelector('inventory');
+    if (inventoryArea == null){
+        console.log("Can't setup inventory, Missing inventory-element om page.");
+        return;
+    }
+    let content;
+    inventoryList.forEach(element => {
+        content += "<div class='invItem'>"+element.name+"</div>";
+    });
+    inventoryArea.innerHTML = content;
+}
+
+function updateInventory()
+{
+    var $invItems = $(".symbols");
+    $j_object.each( function(i) { doSomethingHere(); } );
 }
 
 /*
@@ -630,6 +723,7 @@ populära:0
 rösten:0
 sovtid:10
 städare:0
+nyckelknippa:0
 */
 
 //================================== UTILS ============
