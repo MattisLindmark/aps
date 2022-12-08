@@ -63,3 +63,31 @@ OBS: Det är mkt lätt att glömma - i </score-bar> för mig iaf. Dvs man skrive
 ljud vid namn: papper samt pappersark har lagts till. Kan användas för affishen.
 Jag har hårdkodat sänkt musikens volym temporärt, den var så hög jämfört med pratet (tyckte jag)... Får slutjustera nivåer på ljud senare.
 
+
+============ Inventory ======= 2022-12-08
+
+Javascriptet skriver in inventoryn med HTML taggar och allt sånt.
+Js håller också koll internt på vilka variabler som har värde och skriver bara ut de som har 1.
+(annan snyggare lösning blev knepigare pga att Twine har makten)
+
+Just nu funkar det så här:
+i footer (eller header)
+Sätt in:
+<inventory>
+<write-inventory id="mainInventory"></write-inventory>
+</inventory>
+
+NOT: Var inventoryn ska visas etc till slut justerar vi med CSS. Footer funkar tills vidare.
+
+Där något i inventoryn uppdateras, skriv in tex:
+
+(link: "ta pendel")[(set: $pendel to 1)(print: "<write-inventory type='update'>")]
+
+Då skare funka.
+Förhoppningsvis.
+
+* att hålla koll på:
+	* Dyker det upp brutna länkar i inventoryn kan detta bero på att den fångar upp och tolkar något som inte ska vara inventory. Tex $död och försöker skriva ut den som en inventory.
+	* Bakgrund ska ej synas på det sätt det syns nu.
+
+*Ändringar kan ske!

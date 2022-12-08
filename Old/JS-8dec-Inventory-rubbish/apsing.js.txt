@@ -542,7 +542,17 @@ function HandleVisualFX(myElement, myName)
 }
 
 function HandleScorebar(myElement, myType, myValue)
-{  
+{
+    //console.log(window);
+
+    //myElement.innerHTML = window.hypnos;
+    /*
+    if (myValue < 0)
+    {
+        myValue = parseInt(this.innerHTML);
+    }
+*/
+    
 let _hypnocount = ((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur window.variablerna används. Om dom används.
 let _deathcount = ((window.deaths/5)*100).toFixed(0);
 
@@ -573,9 +583,7 @@ if (myType == "b" || myType == "B") // to lower vore najs
       myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
 
 }
-
-// December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
-/*
+    
     if (myType == "update") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
     {
         let e = document.getElementById('updatearea');
@@ -583,6 +591,29 @@ if (myType == "b" || myType == "B") // to lower vore najs
         console.log("Score bar update is called. "+tmp);
 //        e.innerHTML = tmp;
     }
+// XXX delete from inventory from scorebar
+    if (myType == "updateinventory") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
+    {
+        let e = document.getElementById('inventoryUpdate');
+        let tmp = e.innerHTML;
+        console.log('ficklampa is '+window.statevar.ficklampa);
+        console.log('Jordnötter is '+window.statevar.jordnötter);
+        
+        let strTmp = window.statevar.ficklampa?'inherit':'none';
+        let strTmpN = window.statevar.jordnötter?'inherit':'none';
+        r.style.setProperty('--inv-ficklampa',strTmp);
+        r.style.setProperty('--inv-notter',strTmpN);
+
+        let tokig = "Här ska uppdaterad inventory hamna";//'<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>';
+/*
+<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>
+*/              
+        console.log("InventoryUpdate on Score-bar is called with: "+tmp);
+        //printInventory();
+        //e.innerText = tokig;
+    }
+
+    
     if (myType == "updateb")
     {
         let tmpstate = window.statevar;
@@ -591,10 +622,39 @@ if (myType == "b" || myType == "B") // to lower vore najs
         console.log("Update B, this is what i got "+myElement.innerHTML);
         
     }
-*/  
+
 
 }
 
+function printInventoryOld()
+{
+    let allStateVars = window.statevar;
+    let keys = Object.keys(allStateVars);    
+
+    keys.forEach(element => {
+        //console.log('Statevar loop: '+element);
+        if (element == 'ficklampa'){
+            console.log('Hittade ficklampan, den har värde:'+allStateVars[element]); // <-- gud så stört. jag har ju elementet men kan ej få ut värdet typ!
+        }
+        if (element == 'kniv'){
+            console.log('Hittade kniv, den har värde:'+allStateVars[element]);
+        }
+    });
+}
+
+function printInventory_EntryTEST()//printInventoryEntryMethod()
+{
+    let allStateVars = window.statevar;
+    let entr = Object.entries(allStateVars);
+    console.log('söker entry ficklampan');
+    entr.forEach(element => {
+        if (element[1] === 0 || element[1] === 1){
+            console.log(element[0] + 'värde:'+element[1]);}
+        if (element[0] == 'ficklampa'){
+            console.log('Hittade entry ficklampan, den har värde:'+element[1]);
+        }        
+    });
+}
 
 function updateInventoryList(){
     let allStateVars = window.statevar;
@@ -622,11 +682,49 @@ function printInventory(myElement)
     myElement.innerHTML = contentHTML;
 }
 
-// function updateInventory()
-// {
-//     var $invItems = $(".symbols");
-//     $j_object.each( function(i) { doSomethingHere(); } );
-// }
+function setupInventoryHTML()
+{
+    console.log("setting upp inventory HTML.");
+//    document.querySelector("tw-story");
+    var inventoryArea = document.querySelector('inventory');
+    if (inventoryArea == null){
+        console.log("Can't setup inventory, Missing inventory-element om page.");
+        return;
+    }
+    let content;
+    inventoryList.forEach(element => {
+        content += "<div class='invItem'>"+element.name+"</div>";
+    });
+    inventoryArea.innerHTML = content;
+}
+
+function updateInventory()
+{
+    var $invItems = $(".symbols");
+    $j_object.each( function(i) { doSomethingHere(); } );
+}
+
+/*
+affisch: 0
+allergi:0
+bruten:0
+död:5
+ficklampa:0
+hypnos:0
+jordnötter:0
+kniv:0
+koffein:0
+källare:0
+köksbrand:1
+nyckel:0
+pendel:0
+personalrum:0
+populära:0
+rösten:0
+sovtid:10
+städare:0
+nyckelknippa:0
+*/
 
 //================================== UTILS ============
 
@@ -639,6 +737,25 @@ function remove_tags(html) {
     html = html.replace(/\$br\$/g, "<br>");
     return html;
 }
+
+// class TMP extends HTMLElement {
+//     connectedCallback(){
+//         if (document.querySelector('tw-transition-container') == null) {          
+//             return;
+//         }
+
+//         let speed = 20;
+//         try {
+//             speed = parseInt(this.attributes.speed.value);
+//         } catch {
+//             if (speed == null)
+//              speed = 20;
+//         }
+
+//         HandleTypeWrite(this,speed);
+//     }
+
+// }
 
 function debuggWriteCaption(){
 try{
