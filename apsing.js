@@ -617,7 +617,7 @@ function printInventory(myElement)
     let aktiva = inventoryList.filter(p => p.value > 0);
     aktiva.forEach(element => {
 //        console.log(element.name +" Ska vara över 0 "+element.value);
-        contentHTML += "<div class='symbol'><img src='/assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
+        contentHTML += "<div class='symbol'><img src='./assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
     });
     myElement.innerHTML = contentHTML;
 }
