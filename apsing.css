@@ -12,6 +12,9 @@
 :root{
   --death-var: 0%; /* Could (should?) be named death-width and hypno-width? */
   --hypno-var: 0%;
+  --inv-ficklampa: none;
+  --inv-notter: none;
+  --tooltip-offset: translate(-10px,-5px);
 }
 
 html,
@@ -32,8 +35,6 @@ tw-transition-container{
 */
 
 /*tw-story{background-color: #555;}*/
-tw-story{background-color: #000;}
-
 
 @media (min-width: 576px){
 tw-sidebar{ /* display: none; */
@@ -43,6 +44,9 @@ tw-sidebar{ /* display: none; */
     left: -9em;
     width: 6em;
 }
+/* tw-passage{
+  padding-bottom: 70px;
+} */
 }
 
 @font-face {
@@ -55,21 +59,21 @@ tw-sidebar{ /* display: none; */
 /* tw-icon { display:none; } */
 
 tw-story {
+    background-color: black;
     /*font-family:'Courier New', Courier, monospace;*/
     font-family:'OpenDyslexic3Regular';
     font-size: 1.3em;
     color: rgb(230, 228, 214);
 }
+
 tw-passage{
   font-weight: normal;
   font-style: normal;
-
   /*
   font-family: 'Nothing You Could Do', sans-serif;  
   font-family: 'Areal', sans-serif;
 */
 }
-
 
 tw-link {
   color: #ced6a0;
@@ -90,7 +94,7 @@ tw-link:hover {
 tw-link.visited { color: #ced6a0; }
 tw-link.visited:hover { 
   color: #7ec4b5; 
-//  background-color: #4b5353;
+/*  background-color: #4b5353;*/
 }
 
 tw-dialog {
@@ -115,7 +119,6 @@ tw-dialog-links tw-link {
   background-color: rgb(136, 133, 133) ;
 }
 
-
 ljudfx{
   background-color: rgb(153, 51, 51);  
 }
@@ -129,6 +132,19 @@ ljudfx.pling::after{
   background:url('javascript:testar(2)');
   */
   content: url("javascript:testar(3)");
+}
+
+huvud{
+  background-color: black;
+  position: fixed;
+  margin-left: -20px;
+  padding-top: 10px;
+  padding: 5px;
+/*  bottom: 0;  <- byt top/bottom för uppe eller nere.*/
+  top: 0;
+  width: 100%;
+  display: block;
+  z-index: 4;
 }
 
 borderbar{
@@ -146,12 +162,13 @@ borderbar{
 
 scorebar{
   background-color: hsl(0, 0%, 32%);
-  height:20px;
+  height:30px;
   width: 0%; /*Not filled by default*/
   font-size: small;  
   display: block;
   transition: width 2s;
 }
+
 scorebar.hypno{
   background-color: rgb(148, 217, 44);
   background: linear-gradient(90deg, rgb(244, 29, 29) 1rem,rgb(246, 253, 66) 5rem, rgba(42,219,32,1) 10rem);
@@ -173,7 +190,8 @@ scorebar.death{
 }
 
 inventory{
-  background-color: grey;
+  bottom: 0;
+  background-color: black;
   margin: 1rem;
   padding: 0.2rem;
   border-radius: 5px;
@@ -181,15 +199,48 @@ inventory{
   text-align: center;
   display: block;
 }
+
+inventory.topLeft{
+  position: fixed;
+  margin-left: auto;
+  top: 150px;
+  left: 80px;
+  max-width: 3.5rem;
+  z-index: 2;
+}
+
+@media (max-width: 750px){
+  inventory.topLeft{
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    margin-left: auto;
+    top: 70px!important;
+    right: 0px;
+    max-width: 2.5rem;
+    z-index: 2;
+  }
+  .symbol > .tooltip
+  {
+    --tooltip-offset: translate(-80px,-5px);
+  }
+}
+
+.symbol.ficklampa{
+  display: var(--inv-ficklampa);
+}
+.symbol.notter{
+  display: var(--inv-notter);
+}
 .symbol > img{
   width: 50px;
+  bottom: -5px;
 }
 
 .symbol
 {
   font-size: 2rem;
   height: 10px;
-  opacity: .5;
+  opacity: .7;
   display: inline-block;
 }
 .symbol:hover
@@ -205,20 +256,21 @@ inventory{
 {
   font-size: 1.2rem;
   opacity: 0;
-  display: block;
-  box-shadow: -2px -2px #555;
-  border-radius: 5px;
-  padding: 5px;
-  transform: translate(30px, 5px);
+  display: block;  
+/*  box-shadow: -2px -2px #555;*/
+  border-radius: 2px;
+  padding: 2px;
+  transform: var(--tooltip-offset);
+  /* transform: translate(-100px,-5px); */
   position: absolute;
   transition: opacity .3s;
 }
 .symbol:hover > .tooltip 
 {
-  background-color: darkgrey;
+  /* background-color: #2d3232; */
   opacity: 1;
   display: block;
-  position: absolute;
+  /* position: absolute; */
 }
 
 

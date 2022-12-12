@@ -461,7 +461,8 @@ Eller så låter jag dig [[vakna med dina minnen intakta-&gt;Slutet där du är 
 
 Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där du är den enda som minns" tags="slut UPPDATERA" position="550,1150" size="100,100">Double-click this passage to edit it.
 
-[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]</tw-passagedata><tw-passagedata pid="67" name="Passage utan namn" tags="spel" position="1625,125" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="68" name="Footer" tags="footer" position="150,275" size="100,100">(if: $showFooter is 1)[&lt;backpack&gt; 
+[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]</tw-passagedata><tw-passagedata pid="67" name="Passage utan namn" tags="spel" position="1625,125" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="68" name="Footer" tags="footer" position="150,275" size="100,100">&lt;!--
+(if: $showFooter is 1)[&lt;backpack&gt; 
 (text-style:&quot;subscript&quot;)[(text-colour:orange)[___
 (if:$ficklampa is 1)[ Ficklampa 
 ](if:$jordnötter is 1)[Jordnötter
@@ -472,6 +473,11 @@ Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där d
 ](if:$nyckel is 1)[Rektorns nyckel
 (if:$koffein is 1)[Koffeinstinn]]]]
 &lt;/backpack&gt;]
+--&gt;
+&lt;inventory class=&quot;topLeft&quot;&gt;
+&lt;write-inventory id=&quot;mainInventory&quot;&gt;&lt;/write-inventory&gt;
+&lt;/inventory&gt;
+
 &lt;script&gt;
 try{
     let d = document.querySelector(&#39;tw-passagedata&#39;);
@@ -899,7 +905,8 @@ Han är nere för att starta det. Efteråt går det att stänga av.
 på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv Personlighets-Strukturering&quot;, en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten &quot;Gör ditt val&quot;, en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
 
 
-(link:&quot;Riv ned affischen&quot;)[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.aps-skolfokus.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)&lt;play-sound name=&quot;pappersark&quot;&gt;&lt;/play-sound&gt;]
+(link:&quot;Riv ned affischen&quot;)[(set: $affisch to 1)Du river ned affischen, studerar den noga, det finns en hemsideadress till www.aps-skolfokus.se, du viker ihop den och stoppar den i ryggsäcken. &lt;play-sound name=&quot;pappersark&quot;&gt;&lt;/play-sound&gt;(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
+(link:&quot;Ta ned affishen v2&quot;)[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.aps-skolfokus.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)&lt;play-sound name=&quot;pappersark&quot;&gt;&lt;/play-sound&gt;&lt;write-inventory type=&#39;update&#39;&gt;]
 [[Gå till vänster-&gt;vänster]]
 [[Gå till höger-&gt;höger]]
 [[Gå tillbaka till klassrummet-&gt;klassrumtillbaka]]]

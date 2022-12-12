@@ -68,7 +68,7 @@ function playMusic()
     music.play();
 }
 den verkar försöka importera URLen som en JS fil??
-*/</script><tw-tag name="startup" color="green"></tw-tag><tw-passagedata pid="1" name="start" tags="" position="1000,100" size="100,100">&lt;titelblock&gt; &lt;div class=&#39;animfocus&#39;&gt;Experimentet &lt;/div&gt;&lt;/titelblock&gt;
+*/</script><tw-tag name="startup" color="green"></tw-tag><tw-passagedata pid="1" name="start" tags="" position="950,75" size="100,100">&lt;titelblock&gt; &lt;div class=&#39;animfocus&#39;&gt;Experimentet &lt;/div&gt;&lt;/titelblock&gt;
 &lt;rubrikblock&gt;&lt;div class=&#39;specialtext1 animfocus&#39;&gt;Underrubrik med specialtext&lt;/div&gt;&lt;/rubrikblock&gt;
 &lt;div class=&#39;specialtext1&#39;&gt;Specialtext i div.&lt;/div&gt;
 &lt;div class=&#39;rubrikblock&#39;&gt; Div med rubrikblock som klass &lt;/div&gt;
@@ -166,10 +166,11 @@ console.log(&quot;Header script is running.&quot;);
 window.hypnos = $hypnos;
 window.deaths = $död;
 &lt;/script&gt;
-
-&lt;span  id=&quot;updatearea&quot;&gt;
-&lt;score-bar type=&quot;a&quot;&gt;$hypnos&lt;/score-bar&gt;&lt;score-bar type=&quot;b&quot;&gt;$död&lt;/score-bar&gt;
-&lt;/span&gt;
+&lt;huvud&gt;\
+&lt;span  id=&quot;updatearea&quot;&gt;\
+&lt;score-bar type=&quot;a&quot;&gt;$hypnos&lt;/score-bar&gt;&lt;score-bar type=&quot;b&quot;&gt;$död&lt;/score-bar&gt;\
+&lt;/span&gt;\
+&lt;/huvud&gt;\
 &lt;!-- variabel: [$hypnos]&lt;hyp| --&gt;
 </tw-passagedata><tw-passagedata pid="8" name="Startup" tags="startup" position="400,600" size="100,100">&lt;span style=&quot;display: none&quot;&gt;
 (set: $ficklampa to 0)
@@ -407,7 +408,7 @@ document.getElementById(&quot;utput&quot;).innerHTML=str;
 [[taggar]]</tw-passagedata><tw-passagedata pid="23" name="en annan tagg" tags="mattis2" position="1150,925" size="100,100">Denna är taggade med mattis2
 [[samma tagg igen]]
 [[taggar]]</tw-passagedata><tw-passagedata pid="24" name="samma tagg igen" tags="mattis2" position="1325,950" size="100,100">testar hur taggandet påverkar övergångar.
-[[en annan tagg]]</tw-passagedata><tw-passagedata pid="25" name="skrivmaskin" tags="" position="1600,150" size="100,100">Nu ska vi se om skrivmaskin funkar.
+[[en annan tagg]]</tw-passagedata><tw-passagedata pid="25" name="skrivmaskin" tags="" position="1425,50" size="100,100">Nu ska vi se om skrivmaskin funkar.
 
 &lt;type-write speed=10&gt;
 Denna text ska, om allt fungerar korrekt, skrivas ut som en typewriter-text.
@@ -417,7 +418,7 @@ Det kan ju vara kul ibland. Kanske. ÅÄö
 [[Som sagt, en länk till baka hit|skrivmaskin]]
 [[start]]
 
-</tw-passagedata><tw-passagedata pid="26" name="inventory" tags="" position="1700,375" size="100,100">(link: &quot;ficklampa 1&quot;)[(set: $ficklampa to 1)(print: &quot;&lt;score-bar type=&#39;updateinventory&#39;&gt;&lt;/score-bar&gt;&quot;)]
+</tw-passagedata><tw-passagedata pid="26" name="inventory" tags="" position="1325,275" size="100,100">(link: &quot;ficklampa 1&quot;)[(set: $ficklampa to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
 (link: &quot;Jordnötter 1&quot;)[(set: $jordnötter to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&lt;/write-inventory&gt;&quot;)]
 (link: &quot;pendel 1&quot;)[(set: $pendel to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
 (link: &quot;kniv 1&quot;)[(set: $kniv to 1)]
@@ -430,8 +431,17 @@ Det kan ju vara kul ibland. Kanske. ÅÄö
 (link: &quot;Write inventory&quot;)[(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&lt;/write-inventory&gt;&quot;)]
 
 [[Ladda om denna sida ba|inventory]]
+
+[[Tillbaka till start utan reload|start]]
+
 (link: &quot;Restart&quot;)[(reload:)]</tw-passagedata><tw-passagedata pid="27" name="HeaderFooter3" tags="footer" position="275,425" size="100,100">&lt;!-- Denna ersätter Header2 (som är en footer) från 8 dec 2022 --&gt;
+
+&lt;!-- (append: ?Sidebar)[\
 &lt;inventory&gt;
+&lt;write-inventory id=&quot;mainInventory&quot;&gt;&lt;/write-inventory&gt;
+&lt;/inventory&gt;]
+--&gt;
+&lt;inventory class=&quot;topLeft&quot;&gt;
 &lt;write-inventory id=&quot;mainInventory&quot;&gt;&lt;/write-inventory&gt;
 &lt;/inventory&gt;</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";

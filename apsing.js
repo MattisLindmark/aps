@@ -87,7 +87,7 @@ const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
 var inventoryList =[
-    { name:"ficklampa ", icon:"icon_ficklampa.png", value: 0},
+    { name:"ficklampa", icon:"icon_ficklampa.png", value: 0},
     { name:"nyckel", icon:"icon_nyckel.png", value: 0},
     { name:"pendel", icon:"icon_pendel.png",value: 0},
     { name:"jordnötter", icon:"icon_jordnotter.png",value: 0},
@@ -112,6 +112,10 @@ window.hypnos = 0;
 window.deaths = 0;
 const hypnosMax = 5;
 const deathMax = 5; // för att slippa hårdkopda längre ned.
+
+window.statevar.onValueChange = (event) => {console.log("----------------- State var cganged!");};
+
+
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
     console.log("--- jq fungerar---");
@@ -458,20 +462,17 @@ class TypeWriter extends HTMLElement {
 
 class WriteInventory extends HTMLElement {
     connectedCallback(){
-        if (document.querySelector('tw-transition-container') != null) {          
-            return;
-        }
-        
         let typ = "undefined";
         try {
             typ = this.attributes.type.value;
         } catch {
-             typ = "undefined";
+            typ = "undefined";
         }
-
+        
+        if (document.querySelector('tw-transition-container') == null && typ != 'update') {          
+            return;
+        }
         HandleWriteInventory(this,typ);
-
-
     }
 
 }
@@ -553,7 +554,7 @@ if (typeof window.statevar.hypnos !== 'undefined'){
    // console.log(tmpstate.hypnos);   
     _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
     _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.
-    console.log("----------------"+_deathcount );
+//    console.log("----------------"+_deathcount );
     r.style.setProperty('--death-var', (100-_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont!
     r.style.setProperty('--hypno-var', _hypnocount+'%');
 } else
@@ -619,6 +620,7 @@ function printInventory(myElement)
 //        console.log(element.name +" Ska vara över 0 "+element.value);
         contentHTML += "<div class='symbol'><img src='./assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
     });
+    console.log(contentHTML);
     myElement.innerHTML = contentHTML;
 }
 
