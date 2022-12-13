@@ -574,8 +574,8 @@ function HandleVisualFX(myElement, myName)
 
 function HandleScorebar(myElement, myType, myValue)
 {  
-let _hypnocount = ((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur window.variablerna används. Om dom används.
-let _deathcount = ((window.deaths/5)*100).toFixed(0);
+let _hypnocount = 0;//((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur window.variablerna används. Om dom används.
+let _deathcount = 0;//((window.deaths/5)*100).toFixed(0);
 
 let tmpstate = null;
 if (typeof window.statevar.hypnos !== 'undefined'){
@@ -654,7 +654,6 @@ function printInventory(myElement)
 //        console.log(element.name +" Ska vara över 0 "+element.value);
         contentHTML += "<div class='symbol'><img src='./assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
     });
-    console.log(contentHTML);
     myElement.innerHTML = contentHTML;
 }
 

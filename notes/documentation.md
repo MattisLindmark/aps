@@ -1,9 +1,8 @@
-# Tillsnyggad dokumentation 
+# Tillsnyggad dokumentation
 >*senast uppdaterad: 2022-12-13*
 
 ><span style = "color:red">**OBS OBS OBS: Många av kod-delarna i detta dokument är inte kollad gällande slarvfel! Gäller speciellt taggar etc som står i löpande text. Rättar sånt efer hand**</span>
 ---
-
 <br>
 
 ## Stoyrns Javascript
@@ -109,6 +108,7 @@ Exempel:
 ```
 **Under huven**  
 Score-bar använder css-variabler som uppdateras baserat på window.statevar. Skriver ned mer här senare, om jag ids.  
+Java-scriptet räknar om hur stor del som ska synas utifrån att maxvärdet för båda är 5.
 <br>
 
 >**Toppen eller botten**  
@@ -118,7 +118,7 @@ Gjorde en temporär (eller permanent) CSS klass för att testa lägga scorebar p
 >**BUGG-KOLL**  
 När man har låst score-bar uppe eller nere i skärm ligger den ovanpå allt. Det gör att text och länkar kan hamna under och ej gå att nå även om man scrollar. Speciellt om man lägger score-bar i botten. Jag har justerat marginaler för att undvika detta, men nåt vi får testa i olika skärmupplösningar.  
 <br>
-En annan "bugg" är att död-siffran ej syns i början. Försöker se hur detta kan åtgärdas. Det har nåt att göra med att död mätaren går åt "fel" håll.
+En annan "bugg" är att död-siffran ej syns när värdet är 5 (dvs start-värdet (tror jag)). Försöker se hur detta kan åtgärdas. Det har nåt att göra med att död mätaren går åt "fel" håll.
 <br>
 <br>
 ---
