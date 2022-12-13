@@ -31,8 +31,7 @@ script.src = "file:///E:/OneDrive_Mattis/OneDrive%20-%20Ume%C3%A5%20universitet/
 script.src = "file:///E:/OneDrive_Mattis/OneDrive%20-%20Ume%C3%A5%20universitet/Allt_JOBB/Projekt2022/Skuggan/ApSingFinal/ApSingWWW/apsing.js";
 */
 function setupGlobals()
-{
-  
+{  
   	var _state = require('state');
 	console.log('require state');
 	console.log(_state.variables);
@@ -418,17 +417,18 @@ Det kan ju vara kul ibland. Kanske. ÅÄö
 [[Som sagt, en länk till baka hit|skrivmaskin]]
 [[start]]
 
-</tw-passagedata><tw-passagedata pid="26" name="inventory" tags="" position="1325,275" size="100,100">(link: &quot;ficklampa 1&quot;)[(set: $ficklampa to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
+</tw-passagedata><tw-passagedata pid="26" name="inventory" tags="" position="1525,275" size="100,100">(link: &quot;ficklampa 1&quot;)[(set: $ficklampa to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
 (link: &quot;Jordnötter 1&quot;)[(set: $jordnötter to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&lt;/write-inventory&gt;&quot;)]
 (link: &quot;pendel 1&quot;)[(set: $pendel to 1)(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
 (link: &quot;kniv 1&quot;)[(set: $kniv to 1)]
-(link: &quot;nyckelknippa 1&quot;)[(set: $nyckelknippa to 1)]
-(link: &quot;affisch 1&quot;)[(set: $affisch to 1)]
+(link: &quot;nyckelknippa 1&quot;)[(set: $nyckelknippa to 1)&lt;update-inventory&gt;]
+(link: &quot;affisch 1&quot;)[(set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link: &quot;nyckel 1&quot;)[(set: $nyckel to 1)]
 (link: &quot;koffein 1&quot;)[(set: $koffein to 1)]
 (link: &quot;InventoryUpdate old scorebar&quot;)[(print: &quot;&lt;score-bar type=&#39;updateinventory&#39;&gt;&lt;/score-bar&gt;&quot;)]
 (link: &quot;Modda hypnos värde utan update&quot;)[(set: $hypnos to 3)]
-(link: &quot;Write inventory&quot;)[(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&lt;/write-inventory&gt;&quot;)]
+(link: &quot;Write inventory with print&quot;)[(print: &quot;&lt;update-inventory type=&#39;update&#39;&gt;&quot;)]
+(link: &quot;Write inventory-no print&quot;)[(set: $kniv to 1)&lt;update-inventory&gt;]
 
 [[Ladda om denna sida ba|inventory]]
 

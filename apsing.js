@@ -113,7 +113,7 @@ window.deaths = 0;
 const hypnosMax = 5;
 const deathMax = 5; // för att slippa hårdkopda längre ned.
 
-window.statevar.onValueChange = (event) => {console.log("----------------- State var cganged!");};
+//window.statevar.onValueChange = (event) => {console.log("----------------- State var cganged!");};
 
 
 
@@ -469,13 +469,42 @@ class WriteInventory extends HTMLElement {
             typ = "undefined";
         }
         
+// XXX - remove update kanske. hanteras i handle.
+//        updateInventoryList();
+
         if (document.querySelector('tw-transition-container') == null && typ != 'update') {          
             return;
         }
         HandleWriteInventory(this,typ);
     }
+}
+
+class UpdateInventory extends HTMLElement {
+    connectedCallback(){
+
+/* Om jag vid senare tillfälle vill koppla typ-värde till inventory update.
+        let typ = "undefined";
+        try {
+            typ = this.attributes.type.value;
+        } catch {
+            typ = "undefined";
+        }      
+        */
+        console.log("Uppdaterar inventory");
+        if (document.querySelector('tw-transition-container') != null){// && typ != 'update') {          
+            return;
+        }
+        let typ = "update";
+        setTimeout(() => {
+            HandleWriteInventory(this,typ);
+            console.log("Uppdaterar inventory delay");
+          }, 100)
+        
+//        HandleWriteInventory(this,typ);
+    }
 
 }
+
 
 
 //customElements.define('soundfx',SoundFX);
@@ -486,6 +515,7 @@ customElements.define('visual-fx', VisualFX);
 customElements.define('score-bar',ScoreBar);
 customElements.define('type-write',TypeWriter);
 customElements.define('write-inventory',WriteInventory);
+customElements.define('update-inventory',UpdateInventory);
 
 
 function HandleWriteInventory(myElement, typ)
@@ -599,12 +629,16 @@ if (myType == "b" || myType == "B") // to lower vore najs
 
 function updateInventoryList(){
     let allStateVars = window.statevar;
-    let entr = Object.entries(allStateVars);
-    
+    let entr = Object.entries(window.statevar);//allStateVars);
+
+//    console.log("HÄR: ");
+//    console.log(JSON.stringify(window.statevar));
+
     entr.forEach(element => {
         let itm = inventoryList.find(p => p.name === element[0]);
-        if (itm != null)
+        if (itm != null){
             itm.value = element[1];
+        }
     });
 
     // inventoryList.forEach(element => {

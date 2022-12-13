@@ -769,6 +769,14 @@ Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet 
 [[Jag säger något i högtalarsystemet]]
 [[städskrubben]]
 
+(if:$ficklampa is 1)[\
+(link:&quot;Kasta bort ficklampan!&quot;)[(set:$ficklampa to 0)(print:&quot;&lt;update-inventory&gt;&quot;) Du slänger i från dig ficklampan. Så det så!]\
+]\
+(if:$ficklampa is 0)[\
+Det ligger en ficklampa här som någon slängt ifrån sig!
+(link:&quot;Ta upp ficklampan!&quot;)[(set:$ficklampa to 1)&lt;update-inventory&gt;Du plockar upp ficklampan igen. Såklart.]\
+]\
+
 [[Ladda om start sidan|Start]]
 [[Extrasida testa reload-restart|extrasida]]</tw-passagedata><tw-passagedata pid="99" name="död2" tags="Hypnos" position="1200,25" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
 (link:&quot;Jag är i trans&quot;)[Du inser samtidigt att du varit här förut, det är något som är fel.
@@ -905,7 +913,7 @@ Han är nere för att starta det. Efteråt går det att stänga av.
 på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv Personlighets-Strukturering&quot;, en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten &quot;Gör ditt val&quot;, en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
 
 
-(link:&quot;Riv ned affischen&quot;)[(set: $affisch to 1)Du river ned affischen, studerar den noga, det finns en hemsideadress till www.aps-skolfokus.se, du viker ihop den och stoppar den i ryggsäcken. &lt;play-sound name=&quot;pappersark&quot;&gt;&lt;/play-sound&gt;(print: &quot;&lt;write-inventory type=&#39;update&#39;&gt;&quot;)]
+(link:&quot;Riv ned affischen&quot;)[(set: $affisch to 1)Du river ned affischen, studerar den noga, det finns en hemsideadress till www.aps-skolfokus.se, du viker ihop den och stoppar den i ryggsäcken. &lt;play-sound name=&quot;pappersark&quot;&gt;&lt;/play-sound&gt;(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link:&quot;Ta ned affishen v2&quot;)[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.aps-skolfokus.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)&lt;play-sound name=&quot;pappersark&quot;&gt;&lt;/play-sound&gt;&lt;write-inventory type=&#39;update&#39;&gt;]
 [[Gå till vänster-&gt;vänster]]
 [[Gå till höger-&gt;höger]]
