@@ -580,7 +580,7 @@ let _deathcount = ((window.deaths/5)*100).toFixed(0);
 let tmpstate = null;
 if (typeof window.statevar.hypnos !== 'undefined'){
     tmpstate = window.statevar; 
-    console.log("Using state var");
+    console.log("Using state var in scorebar update");
    // console.log(tmpstate.hypnos);   
     _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
     _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.

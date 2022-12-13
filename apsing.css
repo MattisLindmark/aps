@@ -146,6 +146,10 @@ huvud{
   display: block;
   z-index: 4;
 }
+huvud.botten{
+  top:auto;
+  bottom: 0;
+}
 
 borderbar{
   border:1px solid #555!important;
