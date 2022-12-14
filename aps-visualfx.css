@@ -1,6 +1,18 @@
 /*
 Uppdelad för få lite mer överblick.
 */
+.textFX{
+  color: aliceblue;
+  animation: fadeout 3s ease-in-out infinite alternate;
+  animation-delay: 2s;
+  display: inline-block;
+}
+
+@keyframes fadeout{
+  to{
+    opacity: 0;
+  }
+}
 
 .centerVFX{
     display: block;

@@ -35,6 +35,9 @@ function setupGlobals()
   	var _state = require('state');
 	console.log('require state');
 	console.log(_state.variables);
+  	var test = require('utils');
+  	console.log(test);
+  	window.tmptest = test;
 	window.statevar = _state.variables;
 }
 
@@ -47,9 +50,6 @@ setupGlobals();
 document.head.appendChild(script)
 
 vartest();
-
-
-
 
 function vartest()
 {

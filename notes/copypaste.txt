@@ -1,1 +1,136 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+<visual-fx name="hypnos1"></visual-fx>(t8n:"blur")+(t8n-time:3s)[Du sover, men börjar bli medveten om att det är det du gör, du minns inte hur du somnade men du ligger med huvudet vilande på skolbänken. 
+(link:"Jag är medveten om att jag sover")[
+    (if:$död is 5)[Hmmm, det här känns bekant... ]
+    (if:$död is 4)[Inte igen, det här börjar bli sjukt konstigt. ]
+    (if:$död is 3)[Måste vi gå igenom det här en gång till? ]
+
+Men vänta, är du i skolan? Man ska väl inte sova på lektionen? Skulle inte ni ha  någon slags inspirationsföreläsning med klassen idag? Är den redan slut, var den så tråkig så att du somnade?
+
+[[Jag fortsätter sova->Fortsätt sova]]
+(if:(history: where its name contains "biblioteket")'s length is 1)[
+    [[Jag undrar vem det är som pratar med mig->Undrar vem det är som pratar med mig?]]] // END
+
+(if:(history: where its name contains "Undrar vem det är som pratar med mig?")'s length is 1 and  $hypnos is <3)[
+    [[Jag är  less på det här!->Jag är less på det här!]]]
+
+[[Jag försöker vakna->klassrummet]]]]
+
+
+
+
+
+
+
+
+
+----------------
+Korridoren slutar i en ytterdörr, där ser du hur en tjock kedja dragits kring dörrhandtagen och ett stort hänglås förseglar effektivt utgången. Det verkar som om någon antingen vill låsa in er på skolan eller hålla folk utifrån från att komma in.
+(if:(history: where its name contains "biblioteket")'s length is >= 1)
+    [(set: $percentage to (random: 100))
+    
+(if: $percentage > 70)[(go-to: "fotsteg")]]
+
+[[Gå till fiket->fiket]]
+(if:$Personalrum is 0)[
+    (set: $personalrum to (random:0,1))
+    (if:$personalrum is 0)
+        [[Gå till personalrummet->personalrummet]]
+]
+(if:$personalrum is 1)[
+    [[Gå till personalrummet->personalrumsöverraskning]]
+    ](if:$personalrum is 2)[
+        [Gå till personalrummet->personalrummet]
+    ]
+
+
+[[Ta trappan ned till källaren->källaren]]
+[[Jag går tillbaka->korridoren]](set: $tillbaka to "vänster")
+
+
+<svg viewBox="0 0 544 512" width="100" title="highlighter">
+  <path d="M0 479.98L99.92 512l35.45-35.45-67.04-67.04L0 479.98zm124.61-240.01a36.592 36.592 0 0 0-10.79 38.1l13.05 42.83-50.93 50.94 96.23 96.23 50.86-50.86 42.74 13.08c13.73 4.2 28.65-.01 38.15-10.78l35.55-41.64-173.34-173.34-41.52 35.44zm403.31-160.7l-63.2-63.2c-20.49-20.49-53.38-21.52-75.12-2.35L190.55 183.68l169.77 169.78L530.27 154.4c19.18-21.74 18.15-54.63-2.35-75.13z" />
+</svg>
+
+
+----------------
+body{color:#fff; font-family:arial; font-weight:bold; font-size:40px; }
+.main-container{ max-width:600px; margin:0 auto; border:solid 10px green; padding:10px; margin-top:40px;}
+.main-container *{padding:10px;background:#aaa; border:dashed 5px #000;}
+.main-container * + *{margin-top:20px;}
+.main-header{
+  height:50px; background:#aaa; border-color:red;
+}
+.main-content{
+  min-height:1000px;
+}
+
+.main-header{position:-webkit-sticky; position:sticky; top:0;}
+
+------
+(if: $showFooter is 1)[<backpack> 
+(text-style:"subscript")[(text-colour:orange)[___
+(if:$ficklampa is 1)[ Ficklampa 
+](if:$jordnötter is 1)[Jordnötter
+](if:$pendel is 1)[Guldpendel 
+](if:$kniv is 1)[Kökskniv 
+](if:$nyckelknippa is not 0)[Nyckelknippa 
+](if:$affisch is 1)[Affisch 
+](if:$nyckel is 1)[Rektorns nyckel
+(if:$koffein is 1)[Koffeinstinn]]]]</backpack>]
+
+ficklampa
+jordnötter
+pendel
+kniv
+nyckelknippa
+affisch
+nyckel
+koffein
+
+________________________________
+(link:"\"Hallå hallå\" ")[Du hör din röst eka ut i skolkorridoren, men nu då, något roligt kanske?? men vem ska lyssna, alla ligger ju och sover.
+
+(after:10s)[
+    "Vakna, snälla, kan ni vakna"
+    (if:$rädsla is "misslyckande")[Det här skulle kunna ha varit ditt livs värsta, mest pinsamma dag, men nu är det ju ingen som hör...] 
+    Det är som att skolan bli ännu tystare än förut när din röst ekar ut i tomheten.
+]
+(after:20s)[
+    Men så bryts tystnaden av raska fotsteg i korridoren utanför, en nyckel sätts i låset och dörren slås upp. Sören Mesmer stirrar in i dina ögon och grusar alla planer på att fly, du kan inte göra annat än att lyssna på hans röst.
+    ]
+(after:30s)[(goto: "död")]
+
+(if:$hypnos > 3 and (history: where its name contains "biblioteket")'s length is >= 1)[[Jag försöker väcka skolan]]]
+[[Ge upp och gå tillbaka ->rektorsexpeditionen]] 
+
+
+
+
+-------
+
+(if:(history: where its name contains "biblioteket")'s length is 0)[(set: $percentage to (random: 100))(if: $percentage > 85)[(go-to: "rösten")]]
+
+
+Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
+(link:"Jag hör ingenting")[
+    Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad. 
+    (link:"Orättvist")[
+        (if:$populära is 1)[I hörnet sitter populära gänget och sover i en hög.
+    ]
+    [(if:$populära is 0)[I hörnet sitter populära gänget i sina perfekta märkeskläder(if:$kläder is "moderiktiga")[, dina kompisar från paralellklassen. Du önskar de varit vakna för att säga något snällt om din outfit för dagen, vad som helst som fått den här dagen att kännas normal
+
+(link:"Försök väcka mina vänner")
+[Du skakar i dina vänner och viskar förstiktigt till dem att vakna, men istället råkar du putta till din bästis som ramlar ned från stolen och slår hårt i golvet, du skriker till så det ekar i matsalen, hoppas ingen hörde.
+(set: $populära to 1)]](if:$kläder is "bekväma")[ men istället för att glo nedlåtande och skrika kommentarer mot dig när du går förbi sitter de nu lutande mot varandra och dreglar i sömnen. Du tänker på alla gånger de retat dig för att du bara har bekväma mjukisbyxor och sköna tröjor, de ropat äckel efter dig trots att du duschar oftare än dem som bara stinker parfym. Fördelen är att de aldrig kan springa ikapp dig och göra något då du alltid har snabba praktiska gympaskor på dig.
+
+(link:"Hämnas på mobbarna")[Du tar ett glas äppeljuice och häller i grenen på deras perfekta vita byxor. När de vaknar kommer det att se ut som att de kissat på sig i sömnen, rätt åt dem. Om de vaknar, någonsin, hmmm, du borde kanske fokusera på att försöka väcka alla.(set: $populära to 1)]](if:$kläder is "utstickande")[ men istället för att glo nedlåtande och skrika kommentarer på er som går förbi sitter de nu lutande mot varandra och dreglar i sömnen. Du tänker på alla gånger de retat dig för din stil. Ropat att du är konstig, ett freak, att du bara vill ha uppmärksamhet. De fattar ingenting, du mår ju helt enkelt bra av alla färger och mönster, känner dig som dig själv, och ju mer de retar dig för dina kläder desto viktigare känns de för dig
+
+(link:"Hämnas på mobbarna")[Du tar ett glas äppeljuice och häller i grenen på deras perfekta vita byxor. När de vaknar kommer det att se ut som att de kissat på sig i sömnen, rätt åt dem. Om de vaknar, någonsin, hmmm, du borde kanske fokusera på att försöka väcka alla.(set: $populära to 1)]]]]
+(link:"Pranka rektorn")[Du hittar en penna och målar morrhår samt nos på rektorn, då du lyfter huvudet för att komma åt upptäcker du nycklarna som hänger runt halsen.
+(if:$nyckel is 2)[(link:"Ta rektorns nycklar")[Du stoppar rektorns nycklar i ryggsäcken.(set: $nyckel to 1)<play-sound name="pling"></play-sound>]]]
+[[Gå till köket->köket]]
+[[Jag går tillbaka->höger]]]]

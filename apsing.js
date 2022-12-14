@@ -115,7 +115,8 @@ const deathMax = 5; // för att slippa hårdkopda längre ned.
 
 //window.statevar.onValueChange = (event) => {console.log("----------------- State var cganged!");};
 
-
+//window.tmptest.onStartup = (event) => { console.log("==== I AM IN ===");};
+//window.hypnos.onChange = (event) => { console.log("==== I AM IN ===");};
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
     console.log("--- jq fungerar---");

@@ -19,7 +19,8 @@ body {
 
 .splitting .char {
     animation: textFalling 1s cubic-bezier(.68,.02,.81,.5) both;
-    animation-delay: calc(1s + 60ms * var(--char-index));
+    animation-delay: calc(60ms * var(--char-index));
+    /* animation-delay: calc(1s + 60ms * var(--char-index)); */
     display: inline-block;
   }
 
