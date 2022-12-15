@@ -35,10 +35,13 @@ function setupGlobals()
   	var _state = require('state');
 	console.log('require state');
 	console.log(_state.variables);
+  
   	var test = require('utils');
   	console.log(test);
+  
   	window.tmptest = test;
 	window.statevar = _state.variables;
+  
 }
 
 setTimeout(() => {
@@ -142,9 +145,13 @@ test[testar]&lt;test|.
                 ]
 
 
-Återvänd till start? [[gärna det|start]]</tw-passagedata><tw-passagedata pid="4" name="Sidohistoria" tags="" position="1350,150" size="100,100">Denna sida är en sida med en sida vid sidan av sidan.
+Återvänd till start? [[gärna det|start]]</tw-passagedata><tw-passagedata pid="4" name="Sidohistoria" tags="" position="1825,100" size="100,100">Denna sida är en sida med en sida vid sidan av sidan.
 (replace: ?Sidebar)[Detta är sidan som står vid sidan.]
 Tack för visat intresse!
+
+Nu ska vi se om vi kan stoppa in en helt annan passage här nedan.
+
+(display:&quot;visamig&quot;)
 
 [[start]]</tw-passagedata><tw-passagedata pid="5" name="transitions" tags="" position="800,425" size="100,100">Man kan sätta transitions på sidor, man sätter dom på länkarna till sidorna då typ.
 se här:
@@ -443,7 +450,9 @@ Det kan ju vara kul ibland. Kanske. ÅÄö
 --&gt;
 &lt;inventory class=&quot;topLeft&quot;&gt;
 &lt;write-inventory id=&quot;mainInventory&quot;&gt;&lt;/write-inventory&gt;
-&lt;/inventory&gt;</tw-passagedata></tw-storydata>
+&lt;/inventory&gt;</tw-passagedata><tw-passagedata pid="28" name="visamig" tags="" position="1975,375" size="100,100">Här är en fristående sida med en länk till textpåverkan.
+
+[[Textpåverkan]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
