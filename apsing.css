@@ -36,9 +36,13 @@ tw-transition-container{
 */
 
 /*tw-story{background-color: #555;}*/
+tw-sidebar{ 
+  display: none;
+}
 
 @media (min-width: 576px){
-tw-sidebar{ /* display: none; */
+tw-sidebar{ 
+    display: none; 
     text-align: left;
     font-size: 1rem;
     line-height: normal;
