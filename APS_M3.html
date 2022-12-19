@@ -9,7 +9,8 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play APS_M3.</tw-noscript></noscript></tw-story>
-<tw-storydata name="APS_M3" startnode="98" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://mattislindmark.github.io/aps/apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
+<tw-storydata name="APS_M3" startnode="98" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*@import url(https://mattislindmark.github.io/aps/apsing.css);*/
+@import url(apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
 script.src = "apsing.js";
 
 function setupGlobals()
@@ -698,10 +699,12 @@ Ansvarsfull, Produktiv, Snäll. &lt;play-sound name=&quot;lyssna4&quot;&gt;&lt;/
 (link:&quot;Jag ska inspireras&quot;)[Det här är en upplevelse som handlar om DIG, ja precis DU som sitter där.
 Andra Person Singular.
 (link:&quot;Det handlar om mig&quot;)[Bra, nu behöver jag veta vem du är.&lt;play-sound name=&quot;lyssna16&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Mitt namn&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Kläder&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="98" name="Start" tags="" position="50,25" size="200,200">(text-style:&quot;bold&quot;,&quot;emboss&quot;)[&#39;&#39;APS - Andra Person Singular&#39;&#39;]
+(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Mitt namn&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Kläder&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="98" name="Start" tags="" position="75,50" size="200,200">(text-style:&quot;bold&quot;,&quot;emboss&quot;)[&#39;&#39;APS - Andra Person Singular&#39;&#39;]
 
 Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet och sett till att du inte blir störd.
-[[Jag är redo-&gt;Du]]</tw-passagedata><tw-passagedata pid="99" name="död2" tags="Hypnos" position="1200,25" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
+[[Jag är redo-&gt;Du]]
+
+[[debugg]]</tw-passagedata><tw-passagedata pid="99" name="död2" tags="Hypnos" position="1200,25" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
 (link:&quot;Jag är i trans&quot;)[Du inser samtidigt att du varit här förut, det är något som är fel.
 (link:&quot;Jag har varit här förut&quot;)[Du minns vad du varit med om men det är också vagt, som att minnas en dröm.
 (link:&quot;Jag är i en dröm&quot;)[Bit för bit kommer det tillbaka till dig, du var den enda som vaknade, du måste försöka vakna igen!
@@ -879,10 +882,20 @@ Högtalarsystemet är (if:$system is &quot;1&quot;)[(text-colour:green)[på]](if
 
 (link:&quot;Jag går in bland krypen&quot;)[(go-to: &quot;källarröst&quot;)](if:$ficklampa is 1)[
 (link:&quot;Jag tänder ficklampan&quot;)[(go-to: &quot;ficklampa&quot;)]]
-[[Jag går tillbaka-&gt;källaren]]]]]</tw-passagedata><tw-passagedata pid="137" name="debugg" tags="" position="275,1675" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling.
+[[Jag går tillbaka-&gt;källaren]]]]]</tw-passagedata><tw-passagedata pid="137" name="debugg" tags="" position="375,1650" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling.
 
 (link: &quot;affisch +1&quot;)[(set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link: &quot;affisch -1&quot;)[(set: $affisch to 0)(print: &quot;&lt;update-inventory&gt;&quot;)]
+
+(link: &quot;nyckel +1&quot;)[(set: $nyckel to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
+(link: &quot;nyckel -1&quot;)[(set: $nyckel to 0)(print: &quot;&lt;update-inventory&gt;&quot;)]
+
+(link: &quot;hypnos +1&quot;)[(set: $hypnos to it+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
+(link: &quot;hypnos -1&quot;)[(set: $hypnos to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
+(link: &quot;död +1&quot;)[(set: $död to it+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
+(link: &quot;död -1&quot;)[(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
+
+[[Ladda om denna sida|debugg]]
 
 (link: &quot;Reset&quot;)[(reload:)]
 [[Tillbaka till start utan reset|Start]]

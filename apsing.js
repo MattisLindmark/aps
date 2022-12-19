@@ -119,7 +119,7 @@ const deathMax = 5; // för att slippa hårdkopda längre ned.
 //window.hypnos.onChange = (event) => { console.log("==== I AM IN ===");};
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
-    console.log("--- jq fungerar---");
+    console.log("--- jq fungerar---");    
 
 //    if (!window.harlowe) {
         //window.harlowe = {"State": State};
