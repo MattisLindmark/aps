@@ -180,7 +180,7 @@ scorebar{
 
 scorebar.hypno{
   background-color: rgb(148, 217, 44);
-  background: linear-gradient(90deg, rgb(244, 29, 29) 1rem,rgb(246, 253, 66) 5rem, rgba(42,219,32,1) 10rem);
+  /*background: linear-gradient(90deg, rgb(244, 29, 29) 1rem,rgb(246, 253, 66) 5rem, rgba(42,219,32,1) 10rem);*/
   width: var(--hypno-var);
   text-align: left;
   float: left;
@@ -193,7 +193,8 @@ scorebar.hypno{
 }
 scorebar.death{
   width: var(--death-var);
-  background: linear-gradient(90deg, rgb(72, 7, 7) 1rem,rgb(85, 86, 69) 5rem, rgb(244, 29, 29) 10rem);
+  background-color: red;
+/*  background: linear-gradient(90deg, rgb(72, 7, 7) 1rem,rgb(85, 86, 69) 5rem, rgb(244, 29, 29) 10rem);*/
   float: right;
   text-align: right;
 }

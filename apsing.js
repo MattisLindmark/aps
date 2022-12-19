@@ -586,7 +586,7 @@ if (typeof window.statevar.hypnos !== 'undefined'){
     _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
     _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.
 //    console.log("----------------"+_deathcount );
-    r.style.setProperty('--death-var', (100-_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont!
+    r.style.setProperty('--death-var', (_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont! Sätt 100-_deathcount för att få bakvänt som tidigare.
     r.style.setProperty('--hypno-var', _hypnocount+'%');
 } else
 {
