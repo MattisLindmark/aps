@@ -378,13 +378,10 @@ Steg för steg återfår du kontrollen över dig själv.
 (link: &quot;Jag tar passerkort från fikapersonalen&quot;)[Du plockar på dig ett passerkort(set: $nyckelknippa to 1)&lt;play-sound name=&quot;pling&quot;&gt;&lt;/play-sound&gt;]](if:$jordnötter is 1 and $allergi is 1)[
 [[Jag stoppar jordnötter i alla chokladbollar och gömmer mig]]]
 (link:&quot;Jag spelar fotbollsspel&quot;)[Du spelar en match mot dig själv och vinner stort, om du bara haft någon att spela med, men alla sover.]
-[[Jag går tillbaka-&gt;vänster]] </tw-passagedata><tw-passagedata pid="58" name="rösten" tags="" position="450,550" size="100,100">&lt;play-music name=&quot;skuggan5&quot;&gt;&lt;/play-music&gt;Precis då du ska öppna dörren hoppar du till då du hör skolans högtalarsystem spraka till och en röst börjar tala.
+[[Jag går tillbaka-&gt;vänster]] </tw-passagedata><tw-passagedata pid="58" name="rösten" tags="" position="450,525" size="100,100">(set: $rösten to $rösten + 1)&lt;play-music name=&quot;skuggan5&quot;&gt;&lt;/play-music&gt;Precis då du ska öppna dörren hoppar du till då du hör skolans högtalarsystem spraka till och en röst börjar tala.
 
-(link-reveal-goto: &quot;Lyssna på rösten&quot;, &quot;sov&quot;)[(dialog:&quot;En hypnotisk mässande röst ekar ut över hela skolan, när du väl börjat lyssna går det inte att sluta!&quot;)]
-(link-reveal-goto: &quot;Håll för öronen&quot;, &quot;vänster&quot;)[(dialog:&quot;Du pressar händerna över öronen för att hålla rösten ute, försöker febrilt tänka på något annat för att inte höra ett ord den säger. 
-$fika, $fika, $fika
-Äntligen tystnar den och du vågar ta bort händerna från öronen igen.&quot;)]
-(set: $rösten to $rösten + 1)</tw-passagedata><tw-passagedata pid="59" name="personalrumsöverraskning" tags="" position="975,750" size="100,100">(set: $personalrum to 2)&lt;play-music name=&quot;skuggan1&quot;&gt;&lt;/play-music&gt;Du kommer in i det heligaste, lärarnas hemliga krypin.
+[[Jag lyssnar på rösten-&gt;lyssna på rösten]]
+[[Jag håller för öronen-&gt;håll för öronen]]</tw-passagedata><tw-passagedata pid="59" name="personalrumsöverraskning" tags="" position="975,750" size="100,100">(set: $personalrum to 2)&lt;play-music name=&quot;skuggan1&quot;&gt;&lt;/play-music&gt;Du kommer in i det heligaste, lärarnas hemliga krypin.
 Plötsligt hör du steg ute i korridoren, någon är på väg hit.
 [[Jag gömmer mig under soffan]]
 [[Jag springer ut genom dörren]]
@@ -543,16 +540,17 @@ Undrar om det är det tillståndet som gör att din hand nu, liksom av sig själ
 (link:&quot;Varför pratar du med mig?&quot;)[Jag har valt ut just dig, för att du ska kunna stoppa honom, det är därför jag vill att du ska vakna!
 
 [[Jag vill fortsätta sova-&gt;Fortsätt sova]] 
-[[Vakna-&gt;klassrummet]]]]]</tw-passagedata><tw-passagedata pid="80" name="Undrar vem det är som pratar med mig?" tags="Hypnos" position="800,275" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Jag undrade just när vi skulle komma hit, ville vänta på att du ställde frågan, det blir enklare så. Var ska vi börja?
+[[Vakna-&gt;klassrummet]]]]]</tw-passagedata><tw-passagedata pid="80" name="Undrar vem det är som pratar med mig?" tags="Hypnos" position="800,275" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Jag undrade just när vi skulle komma hit, jag ville vänta på att du ställde frågan, det blir enklare så. Var ska vi börja?
 (link:&quot;Var vi är någonstans?&quot;)[Bra fråga, vi befinner oss i det undermedvetna, djupt i våra hjärnors mörkaste veck, där vi drömmer och fantiserar. 
 (link:&quot;Är det här en dröm?&quot;)[Nej, den verkliga världen finns fortfarande därute, där ligger du och sover i ditt klassrum och jag försöker väcka dig.
 (link:&quot;Varför vill du väcka mig?&quot;)[Så länge du är i den hypnotiska sömnen kan Sören programmera om dig till mönsterelev, jag vill att du ska vara fri.
 (link:&quot;Men vem är du?&quot;)[Precis som att du är fast i ditt eget undermedvetna är jag fast i någon annans huvud, jag är ett överjag.
-(link:&quot;Vad är ett överjag?&quot;)[Ett samvete som tryckts undan djupt ned för att tillåta det medvetna jaget att utföra fruktansvärda handlingar. Som att hjärntvätta barn. Kan du gissa vem jag är?
-(link:&quot;Jag tror att du är Sören Mesmer!&quot;)[Exakt, jag är Sörens överjag som försöker stoppa honom, men jag är fast här inne i hans huvud, det är därför jag behöver din hjälp.
-(link:&quot;Hur kan jag hjälpa dig?&quot;)[Om du vaknar och tar kontroll över din kropp kan jag fortsätta guida dig genom skolan. Men du måste hitta din egen lösning.
-(link:&quot;Vad kan jag göra?&quot;)[Du kan välja att slutgiltigt [[somna om-&gt;slutet där alla förblir hypnotiserade]] för att vakna omprogrammerad utan minne av det här.
-Eller så kan du [[vakna!-&gt;klassrummet]] och hitta ett sätt att besegra honom.
+(link:&quot;Vad är ett överjag?&quot;)[Ett samvete som hindrar en person från att utföra fruktansvärda handlingar, som att hjärntvätta barn. Kan du gissa vem jag är?
+(link:&quot;Jag tror att du är Sören Mesmer!&quot;)[Exakt, jag är Sörens överjag, men han har tryckt undan mig, fängslat mig i sitt eget undermedvetna. 
+Det är därför jag behöver din hjälp att stoppa honom.
+(link:&quot;Hur kan jag hjälpa dig?&quot;)[Jag kan använda den lilla kraft jag har för att väcka din sovande kropp och guida den genom skolan. Men det måste vara ditt val.
+(link:&quot;Vad kan jag välja mellan?&quot;)[Du kan välja att [[somna om-&gt;Slutet där alla förblir hypnotiserade]] en sista gång för att vakna omprogrammerad utan minne av det här.
+Eller så kan du [[vakna!-&gt;klassrummet]] och hitta ett sätt att besegra Sören Mesmer. Men han, jag, kommer att göra allt för att hindra dig. 
 (if:visits &lt;= 1)[(set: $hypnos to $hypnos +1)(set: $progression to $progression +1)]]]]]]]]]</tw-passagedata><tw-passagedata pid="81" name="Unikt spelintro" tags="" position="2225,150" size="100,100">$[]$[]$[]
 
 
@@ -711,7 +709,8 @@ Ansvarsfull, Produktiv, Snäll. &lt;play-sound name=&quot;lyssna4&quot;&gt;&lt;/
 (link:&quot;Jag ska inspireras&quot;)[Det här är en upplevelse som handlar om DIG, ja precis DU som sitter där.
 Andra Person Singular.
 (link:&quot;Det handlar om mig&quot;)[Bra, nu behöver jag veta vem du är.&lt;play-sound name=&quot;lyssna16&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Mitt namn&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Kläder&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="98" name="Start" tags="" position="50,25" size="200,200">(text-style:&quot;bold&quot;,&quot;emboss&quot;)[&#39;&#39;APS - Andra Person Singular&#39;&#39;]
+(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Mitt namn&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Kläder&quot;)]]]]]]]]]</tw-passagedata><tw-passagedata pid="98" name="Start" tags="" position="50,25" size="200,200">&lt;play-music name=&quot;skuggan0&quot;&gt;&lt;/play-music&gt;(text-style:&quot;bold&quot;,&quot;emboss&quot;)[&#39;&#39;APS - Andra Person Singular&#39;&#39;]
+Det här är ett spel som handlar om dig, det kräver att du läser text och lyssnar uppmärktsamt.
 
 Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet och sett till att du inte blir störd.
 
@@ -927,7 +926,11 @@ Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på]](if:$system is 
 
 (link-goto: &quot;Tillbaka till där du var i spelet&quot;, (history:)&#39;s last)</tw-passagedata><tw-passagedata pid="139" name="utrop" tags="" position="1450,875" size="100,100">Din röst ekar ut genom de tomma korridorerna helt utan effekt, du behöver kanske säga något särskilt? (If: $rädsla is &quot;misslyckande&quot;)[Du har misslyckats, du känner dig värdelös och livrädd]
 (after:7s)[&lt;play-sound name=&quot;fotsteg&quot;&gt;&lt;/play-sound&gt;Plötsligt hör du steg bakom dig, dörren öppnas och Sören Mesmer börjar tala till dig
-(link:&quot;Jag kan inte stå emot&quot;)[(go-to:&quot;sov&quot;)]]</tw-passagedata><tw-passagedata pid="140" name="Passage utan namn 1" tags="" position="1500,1375" size="100,100"></tw-passagedata><tw-passagedata pid="141" name="slutet där alla förblir hypnotiserade" tags="" position="675,650" size="100,100"></tw-passagedata></tw-storydata>
+(link:&quot;Jag kan inte stå emot&quot;)[(go-to:&quot;sov&quot;)]]</tw-passagedata><tw-passagedata pid="140" name="Passage utan namn 1" tags="" position="1500,1375" size="100,100"></tw-passagedata><tw-passagedata pid="141" name="lyssna på rösten" tags="" position="575,475" size="100,100">En hypnotisk mässande röst ekar ut över hela skolan, när du väl börjat lyssna går det inte att sluta!
+[[Jag kan inte stå emot!-&gt;sov]]</tw-passagedata><tw-passagedata pid="142" name="håll för öronen" tags="" position="575,575" size="100,100">Du pressar händerna över öronen för att hålla rösten ute, försöker febrilt tänka på något annat för att inte höra ett ord den säger. 
+(link:&quot;Jag försöker tänka på något annat!&quot;)[$fika, $fika, $fika säger du tyst för dig själv.
+Äntligen tystnar den och du vågar ta bort händerna från öronen.
+[[Jag klarade mig!-&gt;$tillbaka]]]</tw-passagedata><tw-passagedata pid="143" name="$tillbaka" tags="" position="700,700" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
