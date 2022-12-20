@@ -292,7 +292,7 @@ Du hittar en video, någon slags avslappningsövning och en särskild flik för 
 &lt;score-bar type=&quot;b&quot;&gt;&lt;/score-bar&gt;&lt;score-bar type=&quot;a&quot;&gt;&lt;/score-bar&gt;\
 &lt;/span&gt;\
 &lt;/huvud&gt;\
-&lt;play-sound name=&quot;stop&quot;&gt;&lt;/play-sound&gt;</tw-passagedata><tw-passagedata pid="36" name="Slutet där alla förblir hypnotiserade" tags="slut" position="900,1125" size="100,100">Du vaknar upp, och ser klassen runt omkring dig vakna, shit vilken tråkig föreläsning det måste ha varit om alla somnade.  
+&lt;play-sound name=&quot;stop&quot;&gt;&lt;/play-sound&gt;</tw-passagedata><tw-passagedata pid="36" name="Slutet där alla förblir hypnotiserade" tags="slut" position="900,1100" size="100,100">Du vaknar upp, och ser klassen runt omkring dig vakna, shit vilken tråkig föreläsning det måste ha varit om alla somnade.  
 (link:&quot;Jag måste ha somnat&quot;)[Du försöker minnas vad den handlade om men det är svårt att fånga minnet i tanken, som att det långsamt glider längre och längre bort ifrån dig.
 (link:&quot;Jag minns inte&quot;)[Jag, Sören Mesmer, jag som pratade med er, mig minns du, du skulle lyssna noga, följa mina instruktioner, jag står nu framför er och bugar, ser glad ut, så du antar att du lyssnade noga. Det känns bra, du tycker om att lyssna noga och följa instruktioner.
 (link:&quot;Jag lyssnar och följer instruktioner&quot;)[Din lärare ställer sig upp och säger &quot;Ska vi inte ge honom en stor applåd&quot; och du ställer dig upp tillsammans med alla dina klasskamrater ni applåderar glatt.
@@ -543,10 +543,17 @@ Undrar om det är det tillståndet som gör att din hand nu, liksom av sig själ
 (link:&quot;Varför pratar du med mig?&quot;)[Jag har valt ut just dig, för att du ska kunna stoppa honom, det är därför jag vill att du ska vakna!
 
 [[Jag vill fortsätta sova-&gt;Fortsätt sova]] 
-[[Vakna-&gt;klassrummet]]]]]</tw-passagedata><tw-passagedata pid="80" name="Undrar vem det är som pratar med mig?" tags="Hypnos" position="800,275" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Jag undrade just själv när du skulle fråga det, jag tänkte att det var bäst att vänta tills du ställde frågan, det blir lättare att förklara då. 
-(link:&quot;Vad är det här för plats?&quot;)[Bra fråga, jag är själv lite osäker men har förstått det som att vi befinner oss i det undermedvetna, en plats bortom den verkliga världen, dold djupt i våra hjärnors mörkaste veck. En plats som påminner om verkligheten men där tid och rum beter sig annorlunda. Du förstår, den verkliga världen finns fortfarande därute, och det är den jag berättar för dig om, där ligger du och sover i ditt klassrum och jag försöker väcka dig, försöker få dig att förhindra det förfärliga som hänt och hitta ett sätt att väcka resten av skolan.]
-(link:&quot;Vem är du?&quot;)[Precis som att du är ditt eget undermedvetna är jag någon annans undermedvetna, eller en del av det, mitt medvetna jag är där ute, i verkligheten och gör fruktansvärda saker. Du kanske kan säga att jag är samvetet, den delen av mig som inte står ut med vad jag håller på med, och försöker förhindra det, men jag har inte kontroll över mig själv, vilket du har. Det är därför jag behöver din hjälp för att utföra handlingar, göra val och agera i den verkliga världen.]
-(link:&quot;Vad händer nu?&quot;)[Ja det är helt upp till dig, du kan förstås [[fortsätta sova-&gt;Fortsätt sova]] ihop med resten av din skola och strunta i vad som händer därute i den medvetna verkliga världen. Eller så kan du [[VAKNA!-&gt;klassrummet]] och försöka hitta ett sätt att väcka resten av skolan!](if:visits &lt;= 1)[(set: $hypnos to $hypnos +1)](set: $progression to $progression +1)</tw-passagedata><tw-passagedata pid="81" name="Unikt spelintro" tags="" position="2225,150" size="100,100">$[]$[]$[]
+[[Vakna-&gt;klassrummet]]]]]</tw-passagedata><tw-passagedata pid="80" name="Undrar vem det är som pratar med mig?" tags="Hypnos" position="800,275" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Jag undrade just när vi skulle komma hit, ville vänta på att du ställde frågan, det blir enklare så. Var ska vi börja?
+(link:&quot;Var vi är någonstans?&quot;)[Bra fråga, vi befinner oss i det undermedvetna, djupt i våra hjärnors mörkaste veck, där vi drömmer och fantiserar. 
+(link:&quot;Är det här en dröm?&quot;)[Nej, den verkliga världen finns fortfarande därute, där ligger du och sover i ditt klassrum och jag försöker väcka dig.
+(link:&quot;Varför vill du väcka mig?&quot;)[Så länge du är i den hypnotiska sömnen kan Sören programmera om dig till mönsterelev, jag vill att du ska vara fri.
+(link:&quot;Men vem är du?&quot;)[Precis som att du är fast i ditt eget undermedvetna är jag fast i någon annans huvud, jag är ett överjag.
+(link:&quot;Vad är ett överjag?&quot;)[Ett samvete som tryckts undan djupt ned för att tillåta det medvetna jaget att utföra fruktansvärda handlingar. Som att hjärntvätta barn. Kan du gissa vem jag är?
+(link:&quot;Jag tror att du är Sören Mesmer!&quot;)[Exakt, jag är Sörens överjag som försöker stoppa honom, men jag är fast här inne i hans huvud, det är därför jag behöver din hjälp.
+(link:&quot;Hur kan jag hjälpa dig?&quot;)[Om du vaknar och tar kontroll över din kropp kan jag fortsätta guida dig genom skolan. Men du måste hitta din egen lösning.
+(link:&quot;Vad kan jag göra?&quot;)[Du kan välja att slutgiltigt [[somna om-&gt;slutet där alla förblir hypnotiserade]] för att vakna omprogrammerad utan minne av det här.
+Eller så kan du [[vakna!-&gt;klassrummet]] och hitta ett sätt att besegra honom.
+(if:visits &lt;= 1)[(set: $hypnos to $hypnos +1)(set: $progression to $progression +1)]]]]]]]]]</tw-passagedata><tw-passagedata pid="81" name="Unikt spelintro" tags="" position="2225,150" size="100,100">$[]$[]$[]
 
 
 Testa prata direkt till dig som spelar spelet.Du sitter i ditt klassrum med alla dina kamrater
@@ -920,7 +927,7 @@ Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på]](if:$system is 
 
 (link-goto: &quot;Tillbaka till där du var i spelet&quot;, (history:)&#39;s last)</tw-passagedata><tw-passagedata pid="139" name="utrop" tags="" position="1450,875" size="100,100">Din röst ekar ut genom de tomma korridorerna helt utan effekt, du behöver kanske säga något särskilt? (If: $rädsla is &quot;misslyckande&quot;)[Du har misslyckats, du känner dig värdelös och livrädd]
 (after:7s)[&lt;play-sound name=&quot;fotsteg&quot;&gt;&lt;/play-sound&gt;Plötsligt hör du steg bakom dig, dörren öppnas och Sören Mesmer börjar tala till dig
-(link:&quot;Jag kan inte stå emot&quot;)[(go-to:&quot;sov&quot;)]]</tw-passagedata></tw-storydata>
+(link:&quot;Jag kan inte stå emot&quot;)[(go-to:&quot;sov&quot;)]]</tw-passagedata><tw-passagedata pid="140" name="Passage utan namn 1" tags="" position="1500,1375" size="100,100"></tw-passagedata><tw-passagedata pid="141" name="slutet där alla förblir hypnotiserade" tags="" position="675,650" size="100,100"></tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
