@@ -5,6 +5,7 @@
 // MUSIK setup
 var musicScores = [
     { name:"skugganhypno", value:"skuggan_hypnos_low.mp3"},
+    { name:"skuggan0", value:"skuggan0.mp3"},
     { name:"skuggan1", value:"skuggan1_lvol.mp3"},
     { name:"skuggan2", value:"skuggan2.mp3"},
     { name:"skuggan3", value:"skuggan3.mp3"},
