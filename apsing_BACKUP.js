@@ -3,14 +3,11 @@
 // MUSIK setup
 var musicScores = [
     { name:"skugganhypno", value:"skuggan_hypnos_low.mp3"},
-    { name:"skuggan0", value:"skuggan0.mp3"},
     { name:"skuggan1", value:"skuggan1_lvol.mp3"},
     { name:"skuggan2", value:"skuggan2.mp3"},
     { name:"skuggan3", value:"skuggan3.mp3"},
     { name:"skuggan4", value:"skuggan4.mp3"},
-    { name:"skuggan5", value:"skuggan5.mp3"},
-    { name:"test", value:"looptest.mp3"}
-
+    { name:"skuggan5", value:"skuggan5.mp3"}
 ]
 /*
 const url = "lonlyspace.mp3";
@@ -20,7 +17,6 @@ const url4 =  "../assets/music/skuggan_hypnos_low.mp3";
 const url5 = "../assets/music/skuggan1_lvol.mp3";
 */
 var music = new Audio();
-music.loop = true;
 const musicBaseUrl = "./assets/music/";
 //const URLs = [url,url2,url3,url4,url5];
 //music.src = URLs[0];
