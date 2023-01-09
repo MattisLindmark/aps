@@ -1,10 +1,15 @@
 /*
 Uppdelad för få lite mer överblick.
 */
-.textFX{
+.textFXfade{
   color: aliceblue;
   animation: fadeout 3s ease-in-out infinite alternate;
-  animation-delay: 2s;
+  animation-delay: calc(1000ms* var(--rnd-value));
+  display: inline-block;
+}
+.textFXfade.freeze{
+  animation: fadeout 3s ease-in-out forwards;
+  animation-delay: calc(1000ms* var(--rnd-value));
   display: inline-block;
 }
 
@@ -12,6 +17,22 @@ Uppdelad för få lite mer överblick.
   to{
     opacity: 0;
   }
+}
+
+.textFXfall {
+  animation: textFalling 1s cubic-bezier(.68,.02,.81,.5) both;
+  animation-delay: calc(600ms * var(--rnd-value));
+  /* animation-delay: calc(1s + 60ms * var(--char-index)); */
+  display: inline-block;
+}
+@keyframes textFalling{
+  to{
+      translate: 0px 500px;
+      opacity: 0;
+  }
+}
+.inOrder {
+  animation-delay: calc(600ms * var(--index-value));
 }
 
 VFXBgrBox{

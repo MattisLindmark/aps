@@ -5,17 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="/apsing.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="textanimTMP.js"></script>
     <title>Document</title>
 </head>
 <body>
 <tw-story>
-   <hejsan>hej, denna text bör splittas och sedan fadea ut lixom.</hejsan><br>
+   <splittarget>hej, denna text bör splittas och sedan fadea ut lixom.</splittarget><br>
    <zapp>Nu har vi en zapp-fx som kappar.</zapp><br>
-   <my-taggg> hejj, denna text bör ej splittas och sedan fadea ut lixom.</my-taggg>
+   <text-fx typ="textFXfade inOrder"> Hej, detta är exempel på fadea mellan taggarna. <br> med ny rad.</text-fx>
+   <br>
+   <div id="splitme">Denna ska fadea ut och sen inte synas mer.</div>
+   <div class="textFXfade"> hejsan svejsan</div>
+   <text-fx typ="textFXfade" target="zapp">vad tusan.</text-fx>
+   <text-fx typ="textFXfade freeze" target="splitme"></text-fx>
+   <text-fx typ="textFXfall" target="splittarget"></text-fx>
+   <splittarget><br>Den tar bara första elementet.</splittarget>
     <br>
-    <div class="textFX"> hejsan svejsan</div>
-    <my-taggg typ="textFX" target="zapp">vad tusan.</my-taggg>
+    
 </tw-story>
+<script src="textanimTMP.js"></script>
 </body>
 </html>

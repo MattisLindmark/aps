@@ -19,17 +19,8 @@ function testarProxy(){
 }
 */
 
-class MyTag extends HTMLElement {
-    // constructor(){
-    //     super();
-    //     const template = document.createElement("template");
-    //     console.log("from tagg construktor "+this);
-    // }
+class TextFX extends HTMLElement {
     connectedCallback() {
-        //console.log("tja"+this.innerHTML);
-        //console.log(JSON.stringify(this));
-        //this.innerHTML = `<p>Custom tagg här!</p> `;
-        //this.style.color = "red";
         var typ = "default_type";
         var target = "default_target";
         try{
@@ -39,45 +30,68 @@ class MyTag extends HTMLElement {
         catch{
         }
 
-        /*==== detta fungerar om man vill använda inner HTML.
+        /*==== detta fungerar om man vill använda inner HTML. 
+        // (anledningen till att det ej funkar är om JavaScriptet anropas i headern, då har ej This lästs in typ.)
         setTimeout(() => {
             SplitByBlank(this);
           }, 100)
           */
-        SetupTextFX(typ,target);
+        SetupTextFX(this,typ,target);
     }
 }
 
-customElements.define('my-taggg', MyTag);
+customElements.define('text-fx', TextFX);
 
 
-function SetupTextFX(typ,target)
+function SetupTextFX(callerElement, typ,target)
 {
+    var tmptmp = callerElement.innerHTML;
     typ = (typ=="default_type")?"textFX":typ;
-    target = (target=="default_target")?"hejsan":target;
+    target = (target=="default_target")?"self":target;
 //    let tmp = 'Typ och target är ${typ} och ${target}';
-    let tmp = ['typ och target är ',typ,target].join(" ");
-    console.log(tmp);
+//    let tmp = ['typ och target är ',typ,target].join(" ");
+//    console.log(tmp);
 
-    myElement = document.querySelector(target);
+    myElement = document.querySelector(target);   
+    
+    if (myElement == null){
+        myElement = document.querySelector("#"+target);
+    }
+    
+    if (target == "self" && myElement == null)
+    {
+        myElement = callerElement;
+        console.log("Self is triggeredd "+tmptmp);
+    }
+    
     if (myElement == null){
         console.log ("TextFX called with invalid target.");
         return;
     }
     
     let text = myElement.innerHTML;
+    text = text.replace(/<br>/g, " ¤ ");
     let textArray = text.split(" ");
     let replacementStr= "";
-
+let index = 0;
     textArray.forEach(element => {
+        index++;
         let rnd = Math.random() * 3;
-        replacementStr +="<div class='"+typ+"' style='animation-delay:"+rnd+"s'>"+element+"</div>";
+        if (element == "¤"){
+            replacementStr +="<br>";
+        }
+        else{        
+//        replacementStr +="<span class='"+typ+"' style='animation-delay:"+rnd+"s'>"+element+"</span>";
+        replacementStr +="<span class='"+typ+"' style='--rnd-value:"+Math.random()*3+"; --index-value:"+index+";'>"+element+"</span>";
+//        replacementStr +="<span class='"+typ+"'>"+element+"</span>";
         replacementStr += "&nbsp;";
+        }
     });
     myElement.innerHTML = replacementStr+"<br>";
     
 }
 
+/*
 function SplitByBlank(myElement)
 {
    // myElement = document.querySelector('hejsan');
@@ -94,3 +108,4 @@ function SplitByBlank(myElement)
     myElement.innerHTML = replacementStr+"<br>";
 
 }
+*/
