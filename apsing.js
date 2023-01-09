@@ -88,15 +88,19 @@ var FXsounds = [
 const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
+// == OBS angåengde inventoryList:
+// name - ska stämma med variabelns namn. Icon ska stämma med filnamnet. Value hämtas och säts från värdet i twine storyn när den körs.
+// tooltip: Vad som visas on mouse over. Om det ej är satt används name. Dvs sätt tooltip om beskrivningen som visas ska skilja från vad variabeln/name är.
+// 
 var inventoryList =[
-    { name:"ficklampa", icon:"icon_ficklampa.png", value: 0},
-    { name:"nyckel", icon:"icon_nyckel.png", value: 0},
-    { name:"pendel", icon:"icon_pendel.png",value: 0},
-    { name:"jordnötter", icon:"icon_jordnotter.png",value: 0},
-    { name:"kniv", icon:"icon_kniv.png",value: 0},
-    { name:"affisch", icon:"icon_affisch.png",value: 0},
-    { name:"koffein", icon:"icon_koffein.png",value: 0},
-    { name:"nyckelknippa", icon:"icon_nyckelknippa.png",value: 0}
+    { name:"ficklampa", tooltip:"", icon:"icon_ficklampa.png", value: 0},
+    { name:"nyckel", tooltip:"", icon:"icon_nyckel.png", value: 0},
+    { name:"pendel", tooltip:"", icon:"icon_pendel.png",value: 0},
+    { name:"jordnötter", tooltip:"", icon:"icon_jordnotter.png",value: 0},
+    { name:"kniv", tooltip:"", icon:"icon_kniv.png",value: 0},
+    { name:"affisch", tooltip:"", icon:"icon_affisch.png",value: 0},
+    { name:"koffein", tooltip:"", icon:"icon_koffein.png",value: 0},
+    { name:"nyckelknippa", tooltip:"passerkort", icon:"icon_nyckelkort.png",value: 0}
 ]
 
 // === startup setup typ ===
@@ -590,13 +594,14 @@ function HandleVisualFX(myElement, myName)
         var content = '<div class="circles one"></div><div class="circles three"></div><div class="circles five"></div><div class="circles seven"></div><div class="circles nine"></div>';
 //        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
         content += contentEndloop;
+//        myElement.innerHTML = "<VFXBgrBox><div>"+content+"</div></VFXBgrBox>";
         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
 
         let moveMe = myElement;
         moveMe.attributes.name.value = 'undefined'; // <-- Före elementet flyttas till story (med appendChild). För att undvika att hypnos-effekten triggas igen i en loop. Alternativ vore att ignorera callbacks för story element, osäker om det skulle funka dock.
         let moveTo = document.querySelector("tw-story");
         if (moveTo != null)
-            moveTo.appendChild(moveMe);
+            moveTo.prepend(moveMe);
 
     }
 }
@@ -682,7 +687,8 @@ function printInventory(myElement)
     let aktiva = inventoryList.filter(p => p.value > 0);
     aktiva.forEach(element => {
 //        console.log(element.name +" Ska vara över 0 "+element.value);
-        contentHTML += "<div class='symbol'><img src='./assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
+        let tooltip = (element.tooltip.length>1)?element.tooltip:element.name;
+        contentHTML += "<div class='symbol'><img src='./assets/icons/"+element.icon+"'><div class='tooltip'>"+tooltip+"</div></div>"
     });
     myElement.innerHTML = contentHTML;
 }
