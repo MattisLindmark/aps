@@ -1,16 +1,21 @@
 /*
 Uppdelad för få lite mer överblick.
 */
-.textFXfade{
-  color: aliceblue;
-  animation: fadeout 3s ease-in-out infinite alternate;
-  animation-delay: calc(1000ms* var(--rnd-value));
+.testTextFx{
+  opacity: var(--rnd-value);
+  color: hsl(calc(10*var(--index-value)), 100%, 50%);
   display: inline-block;
 }
-.textFXfade.freeze{
-  animation: fadeout 3s ease-in-out forwards;
-  animation-delay: calc(1000ms* var(--rnd-value));
+
+.textFXfade{
+  animation: fadeout 3s ease-in-out infinite alternate;
+  animation-delay: calc(800ms* var(--rnd-value));
   display: inline-block;
+}
+.freeze{
+  animation: fadeout 3s ease-in-out forwards;
+  animation-delay: calc(800ms* var(--rnd-value));
+/*  display: inline-block;*/
 }
 
 @keyframes fadeout{

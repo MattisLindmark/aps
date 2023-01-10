@@ -124,6 +124,83 @@ En annan "bugg" är att död-siffran ej syns när värdet är 5 (dvs start-värd
 ---
 <br>
 
+## Text-FX
+Det går nu att lägga till några text-effekter med taggen text-fx följt av typ.
+* Taggen är `<text-fx type="cssTypen" target="ID eller element">`
+* type måste överensstämma med någon lämplig CSS klass, kan vara flera.
+* Target kan användas för att rikta effekten på innehållet mellan antingen egna element eller div/span med unikt ID.
+* Target fångar enast upp första elementet/IDt av den typen på sidan.
+* Utelämna target för att påverka texten mellan de egna text-fx taggarna.
+
+**Typer att använda**
+* textFXfade - fade ut och in i slump ordning.
+* textFXfall - orden faller ned.
+* freeze - läggs till textFXfade för att fadea ut och stanna dolda.
+* inOrder - läggs till för att falla eller fadea i ordning, ej slump.
+
+**exempel:**
+```html
+<text-fx type="textFXfade">Orden i denna text fadear in och ut i slumpmässig ordning.</text-fx>
+
+<text-fx type="textFXfade freeze">Orden i denna text fadear ut i slumpmässig ordning och förblir gömda.</text-fx>
+
+<text-fx type="textFXfade freeze inOrder">Orden i denna text fadear ut i följd och förblir gömda.</text-fx>
+
+<text-fx type="textFXfall inOrder">Orden i denna text faller i följd.</text-fx>
+
+<text-fx type="textFXfall">Orden i denna text faller i slumpmässig ordning.</text-fx>
+```
+
+**Exempel med target:**
+```html
+<span id="mittUnikaID">Denna text påverkas av text-fx taggen nedan.</span>
+Denna text påverkas inte av någonting.
+<HeltEgenTagg> Denna text påverkas av en annan effekt nedan.</HeltEgenTagg>
+<text-fx type="textFXfade" target="mittUnikaID">
+<text-fx type="textFXfall inOrder" target="HeltEgenTagg">
+
+```
+
+**Under Huven**  
+Taggen skickar typ och target, saknas typ sätts den till textFX (som inte finns). Saknas Target sätts den till self.
+Sciptet plockar in texten från elementet (som antingen är target eller egna elmentet).
+Scriptet delar upp orden, gör lite trix med `<br>` taggar etc.
+Orden lopas igenom och får en `<span>` av klassen typ. Den skickar också in css variabler för random värde och index (ordning) som kan användas i CSS klassen, se nedan.
+Texten i elementet ersätts med nya varrianten där varje ord är inkapslat i ett span.
+Sedan är det upp till CSS klassen vad som händer.
+
+**För att skapa ytterligare effekter:**  
+* Skapa en lämplig CSS klass med lite trix.
+* Använd klassens namn som type.
+* Se aps-visualfx.css hur textFXfade och textFXfall är gjorda.
+
+> CSS variabler som genereras:  
+--rnd-value - Ett slumpmässigt värde (just nu mellan 0 och 3, kan ändas senare).  
+--index-value - vilket nummer i ordningen ordet har. börjar på 1.
+
+**exempel css klass**  
+```
+.testTextFx{
+  opacity: var(--rnd-value);
+  color: hsl(calc(10*var(--index-value)), 100%, 50%);
+  display: inline-block;
+}
+```
+Används så här:
+```
+<text-fx type="testTextFx">Orden i denna text får statisk slumpmässig opacitet och ett färgvärde som ändras beroende på var i ordningen orset står.</text-fx> <br>
+```
+
+>**ToDo**
+>* Lägg till möjlighet att påverka hastighet av olika slag?
+>* Möjlighet att påverka totala fördröjningen innan den startar.
+>* Behövs möjlighet att dela upp i bokstäver istället för hela ord?
+
+
+
+---
+<br>
+
 ## Ljud och musik
 Inget har förändrats i hur ljud och musik spelas. Skriver in i denna dokumentation senare.
 

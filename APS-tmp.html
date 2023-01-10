@@ -9,7 +9,8 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play APS.</tw-noscript></noscript></tw-story>
-<tw-storydata name="APS" startnode="98" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://mattislindmark.github.io/aps/apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
+<tw-storydata name="APS" startnode="98" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*@import url(https://mattislindmark.github.io/aps/apsing.css);*/
+@import url(./apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
 script.src = "apsing.js";
 
 function setupGlobals()
@@ -617,15 +618,17 @@ Läser inte texten dpå valen kommit, kanske delaya dem eller klicka fram dem</t
 (link:&quot;Jag lyssnar&quot;)[(go-to: &quot;Lyssna&quot;)]]]
 ]]
 
-</tw-passagedata><tw-passagedata pid="84" name="Lyssna" tags="Hypnos" position="425,250" size="100,100">Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.
+</tw-passagedata><tw-passagedata pid="84" name="Lyssna" tags="Hypnos" position="425,250" size="100,100">&lt;span id=&quot;remove&quot;&gt;Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.&lt;/span&gt;
 
-(link:&quot;Jag följer&quot;)[Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.
+(link:&quot;Jag följer&quot;)[&lt;span id=&quot;remove1&quot;&gt;Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.&lt;/span&gt;&lt;text-fx type=&quot;textFXfade freeze inOrder&quot; target=&quot;remove&quot;&gt;&lt;/text-fx&gt;
 
-(link:&quot;Jag fokuserar&quot;)[Med ögonen öppna och uppmärksamma dig själv på hur din mun kanske slappnat av, öppnat sig. 
+(link:&quot;Jag fokuserar&quot;)[&lt;span id=&quot;remove2&quot;&gt;Med ögonen öppna och uppmärksamma dig själv på hur din mun kanske slappnat av, öppnat sig.&lt;/span&gt;   &lt;text-fx type=&quot;textFXfade freeze&quot; target=&quot;remove1&quot;&gt;&lt;/text-fx&gt;
 
-(link:&quot;Jag är stilla&quot;)[Hur DU faller djupare och djupare NED i ett koncentrerat tillstånd som jag har givit dig att släppa allt.
+(link:&quot;Jag är stilla&quot;)[&lt;span id=&quot;remove3&quot;&gt;Hur DU faller djupare och djupare NED i ett koncentrerat tillstånd som jag har givit dig att släppa allt.&lt;/span&gt;
+&lt;text-fx type=&quot;textFXfade freeze&quot; target=&quot;remove2&quot;&gt;&lt;/text-fx&gt;
+&lt;text-fx type=&quot;textFXfall inOrder&quot; target=&quot;remove3&quot;&gt;&lt;/text-fx&gt;
 
-(link:&quot;Jag släpper allt&quot;)[Ser du den här gyllene pendeln som jag håller upp framför mig? När du är redo kommer jag att börja svinga den framför dina ögon.
+(link:&quot;Jag släpper allt&quot;)[&lt;text-fx type=&quot;textFXfade&quot;&gt;Ser du den här gyllene pendeln som jag håller upp framför mig? När du är redo kommer jag att börja svinga den framför dina ögon.&lt;/text-fx&gt;
 
 [[Jag är redo-&gt;Nedräkning]]]]]]</tw-passagedata><tw-passagedata pid="85" name="skolledare" tags="" position="2075,875" size="100,100">&#39;&#39;Få lydiga elever!&#39;&#39;
 Har dina elever svårt att sitta still i klassrummet? Lyssnar de inte på vad du säger? Får du dagligen huvudvärk av de höga ljudnivåerna?
@@ -898,6 +901,9 @@ Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på]](if:$system is 
 (if:$nyckel is 1)[[[Jag går till rektorsexpeditionen-&gt;rektorsexpeditionen]]](if:$nyckel is 0 or 2)[(set: $nyckel to 2)(link-rerun:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst, du behöver en nyckel, genom fönstret ser du en massa godispapper och viktiga dokument på ett övergivet skrivbord&quot;)]]
 [[Jag går tilll matsalen-&gt;matsalen]]
 [[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="138" name="debugg" tags="" position="50,400" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling.
+
+[[Lyssna]]
+
 
 (link-rerun: &quot;affisch 1&quot;)[(set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link-rerun: &quot;affisch o&quot;)[(set: $affisch to 0)(print: &quot;&lt;update-inventory&gt;&quot;)]

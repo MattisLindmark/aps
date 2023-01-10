@@ -134,3 +134,10 @@ Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande
 (if:$nyckel is 2)[(link:"Ta rektorns nycklar")[Du stoppar rektorns nycklar i ryggsäcken.(set: $nyckel to 1)<play-sound name="pling"></play-sound>]]]
 [[Gå till köket->köket]]
 [[Jag går tillbaka->höger]]]]
+
+
+
+
+Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.
+Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla. 
+

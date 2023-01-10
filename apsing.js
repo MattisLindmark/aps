@@ -538,6 +538,26 @@ class UpdateInventory extends HTMLElement {
 
 }
 
+class TextFX extends HTMLElement {
+    connectedCallback() {
+        var typ = "default_type";
+        var target = "default_target";
+        try{
+            typ = this.attributes.type.value;
+            target = this.attributes.target.value;
+        }
+        catch{
+        }
+
+        /*==== detta fungerar om man vill använda inner HTML. 
+        // (anledningen till att det ej funkar är om JavaScriptet anropas i headern, då har ej This lästs in typ.)
+        setTimeout(() => {
+            SplitByBlank(this);
+          }, 100)
+          */
+        SetupTextFX(this,typ,target);
+    }
+}
 
 
 //customElements.define('soundfx',SoundFX);
@@ -549,7 +569,7 @@ customElements.define('score-bar',ScoreBar);
 customElements.define('type-write',TypeWriter);
 customElements.define('write-inventory',WriteInventory);
 customElements.define('update-inventory',UpdateInventory);
-
+customElements.define('text-fx', TextFX);
 
 function HandleWriteInventory(myElement, typ)
 {
@@ -604,6 +624,54 @@ function HandleVisualFX(myElement, myName)
             moveTo.prepend(moveMe);
 
     }
+}
+
+function SetupTextFX(callerElement, typ,target)
+{
+    var tmptmp = callerElement.innerHTML;
+    typ = (typ=="default_type")?"textFX":typ;
+    target = (target=="default_target")?"self":target;
+//    let tmp = 'Typ och target är ${typ} och ${target}';
+//    let tmp = ['typ och target är ',typ,target].join(" ");
+//    console.log(tmp);
+
+    myElement = document.querySelector(target);
+    
+    if (myElement == null){
+        myElement = document.querySelector("#"+target);
+    }
+    
+    if (target == "self" && myElement == null)
+    {
+        myElement = callerElement;
+        console.log("Self is triggeredd "+tmptmp);
+    }
+    
+    if (myElement == null){
+        console.log ("TextFX called with invalid target.");
+        return;
+    }
+    
+    let text = myElement.innerHTML;
+    text = text.replace(/<br>/g, " ¤ ");
+    let textArray = text.split(" ");
+    let replacementStr= "";
+let index = 0;
+    textArray.forEach(element => {
+        index++;
+        let rnd = Math.random() * 3;
+        if (element == "¤"){
+            replacementStr +="<br>";
+        }
+        else{        
+//        replacementStr +="<span class='"+typ+"' style='animation-delay:"+rnd+"s'>"+element+"</span>";
+        replacementStr +="<span class='"+typ+"' style='--rnd-value:"+rnd+"; --index-value:"+index+";'>"+element+"</span>";
+//        replacementStr +="<span class='"+typ+"'>"+element+"</span>";
+        replacementStr += " ";
+        }
+    });
+    myElement.innerHTML = replacementStr;//+"<br>";
+    
 }
 
 function HandleScorebar(myElement, myType, myValue)
@@ -799,4 +867,7 @@ function lerp (start, end, amt){
 
 
 */
+
+
+
 

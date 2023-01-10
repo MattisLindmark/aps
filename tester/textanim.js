@@ -18,7 +18,6 @@ function testarProxy(){
     console.log(hejProxy);
 }
 */
-
 class TextFX extends HTMLElement {
     connectedCallback() {
         var typ = "default_type";

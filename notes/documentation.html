@@ -485,6 +485,79 @@ En annan &quot;bugg&quot; är att död-siffran ej syns när värdet är 5 (dvs s
 </blockquote>
 <hr>
 <br>
+<h2 id="text-fx">Text-FX</h2>
+<p>Det går nu att lägga till några text-effekter med taggen text-fx följt av typ.</p>
+<ul>
+<li>Taggen är <code>&lt;text-fx type=&quot;cssTypen&quot; target=&quot;ID eller element&quot;&gt;</code></li>
+<li>type måste överensstämma med någon lämplig CSS klass, kan vara flera.</li>
+<li>Target kan användas för att rikta effekten på innehållet mellan antingen egna element eller div/span med unikt ID.</li>
+<li>Target fångar enast upp första elementet/IDt av den typen på sidan.</li>
+<li>Utelämna target för att påverka texten mellan de egna text-fx taggarna.</li>
+</ul>
+<p><strong>Typer att använda</strong></p>
+<ul>
+<li>textFXfade - fade ut och in i slump ordning.</li>
+<li>textFXfall - orden faller ned.</li>
+<li>freeze - läggs till textFXfade för att fadea ut och stanna dolda.</li>
+<li>inOrder - läggs till för att falla eller fadea i ordning, ej slump.</li>
+</ul>
+<p><strong>exempel:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfade"</span>&gt;</span>Orden i denna text fadear in och ut i slumpmässig ordning.<span class="hljs-tag">&lt;/<span class="hljs-name">text-fx</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfade freeze"</span>&gt;</span>Orden i denna text fadear ut i slumpmässig ordning och förblir gömda.<span class="hljs-tag">&lt;/<span class="hljs-name">text-fx</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfade freeze inOrder"</span>&gt;</span>Orden i denna text fadear ut i följd och förblir gömda.<span class="hljs-tag">&lt;/<span class="hljs-name">text-fx</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfall inOrder"</span>&gt;</span>Orden i denna text faller i följd.<span class="hljs-tag">&lt;/<span class="hljs-name">text-fx</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfall"</span>&gt;</span>Orden i denna text faller i slumpmässig ordning.<span class="hljs-tag">&lt;/<span class="hljs-name">text-fx</span>&gt;</span>
+</div></code></pre>
+<p><strong>Exempel med target:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"mittUnikaID"</span>&gt;</span>Denna text påverkas av text-fx taggen nedan.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+Denna text påverkas inte av någonting.
+<span class="hljs-tag">&lt;<span class="hljs-name">HeltEgenTagg</span>&gt;</span> Denna text påverkas av en annan effekt nedan.<span class="hljs-tag">&lt;/<span class="hljs-name">HeltEgenTagg</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfade"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"mittUnikaID"</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">text-fx</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"textFXfall inOrder"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"HeltEgenTagg"</span>&gt;</span>
+
+</div></code></pre>
+<p><strong>Under Huven</strong><br>
+Taggen skickar typ och target, saknas typ sätts den till textFX (som inte finns). Saknas Target sätts den till self.
+Sciptet plockar in texten från elementet (som antingen är target eller egna elmentet).
+Scriptet delar upp orden, gör lite trix med <code>&lt;br&gt;</code> taggar etc.
+Orden lopas igenom och får en <code>&lt;span&gt;</code> av klassen typ. Den skickar också in css variabler för random värde och index (ordning) som kan användas i CSS klassen, se nedan.
+Texten i elementet ersätts med nya varrianten där varje ord är inkapslat i ett span.
+Sedan är det upp till CSS klassen vad som händer.</p>
+<p><strong>För att skapa ytterligare effekter:</strong></p>
+<ul>
+<li>Skapa en lämplig CSS klass med lite trix.</li>
+<li>Använd klassens namn som type.</li>
+<li>Se aps-visualfx.css hur textFXfade och textFXfall är gjorda.</li>
+</ul>
+<blockquote>
+<p>CSS variabler som genereras:<br>
+--rnd-value - Ett slumpmässigt värde (just nu mellan 0 och 3, kan ändas senare).<br>
+--index-value - vilket nummer i ordningen ordet har. börjar på 1.</p>
+</blockquote>
+<p><strong>exempel css klass</strong></p>
+<pre class="hljs"><code><div>.testTextFx{
+  opacity: var(--rnd-value);
+  color: hsl(calc(10*var(--index-value)), 100%, 50%);
+  display: inline-block;
+}
+</div></code></pre>
+<p>Används så här:</p>
+<pre class="hljs"><code><div>&lt;text-fx type=&quot;testTextFx&quot;&gt;Orden i denna text får statisk slumpmässig opacitet och ett färgvärde som ändras beroende på var i ordningen orset står.&lt;/text-fx&gt; &lt;br&gt;
+</div></code></pre>
+<blockquote>
+<p><strong>ToDo</strong></p>
+<ul>
+<li>Lägg till möjlighet att påverka hastighet av olika slag?</li>
+<li>Möjlighet att påverka totala fördröjningen innan den startar.</li>
+<li>Behövs möjlighet att dela upp i bokstäver istället för hela ord?</li>
+</ul>
+</blockquote>
+<hr>
+<br>
 <h2 id="ljud-och-musik">Ljud och musik</h2>
 <p>Inget har förändrats i hur ljud och musik spelas. Skriver in i denna dokumentation senare.</p>
 <h2 id="visual-fx">Visual FX</h2>
