@@ -4,6 +4,7 @@ Uppdelad för få lite mer överblick.
 .testTextFx{
   opacity: var(--rnd-value);
   color: hsl(calc(10*var(--index-value)), 100%, 50%);
+  scale: calc(0.2 * var(--index-value));
   display: inline-block;
 }
 

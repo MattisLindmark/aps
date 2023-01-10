@@ -9,8 +9,7 @@
 </head>
 <body>
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play APS.</tw-noscript></noscript></tw-story>
-<tw-storydata name="APS" startnode="98" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">/*@import url(https://mattislindmark.github.io/aps/apsing.css);*/
-@import url(./apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
+<tw-storydata name="APS" startnode="98" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="BC04DCF9-613C-4D66-AECE-B571AA0F6E79" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://mattislindmark.github.io/aps/apsing.css);</style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
 script.src = "apsing.js";
 
 function setupGlobals()
@@ -914,7 +913,6 @@ Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på]](if:$system is 
 (if:$nyckel is 1)[(link:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst men du tar nöjt upp nyckelknippan du tog av rektorn och öppnar den.&quot;)(goto: &quot;rektorsexpeditionen&quot;)]](if:$nyckel is 0)[(link-rerun:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst, du behöver en nyckel, genom fönstret ser du en massa godispapper och viktiga dokument på ett övergivet skrivbord&quot;)]]
 [[Jag går tilll matsalen-&gt;matsalen]]
 [[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="138" name="debugg" tags="" position="50,400" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling.
-[[GPT3]]
 
 (link-rerun: &quot;affisch 1&quot;)[(set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link-rerun: &quot;affisch o&quot;)[(set: $affisch to 0)(print: &quot;&lt;update-inventory&gt;&quot;)]

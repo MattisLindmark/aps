@@ -141,3 +141,18 @@ Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande
 Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.
 Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla. 
 
+
+
+<span id="remove">Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.</span>
+
+(link:"Jag följer")[<span id="remove1">Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.</span><text-fx type="textFXfade freeze inOrder" target="remove"></text-fx>
+
+(link:"Jag fokuserar")[<span id="remove2">Med ögonen öppna och uppmärksamma dig själv på hur din mun kanske slappnat av, öppnat sig.</span>   <text-fx type="textFXfade freeze" target="remove1"></text-fx>
+
+(link:"Jag är stilla")[<span id="remove3">Hur DU faller djupare och djupare NED i ett koncentrerat tillstånd som jag har givit dig att släppa allt.</span>
+<text-fx type="textFXfade freeze" target="remove2"></text-fx>
+<text-fx type="textFXfall inOrder" target="remove3"></text-fx>
+
+(link:"Jag släpper allt")[<text-fx type="textFXfade">Ser du den här gyllene pendeln som jag håller upp framför mig? När du är redo kommer jag att börja svinga den framför dina ögon.</text-fx>
+
+[[Jag är redo->Nedräkning]]]]]]
