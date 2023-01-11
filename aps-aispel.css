@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
-inventory[tags~="spel"]{
+/*
+tw-sidebar[tags~="spel"]{
     display: none;
 }
-inventory.topLeft[tags~="spel"]{
+*/
+tw-story[tags~="spel"] tw-include inventory.topLeft{
     display: none;
 }
+
 
 tw-story[tags~="spel"]{
     background: linear-gradient(
