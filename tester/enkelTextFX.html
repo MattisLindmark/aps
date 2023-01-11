@@ -9,17 +9,21 @@
     <title>Document</title>
 </head>
 <body>
-<tw-story>
-   <splittarget>hej, denna text bör splittas och sedan fadea ut lixom.</splittarget><br>
-   <zapp>Nu har vi en zapp-fx som kappar.</zapp><br>
-   <text-fx typ="textFXfade inOrder"> Hej, detta är exempel på fadea mellan taggarna. <br> med ny rad.</text-fx>
-   <br>
-   <div id="splitme">Denna ska fadea ut och sen inte synas mer.</div>
-   <div class="textFXfade"> hejsan svejsan</div>
-   <text-fx typ="textFXfade" target="zapp">vad tusan.</text-fx>
-   <text-fx typ="textFXfade freeze" target="splitme"></text-fx>
-   <text-fx typ="textFXfall" target="splittarget"></text-fx>
-   <splittarget><br>Den tar bara första elementet.</splittarget>
+    <tw-story>
+    <div class="muteButton">abc</div>
+    <br>
+    <input type="button" id="muteBTN" value ="mute" class="muteButton"/>
+    
+    <splittarget>hej, denna text bör splittas och sedan fadea ut lixom.</splittarget><br>
+    <zapp>Nu har vi en zapp-fx som kappar.</zapp><br>
+    <text-fx typ="textFXfade inOrder"> Hej, detta är exempel på fadea mellan taggarna. <br> med ny rad.</text-fx>
+    <br>
+    <div id="splitme">Denna ska fadea ut och sen inte synas mer.</div>
+    <div class="textFXfade"> hejsan svejsan</div>
+    <text-fx typ="textFXfade" target="zapp">vad tusan.</text-fx>
+    <text-fx typ="textFXfade freeze" target="splitme"></text-fx>
+    <text-fx typ="textFXfall" target="splittarget"></text-fx>
+    <splittarget><br>Den tar bara första elementet.</splittarget>
     <br>
     <type-write> hejsan svejsan!</type-write>
     <br>
@@ -28,14 +32,14 @@
     <text-fx type="textFXfade freeze inOrder">Orden i denna text fadear ut i följd och förblir gömda.</text-fx> <br>
     <text-fx type="textFXfall inOrder">Orden i denna text faller i följd.</text-fx> <br>
     <text-fx type="textFXfall">Orden i denna text faller i slumpmässig ordning.</text-fx> <br>
-<br>
-<span id="mittUnikaID">Denna text påverkas av text-fx taggen nedan.</span><br>
-Denna text påverkas inte av någonting.<br>
-<HeltEgenTagg>Denna text påverkas av en annan effekt nedan.</HeltEgenTagg><br>
-<text-fx type="textFXfade" target="mittUnikaID">
-<text-fx type="textFXfall inOrder" target="HeltEgenTagg">
-
-</tw-story>
-<script src="..\apsing.js"></script>
+    <br>
+    <span id="mittUnikaID">Denna text påverkas av text-fx taggen nedan.</span><br>
+    Denna text påverkas inte av någonting.<br>
+    <HeltEgenTagg>Denna text påverkas av en annan effekt nedan.</HeltEgenTagg><br>
+    <text-fx type="textFXfade" target="mittUnikaID">
+        <text-fx type="textFXfall inOrder" target="HeltEgenTagg">
+                        
+        </tw-story>
+        <script src="..\apsing.js"></script>
 </body>
 </html>

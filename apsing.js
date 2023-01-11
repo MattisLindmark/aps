@@ -22,6 +22,8 @@ const url5 = "../assets/music/skuggan1_lvol.mp3";
 var music = new Audio();
 music.loop = true;
 const musicBaseUrl = "./assets/music/";
+const musicBaseVolume = 0.5;
+var musicVol = 0.5;
 //const URLs = [url,url2,url3,url4,url5];
 //music.src = URLs[0];
 //musicIndex = 0;
@@ -150,7 +152,9 @@ function SetupCallback()
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
 
-    console.log("--- jq fungerar---");    
+    console.log("--- jq fungerar---");
+//    $('#muteBTN').click(muteAllSound);
+
 
 //    if (!window.harlowe) {
         //window.harlowe = {"State": State};
@@ -164,6 +168,48 @@ var r= document.querySelector(':root');
 //var rs=getComputedStyle(r);
 
 //=========
+
+console.log("============== called ========");
+//document.querySelector(('muteBTN')).addEventListener("click",muteAllSound());
+
+var isMute = false;
+function muteAllSound()
+{
+    isMute = !isMute;
+    sounds.muted = isMute;
+    music.muted = isMute;
+    try{
+        let btn = document.querySelector('.muteButton');
+        if (isMute)
+        {
+            btn.style.backgroundColor = 'red';
+        }
+        else{
+            btn.style.backgroundColor = 'green';
+        }
+    } catch{}
+
+/*
+    if (isMute)
+    {
+        sounds.volume = 0;
+        music.muted = true;
+
+//        musicVol = 0;
+//        music.volume = musicVol;
+//        music.mute
+    }
+    if (!isMute)
+    {
+        sounds.volume = 1;
+        music.muted = false;
+//        musicVol = musicBaseVolume;
+//        music.volume = musicVol;
+    }
+
+*/
+
+}
 
 function playSoundFX(name)
 {
@@ -210,7 +256,7 @@ function playMusic(name)
         else {
             surl = musicBaseUrl + surl;
         }
-        fastFadeAndStop(music, ()=>{music.src = surl;music.volume=0.5;music.play()});
+        fastFadeAndStop(music, ()=>{music.src = surl;music.volume=musicVol;music.play()});
 //        setTimeout(()=>{music.play()},1000);
         //music.play();
     }
