@@ -20,3 +20,17 @@ if (window.sessionStorage.getItem('flagga') !== null)
     return;
  console.log('after breake');
  window.sessionStorage.setItem('flagga','true');
+
+
+ 2023-12 jan
+ Ändringar att göra mellan versioner typ:
+
+ Story -> css:
+
+ /*@import url(https://mattislindmark.github.io/aps/apsing.css);*/
+@import url(./apsing.css);
+
+
+Header: Sätt detta sist:
+<div class="muteButton" id="muteBTN" onclick="muteAllSound()">mute</div>
+

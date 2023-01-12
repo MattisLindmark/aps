@@ -36,6 +36,7 @@ var FXsounds = [
     { name:"snap", value:"177494__snapper4298__snap-3.wav"},
     { name:"papper", value:"paper.mp3"},
     { name:"pappersark", value:"papersheet.mp3"},
+    { name: "eld", value:"PH_eld.mp3"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
@@ -211,9 +212,10 @@ function muteAllSound()
 
 }
 
-function playSoundFX(name)
+function playSoundFX(name, type)
 {
     sounds.pause();
+    sounds.loop = false;
     var surl = "none";
     try{
         surl = FXsounds.find(p => p.name ===name).value;
@@ -229,7 +231,11 @@ function playSoundFX(name)
         else {
             sounds.src = FXsoundsBaseUrl + surl;
         }
-        
+
+        if (type.toLowerCase() == "loop"){
+            sounds.loop = true;
+        }
+        console.log("Playing now");
         sounds.play();
     }
 }
@@ -422,14 +428,14 @@ class SoundFX extends HTMLElement {
             //            this.innerHTML = 'is child ';
         }
         var name = "undefined";
-        try {
-            name = this.attributes.name.value;
-        } catch {
-            name = "undefined";
-        }
+        var type = "undefined";
+
+        name = (this.attributes.name != null)?this.attributes.name.value:"undefined";
+        type = (this.attributes.type != null)?this.attributes.type.value:"undefined";
+
         if (name.length > 0 && name != "undefined") {
-            console.log("PlaySoundFX(name)" + name);
-            playSoundFX(name);
+//            console.log("PlaySoundFX(name)" + name);
+            playSoundFX(name, type);
         }
     }
 }
