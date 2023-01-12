@@ -36,7 +36,7 @@ var FXsounds = [
     { name:"snap", value:"177494__snapper4298__snap-3.wav"},
     { name:"papper", value:"paper.mp3"},
     { name:"pappersark", value:"papersheet.mp3"},
-    { name: "eld", value:"PH_eld.mp3"},
+    { name: "eld", value:"PH_burning_loop.wav"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
@@ -90,6 +90,17 @@ var FXsounds = [
 ]
 const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
+
+// Hårdkodat ljud som alltid ska höras vid inventory update, hypnos och death
+// Obs- mappar mot namnen i arrayen ovan.
+const FXsoundStatic = {
+    pickup: 'flepp',
+    death: 'flepp',
+    hypnos: 'snap',
+}
+var soundsStatic = new Audio();
+
+//sounds.type = 'audio/mpeg; codecs="mp3"';
 
 // == OBS angåengde inventoryList:
 // name - ska stämma med variabelns namn. Icon ska stämma med filnamnet. Value hämtas och säts från värdet i twine storyn när den körs.
@@ -179,6 +190,8 @@ function muteAllSound()
     isMute = !isMute;
     sounds.muted = isMute;
     music.muted = isMute;
+    soundsStatic.muted = isMute;
+
     try{
         let btn = document.querySelector('.muteButton');
         if (isMute)
@@ -212,10 +225,16 @@ function muteAllSound()
 
 }
 
-function playSoundFX(name, type)
+function playSoundFX(name, type, targetAudioObject)
 {
-    sounds.pause();
-    sounds.loop = false;
+    if (targetAudioObject == null)
+    {
+        console.log("======== AUDIO DEFAULTS");
+        targetAudioObject = sounds;
+    }
+
+    targetAudioObject.pause();
+    targetAudioObject.loop = false;
     var surl = "none";
     try{
         surl = FXsounds.find(p => p.name ===name).value;
@@ -226,17 +245,17 @@ function playSoundFX(name, type)
     //    console.log("SoundFX function "+surl);
     if (surl != "none") {
         if (surl.includes("https://")) {
-            sounds.src = surl;
+            targetAudioObject.src = surl;
         }
         else {
-            sounds.src = FXsoundsBaseUrl + surl;
+            targetAudioObject.src = FXsoundsBaseUrl + surl;
         }
 
         if (type.toLowerCase() == "loop"){
-            sounds.loop = true;
+            targetAudioObject.loop = true;
         }
         console.log("Playing now");
-        sounds.play();
+        targetAudioObject.play();
     }
 }
 
@@ -634,7 +653,7 @@ function HandleWriteInventory(myElement, typ)
         console.log("To update inventory there needs to be an inventory with ID mainInventory");
         return;
     }
-    printInventory(myElement);   
+    printInventory(myElement);
 }
 
 function HandleTypeWrite(myElement, speed){
@@ -792,6 +811,9 @@ function updateInventoryList(){
     entr.forEach(element => {
         let itm = inventoryList.find(p => p.name === element[0]);
         if (itm != null){
+            if (itm.value != element[1]){ // bör inträffa när tex ett objekt lagts till.    <----------------------- HANDELING SOUNDFX ON PICUP. REFACTOR?
+                playSoundFX(FXsoundStatic.pickup, "abcd", soundsStatic);
+            }
             itm.value = element[1];
         }
     });
@@ -803,6 +825,7 @@ function updateInventoryList(){
 
 function printInventory(myElement)
 {
+
     let contentHTML = "";
     let aktiva = inventoryList.filter(p => p.value > 0);
     aktiva.forEach(element => {
