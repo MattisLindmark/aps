@@ -156,3 +156,27 @@ Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och foku
 (link:"Jag släpper allt")[<text-fx type="textFXfade">Ser du den här gyllene pendeln som jag håller upp framför mig? När du är redo kommer jag att börja svinga den framför dina ögon.</text-fx>
 
 [[Jag är redo->Nedräkning]]]]]]
+
+
+
+
+
+
+(link:"Jag lyser med ficklampan")
+[
+    (if:$pendel is 0)[
+        Källaren är tom och tyst men när du lyser på golvet ser du något som glimmar under elskåpet, en gyllene pendel! 
+
+        (link:"Jag plockar upp pendeln")
+        [
+            Du lägger pendeln i ryggsäcken.(set:$pendel to 1)(set: $hypnos to $hypnos +1)(print: "<score-bar type='update'>")(print: "<update-inventory>")
+        ]\
+(if: $pendel is 1)
+[
+    Källaren är tom och tyst, i ficklampans sken ser du en svart spindel som springer över golvet under elskåpet,
+    (if: $rädsla is "kryp")[HJÄÄÄÄÄLP!].
+    ]
+]
+[[Jag undersöker elskåpet->högtalarsystem]]
+]
+[[Jag går tillbaka->vänster]]
