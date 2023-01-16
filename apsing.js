@@ -37,6 +37,8 @@ var FXsounds = [
     { name:"papper", value:"paper.mp3"},
     { name:"pappersark", value:"papersheet.mp3"},
     { name: "eld", value:"PH_burning_loop.wav"},
+    { name: "hypnosmeeter", value:"PH_hypnos.mp3"},
+    { name: "deathmeeter", value:"PH_dod.mp3"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
@@ -95,8 +97,8 @@ var sounds = new Audio();
 // Obs- mappar mot namnen i arrayen ovan.
 const FXsoundStatic = {
     pickup: 'flepp',
-    death: 'flepp',
-    hypnos: 'snap',
+    death: 'deathmeeter',
+    hypnos: 'hypnosmeeter',
 }
 var soundsStatic = new Audio();
 
@@ -753,14 +755,25 @@ let _deathcount = 0;//((window.deaths/5)*100).toFixed(0);
 
 let tmpstate = null;
 if (typeof window.statevar.hypnos !== 'undefined'){
-    tmpstate = window.statevar; 
-    console.log("Using state var in scorebar update");
-   // console.log(tmpstate.hypnos);   
+    tmpstate = window.statevar;
     _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
     _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.
-//    console.log("----------------"+_deathcount );
+
+    let oldDeath = r.style.getPropertyValue('--death-var');
+    let oldHypno = r.style.getPropertyValue('--hypno-var');
+
     r.style.setProperty('--death-var', (_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont! Sätt 100-_deathcount för att få bakvänt som tidigare.
     r.style.setProperty('--hypno-var', _hypnocount+'%');
+
+    // aningen rå lösning för att trigga ljudeffekter när scorebar ändras, jämför CSS styles gamla med nya.    
+    if (oldDeath != "" || oldHypno != ""){ // undvik spela ljud vid restart 1a gången typ.
+        if (oldDeath != r.style.getPropertyValue('--death-var')){
+             playSoundFX(FXsoundStatic.death, "abcd", soundsStatic);
+        }
+        if (oldHypno != r.style.getPropertyValue('--hypno-var')){
+              playSoundFX(FXsoundStatic.hypnos, "abcd", soundsStatic);
+        }
+    }
 } else
 {
     console.log("WARNING: is NOT Using state var");
@@ -773,8 +786,7 @@ if (myType == "a" || myType == "A") // to lower vore najs
 }
 if (myType == "b" || myType == "B") // to lower vore najs
 {
-//    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';
-    
+//    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';    
       myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
 
 }

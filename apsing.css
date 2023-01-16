@@ -10,7 +10,7 @@
 @import url('aps-aispel.css');
 
 :root{
-  --death-var: 0%; /* Could (should?) be named death-width and hypno-width? */
+  --death-var: 100%; /* Could (should?) be named death-width and hypno-width? */
   --hypno-var: 0%;
   --inv-ficklampa: none;
   --inv-notter: none;
