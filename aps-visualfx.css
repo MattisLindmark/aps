@@ -19,6 +19,10 @@ Uppdelad för få lite mer överblick.
 /*  display: inline-block;*/
 }
 
+.textFXexpand{
+  color: aliceblue; /*Ta bort, bara för att ha nåt DELETE.*/
+}
+
 @keyframes fadeout{
   to{
     opacity: 0;

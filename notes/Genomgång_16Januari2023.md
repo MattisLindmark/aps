@@ -1,3 +1,17 @@
+## Viktiga KIH anteckningar! ##  
+> Display är najs, tex: (link: "Jag klarade mig")[(display: $tillbaka)]]  
+> NO VOICE: Jag tror det behövs en $NoVoice flagga. Så att man kan sätta "tillbaka" till samma ställe som triggade rösten.  
+> 
+
+### Löpande gjort ###  
+Detta är inte komplett. Bara för komma ihåg:  
+2021-01-17
+* Sov paragrafen, börjat lägga in span för text fx.
+* Sov - lagt till lite text och en "noll".
+* Lagt in en transsion i Koffein-paragrafen.
+* Paragrafen "jag undrar..." ändrade nån ] för att få bort ett error.
+
+
 ## **Node:** Du sover ## 
 
 Innehåll: 
@@ -59,6 +73,7 @@ Problem:
 Här behövs en ordentlig genomgång av vad alla död1 död2 död6 etc leder till och gör.
 * Om död är noll ska man hamna på död7. Död7 verkar inte finnas.
 * Koffein: Detta funkar alltså som extraliv, men man återvaknar i korridoren, så det ger väl inte så mycket då egentligen?
+> * Har lagt till ett "noll" för att sista raden ska synas.  
 > OBS: Det finns en show-footer 0 i sov. Så det är viktigt att footern visas sen.
 
 <br>
@@ -118,6 +133,23 @@ Först några småsaker:
 * Aha, det är för att man ska kunna dricka 2 ggr eftersom man vaknar av kaffet. Men när man vaknar av kaffet hamnar man ändå i början... så vad ger det?
 * Om man har koffein 1 så är kaffet slut, istället för att räkna antalet visits. (visits ökar väl varje besök i rummet? inte bara när man tar kaffe? kaffet borde inte ta slut om man inte druckit nåt av det.)
 
+---
+## Matsalen ##
+> Har spaltat upp den en aning i twine för övrblick.  
+> Har ändrat last room till matsal om man hör rösten. - Har inte alls ändrat detta. OM man går tillbaka till en plats där rösten kan triggas igen kan man få den 2 ggr i rad.
+
+* Även här, 25% chans kan vara för mycket.
+* Här återvänder man till korridoren om man lyckas undvika rösten.
+* har aldrig förstått det där med sallad. Jag äter sallad till all mat alltid! Mat utan sallad är som saft utan vatten.
+
+---
+## Koffein ##  
+* Förtydliga texten. Flytta "Smaken av kaffe" till först typ, så man direkt förstår ungefär vad som har hänt.
+
+---
+## Biblioteket ##  
+* Varför kollar den av mot History contains death? Och inte mot död-variablen direkt? (där man kan gå till Molly moon)
+* Var sätts tillbaka? Här finns en röst, jag hamnar i korridoren efter rösten. typ.
 
 <br>
 <br>

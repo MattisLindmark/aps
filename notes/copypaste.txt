@@ -180,3 +180,46 @@ Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och foku
 [[Jag undersöker elskåpet->högtalarsystem]]
 ]
 [[Jag går tillbaka->vänster]]
+
+
+Test av sov + död 2:
+Sov:
+Rösten, den djupa, mörka hypnotiska rösten talar till dig igen, det går inte att sluta lyssna.
+> jag lyssnar
+(visar inget, om pendel är 1 och hypnos är > 3 kommer man till pendel)
+> tre
+DU känner hur DU blir tröttare och tröttare.
+> två
+Hela din kropp slappnar av och ditt medvetande sjunker djupare och djupare NED.
+> ett
+om död är X hamnar man på död2 (tex).
+
+Död2:
+Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
+> jag är i tans
+Du inser samtidigt att du varit här förut, det är något som är fel.
+> jag har varit här förut
+Du minns vad du varit med om men det är också vagt, som att minnas en dröm.
+> jag är i en dröm
+Bit för bit kommer det tillbaka till dig, du var den enda som vaknade, du måste försöka vakna igen!
+> Jag vill inte sova längre -> du sover
+
+Du sover:
+Du sover, men börjar bli medveten om att det är det du gör, du minns inte hur du somnade men du ligger med huvudet vilande på skolbänken.
+> jag är medveten om att jag sover
+Inte igen, det här börjar bli sjukt konstigt. Men vänta, är du i skolan? Man ska väl inte sova på lektionen? 
+Skulle inte ni ha någon slags inspirationsföreläsning med klassen idag? Är den redan slut, var den så tråkig så att du somnade?
+> Vakna och sov vidare etc.
+
+Sammanslaget blir texten:
+
+Rösten, den djupa, mörka hypnotiska rösten talar till dig igen, det går inte att sluta lyssna.
+DU känner hur DU blir tröttare och tröttare.
+Hela din kropp slappnar av och ditt medvetande sjunker djupare och djupare NED.
+Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
+Du inser samtidigt att du varit här förut, det är något som är fel.
+Du minns vad du varit med om men det är också vagt, som att minnas en dröm.
+Bit för bit kommer det tillbaka till dig, du var den enda som vaknade, du måste försöka vakna igen!
+Du sover, men börjar bli medveten om att det är det du gör, du minns inte hur du somnade men du ligger med huvudet vilande på skolbänken.
+Inte igen, det här börjar bli sjukt konstigt. Men vänta, är du i skolan? Man ska väl inte sova på lektionen? 
+Skulle inte ni ha någon slags inspirationsföreläsning med klassen idag? Är den redan slut, var den så tråkig så att du somnade?

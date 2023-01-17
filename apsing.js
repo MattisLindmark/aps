@@ -226,6 +226,28 @@ function muteAllSound()
 */
 
 }
+//*** Test wite PID. 2022-januari-17 - he går ju int å få å funka asså. */
+/* Detta i footern:
+<script>
+setTimeout(() => {
+  console.log("Delayed TEST catch Pid.");
+  TestWritePID();
+}, 200)
+</script>
+*/
+function TestWritePID()
+{
+
+    let tmp = document.querySelector("tw-passage");
+    let tmpv = "";
+    try{
+        tmpv = tmp.attributes.tags.value;
+    } catch{
+        tmpv = "nothing";
+    }
+
+    console.log("pid: "+tmpv);
+}
 
 function playSoundFX(name, type, targetAudioObject)
 {
