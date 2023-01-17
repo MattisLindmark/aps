@@ -1,7 +1,17 @@
 ## Viktiga KIH anteckningar! ##  
-> Display är najs, tex: (link: "Jag klarade mig")[(display: $tillbaka)]]  
-> NO VOICE: Jag tror det behövs en $NoVoice flagga. Så att man kan sätta "tillbaka" till samma ställe som triggade rösten.  
-> 
+> * Display är najs, tex: (link: "Jag klarade mig")[(display: $tillbaka)]]  
+> * NO VOICE: Jag tror det behövs en $NoVoice flagga. Så att man kan sätta "tillbaka" till samma ställe som triggade rösten.  
+> * Pendeln-passagen. Det är svårt att nå dit. Se Sov. (pendel + hypnos > 3)
+> * Personalrummet. Visits på kaffemaskinen gör att kaffet kan va slut utan att man klickat på maskinen.
+> * Utrop: Replace link!
+> * Wikipedia2 finns en bild, är den rätt och tillåten att använda?
+> * uppspelning av ljud funkar dåligt. vakna i klassrummet tex.
+
+## Slut funderingar ## 
+* mördarslut kommer man till via jordnötter etc.
+* Egenslut kommer man till via Jag är less på det här. Men komma dit är inte lätt.
+* Slutt där alla blir hyptnotiserade. Entry från: död6, Jag är less, Undra vem som.
+
 
 ### Löpande gjort ###  
 Detta är inte komplett. Bara för komma ihåg:  
@@ -10,6 +20,8 @@ Detta är inte komplett. Bara för komma ihåg:
 * Sov - lagt till lite text och en "noll".
 * Lagt in en transsion i Koffein-paragrafen.
 * Paragrafen "jag undrar..." ändrade nån ] för att få bort ett error.
+* fixat lite på dator -> wikipedia.
+* fixat lite med när man pratar i högtalarna.
 
 
 ## **Node:** Du sover ## 
@@ -150,7 +162,19 @@ Först några småsaker:
 ## Biblioteket ##  
 * Varför kollar den av mot History contains death? Och inte mot död-variablen direkt? (där man kan gå till Molly moon)
 * Var sätts tillbaka? Här finns en röst, jag hamnar i korridoren efter rösten. typ.
+---
 
+## Nod: Jag försöker väcka hela skolan ##
+* stämmer Jag/du formuleringarna där?
+---
+## APS ##
+Behöver ses över.
+* Många klicka vidare.
+* Embedda video
+* Bild å stuff.
+
+### Wikipedia sidorna ###
+* Bilder
 <br>
 <br>
 <br>

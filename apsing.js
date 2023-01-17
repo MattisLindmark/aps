@@ -37,8 +37,10 @@ var FXsounds = [
     { name:"papper", value:"paper.mp3"},
     { name:"pappersark", value:"papersheet.mp3"},
     { name: "eld", value:"PH_burning_loop.wav"},
-    { name: "hypnosmeeter", value:"PH_hypnos.mp3"},
-    { name: "deathmeeter", value:"PH_dod.mp3"},
+    { name: "hypnosmeeter", value:"hypnos.mp3"},
+    { name: "deathmeeter", value:"dod.mp3"},
+    { name: "inventory", value:"pickup.mp3"},
+    { name: "vakna", value:"vakna.mp3"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
@@ -96,7 +98,7 @@ var sounds = new Audio();
 // Hårdkodat ljud som alltid ska höras vid inventory update, hypnos och death
 // Obs- mappar mot namnen i arrayen ovan.
 const FXsoundStatic = {
-    pickup: 'flepp',
+    pickup: 'inventory',
     death: 'deathmeeter',
     hypnos: 'hypnosmeeter',
 }
