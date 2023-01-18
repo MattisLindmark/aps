@@ -6,6 +6,8 @@
 > * Utrop: Replace link!
 > * Wikipedia2 finns en bild, är den rätt och tillåten att använda?
 > * uppspelning av ljud funkar dåligt. vakna i klassrummet tex.
+> * Ljudeffeckt just före go-to fungerar ej längre pga ljudet funkar som det ska nu (och stop-ljud i headern avbryter).
+> * Musiken i "rösten" och "fotsteg" etc kommer att dröjja kvar när man klarat sig om man inte byter vid nåt tillfälle...
 
 ## Slut funderingar ## 
 * mördarslut kommer man till via jordnötter etc.

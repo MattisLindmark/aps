@@ -121,22 +121,27 @@ Korridoren till resten av skolan är barrikaderad av en hel lågstadieklass som 
 (if:$personalrum is 1)[[[Gå till personalrummet-&gt;personalrumsöverraskning]]]\
 (if:$personalrum is 2)[[Gå till personalrummet-&gt;personalrummet]]
 [[Ta trappan ned till källaren-&gt;källaren]]
-[[Jag går tillbaka-&gt;korridoren]]</tw-passagedata><tw-passagedata pid="11" name="klassrummet" tags="rum" position="1150,300" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;(set: $showFooter to 1)\
-(t8n:&quot;blur&quot;)+(t8n-time:2.5s)[Du vaknar efter en skön tupplur, det känns som att du sovit typ $sovtid minuter, mitt under skoldagen, på lektionen. Varför somnade du? Det måste ha varit en väldigt tråkig lektion.
-(link:&quot;Jag måste ha somnat...&quot;)[(if: $död is 4)[
+[[Jag går tillbaka-&gt;korridoren]]</tw-passagedata><tw-passagedata pid="11" name="klassrummet" tags="rum" position="1150,300" size="100,100">&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;\
+(set: $showFooter to 1)\
+
+(t8n:&quot;blur&quot;)+(t8n-time:2.5s)[
+&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
+Du vaknar efter en skön tupplur, det känns som att du sovit typ $sovtid minuter, mitt under skoldagen, på lektionen. Varför somnade du? Det måste ha varit en väldigt tråkig lektion.
+(link:&quot;Jag måste ha somnat...&quot;)[\
+(if: $död is 4)[
 Det här känns bekant, har det här hänt förut? Allt är lite dimmigt, men så är det ju ibland när du är nyvaken...]\
 (if:$död is 3)[
 Men vänta nu, det här är inte första gången du vaknar, vad har hänt, var det andra en dröm? eller har du gått i sömnen?]\
 (if:$död is 2)[
-Inte igen, nej nu börjar det här bli tröttsamt, det är som att du är fast i en loop, men du har fortfarande kvar alla saker, kanske har du bara gått tillbaka till klassrummet i sömnen och somnat? Och sen vaknat igen på samma plats, men vad är det här ens för plats? ](if: $pendel is 0 and $pendling is 1)[
+Inte igen, nej nu börjar det här bli tröttsamt, det är som att du är fast i en loop, men du har fortfarande kvar alla saker, kanske har du bara gått tillbaka till klassrummet i sömnen och somnat? Och sen vaknat igen på samma plats, men vad är det här ens för plats? ]\
+(if: $pendel is 0 and $pendling is 1)[
 Plötsligt känner du att din hand greppar hårt om något litet metalliskt
 (link:&quot;Vad har jag i handen?&quot;)[Du öppnar handen och där ligger Sörens gyllene pendel!(set:$pendel to 1)(set: $hypnos to $hypnos +1)(print: &quot;&lt;update-inventory&gt;&quot;)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]]
-
 [[Jag somnar om-&gt;Fortsätt sova]]
 (link:&quot;Jag ser mig runt i klassrummet&quot;)[Dina klasskamrater sover alla sover, djupt, din lärare snarkar högljutt på sin stol vid dörren med telefonen tappad i knäet. Det går inte att väcka dem, hur mycket du än försöker...
 [[Jag ringer 112-&gt;Ring 112]]]
 [[Jag går ut i korridoren-&gt;korridoren]]]]
-&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;</tw-passagedata><tw-passagedata pid="12" name="sov" tags="Hypnos" position="1250,450" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;Rösten, den djupa, mörka hypnotiska rösten talar till dig igen, det går inte att sluta lyssna.
+</tw-passagedata><tw-passagedata pid="12" name="sov" tags="Hypnos" position="1250,450" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;Rösten, den djupa, mörka hypnotiska rösten talar till dig igen, det går inte att sluta lyssna.
 (link:&quot;Jag lyssnar&quot;)[(if: $pendel is 1 and $hypnos is &gt;= 4)[(go-to: &quot;pendel&quot;)]\
 &lt;span id=&quot;A&quot;&gt;Rösten räknar ned...&lt;/span&gt;
 (Link:&quot;Tre&quot;)[&lt;span id=&quot;B&quot;&gt;DU känner hur DU blir tröttare och tröttare.&lt;/span&gt;&lt;play-sound name=&quot;sov1&quot;&gt;&lt;/play-sound&gt;&lt;text-fx type=&quot;textFXfall inOrder&quot; target=&quot;A&quot;&gt;
@@ -178,7 +183,7 @@ Plötsligt känner du att din hand greppar hårt om något litet metalliskt
 (link:&quot;Jag faller!&quot;)[Du slår hårt i golvet samtidigt som du hör ett klirrande, han måste ha tappat något.
 (link:&quot;Jag plockar upp det&quot;)[Du lyfter upp Sörens gyllene pendel, den han använder när han hypnotiserar.(set:$pendel to 1)(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)(print: &quot;&lt;update-inventory&gt;&quot;)
 (set: $källare to 1)
-[[Jag ställer mig upp-&gt;källaren]]]]</tw-passagedata><tw-passagedata pid="18" name="Nedräkning" tags="Hypnos" position="425,450" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;(link:&quot;Jag ser pendeln&quot;)[
+[[Jag ställer mig upp-&gt;källaren]]]]</tw-passagedata><tw-passagedata pid="18" name="Nedräkning" tags="Hypnos" position="475,450" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;(link:&quot;Jag ser pendeln&quot;)[
 Kan du kanske se den i ögonvrån samtidigt som DU lyssnar på min röst?
 (link:&quot;Jag lyssnar&quot;)[Minns känslan när DU just ska somna, eller när DU just vaknat helt fokuserad på min röst nu när jag räknar NED från:
 [(link:&quot;Fem&quot;)[För varje steg NED kan det hända att du faller djupare ned.
@@ -703,7 +708,7 @@ Läser inte texten dpå valen kommit, kanske delaya dem eller klicka fram dem</t
 (link:&quot;Jag lyssnar&quot;)[(go-to: &quot;Lyssna&quot;)]]]
 ]]
 
-</tw-passagedata><tw-passagedata pid="84" name="Lyssna" tags="Hypnos" position="425,250" size="100,100">Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.
+</tw-passagedata><tw-passagedata pid="84" name="Lyssna" tags="Hypnos" position="425,275" size="100,100">Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.
 
 (link:&quot;Jag följer&quot;)[Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.
 
@@ -1014,6 +1019,9 @@ Du fryser plötsligt av skräck, det här är ju din största mardröm.
 (link-rerun: &quot;död +1&quot;)[(set: $död to it+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
 (link-rerun: &quot;död -1&quot;)[(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
 
+(link-rerun: &quot;Spela ljudet vakna&quot;)[&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;]
+
+
 Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på]](if:$system is 0)[(text-colour:red)[av]].
 (if:$system is 0)[(link:&quot;Sätt på högtalarsystemet&quot;)[(Set:$system to 1)]](if:$system is 1)[(link:&quot;Stäng av högtalarsystemet&quot;)[(Set:$system to 0)]]
 
@@ -1027,6 +1035,7 @@ Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på]](if:$system is 
 [[sov]]
 [[Jag undrar...]]
 [[biblioteket]]
+[[playmusic]]
 (link-goto: &quot;Tillbaka till där du var i spelet&quot;, (history:)&#39;s last)</tw-passagedata><tw-passagedata pid="138" name="utrop" tags="" position="1700,1475" size="100,100">Din röst ekar ut genom de tomma korridorerna helt utan effekt, du behöver kanske säga något särskilt? (If: $rädsla is &quot;misslyckande&quot;)[Du har misslyckats, du känner dig värdelös och livrädd]
 (after:7s)[\
 &lt;play-sound name=&quot;fotsteg&quot;&gt;&lt;/play-sound&gt;\
@@ -1067,13 +1076,23 @@ En dag upptäcker du en lapp i din ficka, en visitkort med en hälsning från S�
 
 [[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]]</tw-passagedata><tw-passagedata pid="145" name="Untitled Passage 1" tags="" position="2050,100" size="100,100">TEST TEST
 
-[[källaren]]</tw-passagedata><tw-passagedata pid="146" name="bibl" tags="" position="175,775" size="100,100"></tw-passagedata><tw-passagedata pid="147" name="bibli" tags="" position="50,1150" size="100,100"></tw-passagedata><tw-passagedata pid="148" name="RöstenTEST" tags="" position="2400,100" size="100,100">syns direkt. Hejsan.
+[[källaren]]</tw-passagedata><tw-passagedata pid="146" name="bibl" tags="" position="50,1275" size="100,100"></tw-passagedata><tw-passagedata pid="147" name="bibli" tags="" position="50,1150" size="100,100"></tw-passagedata><tw-passagedata pid="148" name="RöstenTEST" tags="" position="2400,100" size="100,100">syns direkt. Hejsan.
 (after:2s)[(dialog:&quot;Plötsligt hör du hur det sprakar till i högtalarsystemet och en röst hörs!&quot;)
 Hejsan, jag är Högtalar-Henke! hur mår du?]
-[[korridoren]]</tw-passagedata><tw-passagedata pid="149" name="TESTTEST" tags="" position="2250,300" size="100,100">(display: &quot;RöstenTEST&quot;)
+[[]]</tw-passagedata><tw-passagedata pid="149" name="TESTTEST" tags="" position="2250,300" size="100,100">(display: &quot;RöstenTEST&quot;)
 
 Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
-(link:&quot;Jag hör ingenting&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad.]</tw-passagedata></tw-storydata>
+(link:&quot;Jag hör ingenting&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad.]</tw-passagedata><tw-passagedata pid="150" name="playmusic" tags="" position="2700,75" size="100,100">&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;\
+(set: $showFooter to 1)\
+(t8n:&quot;blur&quot;)+(t8n-time:2.5s)[
+&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
+Du vaknar efter en &lt;b&gt;skön tupplur&lt;/b&gt;, det känns som att du sovit typ $sovtid minuter, mitt under skoldagen, på lektionen. Varför somnade du? Det måste ha varit en väldigt tråkig lektion.]
+[[playmusic2]]
+
+&lt;!-- &lt;audio src=&quot;./assets/sound/vakna.mp3&quot; type=&quot;audio/mpeg&quot; autoplay&gt;&lt;/audio&gt;\--&gt;</tw-passagedata><tw-passagedata pid="151" name="playmusic2" tags="" position="2950,175" size="100,100">Här är bara till för att gå (text-rotate-y:45)+(text-rotate-z:9)[tillbaka].
+
+&lt;play-sound name=&quot;snap&quot;&gt;&lt;/play-music&gt;
+[[playmusic]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim

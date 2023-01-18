@@ -22,8 +22,8 @@ const url5 = "../assets/music/skuggan1_lvol.mp3";
 var music = new Audio();
 music.loop = true;
 const musicBaseUrl = "./assets/music/";
-const musicBaseVolume = 0.5;
-var musicVol = 0.5;
+const musicBaseVolume = 0.3;
+var musicVol = musicBaseVolume;
 //const URLs = [url,url2,url3,url4,url5];
 //music.src = URLs[0];
 //musicIndex = 0;
@@ -269,20 +269,23 @@ function playSoundFX(name, type, targetAudioObject)
         surl = "none";
     }
     //    console.log("SoundFX function "+surl);
-    if (surl != "none") {
-        if (surl.includes("https://")) {
-            targetAudioObject.src = surl;
-        }
-        else {
-            targetAudioObject.src = FXsoundsBaseUrl + surl;
-        }
-
-        if (type.toLowerCase() == "loop"){
-            targetAudioObject.loop = true;
-        }
-        console.log("Playing now");
-        targetAudioObject.play();
+    if (surl == "none") {
+        return;
     }
+
+    if (surl.includes("https://")) {
+        targetAudioObject.src = surl;
+    }
+    else {
+        targetAudioObject.src = FXsoundsBaseUrl + surl;
+    }
+
+    if (type.toLowerCase() == "loop"){
+        targetAudioObject.loop = true;
+    }
+    console.log("Playing now "+surl);
+    targetAudioObject.play();
+    
 }
 
 function playMusic(name)
@@ -448,10 +451,39 @@ function testar(hej)
     //alert('hejsan '+hej);
 }
 
-
+var count = 0;
+var lastElement = undefined;
+// BRA SIDA: https://web.dev/custom-elements-v1/
 class MyTag extends HTMLElement {
+    constructor() {
+        super();
+        this.test23 = "hej";
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback() {
-        this.innerHTML = `<p>Custom tagg här!</p> `;
+//        let moveMe = this;
+//        moveMe.attributes.name.value = 'undefined'; // <-- Före elementet flyttas till story (med appendChild). För att undvika att hypnos-effekten triggas igen i en loop. Alternativ vore att ignorera callbacks för story element, osäker om det skulle funka dock.
+        // let moveTo = document.querySelector("tw-story");
+        // if (moveTo != null)
+        //     moveTo.prepend(moveMe);
+        
+        if (this.test23 != "hej"){
+            return;
+        }
+
+        this.test23 = "Nejje!";
+
+
+        console.log("==== viktigt ===="+this.test23);
+        // SKAPA ett separat element kanske?
+        // if (document.querySelector("myTaggStuff") == null)
+        // {
+        //     document.createElement("myTaggStuff");
+        // }
+        // var elementet = document.querySelector("myTaggStuff");
+
+        this.innerHTML += "<p>Custom tagg här! "+count+"</p>";
+        count++;
         this.style.color = "red";
         var typ = "Undefined typ";
         try{
@@ -460,26 +492,42 @@ class MyTag extends HTMLElement {
         catch{
             typ = "inget värde satt";
         }
+
+        console.log("Min tagg anrop"+this);
         testar("from tagg "+typ);
     }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+       this.innerHTML = "changed";
+      }
 }
 
 class SoundFX extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback() {
-        //this.innerHTML = 'Debugg ljud';
+   
         // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
-        if (document.querySelector('tw-transition-container') != null) {
-            return;
-            //            this.innerHTML = 'is child ';
+        // if (document.querySelector('tw-transition-container') != null) {
+        //     return;
+        // }
+
+        if (this.isDirty){
+            return; 
         }
+        this.isDirty = true;
+
         var name = "undefined";
         var type = "undefined";
 
         name = (this.attributes.name != null)?this.attributes.name.value:"undefined";
         type = (this.attributes.type != null)?this.attributes.type.value:"undefined";
-
+        
         if (name.length > 0 && name != "undefined") {
-//            console.log("PlaySoundFX(name)" + name);
+            console.log("PlaySoundFX(name)" + name);           
             playSoundFX(name, type);
         }
     }
@@ -489,10 +537,10 @@ class MusicPlay extends HTMLElement {
     connectedCallback() {
 //        this.innerHTML = 'Debugg music';
         // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
-        if (document.querySelector('tw-transition-container') != null) {
-            return;
-            //            this.innerHTML = 'is child ';
-        }
+         if (document.querySelector('tw-transition-container') != null) {
+             return;
+             //            this.innerHTML = 'is child ';
+         }
         var name = "undefined";
         try {
             name = this.attributes.name.value;
