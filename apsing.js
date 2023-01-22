@@ -784,6 +784,8 @@ function SetupTextFX(callerElement, typ,target)
     
     if (myElement == null){
         myElement = document.querySelector("#"+target);
+        if (myElement != null)
+            console.log("TARGETS HTML IS: "+myElement.innerHTML);
     }
     
     if (target == "self" && myElement == null)
@@ -797,7 +799,7 @@ function SetupTextFX(callerElement, typ,target)
         return;
     }
     
-    let text = myElement.innerHTML;
+    let text = myElement.innerText;  // OBS <- 22 jan 2023 Inner text löser google trasnalte problemet. Den tar inte med taggarna google lägger till. Men vilka problem kan uppstå nu? 
     text = text.replace(/<br>/g, " ¤ ");
     let textArray = text.split(" ");
     let replacementStr= "";

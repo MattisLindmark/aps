@@ -1,0 +1,41 @@
+/* img
+{
+    display: inline-block;
+    max-width: 100px;
+} */
+
+.bildpanel
+{
+    position:static;
+    top: 50px;
+    display: block;
+}
+
+.bild
+{
+    opacity: 0;
+    max-width: 200px;
+    padding: 5px;
+    animation: imgFadeIn 2s ease-in-out 1s 1 normal forwards;
+}
+
+.bild.first{
+    background-color: red;
+    animation-delay: 1s;
+    rotate: 2deg;
+}
+.bild.second{
+    background-color: green;
+    animation-delay: 3s;
+    rotate: -2deg;
+}
+.bild.third{
+    background-color: blue;
+    animation-delay: 4.5s;
+    rotate: 1deg;
+}
+
+@keyframes imgFadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}    
+}
