@@ -69,9 +69,9 @@ Till skillnad från klassrummets hårda stolar har de bekväma mjuka soffor. Ist
 (link:&quot;Jag har glömt tid och rum&quot;)[Men nu behöver jag att du återvänder till medvetande, jag behöver din hjälp!
 [[Jag är medveten-&gt;Du sover]]]]]]</tw-passagedata><tw-passagedata pid="6" name="Du sover" tags="Hypnos" position="725,125" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Du sover, men börjar bli medveten om att det är det du gör, du minns inte hur du somnade men du ligger med huvudet vilande på skolbänken. 
 (link:&quot;Jag är medveten om att jag sover&quot;)[\
-(if:$död is 5)[Hmmm, det här känns bekant... ]\
-(if:$död is 4)[Inte igen, det här börjar bli sjukt konstigt. ]\
-(if:$död is 3)[Måste vi gå igenom det här en gång till? ]Men vänta, är du i skolan? Man ska väl inte sova på lektionen? Skulle inte ni ha  någon slags inspirationsföreläsning med klassen idag? Är den redan slut, var den så tråkig så att du somnade?
+(if:$död is 4)[Hmmm, det här känns bekant... ]\
+(if:$död is 3)[Inte igen, det här börjar bli sjukt konstigt. ]\
+(if:$död is 2)[Måste vi gå igenom det här en gång till? ]Men vänta, är du i skolan? Man ska väl inte sova på lektionen? Skulle inte ni ha  någon slags inspirationsföreläsning med klassen idag? Är den redan slut, var den så tråkig så att du somnade?
 
 [[Jag fortsätter sova-&gt;Fortsätt sova]]\
 (if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length is 1)[
@@ -183,13 +183,12 @@ Plötsligt känner du att din hand greppar hårt om något litet metalliskt
 (link:&quot;Jag faller!&quot;)[Du slår hårt i golvet samtidigt som du hör ett klirrande, han måste ha tappat något.
 (link:&quot;Jag plockar upp det&quot;)[Du lyfter upp Sörens gyllene pendel, den han använder när han hypnotiserar.(set:$pendel to 1)(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)(print: &quot;&lt;update-inventory&gt;&quot;)
 (set: $källare to 1)
-[[Jag ställer mig upp-&gt;källaren]]]]</tw-passagedata><tw-passagedata pid="18" name="Nedräkning" tags="Hypnos" position="475,450" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;(link:&quot;Jag ser pendeln&quot;)[
-Kan du kanske se den i ögonvrån samtidigt som DU lyssnar på min röst?
+[[Jag ställer mig upp-&gt;källaren]]]]</tw-passagedata><tw-passagedata pid="18" name="Nedräkning" tags="Hypnos" position="475,450" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;(link:&quot;Jag ser pendeln&quot;)[Följ pendeln och glöm allt som du ska tänka på  är hur jag räknar NED steg för steg kan det hända att du blir sömnigare och sömnigare.
 (link:&quot;Jag lyssnar&quot;)[Minns känslan när DU just ska somna, eller när DU just vaknat helt fokuserad på min röst nu när jag räknar NED från:
 [(link:&quot;Fem&quot;)[För varje steg NED kan det hända att du faller djupare ned.
-(link:&quot;Fyra&quot;)[Kanske sker det gradvis, långsamt, eller så att när jag räknat hela vägen NED 
-(link:&quot;Tre&quot;)[Så kommer du att falla helt plötsligt, som om någon knäppt knapp i din hjärna
-(link:&quot;Två&quot;)[Det kan vara så att du då, när jag knäpper med fingrarna kommer falla ned över bänken och försvinna ned i en djup sömn
+(link:&quot;Fyra&quot;)[Kanske sker det gradvis, långsamt blir det så att när jag räknat hela vägen NED.
+(link:&quot;Tre&quot;)[Kommer du att falla helt plötsligt, som om någon knäppt knapp i din hjärna.
+(link:&quot;Två&quot;)[När jag knäpper med fingrarna kommer du falla NED över bänken och försvinna NED i en djup sömn.
 (link:&quot;Ett, Jag somnar när du knäpper&quot;)[&lt;play-sound name=&quot;snap&quot;&gt;&lt;/play-sound&gt;(go-to: &quot;Du sover&quot;)]]]]]]]]</tw-passagedata><tw-passagedata pid="19" name="Jag gömmer mig under soffan" tags="grej" position="1200,1150" size="100,100">Du kryper in under soffan. Där är fullt av dammråttor, godispapper och tuggummin. Så det är alltså inte bara elever som kletar tuggummin.
 (link: &quot;Jag är gömd under soffan&quot;)[Dörren öppnas och du ser ett par blanka vita skor gå in i rummet, du känner igen skorna, de går fram och sätter sig på soffan så den bågnar ned över dig.
 (Link: &quot;Jag känner igen Sören Mesmer&quot;)[Du hör hur han pratar sig själv samtidigt som han skär upp en tårtbit på ett fat.
@@ -478,7 +477,8 @@ Plötsligt hör du steg ute i korridoren, någon är på väg hit.
 (if: $kläder is &quot;utstickande&quot;)[[[Jag gömmer mig under en bänk!-&gt;bänk]]]
 (if: $kläder is not &quot;utstickande&quot;)[[[Jag gömmer mig under en bänk!-&gt;bänk2]]]
 [[Jag tacklar honom!]]
-(if: $kläder is &quot;bekväma&quot;)[[Spring!-&gt;spring]](if: $kläder is not &quot;bekväma&quot;)[[Spring!-&gt;spring2]]</tw-passagedata><tw-passagedata pid="61" name="Väcka1" tags="" position="1925,1225" size="100,100">Så nu, var ditt undermedvetna ändå fått dig att tro att du sitter, i klassrummet, eller hemma framför datorn. Kanske har ditt undermedvetna fått dig att tro att du bara spelar ett spel.
+(if: $kläder is &quot;bekväma&quot;)[[[Spring!-&gt;spring]]]\
+(if: $kläder is not &quot;bekväma&quot;)[[[Spring!-&gt;spring2]]]</tw-passagedata><tw-passagedata pid="61" name="Väcka1" tags="" position="1925,1225" size="100,100">Så nu, var ditt undermedvetna ändå fått dig att tro att du sitter, i klassrummet, eller hemma framför datorn. Kanske har ditt undermedvetna fått dig att tro att du bara spelar ett spel.
 
 (link:&quot;Jag har förstått&quot;)[
 Därför måste jag påminna dig om att detta händer på riktigt och därför måste du nu agera på riktigt, jag behöver att du använder din riktiga röst, och säger högt exakt vad jag ber dig säga. Så kan vi väcka skolan tillsammans. 
@@ -600,7 +600,13 @@ Skrivet av: $namn
 Bra, tack för att du delar med dig, det gör att vi kan lita på varandra.
 (link:&quot;Jag litar på dig&quot;)[För att detta ska fungera behöver jag att DU forsätter följa mina instruktioner är att DU gör exakt som jag säger. Vad gör DU?&lt;play-sound name=&quot;lyssna5&quot;&gt;&lt;/play-sound&gt;
 
-[[Jag gör som du säger]]]</tw-passagedata><tw-passagedata pid="78" name="Manusstart" tags="" position="250,600" size="100,100">Minglar runt bland eleverna, rättar till allas stolar så de är i position. “Sitter DU bra?” Ser DU bra där?”, “ Är DU redo”
+(link:&quot;Jag gör som du säger&quot;)[Bra, Alla Presterar Suveränt.
+&lt;play-sound name=&quot;lyssna3&quot;&gt;&lt;/play-sound&gt;
+(link:&quot;Jag presterar&quot;)[Jag talar nu direkt till dig, DU, Andra Person Singular, ja just DU som sitter NED i skolbänken, allt jag säger handlar om och riktas direkt till dig. &lt;play-sound name=&quot;lyssna12&quot;&gt;&lt;/play-sound&gt;
+
+(link:&quot;Det handlar om mig&quot;)[Du är huvudpersonen i ditt eget liv och det här är din stund, DU sitter på makten är i din hand att välja vilken väg DU ska gå NED.&lt;play-sound name=&quot;lyssna13&quot;&gt;&lt;/play-sound&gt;
+
+(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Manusstart" tags="" position="250,600" size="100,100">Minglar runt bland eleverna, rättar till allas stolar så de är i position. “Sitter DU bra?” Ser DU bra där?”, “ Är DU redo”
 
 När du är redo vill jag att du räcker upp den här armen, din högra hand, den som är på den gröna sidan, bra, den högra, bra,  och tittar på den snurrande spiralen, bra, du gör helt rätt. Du sitter i din stol, i ditt klassrum, du tittar på den snurrande spiralen och det är som att din hand håller sig uppe av sig själv, uppe mot den blå himlen, svävar utanför din kontroll.
 
@@ -695,26 +701,17 @@ Läser inte texten dpå valen kommit, kanske delaya dem eller klicka fram dem</t
 
 (after:5s)[Bra, nu behöver jag veta vem du är
 
-(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Vad heter du?&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Karaktär&quot;)]]]]</tw-passagedata><tw-passagedata pid="83" name="Jag gör som du säger" tags="Hypnos" position="425,125" size="100,100">Bra, Alla Presterar Suveränt.
-&lt;play-sound name=&quot;lyssna3&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;Jag presterar&quot;)[Jag talar nu direkt till dig, DU, Andra Person Singular, ja just DU som sitter NED i skolbänken, allt jag säger handlar om och riktas direkt till dig. &lt;play-sound name=&quot;lyssna12&quot;&gt;&lt;/play-sound&gt;
+(link:&quot;Jag heter...&quot;)[(set: $namn to (prompt: &quot;Vad heter du?&quot;, &quot;&quot;))(if: $name is not &quot;Testnamn&quot;)[(go-to: &quot;Karaktär&quot;)]]]]</tw-passagedata><tw-passagedata pid="83" name="Jag gör som du säger" tags="Hypnos" position="425,150" size="100,100">(go-to: &quot;Lyssna&quot;)]]]
+]]
 
-(link:&quot;Det handlar om mig&quot;)[Du är huvudpersonen i ditt eget liv och det här är din stund, DU sitter på makten är i din hand att välja vilken väg DU ska gå NED.&lt;play-sound name=&quot;lyssna13&quot;&gt;&lt;/play-sound&gt;
-
-(link:&quot;Jag väljer&quot;)[Har du tänkt på att det finns de få som lyssnar uppmärksamt när de sitter NED i din position i klassrummets distraktioner gör att andra tappar den direkt. &lt;play-sound name=&quot;lyssna14&quot;&gt;&lt;/play-sound&gt;
+</tw-passagedata><tw-passagedata pid="84" name="Lyssna" tags="Hypnos" position="425,275" size="100,100">Har du tänkt på att det finns de få som lyssnar uppmärksamt när de sitter NED i din position i klassrummets distraktioner gör att andra tappar den direkt. &lt;play-sound name=&quot;lyssna14&quot;&gt;&lt;/play-sound&gt;
 
 (link:&quot;Jag tänker&quot;)[Vem av dem är DU just nu? Lyssnar DU hör väl vad jag säger? &lt;play-sound name=&quot;lyssna15&quot;&gt;&lt;/play-sound&gt;
 
-(link:&quot;Jag lyssnar&quot;)[(go-to: &quot;Lyssna&quot;)]]]
-]]
+(link:&quot;Jag lyssnar&quot;)[
+Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.
 
-</tw-passagedata><tw-passagedata pid="84" name="Lyssna" tags="Hypnos" position="425,275" size="100,100">Tack för att DU släppt in mig i ditt undermedvetna jag lyssnar på och följer mina instruktioner.
-
-(link:&quot;Jag följer&quot;)[Har du tänkt på att det är möjligt lyssnandet ger dig koncentration och fokus-era på hur DU sitter extra stilla.
-
-(link:&quot;Jag fokuserar&quot;)[Med ögonen öppna och uppmärksamma dig själv på hur din mun kanske slappnat av, öppnat sig. 
-
-(link:&quot;Jag är stilla&quot;)[Hur DU faller djupare och djupare NED i ett koncentrerat tillstånd som jag har givit dig att släppa allt.
+(link:&quot;Jag följer&quot;)[Hur DU faller djupare och djupare NED i ett koncentrerat tillstånd som jag har givit dig att släppa allt.
 
 (link:&quot;Jag släpper allt&quot;)[Ser du den här gyllene pendeln som jag håller upp framför mig? När du är redo kommer jag att börja svinga den framför dina ögon.
 
@@ -794,7 +791,7 @@ Du får en tillsägning för att ha stulit rektorns nycklar och får aldrig en c
 [[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="97" name="Du" tags="Hypnos" position="300,25" size="100,100">&lt;play-music name=&quot;skuggan2&quot;&gt;&lt;/play-music&gt;(t8n:&quot;blur&quot;)+(t8n-time:4s)+(after:1s)[&lt;img src=&quot;https://thumbs.dreamstime.com/b/hypnotic-1227349.jpg width=&quot;400&quot; height=&quot;200&quot;&gt;
 (link:&quot;Jag sitter bekvämt&quot;)[DU sitter på DIN stol, i DITT klassrum, bland alla DINA klasskamrater.&lt;play-sound name=&quot;lyssna1&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag sitter i mitt klassrum&quot;)[DU går i mellanstadiet, det här är en miljö som DU känner väl, DU är trygg här.&lt;play-sound name=&quot;lyssna2&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;Jag går i mellanstadiet&quot;)[Jag heter Sören Mesmer och arbetar som inspirationsföreläsare, proffspedagog och mind hacker. Idag ska jag föreläsa för DIN klass.&lt;play-sound name=&quot;lyssna3&quot;&gt;&lt;/play-sound&gt;
+(link:&quot;Jag går i mellanstadiet&quot;)[Jag heter Sören Mesmer och arbetar på APS som inspirationsföreläsare, proffspedagog och mind hacker. Idag ska jag föreläsa för DIN klass.&lt;play-sound name=&quot;lyssna3&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag ska lyssna på föreläsning&quot;)[Jag är här för att inspirera DIG till att bli DITT bästa jag. 
 Ansvarsfull, Produktiv, Snäll. &lt;play-sound name=&quot;lyssna4&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag ska inspireras&quot;)[Det här är en upplevelse som handlar om DIG, ja precis DU:
@@ -1079,7 +1076,7 @@ En dag upptäcker du en lapp i din ficka, en visitkort med en hälsning från S�
 [[källaren]]</tw-passagedata><tw-passagedata pid="146" name="bibl" tags="" position="50,1275" size="100,100"></tw-passagedata><tw-passagedata pid="147" name="bibli" tags="" position="50,1150" size="100,100"></tw-passagedata><tw-passagedata pid="148" name="RöstenTEST" tags="" position="2400,100" size="100,100">syns direkt. Hejsan.
 (after:2s)[(dialog:&quot;Plötsligt hör du hur det sprakar till i högtalarsystemet och en röst hörs!&quot;)
 Hejsan, jag är Högtalar-Henke! hur mår du?]
-[[]]</tw-passagedata><tw-passagedata pid="149" name="TESTTEST" tags="" position="2250,300" size="100,100">(display: &quot;RöstenTEST&quot;)
+[[]]</tw-passagedata><tw-passagedata pid="149" name="TESTTEST" tags="" position="2275,300" size="100,100">(display: &quot;RöstenTEST&quot;)
 
 Du kommer in till matsalen, ett rum som alltid är fullt av ljud från klirrande bestick, diskmaskiner och matkrig, men nu är det alldeles tyst.
 (link:&quot;Jag hör ingenting&quot;)[Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sallad, trots att skolan tvingar alla elever att ta sallad.]</tw-passagedata><tw-passagedata pid="150" name="playmusic" tags="" position="2700,75" size="100,100">&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;\
