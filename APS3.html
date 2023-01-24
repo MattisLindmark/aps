@@ -225,22 +225,18 @@ Hypnos (ytterst av antik grekiska ὕπνος (hýpnos), &quot;sömn&quot;) är 
 
 [[Det låter ju som det jag utsatts för!-&gt;wikipedia2]]
 </tw-passagedata><tw-passagedata pid="23" name="biblioteket" tags="rum" position="2175,1100" size="100,100">(set: $chans to 0)\
-(set: $presentage to 105)\
-(if: $system is 1)[(set: $percentage to (random: 100))]\
-(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length &gt;= 1)[(set: $chans to 75)]\
+(if: $system is 1)[(set: $percentage to (random: 100))(if:(history: where its name contains &quot;biblioteket&quot;)&#39;s length &gt;= 1)[(set: $chans to 75)]\
 (if:(history: where its name contains &quot;rösten&quot;)&#39;s length &gt; 1)[(set: $chans to 25)]\
-(if: $percentage &lt; $chans)[(go-to: &quot;rösten&quot;)]\
-\
+(if: $percentage &lt; $chans)[(go-to: &quot;rösten&quot;)]]\
 (if:$kläder is &quot;moderiktiga&quot;)[Biblioteket, skolans tråkigaste plats, bara en torr bibliotekarie och en massa tråkiga böcker. Du föredrar att hänga med dina polare i matsalen. Men ibland går du in hit för att spela spel i smyg på datorn]\
 (if:$kläder is not &quot;moderiktiga&quot;)[Skolbiblioteket, skolans normalt sett tryggaste plats. Här finns alltid en bibliotekarie som du kan vara i närheten av, som kan säga till mobbarna att vara tysta och gå därifrån. Enda nackdelen är att hon sen tvingar på dig en bok som du måste sitta och läsa. Du minns fortfarande när hon försåg dig med (if:$rädsla is &quot;mörker&quot;)[en samling spökhistorier som bara handlade om folk som låstes in i mörka källare. Så läskigt att du nästan föredragit mobbargänget.](if:$rädsla is &quot;kryp&quot;)[en faktabok om insekter så du fick sitta och föreställa dig hur de kröp från boksidorna och upp längst dina armar. Huvvaligen, du hade kanske ändå föredragot mobbargänget, kanske.](if:$rädsla is &quot;misslyckas&quot;)[Berts dagbok och du översköljdes av pinsamheterna i hans alla misslyckanden. Det var så obehagligt att du nästan föredragit mobbargänget, men bara nästan]]
 (link:&quot;Jag är i biblioteket&quot;)[Men nu ligger bibliotekarien och sover i myshörnan, i och för sig kanske hon gjorde det redan innan, hon brukar alltid sitta där med en bok då inga barn är i biblioteket.
 (link:&quot;Bibliotekarien sover&quot;)[(if: $städare is 0)[Du ser även att dörren till städskrubben står på glänt och du hör ett underligt gurglande därifrån.]
 
-(if: $kläder is not $moderiktiga)[[[Jag letar efter en bok om hypnos-&gt;mollymoon]]]
+(if:(history: where its name contains &quot;död&quot;)&#39;s length &gt;= 1 and $kläder is not $moderiktiga)[[[Jag letar efter en bok om hypnos-&gt;mollymoon]]]
 [[Jag går till städskrubben-&gt;städskrubben]]
 [[Jag startar biblioteksdatorn-&gt;Starta datorn]]
-[[Jag går tillbaka-&gt;höger]]]](set: $progression to $progression +1)
-</tw-passagedata><tw-passagedata pid="24" name="mollymoon" tags="" position="2175,1225" size="100,100">Du hittar en bok täckt av snurrande spiraler.
+[[Jag går tillbaka-&gt;höger]]]](set: $progression to $progression +1)</tw-passagedata><tw-passagedata pid="24" name="mollymoon" tags="" position="2175,1225" size="100,100">Du hittar en bok täckt av snurrande spiraler.
 
 &lt;img src= &quot;https://fantasyhyllan.se/produktbilder/9789177154174-molly-moons-fantastiska-bok-om-hypnos-1.jpg&quot; width=&quot;400&quot; height=&quot;500&quot;/&gt;
 
@@ -813,8 +809,7 @@ Det här är ett spel som handlar om dig, det kräver att du läser text och lys
 
 Se till att du sitter bekvämt, satt på dig hörlurar eller skruvat upp ljudet och sett till att du inte blir störd.
 
-[[Jag är redo-&gt;Du]]</tw-passagedata><tw-passagedata pid="99" name="död2" tags="Hypnos" position="1675,75" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)\
-Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
+[[Jag är redo-&gt;Du]]</tw-passagedata><tw-passagedata pid="99" name="död2" tags="Hypnos" position="1675,75" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;(set: $död to it-1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&lt;/score-bar&gt;&quot;)Du befinner dig i en djup hypnotisk trans, ett tillstånd du ofta befinner dig i, flera gånger per dag.
 (link:&quot;Jag är i trans&quot;)[Du inser samtidigt att du varit här förut, det är något som är fel.
 (link:&quot;Jag har varit här förut&quot;)[Du minns vad du varit med om men det är också vagt, som att minnas en dröm.
 (link:&quot;Jag är i en dröm&quot;)[Bit för bit kommer det tillbaka till dig, du var den enda som vaknade, du måste försöka vakna igen!
@@ -959,9 +954,7 @@ Du står med ryggsäcken på ryggen i korridoren utanför klassrummet.
 	[[Gå tillbaka till klassrummet-&gt;klassrumtillbaka]]
 ]\
 ]
-
 &lt;!--
-NEDAN KAN RADERAS: 2023-01-24
 (if:$affisch is 1)[Du står med ryggsäcken på ryggen utanför  klassrummet, ser platsen där du rivit ned affischen.
 
 [[Gå till vänster-&gt;vänster]]
@@ -1046,6 +1039,7 @@ Du fryser plötsligt av skräck, det här är ju din största mardröm.
 (link-rerun: &quot;progression 1&quot;)[(set: $progression to 1)]
 (link-rerun: &quot;klassrum 1&quot;)[(set: $klassrum to 1)]
 
+
 (link-rerun: &quot;affisch 1&quot;)[(set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link-rerun: &quot;affisch o&quot;)[(set: $affisch to 0)(print: &quot;&lt;update-inventory&gt;&quot;)]
 (link-rerun: &quot;nyckel 1&quot;)[(set: $nyckel to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]
@@ -1071,8 +1065,11 @@ Du fryser plötsligt av skräck, det här är ju din största mardröm.
 Högtalarsystemet är (live:1s)[(if:$system is 1)[(text-colour:green)[på]](if:$system is 0)[(text-colour:red)[av]].]
 (if:$system is 0)[(link:&quot;Sätt på högtalarsystemet&quot;)[(Set:$system to 1)]](if:$system is 1)[(link:&quot;Stäng av högtalarsystemet&quot;)[(Set:$system to 0)]]
 --&gt;
+
+På bordet låg en (seq-link: bind $seqtest, &quot;en apelsin&quot;, &quot;en halv apelsin&quot;, &quot;lite apelsinskal&quot;)
+
 (live: 1s)[
-Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på](set: $onOff to &quot;Slå på högtalarsystemet&quot;)](if:$system is 0)[(text-colour:red)[av](set: $onOff to &quot;Stäng av högtalarsystemet&quot;)].\
+Högtalarsystemet ärr (if:$system is 1)[(text-colour:green)[på](set: $onOff to &quot;Slå på högtalarsystemet&quot;)](if:$system is 0)[(text-colour:red)[av](set: $onOff to &quot;Stäng av högtalarsystemet&quot;)].\
 ]
 (link-rerun: &quot;Tryck på knappen&quot;)[(if: $system is 1)[(set: $system to 0)]\
 (else:)[(set: $system to 1)]]
@@ -1083,8 +1080,6 @@ Högtalarsystemet är (if:$system is 1)[(text-colour:green)[på](set: $onOff to 
 (link: &quot;Reset&quot;)[(reload:)]
 [[Tillbaka till start utan reset|Start]]
 [[Gå till korridoren-&gt;korridoren]]
-
-På bordet låg en (seq-link: bind $seqtest, &quot;en apelsin&quot;, &quot;en halv apelsin&quot;, &quot;lite apelsinskal&quot;)
 
 [[TESTTEST]]
 [[sov]]

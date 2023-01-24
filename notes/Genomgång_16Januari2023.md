@@ -5,9 +5,15 @@
 > * Personalrummet. Visits på kaffemaskinen gör att kaffet kan va slut utan att man klickat på maskinen.
 > * Utrop: Replace link!
 > * Wikipedia2 finns en bild, är den rätt och tillåten att använda?
-> * uppspelning av ljud funkar dåligt. vakna i klassrummet tex.
-> * Ljudeffeckt just före go-to fungerar ej längre pga ljudet funkar som det ska nu (och stop-ljud i headern avbryter).
+> * FIXAT - uppspelning av ljud funkar dåligt. vakna i klassrummet tex.
+> * Ljudeffeckt just före go-to fungerar ej längre (stop-ljud i headern avbryter).
 > * Musiken i "rösten" och "fotsteg" etc kommer att dröjja kvar när man klarat sig om man inte byter vid nåt tillfälle...
+> * Ska död alltid minskas på "sov" paragrafen? Nu minskar död tex inte om man lyssnar på rösten. Sätter man död - 1 i sov kanske det underlättar? Var länkas man till död = 0 slutet?
+
+
+> * I städsrkubben: sätt tillbaka till Städskrubben.
+> * I korridoren där man går till bibblan, sätt tillbaka till den korridoren.
+> * Inget tillbaka får vara på samma paragraf som en röst eller fotsteg kan triggas.
 
 ## Slut funderingar ## 
 * mördarslut kommer man till via jordnötter etc.

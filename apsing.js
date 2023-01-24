@@ -304,6 +304,10 @@ function playMusic(name)
     }
 
     if (surl != "none") {
+         if (music.src.includes(surl)){
+            return;
+         }
+
         if (surl.includes("https://")) {
             surl = surl;
         }
@@ -311,6 +315,7 @@ function playMusic(name)
             surl = musicBaseUrl + surl;
         }
         fastFadeAndStop(music, ()=>{music.src = surl;music.volume=musicVol;music.play()});
+        
 //        setTimeout(()=>{music.play()},1000);
         //music.play();
     }
@@ -534,13 +539,22 @@ class SoundFX extends HTMLElement {
 }
 
 class MusicPlay extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback() {
 //        this.innerHTML = 'Debugg music';
         // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
-         if (document.querySelector('tw-transition-container') != null) {
-             return;
-             //            this.innerHTML = 'is child ';
-         }
+        //  if (document.querySelector('tw-transition-container') != null) {
+        //      return;
+        //      //            this.innerHTML = 'is child ';
+        //  }
+        if (this.isDirty){
+            return;
+        }
+
         var name = "undefined";
         try {
             name = this.attributes.name.value;
@@ -548,7 +562,8 @@ class MusicPlay extends HTMLElement {
             name = "undefined";
         }
         if (name.length > 0 && name != "undefined") {
-            //console.log("PlayMusic" + name);            
+            //console.log("PlayMusic" + name);
+            this.isDirty = true;            
             playMusic(name);
         }else{
          console.log("Dit not PlayMusic" + name);
