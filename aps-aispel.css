@@ -9,6 +9,13 @@ tw-story[tags~="spel"] tw-include inventory.topLeft{
     display: none;
 }
 
+/* tw-story[tags~="spel"]{
+    background-image: url("/assets/tmp/ScreenBGR2.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100 !important;
+} */
 
 tw-story[tags~="spel"]{
     background: linear-gradient(
@@ -16,8 +23,7 @@ tw-story[tags~="spel"]{
         rgba(18, 16, 16, 0) 50%,
         rgba(0, 0, 0, 0.25) 50%
         );
-    
-    background-size: 100% 8px;
+    background-size: 100% 8px; 
     z-index: 2;
     background-color: #020;
 }
@@ -28,9 +34,23 @@ tw-passage[tags~="spel"]{
 /*    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');  <- tror ej denna påverkar något*/
     font-size: 2rem;
     color: lightgreen;
-    padding-left: 2rem;
-    padding-right:2rem;
-    padding-bottom: 2rem;
+    padding-left: 1rem;
+    padding-right:1rem;
+    padding-bottom: 1rem;
+    
+    /* Nedan är för CRT ramen och sånt */
+    margin-top: 5rem;
+    height: 60vh;       
+    scrollbar-color: rgb(61, 153, 51) rgb(4, 75, 4) !important;
+    overflow: auto;
+    
+    border: 20px solid transparent;
+    border-image: url("/assets/tmp/ScreenBGR2.png");
+    border-image-repeat: stretch;
+    border-image-slice: 40%;
+    border-image-width: 150px;
+    border-image-outset: 50px;
+  
 }
 
 tw-passage[tags~="mattis2"]{
