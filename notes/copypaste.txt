@@ -229,3 +229,48 @@ ________________________________
 https://www.craiyon.com/
 Bild-seeds
 shoes walking in empty corridor. closeup of shoes. Frans Masereel black and white clipart graphic novel
+
+
+
+
+2023-01-25
+
+För in följande ändringar:
+
+rektorsexpeditionen
+(if: visit < 2)[Dörren är låst! Du använder nyckeln du tog av rektorn, låser upp dörren och går in.<play-sound name="nycklar"></play-sound>]
+Ett tomt skrivbord fyllt av rödvita godispapper, din rektor älskar verkligen "Marianne". 
+Under godispappren ligger en folder från "APS" och någon verkar ha letat fram en instruktionsbok om hur man använder skolans högtalarsystem.
+
+(link:"Jag äter rektorns godis")[(if:$fika is "bananer")[Nej, usch förresten, de där innehåller alldeles för mycket socker, varför äter inte rektorn frukt!?](if:$fika is not "bananer")[Du knaprar i dig de hårda godisarna, de smakar, vuxet, alltså det är ju tekniskt sett godis men kanske bara gott om man fyllt 40 år.]]
+[[Jag läser APSfoldern]]
+[[Jag säger något i högtalarsystemet]]
+[[Jag går tillbaka till korridoren->höger]]
+
+
+debugg2 (samt länk dit i debugg 1)
+
+(link-rerun: "intro")[<play-music name="skuggan0"></play-music>]
+(link-rerun: "skuggan1")[<play-music name="skuggan1"></play-music>]
+(link-rerun: "skuggan2")[<play-music name="skuggan2"></play-music>]
+(link-rerun: "skuggan3")[<play-music name="skuggan3"></play-music>]
+(link-rerun: "skuggan4")[<play-music name="skuggan4"></play-music>]
+(link-rerun: "skuggan5")[<play-music name="skuggan5"></play-music>]
+(link-rerun: "Överjaget")[<play-music name="overjag"></play-music>]
+(link-rerun: "skugganhypno")[<play-music name="skugganhypno"></play-music>]
+
+
+Jag säger något i högtalarsystemet
+(tog bort: (if:$hypnos > 3 and (history: where its name contains "biblioteket")'s length is >= 1)[)
+
+Nu:
+(if: $system is 0)[(go-to: "deaktiverat")]Du lutar dig ned över mikrofonen och trycker på knappen. 
+En ton låter och det sprakar i systemet, vad säger du?
+
+(if:$hypnos > 3)[
+[[Jag försöker väcka skolan]]]
+(link:"Jag säger -Hallå hallå")[Du hör din röst eka ut i skolkorridoren, men nu då, något roligt kanske?? men vem ska lyssna, alla ligger ju och sover.
+(link:"Jag ropar -VAKNA!")[(go-to: "utrop")]]
+[[Jag ger upp och reser mig->rektorsexpeditionen]] 
+
+

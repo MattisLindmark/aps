@@ -2,14 +2,15 @@
 
 // MUSIK setup
 var musicScores = [
-    { name:"skugganhypno", value:"skuggan_hypnos_low.mp3"},
-    { name:"skuggan0", value:"skuggan0.mp3"},
-    { name:"skuggan1", value:"skuggan1_lvol.mp3"},
+    { name:"skugganhypno", value:"skuggan_hypnos.mp3"},
+    { name:"skuggan0", value:"intro.mp3"},
+    { name:"skuggan1", value:"skuggan1.mp3"},
     { name:"skuggan2", value:"skuggan2.mp3"},
     { name:"skuggan3", value:"skuggan3.mp3"},
     { name:"skuggan4", value:"skuggan4.mp3"},
     { name:"skuggan5", value:"skuggan5.mp3"},
-    { name:"test", value:"looptest.mp3"}
+    { name:"test", value:"looptest.mp3"},
+    { name:"overjag", value:"overjaget.mp3"}
 
 ]
 /*
@@ -41,6 +42,8 @@ var FXsounds = [
     { name: "deathmeeter", value:"dod.mp3"},
     { name: "inventory", value:"pickup.mp3"},
     { name: "vakna", value:"vakna.mp3"},
+    { name: "nycklar", value:"key_unlock.mp3"},
+    { name: "fotsteg", value:"aps_steps23.mp3"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
