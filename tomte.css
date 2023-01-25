@@ -19,11 +19,12 @@ tomte {
     position: relative;
     background-color: #f00;
     padding: 2rem;
-    height: 100%;
+    /* height: 100%;
     height: 200vh;
-    width: 100%;
+    width: 100%; */
     display: inline-block;
     color: green;
+    
 
 }
 tomteB{
@@ -31,6 +32,32 @@ tomteB{
     position: sticky;
     top: 0;
     display: block;
+}
+
+.scrollbar{
+    background-color: aquamarine;
+    width: 50%;
+    height: 100px;
+    overflow: auto;
+    scrollbar-color: rgb(rgb(8, 0, 255) 0) rgb(0, 255, 0);
+    scrollbar-width: 51px;
+    /* scrollbar-base-color: #f00;
+    scrollbar-face-color: blueviolet; */
+    display: block;
+
+}
+.scrollbar::-webkit-scrollbar {
+    width: 21px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: green;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgb(161, 223, 161);
+    border-radius: 6px;
+    border: 3px solid rgb(62, 27, 233);
 }
 
 tomte>a{

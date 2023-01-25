@@ -28,39 +28,77 @@ tw-story[tags~="spel"]{
     background-color: #020;
 }
 
+/* tw-story[tags~="spel"]{
+    z-index:2;
+    background-color: rgb(0, 0, 0);
+} */
+
+@media (min-width: 700px){
 tw-passage[tags~="spel"]{
-    background-color: #353;
+    /* background-color: #353; */
+    background-color: transparent;
  
 
     font-family: 'VT323', monospace;
 /*    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');  <- tror ej denna påverkar något*/
     font-size: 2rem;
     color: lightgreen;
+    /* color: hsl(85, 80%, 84%); */
     padding-left: 1rem;
     padding-right:1rem;
     padding-bottom: 1rem;
-    scrollbar-color: rgb(61, 153, 51) rgb(4, 75, 4) !important;
+    /* scrollbar-color: rgb(61, 153, 51) rgb(4, 75, 4) !important; */
     
     /* Nedan är för CRT ramen och sånt */
     margin-top: 5rem;
     height: 60vh;
     max-width: 850px;
-    min-width: 400px;
+    min-width: 500px;
     overflow-y: auto;
     
     border: 24px solid transparent;
     border-bottom: 45px solid;
-    border-image: url("./assets/tmp/ScreenBGR2.png");
+    border-image: url("./assets/tmp/ScreenBGR3fill.png");
     border-image-repeat: stretch;
     border-image-slice: 46% fill;
     border-image-width: 195px;
     border-image-outset: 60px 50px;
     /* background-clip: padding-box; */  
 }
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar{
+    width: 18px;
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar-track{
+    background-color: rgb(46, 100, 46);
+    box-shadow: inset 0px 0px 4px rgb(152, 152, 152);
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar-thumb{
+    background-color: hsl(120, 33%, 50%);
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(128, 163, 128);
+}
+
+@media (max-width: 700px),(max-height: 500px){
+    tw-passage[tags~="spel"]{
+        background-color: #353;
+        font-family: 'VT323', monospace;
+        font-size: 2rem;
+        color: lightgreen;
+        padding-left: 1rem;
+        padding-right:1rem;
+        padding-bottom: 1rem;
+        border: none;
+        height: auto;
+        min-width: none;
+        max-width: none;
+    }
+}
+
 
 tw-passage[tags~="mattis2"]{
     background-color: aqua;
-
 }
 
 tw-passage[tags~="mattis1"]{ 
