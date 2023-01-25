@@ -45,7 +45,7 @@ tw-passage[tags~="spel"]{
     overflow: auto;
     
     border: 20px solid transparent;
-    border-image: url("/assets/tmp/ScreenBGR2.png");
+    border-image: url("./assets/tmp/ScreenBGR2.png");
     border-image-repeat: stretch;
     border-image-slice: 40%;
     border-image-width: 150px;
