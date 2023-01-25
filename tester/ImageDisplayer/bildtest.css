@@ -39,3 +39,41 @@
     from{opacity: 0;}
     to{opacity: 1;}    
 }
+
+
+.bgrtest
+{
+    overflow: hidden !important;    
+    position: absolute;
+    background-image: url("apspattern1.png");
+    height: 99%;
+    width: 99%;
+    background-size: 128px;
+    /* animation: bgranim 3.5s ease-in-out infinite alternate; */
+    /* animation: bgranim 3.5s ease-in-out infinite alternate; */
+    animation: bgranim2 10s ease-in-out infinite;
+    display: inline-block !important;
+    animation-delay: .1s;
+    pointer-events: none;
+    z-index: -100;
+}
+
+@keyframes bgranim {
+    to {
+      background-size: 256px;
+      background-position: -200% -100%;
+    }
+    0%{opacity: .4;}
+    50%{opacity: 0.5;}
+    100%{opacity: 0.6;}
+  }
+
+  @keyframes bgranim2{
+      to {
+          transform: rotate(20deg) scale(2);
+          /* background-size: 256px; */
+          background-position: -20% -10%;
+      }
+      /* 0%, 100% {transform: rotate(0deg);} */
+
+}
