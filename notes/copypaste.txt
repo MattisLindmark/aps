@@ -235,7 +235,7 @@ shoes walking in empty corridor. closeup of shoes. Frans Masereel black and whit
 
 2023-01-25
 
-För in följande ändringar:
+---------- INFÖRT
 
 rektorsexpeditionen
 (if: visit < 2)[Dörren är låst! Du använder nyckeln du tog av rektorn, låser upp dörren och går in.<play-sound name="nycklar"></play-sound>]
@@ -272,5 +272,51 @@ En ton låter och det sprakar i systemet, vad säger du?
 (link:"Jag säger -Hallå hallå")[Du hör din röst eka ut i skolkorridoren, men nu då, något roligt kanske?? men vem ska lyssna, alla ligger ju och sover.
 (link:"Jag ropar -VAKNA!")[(go-to: "utrop")]]
 [[Jag ger upp och reser mig->rektorsexpeditionen]] 
+----- SLUT PÅ INFÖRT
 
 
+----- Röst fix c and p.
+
+(go-to: "rösten")
+(set: $chans to 0)
+finns i: 
+fiket
+matsalen
+biblioteket
+
+(go-to: "fotsteg")
+finns i:
+högerupplåst
+vänster
+
+OBS ändrat i:
+Start
+Footer
+
+
+
+------------------ delete after 25 jan
+tw-passage[tags~="spel"]{
+    background-color: #353;
+    font-family: 'VT323', monospace;
+/*    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');  <- tror ej denna påverkar något*/
+    font-size: 2rem;
+    color: lightgreen;
+    padding-left: 1rem;
+    padding-right:1rem;
+    padding-bottom: 1rem;
+    
+    /* Nedan är för CRT ramen och sånt */
+    margin-top: 5rem;
+    height: 60vh;       
+    scrollbar-color: rgb(61, 153, 51) rgb(4, 75, 4) !important;
+    overflow: auto;
+    
+    border: 20px solid transparent;
+    border-image: url("./assets/tmp/ScreenBGR2.png");
+    border-image-repeat: stretch;
+    border-image-slice: 40%;
+    border-image-width: 150px;
+    border-image-outset: 50px;
+  
+}
