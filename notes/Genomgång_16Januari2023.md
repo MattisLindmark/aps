@@ -9,6 +9,7 @@
 > * Ljudeffeckt just före go-to fungerar ej längre (stop-ljud i headern avbryter).
 > * Musiken i "rösten" och "fotsteg" etc kommer att dröjja kvar när man klarat sig om man inte byter vid nåt tillfälle...
 > * Ska död alltid minskas på "sov" paragrafen? Nu minskar död tex inte om man lyssnar på rösten. Sätter man död - 1 i sov kanske det underlättar? Var länkas man till död = 0 slutet?
+> * Nåt skumt med läsa APS foldern. Den ökade ej hypnos när jag varit i biblioteket?
 
 
 > * I städsrkubben: sätt tillbaka till Städskrubben.
