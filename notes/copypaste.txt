@@ -320,3 +320,19 @@ tw-passage[tags~="spel"]{
     border-image-outset: 50px;
   
 }
+
+
+Bilden i början org:
+[<img src="https://thumbs.dreamstime.com/b/hypnotic-1227349.jpg width="400" height="200">
+
+(DVS hela passagen:)
+<play-music name="skuggan2"></play-music>(t8n:"blur")+(t8n-time:4s)+(after:1s)[<img src="https://thumbs.dreamstime.com/b/hypnotic-1227349.jpg width="400" height="200">
+(link:"Jag sitter bekvämt")[DU sitter på DIN stol, i DITT klassrum, bland alla DINA klasskamrater.<play-sound name="lyssna1"></play-sound>
+(link:"Jag sitter i mitt klassrum")[DU går i mellanstadiet, det här är en miljö som DU känner väl, DU är trygg här.<play-sound name="lyssna2"></play-sound>
+(link:"Jag går i mellanstadiet")[Jag heter Sören Mesmer och arbetar på APS som inspirationsföreläsare, proffspedagog och mind hacker. Idag ska jag föreläsa för DIN klass.<play-sound name="lyssna3"></play-sound>
+(link:"Jag ska lyssna på föreläsning")[Jag är här för att inspirera DIG till att bli DITT bästa jag. 
+Ansvarsfull, Produktiv, Snäll. <play-sound name="lyssna4"></play-sound>
+(link:"Jag ska inspireras")[Det här är en upplevelse som handlar om DIG, ja precis DU:
+Andra Person Singular.<play-sound name="lyssna5"></play-sound>
+(link:"Det handlar om mig")[Bra, nu behöver jag veta vem DU är.<play-sound name="lyssna6"></play-sound>
+(link:"Jag heter...")[(set: $namn to (prompt: "Mitt namn", ""))(if: $name is not "Testnamn")[(go-to: "Kläder")]]]]]]]]]

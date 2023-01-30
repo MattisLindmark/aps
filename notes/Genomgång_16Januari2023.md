@@ -1,3 +1,6 @@
+## kolla nu!!!
+> * personalrumsöveraskning verkar kunna sabba inventory update så att det slutar funka. (kan va musikladdar problem)
+
 ## Viktiga KIH anteckningar! ##  
 > * Display är najs, tex: (link: "Jag klarade mig")[(display: $tillbaka)]]  
 > * NO VOICE: Jag tror det behövs en $NoVoice flagga. Så att man kan sätta "tillbaka" till samma ställe som triggade rösten.  
