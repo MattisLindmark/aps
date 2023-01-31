@@ -177,7 +177,7 @@ function SetupCallback()
 
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
 
-    console.log("--- jq fungerar---");
+    console.log("--- jq ---");
 //    $('#muteBTN').click(muteAllSound);
 
 
@@ -192,9 +192,7 @@ $(function(){ // används ej, försöker få till globala variabler 20 nov 22
 var r= document.querySelector(':root');
 //var rs=getComputedStyle(r);
 
-//=========
 
-console.log("============== called ========");
 //document.querySelector(('muteBTN')).addEventListener("click",muteAllSound());
 
 var isMute = false;
@@ -264,7 +262,7 @@ function playSoundFX(name, type, targetAudioObject)
 {
     if (targetAudioObject == null)
     {
-        console.log("======== AUDIO DEFAULTS");
+        console.log("audio default source");
         targetAudioObject = sounds;
     }
 
@@ -292,7 +290,7 @@ function playSoundFX(name, type, targetAudioObject)
     if (type.toLowerCase() == "loop"){
         targetAudioObject.loop = true;
     }
-    console.log("Playing now "+surl);
+//    console.log("Playing now "+surl);
     targetAudioObject.play();
     
 }
@@ -543,7 +541,7 @@ class SoundFX extends HTMLElement {
         type = (this.attributes.type != null)?this.attributes.type.value:"undefined";
         
         if (name.length > 0 && name != "undefined") {
-            console.log("PlaySoundFX(name)" + name);           
+//            console.log("PlaySoundFX(name)" + name);           
             playSoundFX(name, type);
         }
     }
@@ -583,7 +581,15 @@ class MusicPlay extends HTMLElement {
 }
 
 class VisualFX extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+    }  
     connectedCallback() {
+        if (this.isDirty){
+            return;
+        }
+
         // Get the values
         var name = "undefined";
         try {
@@ -591,31 +597,39 @@ class VisualFX extends HTMLElement {
         } catch {
             name = "undefined";
         }
-        //------
 
-        if (document.querySelector('tw-transition-container') == null) {     // null = andra laddningen efter transition. Truel = 1a laddningen då den wrappar allt.
-            //this.style.animationPlayState = 'running';
-           // this.innerHTML = "<div class='centerVFX'><div class='circles fixed'></div></div>";
-            return;
+        // if (document.querySelector('tw-transition-container') == null) {     // null = andra laddningen efter transition. Truel = 1a laddningen då den wrappar allt.
+        //     //this.style.animationPlayState = 'running';
+        //    // this.innerHTML = "<div class='centerVFX'><div class='circles fixed'></div></div>";
+        //     return;
+        // }
+
+        if (name.length > 0 && name != "undefined") {
+            //console.log("VisualFX" + name);
+            this.isDirty = true;            
+            HandleVisualFX(this, name);
+            //this.style.animationPlayState = 'paused';
+        } else {
+            console.log("Did not show visualFX" + name);
         }
-        else {
-            if (name.length > 0 && name != "undefined") {
-                //console.log("VisualFX" + name);            
-                HandleVisualFX(this, name);
-                //this.style.animationPlayState = 'paused';
-            } else {
-                console.log("Did not show visualFX" + name);
-            }
-        }
+        
     }
 }
 
 class ScoreBar extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+    }    
     connectedCallback(){
 
-        if (document.querySelector('tw-transition-container') == null) {          
-            console.log("");//return;
+        if (this.isDirty){
+//            console.log("disrtyScorebar");
+            return;
         }
+        // if (document.querySelector('tw-transition-container') == null) {          
+        //     console.log("");//return;
+        // }
 
         //this.innerHTML = 'Debugg score-bar';
         var typ = "undefined";
@@ -636,9 +650,9 @@ class ScoreBar extends HTMLElement {
         if (typ.length > 0)
         {
            // console.log("Values = "+typ+" and "+value+" and inne html: "+this.innerHTML);
+           this.isDirty = true;
             HandleScorebar(this, typ, value);
         }
-
 
     }
 
@@ -664,6 +678,10 @@ class TypeWriter extends HTMLElement {
 }
 
 class WriteInventory extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+    }    
     connectedCallback(){
         let typ = "undefined";
         try {
@@ -674,15 +692,23 @@ class WriteInventory extends HTMLElement {
         
 // XXX - remove update kanske. hanteras i handle.
 //        updateInventoryList();
-
-        if (document.querySelector('tw-transition-container') == null && typ != 'update') {          
+        if (this.isDirty) {
             return;
         }
+        // if (document.querySelector('tw-transition-container') == null && typ != 'update') {          
+        //     return;
+        // }
+        this.isDirty = true;
         HandleWriteInventory(this,typ);
     }
 }
 
 class UpdateInventory extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback(){
 
 /* Om jag vid senare tillfälle vill koppla typ-värde till inventory update.
@@ -693,16 +719,21 @@ class UpdateInventory extends HTMLElement {
             typ = "undefined";
         }      
         */
-        console.log("Uppdaterar inventory");
-        if (document.querySelector('tw-transition-container') != null){// && typ != 'update') {          
+        if (this.isDirty) {
             return;
         }
+        // if (document.querySelector('tw-transition-container') != null){// && typ != 'update') {          
+        //     return;
+        // }
+        console.log("Uppdaterar inventory");        
         let typ = "update";
-//        window.statevar.
-        setTimeout(() => {
-            HandleWriteInventory(this,typ);
-            console.log("Uppdaterar inventory delay");
-          }, 100)
+        HandleWriteInventory(this,typ);
+
+        // setTimeout(() => {
+        //     HandleWriteInventory(this,typ);
+        //     this.isDirty = true;
+        //     console.log("Uppdaterar inventory delay");
+        //   }, 100)
         
 //        HandleWriteInventory(this,typ);
     }
@@ -854,8 +885,9 @@ let _hypnocount = 0;//((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur 
 let _deathcount = 0;//((window.deaths/5)*100).toFixed(0);
 
 let tmpstate = null;
-if (typeof window.statevar.hypnos !== 'undefined'){
-    tmpstate = window.statevar;
+if (window.harlowe != null) {//typeof window.statevar.hypnos !== 'undefined'){
+//    let entr = Object.entries(harlowe.State.variables);
+    tmpstate = harlowe.State.variables;
     _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
     _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.
 
@@ -882,12 +914,16 @@ if (typeof window.statevar.hypnos !== 'undefined'){
 if (myType == "a" || myType == "A") // to lower vore najs
 {
 //    myElement.innerHTML = ' <borderbar> <scorebar style="width:'+_procent+'%">'+_procent+'%</scorebar></borderbar>';
-        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*hypnosMax)/100)+'</scorebar></borderbar>';
+//        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*hypnosMax)/100)+'</scorebar></borderbar>';
+    myElement.innerHTML = ' <borderbar><scorebar class="hypno"></scorebar></borderbar>';
+
 }
 if (myType == "b" || myType == "B") // to lower vore najs
 {
 //    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';    
-      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
+//      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
+      myElement.innerHTML = ' <borderbar><scorebar class="death"></scorebar></borderbar>';
+
 
 }
 
@@ -914,11 +950,13 @@ if (myType == "b" || myType == "B") // to lower vore najs
 
 
 function updateInventoryList(){
-    let allStateVars = window.statevar;
-    let entr = Object.entries(window.statevar);//allStateVars);
-
+//    let allStateVars = window.statevar;
+//    console.log(window); 
+//    let entr = Object.entries(window.statevar);//allStateVars);
+      let entr = Object.entries(harlowe.State.variables);
 //    console.log("HÄR: ");
 //    console.log(JSON.stringify(window.statevar));
+//    console.log(JSON.stringify(entr));
 
     entr.forEach(element => {
         let itm = inventoryList.find(p => p.name === element[0]);

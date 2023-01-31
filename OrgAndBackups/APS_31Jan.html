@@ -13,7 +13,7 @@
 
 @import url(./apsing.css); </style><script role="script" id="twine-user-script" type="text/twine-javascript">var script = document.createElement('script');
 script.src = "apsing.js";
-/*
+
 function setupGlobals()
 {
       var _state = require('state');
@@ -24,12 +24,8 @@ setTimeout(() => {
   console.log("Delayed statevarupdate for 1 second.");
   setupGlobals();
 }, 1000)
-*/
-if (!window.harlowe){
-	window.harlowe = {"State": State};
-}
 
-//setupGlobals();
+setupGlobals();
 
 document.head.appendChild(script)</script><tw-tag name="startup" color="none"></tw-tag><tw-tag name="spel" color="yellow"></tw-tag><tw-tag name="Hypnos" color="purple"></tw-tag><tw-tag name="rum" color="blue"></tw-tag><tw-tag name="grej" color="orange"></tw-tag><tw-tag name="slut" color="green"></tw-tag><tw-tag name="UPPDATERA" color="red"></tw-tag><tw-passagedata pid="1" name="matsalen" tags="rum grej UPPDATERA" position="1600,1025" size="100,100">&lt;!--
 (set: $chans to 0)\
@@ -398,9 +394,8 @@ Tre
 [[Googla &quot;hypnos&quot;-&gt;wikipedia]]]
 (link:&quot;Spela spel&quot;)[Bibliotekarien verkar ha tagit bort alla spel från datorn men det finns en ny ikon på skrivbordet som heter APS
 (t8n-arrive:&quot;flicker&quot;)+(t8n-time:2s)[[Jag klickar på den-&gt;GPT3]]] 
-[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="34" name="APS" tags="" position="2350,900" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
+[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="34" name="APS" tags="" position="2375,950" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
 Du hittar hemsida  www.apsmetoden.se och känner igen logotypen.
-(if: visits &lt; 2)[\
 
 (link:&quot;...&quot;)[Det verkar vara Sörens hemsida, den är fylld med floskler om hur han ska få alla på skolan att må fantastiskt. 
 
@@ -424,32 +419,7 @@ Du hittar en video, någon slags avslappningsövning och en särskild flik för 
 (else:)[
 	(dialog: [Fel lösenord])[(go-to: &quot;APS&quot;)]
 ]]
-[[Jag går tillbaka -&gt;datorn]]\
-]]]
-]\
-(else:)[
-Det verkar vara Sörens hemsida, den är fylld med floskler om hur han ska få alla på skolan att må fantastiskt.
-
-&#39;&#39;Hitta ditt skolfokus!&#39;&#39;
-Önskar du att allt i skolan var roligt och enkelt?
-Visst vill DU få högsta betyg och göra din lärare stolt? 
-Med APS-metoden blir dina drömmar verklighet!
-
-&#39;&#39;//Alla Presterar Suveränt!//&#39;&#39;
-Du hittar en video, någon slags avslappningsövning och en särskild flik för skolledare.
-
-[[Jag tittar på videon]]
-[[Jag lyssnar på avslappningen]]
-(if:visits is 1)[(set: $hypnos to $hypnos+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)](link:&quot;Klicka på -För skolledare-&quot;)[(set: $lösen to (prompt: &quot;Lösenord&quot;, &quot;&quot;))
-(set: $correct to &quot;Mesmer&quot;)
-(if: $lösen is $correct)[
-	(go-to: &quot;skolledare&quot;)
-]
-(else:)[
-	(dialog: [Fel lösenord])[(go-to: &quot;APS&quot;)]
-]]
-[[Jag går tillbaka -&gt;datorn]]
-]</tw-passagedata><tw-passagedata pid="35" name="Header" tags="header" position="50,275" size="100,100">&lt;huvud&gt;\
+[[Jag går tillbaka -&gt;datorn]] ]]]</tw-passagedata><tw-passagedata pid="35" name="Header" tags="header" position="50,275" size="100,100">&lt;huvud&gt;\
 &lt;span  id=&quot;updatearea&quot;&gt;\
 &lt;score-bar type=&quot;b&quot;&gt;&lt;/score-bar&gt;&lt;score-bar type=&quot;a&quot;&gt;&lt;/score-bar&gt;\
 &lt;/span&gt;\
