@@ -57,9 +57,19 @@ tw-sidebar{
   z-index: 10;
 }
 
+.titleimg
+{
+  max-height: 200px;
+  max-width: 80vw;  
+}
+.responsiveimg
+{
+  max-width: 80vw;
+}
+
 @media (min-width: 576px){
 tw-sidebar{ 
-/*    display: none; */
+    display: none; 
     text-align: left;
     font-size: 1rem;
     line-height: normal;

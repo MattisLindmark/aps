@@ -96,6 +96,7 @@ Till skillnad från klassrummets hårda stolar har de bekväma mjuka soffor. Ist
 ]
 }
 </tw-passagedata><tw-passagedata pid="6" name="Du sover" tags="Hypnos" position="700,175" size="100,100">(set: $eventTimer to 0)\
+(if: visit &lt; 2)[&lt;play-sound name=&quot;snap&quot;&gt;&lt;/play-sound&gt;]\
 &lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Du sover, men börjar bli medveten om att det är det du gör, du minns inte hur du somnade men du ligger med huvudet vilande på skolbänken. 
 (link:&quot;Jag är medveten om att jag sover&quot;)[\
 (if:$död is 4)[Hmmm, det här känns bekant... ]\
@@ -220,7 +221,7 @@ Plötsligt känner du att din hand greppar hårt om något litet metalliskt
 (link:&quot;Fyra&quot;)[Kanske sker det gradvis, långsamt blir det så att när jag har räknat hela vägen NED.&lt;play-sound name=&quot;lyssna23&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Tre&quot;)[Kommer du att falla helt plötsligt, som om någon stängt av en knapp i din hjärna.&lt;play-sound name=&quot;lyssna24&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Två&quot;)[När jag knäpper med fingrarna kommer du falla NED över bänken och försvinna NED i en djup sömn.&lt;play-sound name=&quot;lyssna25&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;Ett, Jag somnar när du knäpper&quot;)[&lt;play-sound name=&quot;snap&quot;&gt;&lt;/play-sound&gt;(go-to: &quot;Du sover&quot;)]]]]]]]]</tw-passagedata><tw-passagedata pid="19" name="Jag gömmer mig under soffan" tags="grej" position="1200,1150" size="100,100">Du kryper in under soffan. Där är fullt av dammråttor, godispapper och tuggummin. Så det är alltså inte bara elever som kletar tuggummin.
+(link:&quot;Ett, Jag somnar när du knäpper&quot;)[(go-to: &quot;Du sover&quot;)]]]]]]]]</tw-passagedata><tw-passagedata pid="19" name="Jag gömmer mig under soffan" tags="grej" position="1200,1150" size="100,100">Du kryper in under soffan. Där är fullt av dammråttor, godispapper och tuggummin. Så det är alltså inte bara elever som kletar tuggummin.
 (link: &quot;Jag är gömd under soffan&quot;)[Dörren öppnas och du ser ett par blanka vita skor gå in i rummet, du känner igen skorna, de går fram och sätter sig på soffan så den bågnar ned över dig.
 (Link: &quot;Jag känner igen Sören Mesmer&quot;)[Du hör hur han pratar sig själv samtidigt som han skär upp en tårtbit på ett fat.
 -Men vänta nu, innehåller jordnötter, det var då typiskt, får se om jag hittar en allergivänlig chokladboll någonstans istället. 
@@ -278,7 +279,7 @@ Men nu ligger bibliotekarien och sover i myshörnan, i och för sig kanske hon g
 ]
 (set: $progression to $progression +1)</tw-passagedata><tw-passagedata pid="24" name="mollymoon" tags="" position="2175,1225" size="100,100">Du hittar en bok täckt av snurrande spiraler.
 
-&lt;img src= &quot;https://fantasyhyllan.se/produktbilder/9789177154174-molly-moons-fantastiska-bok-om-hypnos-1.jpg&quot; width=&quot;400&quot; height=&quot;500&quot;/&gt;
+&lt;img src= &quot;./assets/images/bok.jpg&quot; class=&quot;responsiveimg&quot;&gt;
 
 [[Läs på baksidan-&gt;baksidan]]</tw-passagedata><tw-passagedata pid="25" name="Jag läser APSfoldern" tags="" position="1925,1100" size="100,100">&#39;&#39;Hitta ert skolfokus!&#39;&#39;
 
@@ -286,7 +287,7 @@ Har dina elever svårt att sitta still i klassrummet? Lyssnar de inte på vad du
 
 Vi har lösningen, anlita våra legitimerade APS-coacher för att transformera er klassrumssituation. Med ett enda besök, förklätt som &quot;Inspirationsföreläsning&quot;, sätter vi alla barn i en mottaglig trans och programmerar om dem till mönsterelever.
 
-&lt;img src= &quot;https://info.retiredteachers.org/hs-fs/hubfs/classroom-management.jpg?width=726&amp;height=380&amp;name=classroom-management.jpg&quot; /&gt;
+&lt;img src=&quot;./assets/images/folder.jpg&quot; class=&quot;responsiveimg&quot;/&gt;
 
 &#39;&#39;Ja, det är SÅ enkelt! &#39;&#39;
 
@@ -385,7 +386,7 @@ Tre
 (else:)[
 	(go-to: &quot;fel lösen&quot;)
 ]]
-[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="33" name="datorn" tags="rum" position="2425,1100" size="100,100">Ok, datorn är öppnad! Vad ska du göra nu? (if: $affisch is 0)[Stod det inte någon hemsideadress på den där affischen?]
+[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="33" name="datorn" tags="rum" position="2425,1075" size="100,100">Ok, datorn är öppnad! Vad ska du göra nu? (if: $affisch is 0)[Stod det inte någon hemsideadress på den där affischen i korridoren?]
 
 (if:$affisch is 1)[
 [[Gå till webbadressen på affischen-&gt;APS]]]
@@ -393,7 +394,8 @@ Tre
 [[Googla &quot;hypnos&quot;-&gt;wikipedia]]]
 (link:&quot;Spela spel&quot;)[Bibliotekarien verkar ha tagit bort alla spel från datorn men det finns en ny ikon på skrivbordet som heter APS
 (t8n-arrive:&quot;flicker&quot;)+(t8n-time:2s)[[Jag klickar på den-&gt;GPT3]]] 
-[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="34" name="APS" tags="" position="2375,950" size="100,100">Du hittar hemsida  www.APS-Skolfokus.se och känner igen logotypen.
+[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="34" name="APS" tags="" position="2375,950" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
+Du hittar hemsida  www.apsmetoden.se och känner igen logotypen.
 
 (link:&quot;...&quot;)[Det verkar vara Sörens hemsida, den är fylld med floskler om hur han ska få alla på skolan att må fantastiskt. 
 
@@ -583,12 +585,12 @@ EventTimer är $eventTimer. Chans-röst är $chansRöst. Chans-fotsteg är $chan
 Tuuuut
 (link:&quot;...&quot;)[Tuuuut&lt;play-sound name=&quot;tuut&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;...&quot;)[Tuuuut&lt;play-sound name=&quot;tuut&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;...&quot;)[Hej och välkommen till hela skolans temporära telefonsvarare&lt;play-sound name=&quot;svarare1&quot;&gt;&lt;/play-sound&gt;
+(link:&quot;...&quot;)[Hej och välkommen till din skolas temporära telefonsvarare&lt;play-sound name=&quot;svarare1&quot;&gt;&lt;/play-sound&gt;(replace:?hangup)[]
 (link:&quot;...&quot;)[Du trodde väl inte att det skulle vara så enkelt?&lt;play-sound name=&quot;svarare2&quot;&gt;&lt;/play-sound&gt;
-(link:&quot;...&quot;)[Alla telefonsamtal leder till min röst&lt;play-sound name=&quot;svarare3&quot;&gt;&lt;/play-sound&gt;
+(link:&quot;...&quot;)[Var du än ringer kommer samtalet att leda hit, till min röst&lt;play-sound name=&quot;svarare3&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;...&quot;)[(go-to: &quot;sov&quot;)]]]]]]
 
-[[Lägg på-&gt;klassrumtillbaka]] </tw-passagedata><tw-passagedata pid="70" name="Polisen stormar skolan" tags="" position="2900,500" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="71" name="skapaslut" tags="Hypnos" position="25,725" size="100,100">Så, du har brutit dig fri, du vill hitta din egen väg, skapa ditt eget slut, ok, varsågod, låt oss försöka. Jag ger dig makten över berättelsen, och eftersom det är jag som är skurken, jag som placerat dig här behöver jag veta hur den ska sluta för mig:
+|hangup&gt;[[[Lägg på-&gt;klassrumtillbaka]]]</tw-passagedata><tw-passagedata pid="70" name="Polisen stormar skolan" tags="" position="2900,500" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="71" name="skapaslut" tags="Hypnos" position="25,725" size="100,100">Så, du har brutit dig fri, du vill hitta din egen väg, skapa ditt eget slut, ok, varsågod, låt oss försöka. Jag ger dig makten över berättelsen, och eftersom det är jag som är skurken, jag som placerat dig här behöver jag veta hur den ska sluta för mig:
 
 Du vill att:
 (dropdown: 2bind $slutet,&quot;Jag ska dö&quot;,&quot;Jag ska fly&quot;,&quot;Jag ska ångra mig&quot;)
@@ -756,7 +758,8 @@ Snart kommer de lyssna uppmärksamt på allt ni vill lära ut helt utan att ifr�
 (if: $APS is 0)[(set: $hypnos to $hypnos + 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)](set: $APS to 1)
 OBS: Vid besök krävs nötförbud på skolan PGA sörens Allergi(set: $allergi to 1)
 
-[[Jag går tillbaka-&gt;APS]]]]]</tw-passagedata><tw-passagedata pid="84" name="Jag tittar på videon" tags="" position="2425,1225" size="100,100">HÄR EMBEDDAR VI EN VIDEO FRÅN DEN FAKTISKA HEMSIDAN
+[[Jag går tillbaka-&gt;APS]]]]]</tw-passagedata><tw-passagedata pid="84" name="Jag tittar på videon" tags="" position="2425,1225" size="100,100">&lt;play-music name=&quot;stop&quot;&gt;&lt;/play-music&gt;\
+&lt;iframe width=&quot;300&quot; height=&quot;540&quot; src=&quot;https://www.youtube.com/embed/ojbh2QWGHco&quot; title=&quot;APSmetoden&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot;&gt;&lt;/iframe&gt;
 
 [[Jag går tillbaka-&gt;APS]]</tw-passagedata><tw-passagedata pid="85" name="Jag lyssnar på avslappningen" tags="" position="2300,700" size="100,100">Hej, jag är Sören och det här är APS, Andra person Singular
 (link:&quot;...&quot;)[Du ska nu får en chans att slappna av.
@@ -817,7 +820,7 @@ Du får en tillsägning för att ha stulit rektorns nycklar och får aldrig en c
 (link: &quot;...&quot;)[Och Sören Mesmer är ju fortfarande fri, frågan är om han kommer söka upp dig för att hämnas, kanske kan du i så fall istället övertala honom att bli din lärare.
 (link: &quot;...&quot;)[Så blir ni två Hypnotisörer som tillsammans kan lägga världen lägga världen under er.
 
-[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="95" name="Du" tags="Hypnos" position="300,25" size="100,100">&lt;play-music name=&quot;skuggan2&quot;&gt;&lt;/play-music&gt;(t8n:&quot;blur&quot;)+(t8n-time:4s)+(after:1s)[&lt;img src=&quot;./assets/images/eye_open.jpg&quot; height=&quot;200&quot;&gt;
+[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]</tw-passagedata><tw-passagedata pid="95" name="Du" tags="Hypnos" position="300,25" size="100,100">&lt;play-music name=&quot;skuggan2&quot;&gt;&lt;/play-music&gt;(t8n:&quot;blur&quot;)+(t8n-time:4s)+(after:1s)[&lt;img src=&quot;./assets/images/eye_open.jpg&quot; class=&quot;titleimg&quot;&gt;
 (link:&quot;Jag sitter bekvämt&quot;)[DU sitter på DIN stol, i DITT klassrum, bland alla DINA klasskamrater.&lt;play-sound name=&quot;lyssna1&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag sitter i mitt klassrum&quot;)[DU går i mellanstadiet, det här är en miljö som DU känner väl, DU är trygg här.&lt;play-sound name=&quot;lyssna2&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;Jag går i mellanstadiet&quot;)[Jag heter Sören Mesmer och arbetar på APS som inspirationsföreläsare, proffspedagog och mind hacker. Idag ska jag föreläsa för DIN klass.&lt;play-sound name=&quot;lyssna3&quot;&gt;&lt;/play-sound&gt;

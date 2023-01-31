@@ -299,8 +299,8 @@ function playSoundFX(name, type, targetAudioObject)
 
 function playMusic(name)
 {
-    if (name == "stop"){
-        music.pause();
+    if (name == "stop"){        
+        music.pause(); // <-- TODO: fade down, men det kräver en fade up om den ska un-pausas utan url byte.
         return;
     }
 
@@ -314,6 +314,8 @@ function playMusic(name)
 
     if (surl != "none") {
          if (music.src.includes(surl)){
+            if (music.paused)
+                music.play();
             return;
          }
 
@@ -922,7 +924,8 @@ function updateInventoryList(){
         let itm = inventoryList.find(p => p.name === element[0]);
         if (itm != null){
             if (itm.value != element[1]){ // bör inträffa när tex ett objekt lagts till.    <----------------------- HANDELING SOUNDFX ON PICUP. REFACTOR?
-                playSoundFX(FXsoundStatic.pickup, "abcd", soundsStatic);
+                if (element[1] === 1)
+                    playSoundFX(FXsoundStatic.pickup, "abcd", soundsStatic);
             }
             itm.value = element[1];
         }
