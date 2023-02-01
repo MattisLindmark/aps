@@ -358,3 +358,15 @@ https://youtu.be/ojbh2QWGHco
 <iframe width="1507" height="835" src="https://www.youtube.com/embed/ojbh2QWGHco" title="APSmetoden" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 <iframe width="300" height="540" src="https://www.youtube.com/embed/ojbh2QWGHco" title="APSmetoden" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+
+
+
+
+<play-sound name="skolljud"></play-sound>
+
+original affish text:
+	(if:$affisch is 0)[\
+   		<img src="./assets/images/affisch.jpg" class="responsiveimg"/>
+    	på väggen framför dig finns en affisch från "Skolfokus med APS: Aktiv Personlighets-Strukturering", en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten "Gör ditt val", en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
+		(link:"Riv ned affischen")[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.apsmetoden.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)(print: "<update-inventory>")]\
+        ]\

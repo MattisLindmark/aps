@@ -291,8 +291,6 @@ Har dina elever svårt att sitta still i klassrummet? Lyssnar de inte på vad du
 
 Vi har lösningen, anlita våra legitimerade APS-coacher för att transformera er klassrumssituation. Med ett enda besök, förklätt som &quot;Inspirationsföreläsning&quot;, sätter vi alla barn i en mottaglig trans och programmerar om dem till mönsterelever.
 
-&lt;img src=&quot;./assets/images/folder.jpg&quot; class=&quot;responsiveimg&quot;/&gt;
-
 &#39;&#39;Ja, det är SÅ enkelt! &#39;&#39;
 
 Snart kommer de lyssna uppmärksamt på allt ni vill lära ut helt utan att ifrågasätta. Ingen kommer någonsin prata utan att räcka upp handen och ni kan rapportera in strålande studieresultat till skolinspektionen och oroliga föräldrar. Vår kostnad (100 000 kr per klassprogrammering + moms och omkostnader) tjänar ni snabbt igen på minskat behov av specialpedagoger och elevassistenter.
@@ -301,7 +299,10 @@ Snart kommer de lyssna uppmärksamt på allt ni vill lära ut helt utan att ifr�
 (if: $APS is 0)[(set: $hypnos to $hypnos+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
 (set: $APS to 1)
 
-[[Jag slutar läsa foldern -&gt;rektorsexpeditionen]]</tw-passagedata><tw-passagedata pid="26" name="rektorsexpeditionen" tags="rum" position="1800,1000" size="100,100">(if: visit &lt; 2)[Dörren är låst! Du använder nyckeln du tog av rektorn, låser upp dörren och går in.&lt;play-sound name=&quot;nycklar&quot;&gt;&lt;/play-sound&gt;]
+[[Jag slutar läsa foldern -&gt;rektorsexpeditionen]]
+
+&lt;img src=&quot;./assets/images/folder.jpg&quot; class=&quot;responsiveimg&quot;/&gt;
+</tw-passagedata><tw-passagedata pid="26" name="rektorsexpeditionen" tags="rum" position="1800,1000" size="100,100">(if: visit &lt; 2)[Dörren är låst! Du använder nyckeln du tog av rektorn, låser upp dörren och går in.&lt;play-sound name=&quot;nycklar&quot;&gt;&lt;/play-sound&gt;]
 Ett tomt skrivbord fyllt av rödvita godispapper, din rektor älskar verkligen &quot;Marianne&quot;. 
 Under godispappren ligger en folder från &quot;APS&quot; och någon verkar ha letat fram en instruktionsbok om hur man använder skolans högtalarsystem.
 
@@ -327,7 +328,7 @@ Eller så kan du göra samma sak, släppa dem fria från mig, men passa på att 
 Det här är helt ditt val att göra, visst vore det skönt (if:$kläder is not &quot;moderiktiga&quot;)[att sluta behöva stå ut med mobbargängets trakasserier, få alla att acceptera dig för vem du är och bli bjuden på alla kalas.](if:$kläder is &quot;moderiktiga&quot;)[att slippa behöva följa populära gängets minsta nycker. Köpa nya kläder bara för att de fått för sig att något är ute och veta att de kommer gilla dig oavsett hur du ser ut.]
 ]]
 [[Jag går tillbaka-&gt;rektorsexpeditionen]]</tw-passagedata><tw-passagedata pid="29" name="rektorslut" tags="slut" position="1550,1750" size="100,100">Din röst tystnar och ett tag sitter du kvar där i rektorns kontor, i tystnaden. 
-(link: &quot;...&quot;)[Sen hör du ljudet av kroppar som rör sig i korridoren, gäspningar och förvirrade röster.
+(link: &quot;...&quot;)[Sen hör du ljudet av kroppar som rör sig i korridoren, gäspningar och förvirrade röster.&lt;play-sound name=&quot;skolljud&quot;&gt;&lt;/play-sound&gt;
 (link: &quot;...&quot;)[Du öppnar dörren och tittar ut i korridoren, där, bara tio meter bort från dig står han, i sin perfekta kostym och sina blanka skor. Sören Mesmer, han stirrar på dig, (if:$pendel is 0)[ lyfter sin pendel], öppnar munnen och gör sig redo.
 (link: &quot;...&quot;)[Precis då kommer rektorn ut från matsalen och ropar åt dig -Hallå där, vad gör du i mitt kontor!!?? Hur kom du in där?
 (link: &quot;...&quot;)[Rektorn knuffar sig förbi Sören Mesmer som smiter iväg mellan förvirrade elever. Medan rektorn skäller ut dig ser du Sören Mesmer springa bort genom korridoren, låsa upp kedjan för ytterdörren och försvinna.
@@ -828,7 +829,7 @@ Du börjar spela ett väldigt svårt spel där du ska jaga en pendel som svänge
 (link:&quot;Gör så&quot;)[Adjö $namn, det hade aldrig gått utan dig.
 
 [[Slut-&gt;credits]] ]]]]]]]</tw-passagedata><tw-passagedata pid="92" name="rektorslut2" tags="" position="1925,1425" size="100,100">Din röst tystnar och ett tag sitter du kvar där i rektorns kontor, i tystnaden. 
-(link: &quot;...&quot;)[Sen hör du ljudet av kroppar som rör sig i korridoren, gäspningar och förvirrade röster.
+(link: &quot;...&quot;)[Sen hör du ljudet av kroppar som rör sig i korridoren, gäspningar och förvirrade röster.&lt;play-sound name=&quot;skolljud&quot;&gt;&lt;/play-sound&gt;
 (link: &quot;...&quot;)[Du öppnar dörren och tittar ut i korridoren, där, bara tio meter bort från dig står han, i sin vita kostym och sina blanka skor. Sören Mesmer, han stirrar på dig, (if:$pendel is 0)[ lyfter sin pendel], öppnar munnen och gör sig redo.
 (link: &quot;...&quot;)[Precis då kommer rektorn ut från matsalen och ropar åt dig -Hallå där, vad gör du i mitt kontor!!?? Hur kom du in där?
 (link: &quot;...&quot;)[Rektorn knuffar sig förbi Sören Mesmer som smiter iväg mellan förvirrade elever. Medan rektorn skäller ut dig ser du Sören Mesmer springa bort genom korridoren, låsa upp kedjan för ytterdörren och försvinna.
@@ -998,10 +999,12 @@ Du står med ryggsäcken på ryggen i korridoren utanför klassrummet.
 |main&gt;[\
 (if: $korridorFirst &gt; 0)[\
 	(if:$affisch is 0)[\
-    	på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv Personlighets-Strukturering&quot;, en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten &quot;Gör ditt val&quot;, en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
-		(link:&quot;Riv ned affischen&quot;)[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.apsmetoden.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]\
+   		&lt;img src=&quot;./assets/images/affisch.jpg&quot; class=&quot;responsiveimg&quot;/&gt;
+    	På väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv Personlighets-Strukturering&quot;. På den finns en mystisk symbol som liknar ett öga. Ovanför symbolen står texten &quot;Du bestämmer!&quot;, en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
+        
+        (link:&quot;Riv ned affischen&quot;)[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.apsmetoden.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]\
         ]\
-	(if: $affisch is 1)[Du ser platsen på väggen där affischen satt.]
+	(if: $affisch is 1)[Du ser märken på väggen där affischen satt.]
     
 	[[Gå till vänster-&gt;vänster]]
 	[[Gå till höger-&gt;höger]]
@@ -1017,7 +1020,7 @@ Du står med ryggsäcken på ryggen i korridoren utanför klassrummet.
 
 &lt;!--
 NEDAN KAN RADERAS: 2023-01-24
-(if:$affisch is 1)[Du står med ryggsäcken på ryggen utanför  klassrummet, ser platsen där du rivit ned affischen.
+(if:$affisch is 1)[Du står med ryggsäcken på ryggen utanför  klassrummet, du ser märken på väggen där affischen satt.
 
 [[Gå till vänster-&gt;vänster]]
 [[Gå till höger-&gt;höger]]\
@@ -1031,7 +1034,7 @@ NEDAN KAN RADERAS: 2023-01-24
 (link:&quot;Jag ser mig omkring&quot;)
 [Du har aldrig riktigt känt dig bekväm i skolans klumpiga kurviga korridorer, det är som att de alltid väckt en känsla av rädsla.
 (link:&quot;Jag är obekväm&quot;)
-[&lt;img src= &quot;https://info.retiredteachers.org/hs-fs/hubfs/classroom-management.jpg?width=726&amp;height=380&amp;name=classroom-management.jpg&quot; /&gt;
+[&lt;img src=&quot;./assets/images/affisch.jpg&quot; class=&quot;responsiveimg&quot;/&gt;
 på väggen framför dig finns en affisch från &quot;Skolfokus med APS: Aktiv Personlighets-Strukturering&quot;, en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten &quot;Gör ditt val&quot;, en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
 
 

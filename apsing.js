@@ -46,6 +46,7 @@ var FXsounds = [
     { name: "fotsteg", value:"aps_steps23.mp3"},
     { name: "transition", value:"transition.mp3"},
     { name: "glitch", value:"glitch.mp3"},
+    { name: "skolljud", value:"skolljud_64.mp3"},
     { name: "tuut", value:"tuut.mp3"},
     { name: "svarare1", value:"svarare1.mp3"},
     { name: "svarare2", value:"svarare2.mp3"},

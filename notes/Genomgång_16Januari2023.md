@@ -1,5 +1,8 @@
 ## kolla nu!!!
 > * personalrumsöveraskning verkar kunna sabba inventory update så att det slutar funka. (kan va musikladdar problem)
+> * Klassrummet tillbaka: Du kommer in i klassrummet igen <-låter fel när man tex lagt på 112.
+> * texten stämmer ej med affishen: på väggen framför dig finns en affisch från "Skolfokus med APS: Aktiv Personlighets-Strukturering", en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten "Gör ditt val", en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
+
 
 ## Viktiga KIH anteckningar! ##  
 > * Display är najs, tex: (link: "Jag klarade mig")[(display: $tillbaka)]]  
