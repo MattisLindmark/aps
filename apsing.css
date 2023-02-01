@@ -36,10 +36,11 @@ tw-transition-container{
 */
 
 /*tw-story{background-color: #555;}
+
+*/
 tw-sidebar{ 
   display: none;
 }
-*/
 
 .muteButton{
   display: inline-block;
@@ -69,7 +70,7 @@ tw-sidebar{
 
 @media (min-width: 576px){
 tw-sidebar{ 
-   /* display: none; */
+    display: none; 
     text-align: left;
     font-size: 1rem;
     line-height: normal;
