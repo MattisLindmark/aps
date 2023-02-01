@@ -702,9 +702,9 @@ Bra, tack för att du delar med dig, det gör att vi kan lita på varandra.&lt;p
 
 (link:&quot;Det handlar om mig&quot;)[Du är huvudpersonen i ditt eget liv och det här är din stund, DU sitter på makten är i din hand att välja vilken väg DU ska gå NED.&lt;play-sound name=&quot;lyssna14&quot;&gt;&lt;/play-sound&gt;
 
-(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Varför sover jag?" tags="Hypnos" position="975,175" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Bra att du ställer den frågan $namn! Det här är nämligen inte någon vanlig sömn, det är därför det är så svårt att vakna.
+(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Varför sover jag?" tags="Hypnos" position="975,175" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Bra att du ställer den frågan $namn! Det här är nämligen inte någon vanlig sömn, det är därför det är så svårt att vakna. (set: $död to $död - 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)
 (link:&quot;Jag vet inte om jag vill vakna&quot;)[Jag kan inte förklara allt på en gång, du måste uppleva det, men kortfattat så har du och hela din skola blivit hypnotiserade.
-(link:&quot;Vem har hypnotiserat mig?&quot;)[Sören Mesmer, inspirationsföreläsaren, har hypnotiserat er och han håller just nu på att hjärntvätta er. (if:visits is 1)[(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)(set: $död to $död - 1)]
+(link:&quot;Vem har hypnotiserat mig?&quot;)[Sören Mesmer, inspirationsföreläsaren, har hypnotiserat er och han håller just nu på att hjärntvätta er. (if:visits is 1)[(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
 (link:&quot;Varför pratar du med mig?&quot;)[Jag har valt ut just dig, för att du ska kunna stoppa honom, och tiden rinner ut, det är därför jag vill att du ska vakna!
 
 [[Jag vill fortsätta sova-&gt;Fortsätt sova]] 
@@ -1014,7 +1014,7 @@ Du står med ryggsäcken på ryggen i korridoren utanför klassrummet.
     
 	[[Gå till vänster-&gt;vänster]]
 	[[Gå till höger-&gt;höger]]
-	(if: $progression is 1 and $klassrum is 0)[\
+	(if: $progression is not 0 and $klassrum is 0)[\
 	[[Titta in i klassrummet bredvid-&gt;klassrum2]]
     ]\
 	(if: $klassrum is 1)[\
@@ -1107,7 +1107,7 @@ Du står i korridoren med lågstadieklassen omkring dig, på golvet ser du pojke
 (if:$nyckel is 1)[(link:&quot;Jag går till rektorsexpeditionen&quot;)[(go-to: &quot;rektorsexpeditionen&quot;)]]\
 (if:$nyckel is 0)[(link-rerun:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst, du behöver en nyckel, genom fönstret ser du en massa godispapper och viktiga dokument på ett övergivet skrivbord&quot;)]]
 [[Jag går tilll matsalen-&gt;matsalen]]
-[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="135" name="debugg" tags="" position="50,400" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling.
+[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="135" name="debugg" tags="" position="50,400" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling. v02-01
 [[Du sover]]
 (link: &quot;reset&quot;)[(reload:)]
 
