@@ -61,12 +61,38 @@ tw-sidebar{
 .titleimg
 {
   max-height: 200px;
-  max-width: 80vw;  
+  max-width: 80vw;
 }
 .responsiveimg
 {
   max-width: 80vw;
 }
+.logobox{
+/*  display: inline-flex;
+  align-items: flex-end; */
+  display: inline-block;
+  max-width: 80vw;
+  padding: 2px;
+}
+.logo .responsiveimg{
+  margin-top: 1rem;
+  max-width: 90%;
+}
+.logo{
+  float:left;
+  text-align: center;
+  padding: 5px;
+}
+.logo a
+{
+  color: lightgrey;
+  text-decoration: none;
+}
+.logo a:hover
+{
+  color: white;
+}
+
 
 @media (min-width: 576px){
 tw-sidebar{ 

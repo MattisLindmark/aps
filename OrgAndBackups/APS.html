@@ -287,9 +287,11 @@ Men nu ligger bibliotekarien och sover i myshörnan, i och för sig kanske hon g
 &lt;img src= &quot;./assets/images/bok.jpg&quot; class=&quot;responsiveimg&quot;&gt;
 
 [[Jag bläddrar i boken-&gt;baksidan]]</tw-passagedata><tw-passagedata pid="25" name="Jag läser APSfoldern" tags="" position="1925,1100" size="100,100">Har dina elever svårt att sitta still i klassrummet? Lyssnar de inte på vad du säger? Får du dagligen huvudvärk av de höga ljudnivåerna?
+
 Vi har lösningen, anlita våra legitimerade APS-coacher för att transformera er klassrumssituation. Med ett enda besök, förklätt som &quot;Inspirationsföreläsning&quot;, sätter vi alla barn i en mottaglig trans och programmerar om dem till mönsterelever.
 
 &#39;&#39;Ja, det är SÅ enkelt! &#39;&#39;
+
 Snart kommer de lyssna uppmärksamt på allt ni vill lära ut helt utan att ifrågasätta. Ingen kommer någonsin prata utan att räcka upp handen och ni kan rapportera in strålande studieresultat till skolinspektionen och oroliga föräldrar. Vår kostnad (100 000 kr per klassprogrammering + moms och omkostnader) tjänar ni snabbt igen på minskat behov av specialpedagoger och elevassistenter.
 
 (if: $APS is 0)[(set: $hypnos to $hypnos+1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
@@ -446,7 +448,7 @@ Du hittar en video, någon slags avslappningsövning och en särskild flik för 
 	(dialog: [Fel lösenord])[(go-to: &quot;APS&quot;)]
 ]]
 [[Jag går tillbaka -&gt;datorn]]
-]</tw-passagedata><tw-passagedata pid="35" name="Header" tags="header" position="25,275" size="100,100">&lt;huvud&gt;\
+]</tw-passagedata><tw-passagedata pid="35" name="Header" tags="header" position="50,275" size="100,100">&lt;huvud&gt;\
 &lt;span  id=&quot;updatearea&quot;&gt;\
 &lt;score-bar type=&quot;b&quot;&gt;&lt;/score-bar&gt;&lt;score-bar type=&quot;a&quot;&gt;&lt;/score-bar&gt;\
 &lt;/span&gt;\
@@ -597,7 +599,7 @@ Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där d
 (link:&quot;Jag undrar vad han gjort med dem&quot;)[Sören bugar och lämnar klassrummet men går förbi dig på vägen ut och ger dig en blinkning och en klapp på axeln.
 [[Jag tittar efter Sören Mesmer]]]]]]</tw-passagedata><tw-passagedata pid="67" name="Passage utan namn" tags="spel" position="3350,1550" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="68" name="Footer" tags="footer" position="150,275" size="100,100">&lt;inventory class=&quot;topLeft&quot;&gt;
 &lt;write-inventory id=&quot;mainInventory&quot;&gt;&lt;/write-inventory&gt;
-&lt;/inventory&gt;&lt;!--
+&lt;/inventory&gt;
 
 
 
@@ -608,7 +610,7 @@ Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där d
 
 (text-colour:red)+(bg:black)[[[debugg-&gt;debugg]]]
 (set: $eventTimer to it +1)\
-EventTimer är $eventTimer. Chans-röst är $chansRöst. Chans-fotsteg är $chansFotsteg Senaste random: $percentage --&gt;</tw-passagedata><tw-passagedata pid="69" name="Ring 112" tags="" position="775,575" size="100,100">Du plockar upp lärarens mobil och ringer 112
+EventTimer är $eventTimer. Chans-röst är $chansRöst. Chans-fotsteg är $chansFotsteg Senaste random: $percentage </tw-passagedata><tw-passagedata pid="69" name="Ring 112" tags="" position="775,575" size="100,100">Du plockar upp lärarens mobil och ringer 112
 Tuuuut
 (link:&quot;...&quot;)[Tuuuut&lt;play-sound name=&quot;tuut&quot;&gt;&lt;/play-sound&gt;
 (link:&quot;...&quot;)[Tuuuut&lt;play-sound name=&quot;tuut&quot;&gt;&lt;/play-sound&gt;
@@ -659,7 +661,7 @@ Du har kanske vunnit idag, men det finns fler skolor, fler elever att hypnotiser
 (link:&quot;...&quot;)[Jag ser på dig, hur ditt ansikte fylls av en känsla av $känsla och mitt undermedvetna tar till sist kontrollen och ger dig ett sista leende.
 
 [[Slut-&gt;credits]]
-[[Vänta nu!]]]]]]]]]]  </tw-passagedata><tw-passagedata pid="73" name="Jag är less på det här!" tags="Hypnos" position="150,650" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Hur många gånger ska du behöva somna och vakna igen?
+[[Vänta nu!]]]]]]]]]]  </tw-passagedata><tw-passagedata pid="73" name="Jag är less på det här!" tags="Hypnos" position="100,550" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Hur många gånger ska du behöva somna och vakna igen?
 Du har blivit less på hur jag leder dig genom den här berättelsen, tvingar dig att göra olika val när du samtidigt har kommit på så många bättre sätt att väcka skolan. Jag förstår dig helt, du vill inte längre följa mina instruktioner, du vill vara fri.
 [[Sluta kämpa emot, glöm allt det jobbiga och vakna inte förrän det är över-&gt;Slutet där alla förblir hypnotiserade]] 
 [[Skriv ditt eget slut-&gt;skapaslut]] 
@@ -715,21 +717,16 @@ Ljudeffekter:
 Freesound.org
 Elgato streamdeck
 
-
-
 &lt;div class=&quot;logobox&quot;&gt;\
 &lt;div class=&quot;logo&quot;&gt;\
-&lt;a href=&quot;https://www.skuggteatern.com&quot; target=&quot;_blank&quot;&gt;Skuggteatern
 &lt;img src=&quot;./assets/images/logga_skugga.png&quot; alt=&quot;Skuggteatern&quot; class=&quot;responsiveimg&quot;&gt;
-&lt;/a&gt;
+&lt;a href=&quot;https://www.skuggteatern.com&quot; target=&quot;_blank&quot;&gt;Skuggteatern&lt;/a&gt;
 &lt;/div&gt;\
 &lt;div class=&quot;logo&quot;&gt;\
-&lt;a href=&quot;https://www.umu.se/humlab&quot; target=&quot;_blank&quot;&gt;Humlab
 &lt;img src=&quot;./assets/images/logga_humlab.png&quot; alt=&quot;Humlab&quot; class=&quot;responsiveimg&quot;&gt;
-&lt;/a&gt;
+&lt;a href=&quot;https://www.umu.se/humlab&quot; target=&quot;_blank&quot;&gt;Humlab&lt;/a&gt;
 &lt;/div&gt;\
 &lt;/div&gt;
-
 (link:&quot;Jag vill spela igen!&quot;)[\
 (reload:)
 ]
@@ -1176,7 +1173,7 @@ Du står i korridoren med lågstadieklassen omkring dig, på golvet ser du pojke
 (if:$nyckel is 1)[(link:&quot;Jag går till rektorsexpeditionen&quot;)[(go-to: &quot;rektorsexpeditionen&quot;)]]\
 (if:$nyckel is 0)[(link-rerun:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst, du behöver en nyckel, genom fönstret ser du en massa godispapper och viktiga dokument på ett övergivet skrivbord&quot;)]]
 [[Jag går till matsalen-&gt;matsalen]]
-[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="132" name="debugg" tags="" position="125,500" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling. V02-feb-release
+[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="132" name="debugg" tags="" position="125,500" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling. V02-feb-förmiddag
 [[Du sover]]
 (link: &quot;reset&quot;)[(reload:)]
 

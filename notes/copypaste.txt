@@ -370,3 +370,26 @@ original affish text:
     	på väggen framför dig finns en affisch från "Skolfokus med APS: Aktiv Personlighets-Strukturering", en stockphoto-bild på inspirerade elever som tittar engagerad på sin lärare med texten "Gör ditt val", en grön pil till höger och en röd pil till vänster, en blå pil uppåt. Vad gör du?
 		(link:"Riv ned affischen")[Du river ned affischen, studerar den noga, det finns en hemsideadress till www.apsmetoden.se, du viker ihop den och stoppar den i ryggsäcken. (set: $affisch to 1)(print: "<update-inventory>")]\
         ]\
+
+
+Credits sås om den såg ut 2-feb morgon.
+
+<play-music name="skuggan0"></play-music>I den här passagen lägger vi credits
+
+Bland annat ett tack till $namn för att du skapat din speciella berättelse.
+
+Det här var bara ett av minst 9 möjliga slut på den här berättelsen.
+
+(link:"Jag vill spela igen!")[\
+(reload:)
+]
+
+<!--
+(link: "debugg-reset")[(reload:)]
+(goto: "Start")(restart:)
+
+(set: $ficklampa to 0)(set: $källare to 0)(set: $sovtid to 60)(set: $nyckel to 0)(set: $pendel to 0)(set: $jordnötter to 0)(set: $allergi to 0)(set: $hypnos to 0)(set: $städare to 0)(set: $kniv to 0)(set: $död to 5)(set:$köksbrand to 0)(set: $affisch to 0)(set: $koffein to 0)(set: $rösten to 0)(set: $bruten to 0)(set: $personalrum to 0)(set: $populära to 0)(set: $showFooter to 0)(set: $slut to 0)(set: $APS to 0)(set: $kläder to "bekväma")(set: $fika to "bananer")(set: $rädsla to "kryp")(set:$nyckelknippa to 0)(set: $namn to "Testnamn")(set: $tillbaka to "höger")(set: $system to 1)(set: $klassrum to 0)\
+(display: "SpecialeventSETUP")\
+
+
+-->
