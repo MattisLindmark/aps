@@ -157,7 +157,7 @@ Korridoren slutar i en ytterdörr, där ser du hur en tjock kedja dragits kring 
 (if:$personalrum is 1)[[[Gå till personalrummet-&gt;personalrumsöverraskning]]]\
 (if:$personalrum is 2)[[Gå till personalrummet-&gt;personalrummet]]
 [[Ta trappan ned till källaren-&gt;källaren]]
-[[Jag går tillbaka-&gt;korridoren]]</tw-passagedata><tw-passagedata pid="11" name="klassrummet" tags="rum" position="1050,650" size="100,100">&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;\
+[[Jag går tillbaka-&gt;korridoren]]</tw-passagedata><tw-passagedata pid="11" name="klassrummet" tags="rum" position="1025,650" size="100,100">&lt;play-sound name=&quot;vakna&quot;&gt;&lt;/play-sound&gt;\
 (set: $showFooter to 1)\
 
 (t8n:&quot;blur&quot;)+(t8n-time:2.5s)[
@@ -177,8 +177,9 @@ Plötsligt känner du att din hand greppar hårt om något litet metalliskt
 (link:&quot;Jag ser mig runt i klassrummet&quot;)[Dina klasskamrater sover alla sover, djupt, din lärare snarkar högljutt på sin stol vid dörren med telefonen tappad i knäet. Det går inte att väcka dem, hur mycket du än försöker...
 [[Jag ringer 112-&gt;Ring 112]]]
 [[Jag går ut i korridoren-&gt;korridoren]]]]
-</tw-passagedata><tw-passagedata pid="12" name="sov" tags="Hypnos" position="1250,425" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;Rösten, den djupa, mörka hypnotiska rösten talar till dig igen, det går inte att sluta lyssna.[(if: $progression &gt;= 2 $pendel is 1 and $hypnos is &gt;= 3)[(go-to: &quot;pendel&quot;)]
-(link:&quot;Jag lyssnar&quot;)\
+</tw-passagedata><tw-passagedata pid="12" name="sov" tags="Hypnos" position="1250,425" size="100,100">&lt;play-music name=&quot;skugganhypno&quot;&gt;&lt;/play-music&gt;&lt;FullBgrBox class=&quot;pendel&quot;&gt;&lt;/FullBgrBox&gt;\
+Rösten, den djupa, mörka hypnotiska rösten talar till dig igen, det går inte att sluta lyssna.(if: $progression &gt; 1 and $pendel is 1 and $hypnos is &gt; 2)[(go-to: &quot;pendel&quot;)]
+(link:&quot;Jag lyssnar&quot;)[\
 &lt;span id=&quot;A&quot;&gt;Rösten räknar ned...&lt;/span&gt;
 (Link:&quot;Tre&quot;)[&lt;span id=&quot;B&quot;&gt;DU känner hur DU blir tröttare och tröttare.&lt;/span&gt;&lt;play-sound name=&quot;sov1&quot;&gt;&lt;/play-sound&gt;&lt;text-fx type=&quot;textFXfall inOrder&quot; target=&quot;A&quot;&gt;
 (link:&quot;Två&quot;)[&lt;span id=&quot;C&quot;&gt;Hela din kropp slappnar av och ditt medvetande sjunker djupare och djupare NED.&lt;/span&gt;&lt;play-sound name=&quot;sov2&quot;&gt;&lt;/play-sound&gt;&lt;text-fx type=&quot;textFXfall inOrder&quot; target=&quot;B&quot;&gt;
@@ -699,9 +700,9 @@ Bra, tack för att du delar med dig, det gör att vi kan lita på varandra.&lt;p
 
 (link:&quot;Det handlar om mig&quot;)[Du är huvudpersonen i ditt eget liv och det här är din stund, DU sitter på makten är i din hand att välja vilken väg DU ska gå NED.&lt;play-sound name=&quot;lyssna14&quot;&gt;&lt;/play-sound&gt;
 
-(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Varför sover jag?" tags="Hypnos" position="975,175" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Bra att du ställer den frågan $namn! Det här är nämligen inte någon vanlig sömn, det är därför det är så svårt att vakna.
+(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Varför sover jag?" tags="Hypnos" position="975,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Bra att du ställer den frågan $namn! Det här är nämligen inte någon vanlig sömn, det är därför det är så svårt att vakna.(set: $död to $död - 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)
 (link:&quot;Jag vet inte om jag vill vakna&quot;)[Jag kan inte förklara allt på en gång, du måste uppleva det, men kortfattat så har du och hela din skola blivit hypnotiserade.
-(link:&quot;Vem har hypnotiserat mig?&quot;)[Sören Mesmer, inspirationsföreläsaren, har hypnotiserat er och han håller just nu på att hjärntvätta er. (if:visits is 1)[(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)(set: $död to $död - 1)]
+(link:&quot;Vem har hypnotiserat mig?&quot;)[Sören Mesmer, inspirationsföreläsaren, har hypnotiserat er och han håller just nu på att hjärntvätta er. (if:visits is 1)[(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
 (link:&quot;Varför pratar du med mig?&quot;)[Jag har valt ut just dig, för att du ska kunna stoppa honom, och tiden rinner ut, det är därför jag vill att du ska vakna!
 
 [[Jag vill fortsätta sova-&gt;Fortsätt sova]] 
@@ -1011,7 +1012,7 @@ Du står med ryggsäcken på ryggen i korridoren utanför klassrummet.
     
 	[[Gå till vänster-&gt;vänster]]
 	[[Gå till höger-&gt;höger]]
-	(if: $progression is 1 and $klassrum is 0)[\
+	(if: $progression is not 0 and $klassrum is 0)[\
 	[[Titta in i klassrummet bredvid-&gt;klassrum2]]
     ]\
 	(if: $klassrum is 1)[\
@@ -1104,7 +1105,7 @@ Du står i korridoren med lågstadieklassen omkring dig, på golvet ser du pojke
 (if:$nyckel is 1)[(link:&quot;Jag går till rektorsexpeditionen&quot;)[(go-to: &quot;rektorsexpeditionen&quot;)]]\
 (if:$nyckel is 0)[(link-rerun:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst, du behöver en nyckel, genom fönstret ser du en massa godispapper och viktiga dokument på ett övergivet skrivbord&quot;)]]
 [[Jag går till matsalen-&gt;matsalen]]
-[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="132" name="debugg" tags="" position="50,425" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling.
+[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="132" name="debugg" tags="" position="50,425" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling. V02-feb-morgon
 [[Du sover]]
 (link: &quot;reset&quot;)[(reload:)]
 
@@ -1197,7 +1198,7 @@ En dag upptäcker du en lapp i din ficka, en visitkort med en hälsning från S�
 (link:&quot;Undrar hur jag ska göra...&quot;)[
 
 
-[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]]</tw-passagedata><tw-passagedata pid="140" name="RöstenTEST" tags="" position="2375,150" size="100,100">syns direkt. Hejsan.
+[[Slut-&gt;credits]](if:visits is 1)[(set: $slut to $slut +1)]]]]]]]</tw-passagedata><tw-passagedata pid="140" name="RöstenTEST" tags="" position="3825,50" size="100,100">syns direkt. Hejsan.
 (after:2s)[(dialog:&quot;Plötsligt hör du hur det sprakar till i högtalarsystemet och en röst hörs!&quot;)
 Hejsan, jag är Högtalar-Henke! hur mår du?]
 [[]]</tw-passagedata><tw-passagedata pid="141" name="TESTTEST" tags="" position="3300,325" size="100,100">(display: &quot;RöstenTEST&quot;)

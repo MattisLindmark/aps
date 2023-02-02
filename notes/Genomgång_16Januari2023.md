@@ -1,3 +1,8 @@
+## Ändrat och ändrat tillbaka 2 feb efter gammal+ny version blandats ihop
+* Korridoren: if: $progression is 1 and $klassrum is 0 -> if: $progression is not 0 and $klassrum is 0 DVS: Har man nån progression så visas länken till klassrummet brevid.
+* Varför sover jag : flyttat var död sätts och satt in print score update så att mätaren inte sjunker tidigare och inte när man klickat vakna.
+* sov: Flyttat en hakparantes och satt in ett and. Så 112-buggen ska va fixad nu.
+
 ## kolla nu!!!
 > * personalrumsöveraskning verkar kunna sabba inventory update så att det slutar funka. (kan va musikladdar problem)
 > * Klassrummet tillbaka: Du kommer in i klassrummet igen <-låter fel när man tex lagt på 112.
