@@ -597,7 +597,7 @@ Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där d
 (link:&quot;Jag undrar vad han gjort med dem&quot;)[Sören bugar och lämnar klassrummet men går förbi dig på vägen ut och ger dig en blinkning och en klapp på axeln.
 [[Jag tittar efter Sören Mesmer]]]]]]</tw-passagedata><tw-passagedata pid="67" name="Passage utan namn" tags="spel" position="3350,1550" size="100,100">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="68" name="Footer" tags="footer" position="150,275" size="100,100">&lt;inventory class=&quot;topLeft&quot;&gt;
 &lt;write-inventory id=&quot;mainInventory&quot;&gt;&lt;/write-inventory&gt;
-&lt;/inventory&gt;&lt;!--
+&lt;/inventory&gt;(set: $eventTimer to it +1)&lt;!--
 
 
 
@@ -606,8 +606,7 @@ Valet är ditt.]]]]</tw-passagedata><tw-passagedata pid="66" name="Slutet där d
 
 
 
-(text-colour:red)+(bg:black)[[[debugg-&gt;debugg]]]
-(set: $eventTimer to it +1)\
+(text-colour:red)+(bg:black)[[[debugg-&gt;debugg]]]\
 EventTimer är $eventTimer. Chans-röst är $chansRöst. Chans-fotsteg är $chansFotsteg Senaste random: $percentage --&gt;</tw-passagedata><tw-passagedata pid="69" name="Ring 112" tags="" position="775,575" size="100,100">Du plockar upp lärarens mobil och ringer 112
 Tuuuut
 (link:&quot;...&quot;)[Tuuuut&lt;play-sound name=&quot;tuut&quot;&gt;&lt;/play-sound&gt;
@@ -671,13 +670,6 @@ Först och främst ett stort tack till $namn för att du skapat din speciella be
 
 Det här var ett av minst 9 möjliga slut på den här berättelsen.
 
-Skuggteatern
-LOGGA
-
-och
-
-Humlab
-LOGGA
 
 Manus och idé:
 Love Ersare(if:(history: where its name contains &quot;Vänta nu!&quot;)&#39;s length &gt;= 1)[
