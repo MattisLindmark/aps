@@ -72,7 +72,7 @@ Vid ett bord sitter rektorn med huvudet vilande bredvid en tallrik helt utan sal
 (link:&quot;Pranka rektorn&quot;)[Du hittar en penna och målar morrhår samt nos på rektorn, då du lyfter huvudet för att komma åt upptäcker du nycklarna som hänger runt halsen.
 (link:&quot;Ta rektorns nycklar&quot;)[Du stoppar rektorns nycklar i ryggsäcken.(set: $nyckel to 1)(print: &quot;&lt;update-inventory&gt;&quot;)]]
 [[Gå till köket-&gt;köket]]
-[[Jag går tillbaka-&gt;höger]]]]]</tw-passagedata><tw-passagedata pid="2" name="köket" tags="rum grej" position="1550,1225" size="100,100">(if:$köksbrand is 0)[(goto: &quot;brand&quot;)](if:$köksbrand is 1)[Det luktar fortfarande bränd olja i köket men faran är över...
+[[Jag går tillbaka-&gt;höger]]]]]</tw-passagedata><tw-passagedata pid="2" name="köket" tags="rum grej" position="1525,1200" size="100,100">(if:$köksbrand is 0)[(goto: &quot;brand&quot;)](if:$köksbrand is 1)[Det luktar fortfarande bränd olja i köket men faran är över...
 På golvet ligger en mattant och snarkar högljutt](if: $köksbrand is 2)[Branden är släckt, han måste ha ordnat det efter att han hypnotiserat dig, faran är över, men det luktar fortfarande bränd olja i köket...
 På golvet ligger en mattant och snarkar högljutt]
 
@@ -310,7 +310,7 @@ Under godispappren ligger en folder från &quot;APS&quot; och någon verkar ha l
 [[Jag går tillbaka till korridoren-&gt;höger]]</tw-passagedata><tw-passagedata pid="27" name="Jag säger något i högtalarsystemet" tags="" position="1800,1225" size="100,100">(if: $system is 0)[(go-to: &quot;deaktiverat&quot;)]Du lutar dig ned över mikrofonen och trycker på knappen. 
 En ton låter och det sprakar i systemet, vad säger du?
 
-(if:$hypnos &gt; 3 and $progression &gt;=2)[
+(if:$hypnos &gt; 2 and $progression &gt;=2)[
 [[Jag försöker väcka skolan]]]
 (link:&quot;Jag säger -Hallå hallå&quot;)[Du hör din röst eka ut i skolkorridoren, men nu då, något roligt kanske?? men vem ska lyssna, alla ligger ju och sover.
 (link:&quot;Jag ropar -VAKNA!&quot;)[(go-to: &quot;utrop&quot;)]]
@@ -359,7 +359,7 @@ Tre
 (set: $städare to 0)\
 (set: $kniv to 0)\
 (set: $död to 5)\
-(set:$köksbrand to 0)\
+(set: $köksbrand to 0)\
 (set: $affisch to 0)\
 (set: $koffein to 0)\
 (set: $rösten to 0)\
@@ -372,8 +372,8 @@ Tre
 (set: $kläder to &quot;bekväma&quot;)\
 (set: $fika to &quot;bananer&quot;)\
 (set: $rädsla to &quot;kryp&quot;)\
-(set:$nyckelknippa to 0)\
-(set: $namn to &quot;Testnamn&quot;)\
+(set: $nyckelknippa to 0)\
+(set: $namn to &quot;Spelaren&quot;)\
 (set: $tillbaka to &quot;höger&quot;)\
 (set: $system to 1)\
 (set: $klassrum to 0)</tw-passagedata><tw-passagedata pid="32" name="Starta datorn" tags="" position="2300,1100" size="100,100">Attans, matteläraren har varit och satt mattekluringar som lösenord på alla biblioteksdatorerna.
@@ -397,7 +397,7 @@ Tre
 [[Googla &quot;hypnos&quot;-&gt;wikipedia]]]
 (link:&quot;Spela spel&quot;)[Bibliotekarien verkar ha tagit bort alla spel från datorn men det finns en ny ikon på skrivbordet som heter APS
 (t8n-arrive:&quot;flicker&quot;)+(t8n-time:2s)[[Jag klickar på den-&gt;GPT3]]] 
-[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="34" name="APS" tags="" position="2350,900" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
+[[Jag går tillbaka -&gt;biblioteket]] </tw-passagedata><tw-passagedata pid="34" name="APS" tags="" position="2400,875" size="100,100">&lt;play-music name=&quot;skuggan4&quot;&gt;&lt;/play-music&gt;\
 Du går till www.apsmetoden.se
 (if: visits &lt; 2)[\
 
@@ -661,7 +661,7 @@ Du har kanske vunnit idag, men det finns fler skolor, fler elever att hypnotiser
 (link:&quot;...&quot;)[Jag ser på dig, hur ditt ansikte fylls av en känsla av $känsla och mitt undermedvetna tar till sist kontrollen och ger dig ett sista leende.
 
 [[Slut-&gt;credits]]
-[[Vänta nu!]]]]]]]]]]  </tw-passagedata><tw-passagedata pid="73" name="Jag är less på det här!" tags="Hypnos" position="50,550" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Hur många gånger ska du behöva somna och vakna igen?
+[[Vänta nu!]]]]]]]]]]  </tw-passagedata><tw-passagedata pid="73" name="Jag är less på det här!" tags="Hypnos" position="100,550" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Hur många gånger ska du behöva somna och vakna igen?
 Du har blivit less på hur jag leder dig genom den här berättelsen, tvingar dig att göra olika val när du samtidigt har kommit på så många bättre sätt att väcka skolan. Jag förstår dig helt, du vill inte längre följa mina instruktioner, du vill vara fri.
 [[Sluta kämpa emot, glöm allt det jobbiga och vakna inte förrän det är över-&gt;Slutet där alla förblir hypnotiserade]] 
 [[Skriv ditt eget slut-&gt;skapaslut]] 
@@ -700,7 +700,7 @@ Bra, tack för att du delar med dig, det gör att vi kan lita på varandra.&lt;p
 
 (link:&quot;Det handlar om mig&quot;)[Du är huvudpersonen i ditt eget liv och det här är din stund, DU sitter på makten är i din hand att välja vilken väg DU ska gå NED.&lt;play-sound name=&quot;lyssna14&quot;&gt;&lt;/play-sound&gt;
 
-(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Varför sover jag?" tags="Hypnos" position="975,225" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Bra att du ställer den frågan $namn! Det här är nämligen inte någon vanlig sömn, det är därför det är så svårt att vakna.(set: $död to $död - 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)
+(link:&quot;Jag väljer&quot;)[(goto: &quot;Lyssna&quot;)]]]]]</tw-passagedata><tw-passagedata pid="78" name="Varför sover jag?" tags="Hypnos" position="950,250" size="100,100">&lt;visual-fx name=&quot;hypnos1&quot;&gt;&lt;/visual-fx&gt;Bra att du ställer den frågan $namn! Det här är nämligen inte någon vanlig sömn, det är därför det är så svårt att vakna.(set: $död to $död - 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)
 (link:&quot;Jag vet inte om jag vill vakna&quot;)[Jag kan inte förklara allt på en gång, du måste uppleva det, men kortfattat så har du och hela din skola blivit hypnotiserade.
 (link:&quot;Vem har hypnotiserat mig?&quot;)[Sören Mesmer, inspirationsföreläsaren, har hypnotiserat er och han håller just nu på att hjärntvätta er. (if:visits is 1)[(set: $hypnos to $hypnos +1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)]
 (link:&quot;Varför pratar du med mig?&quot;)[Jag har valt ut just dig, för att du ska kunna stoppa honom, och tiden rinner ut, det är därför jag vill att du ska vakna!
@@ -774,7 +774,7 @@ Läser inte texten dpå valen kommit, kanske delaya dem eller klicka fram dem</t
 
 (link:&quot;Jag släpper allt&quot;)[Ser du den här gyllene pendeln som jag håller upp framför dig? När du är redo kommer jag att börja svänga den framför dina ögon.&lt;play-sound name=&quot;lyssna19&quot;&gt;&lt;/play-sound&gt;
 
-[[Jag är redo-&gt;Nedräkning]]]]]]</tw-passagedata><tw-passagedata pid="82" name="skolledare" tags="" position="2425,1350" size="100,100">&#39;&#39;Få lydiga elever!&#39;&#39;
+[[Jag är redo-&gt;Nedräkning]]]]]]</tw-passagedata><tw-passagedata pid="82" name="skolledare" tags="" position="2575,1425" size="100,100">&#39;&#39;Få lydiga elever!&#39;&#39;
 Har dina elever svårt att sitta still i klassrummet? Lyssnar de inte på vad du säger? Får du dagligen huvudvärk av de höga ljudnivåerna?
 
 (link:&quot;Vad är det här?&quot;)[Vi har lösningen, anlita våra legitimerade APS-coacher för att transformera er klassrumssituation. Med ett enda besök, förklätt som &quot;Inspirationsföreläsning&quot;, sätter vi alla barn i en mottaglig trans och programmerar om dem till mönsterelever.
@@ -936,7 +936,21 @@ SLUTA LYSSNA! Du känner hur hans hypnotiska röst börjar dra in dig men du få
 (link:&quot;Jag springer!&quot;)[Du borde ha valt bekvämare skor, de här är snygga men opraktiska.
 (link:&quot;Jävla skor!&quot;)[Du tappar plötsligt balansen och snubblar över en bänk ned på golvet.
 (link:&quot;Jag faller!&quot;)[Några fotsteg senare är han ifatt dig, ser dig djupt i ögonen och börjar tala till dig
-[[Han fick mig-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="110" name="baksidan" tags="" position="2175,1350" size="100,100">&quot;Vad en hypnotisör gör är att försätta människor i trans och sedan hålla kvar dem genom att prata med dem på ett hypnotiskt sätt. När en människa har försatts i djup trans, en sorts vaken sömn, kan hypnotisören föreslå saker som personen ska tänka eller göra och på så sätt ändra människors beteende.&quot;
+[[Han fick mig-&gt;sov]]]]]</tw-passagedata><tw-passagedata pid="110" name="baksidan" tags="" position="2175,1350" size="100,100">&quot;Vad en hypnotisör gör är att försätta människor i trans och sedan hålla kvar dem genom att prata med dem på ett hypnotiskt sätt.&quot;
+
+(link:&quot;Det här känner jag igen...&quot;)[&quot;En hypnotisk röst måste vara mild, lugnande och sövande. Som en mors hand som vaggar sin baby till sömns, måste hypnotisörens röst söva föremålet så att det sätts i trans. &quot;
+
+(link:&quot;Det låter som Sörens röst!&quot;)[&quot;När en människa har försatts i djup trans, en sorts vaken sömn, kan hypnotisören föreslå saker som personen ska tänka eller göra och på så sätt ändra människors beteende.&quot;
+
+(link:&quot;Som att försöka förvandla oss till mönsterelever!&quot;)[\
+(if: visit is 1)[(link:&quot;Jag tror att Sören är en hypnotisör!&quot;)[Om jag inte stoppar honom kommer han att hypnotisera hela skolan till mönsterelever.(set: $hypnos to $hypnos + 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)
+
+[[Jag ställer tillbaka boken-&gt;biblioteket]]]
+](else:)[
+Du har förstått att Sören Mesmer är en hypnotisör.
+[[Jag ställer tillbaka boken-&gt;biblioteket]]]]]]
+&lt;!--
+&quot;Vad en hypnotisör gör är att försätta människor i trans och sedan hålla kvar dem genom att prata med dem på ett hypnotiskt sätt. När en människa har försatts i djup trans, en sorts vaken sömn, kan hypnotisören föreslå saker som personen ska tänka eller göra och på så sätt ändra människors beteende.&quot;
 
 (link:&quot;Jag undrar om Sören är en hypnotisör...&quot;)[&quot;En hypnotisk röst måste vara mild, lugnande och sövande. Som en mors hand som vaggar sin baby till sömns, måste hypnotisörens röst söva föremålet så att det sätts i trans. &quot;
 
@@ -945,7 +959,8 @@ Om en pendel inte finns tillhanda kan en nedräkning från 5 till 1 hjälpa till
 Vid uppvaknande och brytande av trans används uppräkning istället - från 1 till 5. &quot;
 
 
-[[Jag undrar...]]]]</tw-passagedata><tw-passagedata pid="111" name="Jag undrar..." tags="" position="2100,1650" size="100,100">Hmmmm, kanske är det den här Molly Moon som hemsöker din skola? eller en ondskefull professor? Nej, det här är ju bara en bok. 
+[[Jag undrar...]]]]
+--&gt;</tw-passagedata><tw-passagedata pid="111" name="Jag undrar..." tags="" position="2100,1650" size="100,100">Hmmmm, kanske är det den här Molly Moon som hemsöker din skola? eller en ondskefull professor? Nej, det här är ju bara en bok. 
 (if: visit is 1)[
 (link:&quot;Jag har en teori!&quot;)[Men det låter verkligen som att Sören Mesmer använt hypnos på dig och dina klasskamrater! (set: $hypnos to $hypnos + 1)(print: &quot;&lt;score-bar type=&#39;update&#39;&gt;&quot;)
 [[Jag ställer tillbaka boken-&gt;biblioteket]]]
@@ -1105,7 +1120,7 @@ Du står i korridoren med lågstadieklassen omkring dig, på golvet ser du pojke
 (if:$nyckel is 1)[(link:&quot;Jag går till rektorsexpeditionen&quot;)[(go-to: &quot;rektorsexpeditionen&quot;)]]\
 (if:$nyckel is 0)[(link-rerun:&quot;Jag går till rektorsexpeditionen&quot;)[(dialog:&quot;Dörren är låst, du behöver en nyckel, genom fönstret ser du en massa godispapper och viktiga dokument på ett övergivet skrivbord&quot;)]]
 [[Jag går till matsalen-&gt;matsalen]]
-[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="132" name="debugg" tags="" position="50,425" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling. V02-feb-morgon
+[[Jag går tillbaka i korridoren-&gt;korridoren]](set: $tillbaka to &quot;högerupplåst&quot;)</tw-passagedata><tw-passagedata pid="132" name="debugg" tags="" position="50,425" size="100,100">Denna passage hör ej till historien utan är till för att testa funktioner under utveckling. V02-feb-förmiddag
 [[Du sover]]
 (link: &quot;reset&quot;)[(reload:)]
 
