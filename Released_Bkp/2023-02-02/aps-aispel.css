@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/*
+tw-sidebar[tags~="spel"]{
+    display: none;
+}
+*/
+tw-story[tags~="spel"] tw-include inventory.topLeft{
+    display: none;
+}
+
+/* tw-story[tags~="spel"]{
+    background-image: url("/assets/tmp/ScreenBGR2.png");
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100 !important;
+} */
+
+tw-story[tags~="spel"]{
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+        );
+    background-size: 100% 8px; 
+    z-index: 2;
+    background-color: #020;
+}
+
+/* tw-story[tags~="spel"]{
+    z-index:2;
+    background-color: rgb(0, 0, 0);
+} */
+
+@media (min-width: 700px){
+tw-passage[tags~="spel"]{
+    /* background-color: #353; */
+    background-color: transparent;
+ 
+
+    font-family: 'VT323', monospace;
+/*    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');  <- tror ej denna påverkar något*/
+    font-size: 2rem;
+    color: lightgreen;
+    /* color: hsl(85, 80%, 84%); */
+    padding-left: 1rem;
+    padding-right:1rem;
+    padding-bottom: 1rem;
+    /* scrollbar-color: rgb(61, 153, 51) rgb(4, 75, 4) !important; */
+    
+    /* Nedan är för CRT ramen och sånt */
+    margin-top: 5rem;
+    height: 60vh;
+    max-width: 850px;
+    min-width: 500px;
+    overflow-y: auto;
+    
+    border: 24px solid transparent;
+    border-bottom: 45px solid;
+    border-image: url("./assets/tmp/ScreenBGR3fill.png");
+    border-image-repeat: stretch;
+    border-image-slice: 46% fill;
+    border-image-width: 195px;
+    border-image-outset: 60px 50px;
+    /* background-clip: padding-box; */  
+}
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar{
+    width: 18px;
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar-track{
+    background-color: rgb(46, 100, 46);
+    box-shadow: inset 0px 0px 4px rgb(152, 152, 152);
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar-thumb{
+    background-color: hsl(120, 33%, 50%);
+}
+tw-passage[tags~="spel"]::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(128, 163, 128);
+}
+
+@media (max-width: 700px),(max-height: 500px){
+    tw-passage[tags~="spel"]{
+        background-color: #353;
+        font-family: 'VT323', monospace;
+        font-size: 2rem;
+        color: lightgreen;
+        padding-left: 1rem;
+        padding-right:1rem;
+        padding-bottom: 1rem;
+        border: none;
+        height: auto;
+        min-width: none;
+        max-width: none;
+    }
+}
+
+
+tw-passage[tags~="mattis2"]{
+    background-color: aqua;
+}
+
+tw-passage[tags~="mattis1"]{ 
+    background-color: #700;
+}
+
+tw-story[tags~="mattis2"]{
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+        );
+    
+    background-size: 100% 8px;
+    background-color: #040;
+    animation: lines 2.4s infinite alternate linear;
+}
+
+@keyframes lines {
+    to{
+        background-color: rgb(20, 121, 20); /*#161;*/
+    }    
+}
+
+/*
+aispel {
+    font-family: 'VT323', monospace;
+    src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap'); 
+    font-size: 2rem;
+    color: lightgreen;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+        );
+    background-size: 100% 8px;
+    background-color: #130;
+    width: 80%;
+    height: 100vh;
+    position: absolute;
+    padding: 1rem;
+}
+*/
+
+
+/*
+
+*****
+Lösning ett, has tag typ. Funkar ej i firefox.
+- kräver <aispel> </aispel>
+
+tw-story:has(aispel){
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+        );
+    
+    background-size: 100% 8px;
+    z-index: 2;
+    background-color: #020;
+}
+
+tw-passage:has(aispel){
+    background-color: #353;
+    padding-left: 2rem;
+    padding-right:2rem;
+    padding-bottom: 2rem;
+}
+
+
+**** Lösning två
+Lägga det mesta av formateringen i <aispel> tagg.
+Bör funka på alla plattformar, är mer begräsnad.
+kräver <aispel>
+
+aispel {
+    font-family: 'VT323', monospace;
+    font-size: 2rem;
+    color: lightgreen;
+    background: linear-gradient(
+        to bottom,
+        rgba(18, 16, 16, 0) 50%,
+        rgba(0, 0, 0, 0.25) 50%
+        );
+    background-size: 100% 8px;
+    background-color: #130;
+    width: 80%;
+    height: 100vh;
+    position: absolute;
+    padding: 1rem;
+}
+
+****** Lösning tre: 
+tw-story[tags~="spel"]{
+    background-image: url("https://virtualbackgrounds.site/wp-content/uploads/2020/08/the-matrix-digital-rain-1536x864.jpg");
+    background-size: cover;
+  }
+
+  Hämtad från: https://intfiction.org/t/harlowe-3-1-0-customizing-alert/46523/3
+
+  se svar en bit ned.
+
+
+
+font-size: 2rem;
+color: lightgreen
+
+aispel{
+
+}
+*/
