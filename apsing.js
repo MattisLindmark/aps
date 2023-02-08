@@ -37,7 +37,7 @@ var FXsounds = [
     { name:"snap", value:"177494__snapper4298__snap-3.wav"},
     { name:"papper", value:"paper.mp3"},
     { name:"pappersark", value:"papersheet.mp3"},
-    { name: "eld", value:"PH_burning_loop.wav"},
+    { name: "eld", value:"eld.mp3"},
     { name: "hypnosmeeter", value:"hypnos.mp3"},
     { name: "deathmeeter", value:"dod.mp3"},
     { name: "inventory", value:"pickup.mp3"},
