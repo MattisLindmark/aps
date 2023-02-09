@@ -1,15 +1,17 @@
-
-
 //const url = "https://umeauniversity-my.sharepoint.com/:u:/g/personal/maslrk02_ad_umu_se/EQt-imastydEjZIFkT0uIQ0BO7_nv1NXPrjQycoD06XULw?download=1"
 
 // MUSIK setup
 var musicScores = [
-    { name:"skugganhypno", value:"skuggan_hypnos_low.mp3"},
-    { name:"skuggan1", value:"skuggan1_lvol.mp3"},
+    { name:"skugganhypno", value:"skuggan_hypnos.mp3"},
+    { name:"skuggan0", value:"intro.mp3"},
+    { name:"skuggan1", value:"skuggan1.mp3"},
     { name:"skuggan2", value:"skuggan2.mp3"},
     { name:"skuggan3", value:"skuggan3.mp3"},
     { name:"skuggan4", value:"skuggan4.mp3"},
-    { name:"skuggan5", value:"skuggan5.mp3"}
+    { name:"skuggan5", value:"skuggan5.mp3"},
+    { name:"test", value:"looptest.mp3"},
+    { name:"overjag", value:"overjaget.mp3"}
+
 ]
 /*
 const url = "lonlyspace.mp3";
@@ -19,7 +21,10 @@ const url4 =  "../assets/music/skuggan_hypnos_low.mp3";
 const url5 = "../assets/music/skuggan1_lvol.mp3";
 */
 var music = new Audio();
+music.loop = true;
 const musicBaseUrl = "./assets/music/";
+const musicBaseVolume = 0.3;
+var musicVol = musicBaseVolume;
 //const URLs = [url,url2,url3,url4,url5];
 //music.src = URLs[0];
 //musicIndex = 0;
@@ -32,6 +37,20 @@ var FXsounds = [
     { name:"snap", value:"177494__snapper4298__snap-3.wav"},
     { name:"papper", value:"paper.mp3"},
     { name:"pappersark", value:"papersheet.mp3"},
+    { name: "eld", value:"eld.mp3"},
+    { name: "hypnosmeeter", value:"hypnos.mp3"},
+    { name: "deathmeeter", value:"dod.mp3"},
+    { name: "inventory", value:"pickup.mp3"},
+    { name: "vakna", value:"vakna.mp3"},
+    { name: "nycklar", value:"key_unlock.mp3"},
+    { name: "fotsteg", value:"aps_steps23.mp3"},
+    { name: "transition", value:"transition.mp3"},
+    { name: "glitch", value:"glitch.mp3"},
+    { name: "skolljud", value:"skolljud_64.mp3"},
+    { name: "tuut", value:"tuut.mp3"},
+    { name: "svarare1", value:"svarare1.mp3"},
+    { name: "svarare2", value:"svarare2.mp3"},
+    { name: "svarare3", value:"svarare3.mp3"},
     { name:"sov1", value:"sov1.mp3"},
     { name:"sov2", value:"sov2.mp3"},
     { name:"sov3", value:"sov3.mp3"},
@@ -86,15 +105,30 @@ var FXsounds = [
 const FXsoundsBaseUrl = "./assets/sound/"
 var sounds = new Audio();
 
+// Hårdkodat ljud som alltid ska höras vid inventory update, hypnos och death
+// Obs- mappar mot namnen i arrayen ovan.
+const FXsoundStatic = {
+    pickup: 'inventory',
+    death: 'deathmeeter',
+    hypnos: 'hypnosmeeter',
+}
+var soundsStatic = new Audio();
+
+//sounds.type = 'audio/mpeg; codecs="mp3"';
+
+// == OBS angåengde inventoryList:
+// name - ska stämma med variabelns namn. Icon ska stämma med filnamnet. Value hämtas och säts från värdet i twine storyn när den körs.
+// tooltip: Vad som visas on mouse over. Om det ej är satt används name. Dvs sätt tooltip om beskrivningen som visas ska skilja från vad variabeln/name är.
+// 
 var inventoryList =[
-    { name:"ficklampa ", icon:"icon_ficklampa.png", value: 0},
-    { name:"nyckel", icon:"icon_nyckel.png", value: 0},
-    { name:"pendel", icon:"icon_pendel.png",value: 0},
-    { name:"jordnötter", icon:"icon_jordnotter.png",value: 0},
-    { name:"kniv", icon:"icon_kniv.png",value: 0},
-    { name:"affisch", icon:"icon_affisch.png",value: 0},
-    { name:"koffein", icon:"icon_koffein.png",value: 0},
-    { name:"nyckelknippa", icon:"icon_nyckelknippa.png",value: 0}
+    { name:"ficklampa", tooltip:"", icon:"icon_ficklampa.png", value: 0},
+    { name:"nyckel", tooltip:"", icon:"icon_nyckel.png", value: 0},
+    { name:"pendel", tooltip:"", icon:"icon_pendel.png",value: 0},
+    { name:"jordnötter", tooltip:"", icon:"icon_jordnotter.png",value: 0},
+    { name:"kniv", tooltip:"", icon:"icon_kniv.png",value: 0},
+    { name:"affisch", tooltip:"", icon:"icon_affisch.png",value: 0},
+    { name:"koffein", tooltip:"", icon:"icon_koffein.png",value: 0},
+    { name:"nyckelknippa", tooltip:"passerkort", icon:"icon_nyckelkort.png",value: 0}
 ]
 
 // === startup setup typ ===
@@ -113,8 +147,40 @@ window.deaths = 0;
 const hypnosMax = 5;
 const deathMax = 5; // för att slippa hårdkopda längre ned.
 
+
+
+/*  Kul försök men går ej sätta på statevar.
+
+ setTimeout(() => {
+     SetupCallback();
+   }, 2000)
+//SetupCallback();
+
+function SetupCallback()
+{
+    const callbackB = function () {
+        console.log('==== Observed object has changed!');
+    };
+    
+    const observer = new MutationObserver(callbackB);       
+    const target = document.querySelector('inventory');
+    
+    const config = { attributes: true, childList: true, subtree: true };
+    
+    observer.observe(target, config);
+
+}
+*/
+
+//window.statevar.onValueChange = (event) => {console.log("----------------- State var cganged!");};
+//window.tmptest.onStartup = (event) => { console.log("==== I AM IN ===");};
+//window.hypnos.onChange = (event) => { console.log("==== I AM IN ===");};
+
 $(function(){ // används ej, försöker få till globala variabler 20 nov 22
-    console.log("--- jq fungerar---");
+
+    console.log("--- jq ---");
+//    $('#muteBTN').click(muteAllSound);
+
 
 //    if (!window.harlowe) {
         //window.harlowe = {"State": State};
@@ -127,11 +193,82 @@ $(function(){ // används ej, försöker få till globala variabler 20 nov 22
 var r= document.querySelector(':root');
 //var rs=getComputedStyle(r);
 
-//=========
 
-function playSoundFX(name)
+//document.querySelector(('muteBTN')).addEventListener("click",muteAllSound());
+
+var isMute = false;
+function muteAllSound()
 {
-    sounds.pause();
+    isMute = !isMute;
+    sounds.muted = isMute;
+    music.muted = isMute;
+    soundsStatic.muted = isMute;
+
+    try{
+        let btn = document.querySelector('.muteButton');
+        if (isMute)
+        {
+            btn.style.backgroundColor = 'red';
+        }
+        else{
+            btn.style.backgroundColor = 'green';
+        }
+    } catch{}
+
+/*
+    if (isMute)
+    {
+        sounds.volume = 0;
+        music.muted = true;
+
+//        musicVol = 0;
+//        music.volume = musicVol;
+//        music.mute
+    }
+    if (!isMute)
+    {
+        sounds.volume = 1;
+        music.muted = false;
+//        musicVol = musicBaseVolume;
+//        music.volume = musicVol;
+    }
+
+*/
+
+}
+//*** Test wite PID. 2022-januari-17 - he går ju int å få å funka asså. */
+/* Detta i footern:
+<script>
+setTimeout(() => {
+  console.log("Delayed TEST catch Pid.");
+  TestWritePID();
+}, 200)
+</script>
+*/
+function TestWritePID()
+{
+
+    let tmp = document.querySelector("tw-passage");
+    let tmpv = "";
+    try{
+        tmpv = tmp.attributes.tags.value;
+    } catch{
+        tmpv = "nothing";
+    }
+
+    console.log("pid: "+tmpv);
+}
+
+function playSoundFX(name, type, targetAudioObject)
+{
+    if (targetAudioObject == null)
+    {
+        console.log("audio default source");
+        targetAudioObject = sounds;
+    }
+
+    targetAudioObject.pause();
+    targetAudioObject.loop = false;
     var surl = "none";
     try{
         surl = FXsounds.find(p => p.name ===name).value;
@@ -140,22 +277,29 @@ function playSoundFX(name)
         surl = "none";
     }
     //    console.log("SoundFX function "+surl);
-    if (surl != "none") {
-        if (surl.includes("https://")) {
-            sounds.src = surl;
-        }
-        else {
-            sounds.src = FXsoundsBaseUrl + surl;
-        }
-        
-        sounds.play();
+    if (surl == "none") {
+        return;
     }
+
+    if (surl.includes("https://")) {
+        targetAudioObject.src = surl;
+    }
+    else {
+        targetAudioObject.src = FXsoundsBaseUrl + surl;
+    }
+
+    if (type.toLowerCase() == "loop"){
+        targetAudioObject.loop = true;
+    }
+//    console.log("Playing now "+surl);
+    targetAudioObject.play();
+    
 }
 
 function playMusic(name)
 {
-    if (name == "stop"){
-        music.pause();
+    if (name == "stop"){        
+        music.pause(); // <-- TODO: fade down, men det kräver en fade up om den ska un-pausas utan url byte.
         return;
     }
 
@@ -168,13 +312,20 @@ function playMusic(name)
     }
 
     if (surl != "none") {
+         if (music.src.includes(surl)){
+            if (music.paused)
+                music.play();
+            return;
+         }
+
         if (surl.includes("https://")) {
             surl = surl;
         }
         else {
             surl = musicBaseUrl + surl;
         }
-        fastFadeAndStop(music, ()=>{music.src = surl;music.volume=0.5;music.play()});
+        fastFadeAndStop(music, ()=>{music.src = surl;music.volume=musicVol;music.play()});
+        
 //        setTimeout(()=>{music.play()},1000);
         //music.play();
     }
@@ -315,10 +466,39 @@ function testar(hej)
     //alert('hejsan '+hej);
 }
 
-
+var count = 0;
+var lastElement = undefined;
+// BRA SIDA: https://web.dev/custom-elements-v1/
 class MyTag extends HTMLElement {
+    constructor() {
+        super();
+        this.test23 = "hej";
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback() {
-        this.innerHTML = `<p>Custom tagg här!</p> `;
+//        let moveMe = this;
+//        moveMe.attributes.name.value = 'undefined'; // <-- Före elementet flyttas till story (med appendChild). För att undvika att hypnos-effekten triggas igen i en loop. Alternativ vore att ignorera callbacks för story element, osäker om det skulle funka dock.
+        // let moveTo = document.querySelector("tw-story");
+        // if (moveTo != null)
+        //     moveTo.prepend(moveMe);
+        
+        if (this.test23 != "hej"){
+            return;
+        }
+
+        this.test23 = "Nejje!";
+
+
+        console.log("==== viktigt ===="+this.test23);
+        // SKAPA ett separat element kanske?
+        // if (document.querySelector("myTaggStuff") == null)
+        // {
+        //     document.createElement("myTaggStuff");
+        // }
+        // var elementet = document.querySelector("myTaggStuff");
+
+        this.innerHTML += "<p>Custom tagg här! "+count+"</p>";
+        count++;
         this.style.color = "red";
         var typ = "Undefined typ";
         try{
@@ -327,39 +507,64 @@ class MyTag extends HTMLElement {
         catch{
             typ = "inget värde satt";
         }
+
+        console.log("Min tagg anrop"+this);
         testar("from tagg "+typ);
     }
+
+    attributeChangedCallback(attrName, oldVal, newVal) {
+       this.innerHTML = "changed";
+      }
 }
 
 class SoundFX extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback() {
-        //this.innerHTML = 'Debugg ljud';
+   
         // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
-        if (document.querySelector('tw-transition-container') != null) {
-            return;
-            //            this.innerHTML = 'is child ';
+        // if (document.querySelector('tw-transition-container') != null) {
+        //     return;
+        // }
+
+        if (this.isDirty){
+            return; 
         }
+        this.isDirty = true;
+
         var name = "undefined";
-        try {
-            name = this.attributes.name.value;
-        } catch {
-            name = "undefined";
-        }
+        var type = "undefined";
+
+        name = (this.attributes.name != null)?this.attributes.name.value:"undefined";
+        type = (this.attributes.type != null)?this.attributes.type.value:"undefined";
+        
         if (name.length > 0 && name != "undefined") {
-            console.log("PlaySoundFX(name)" + name);
-            playSoundFX(name);
+//            console.log("PlaySoundFX(name)" + name);           
+            playSoundFX(name, type);
         }
     }
 }
 
 class MusicPlay extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+       // this.setAttribute(flagga,false);
+    }
     connectedCallback() {
 //        this.innerHTML = 'Debugg music';
         // Nedan If-sats är ett hack för att undvika att ljudet laddas 2 ggr när den wrappar i en transision container.
-        if (document.querySelector('tw-transition-container') != null) {
+        //  if (document.querySelector('tw-transition-container') != null) {
+        //      return;
+        //      //            this.innerHTML = 'is child ';
+        //  }
+        if (this.isDirty){
             return;
-            //            this.innerHTML = 'is child ';
         }
+
         var name = "undefined";
         try {
             name = this.attributes.name.value;
@@ -367,7 +572,8 @@ class MusicPlay extends HTMLElement {
             name = "undefined";
         }
         if (name.length > 0 && name != "undefined") {
-            //console.log("PlayMusic" + name);            
+            //console.log("PlayMusic" + name);
+            this.isDirty = true;            
             playMusic(name);
         }else{
          console.log("Dit not PlayMusic" + name);
@@ -376,7 +582,15 @@ class MusicPlay extends HTMLElement {
 }
 
 class VisualFX extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+    }  
     connectedCallback() {
+        if (this.isDirty){
+            return;
+        }
+
         // Get the values
         var name = "undefined";
         try {
@@ -384,31 +598,39 @@ class VisualFX extends HTMLElement {
         } catch {
             name = "undefined";
         }
-        //------
 
-        if (document.querySelector('tw-transition-container') == null) {     // null = andra laddningen efter transition. Truel = 1a laddningen då den wrappar allt.
-            //this.style.animationPlayState = 'running';
-           // this.innerHTML = "<div class='centerVFX'><div class='circles fixed'></div></div>";
-            return;
+        // if (document.querySelector('tw-transition-container') == null) {     // null = andra laddningen efter transition. Truel = 1a laddningen då den wrappar allt.
+        //     //this.style.animationPlayState = 'running';
+        //    // this.innerHTML = "<div class='centerVFX'><div class='circles fixed'></div></div>";
+        //     return;
+        // }
+
+        if (name.length > 0 && name != "undefined") {
+            //console.log("VisualFX" + name);
+            this.isDirty = true;            
+            HandleVisualFX(this, name);
+            //this.style.animationPlayState = 'paused';
+        } else {
+            console.log("Did not show visualFX" + name);
         }
-        else {
-            if (name.length > 0 && name != "undefined") {
-                //console.log("VisualFX" + name);            
-                HandleVisualFX(this, name);
-                //this.style.animationPlayState = 'paused';
-            } else {
-                console.log("Did not show visualFX" + name);
-            }
-        }
+        
     }
 }
 
 class ScoreBar extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+    }    
     connectedCallback(){
 
-        if (document.querySelector('tw-transition-container') == null) {          
-            console.log("");//return;
+        if (this.isDirty){
+//            console.log("disrtyScorebar");
+            return;
         }
+        // if (document.querySelector('tw-transition-container') == null) {          
+        //     console.log("");//return;
+        // }
 
         //this.innerHTML = 'Debugg score-bar';
         var typ = "undefined";
@@ -429,9 +651,9 @@ class ScoreBar extends HTMLElement {
         if (typ.length > 0)
         {
            // console.log("Values = "+typ+" and "+value+" and inne html: "+this.innerHTML);
+           this.isDirty = true;
             HandleScorebar(this, typ, value);
         }
-
 
     }
 
@@ -457,23 +679,87 @@ class TypeWriter extends HTMLElement {
 }
 
 class WriteInventory extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+    }    
     connectedCallback(){
-        if (document.querySelector('tw-transition-container') != null) {          
-            return;
-        }
-        
         let typ = "undefined";
         try {
             typ = this.attributes.type.value;
         } catch {
-             typ = "undefined";
+            typ = "undefined";
         }
+        
+// XXX - remove update kanske. hanteras i handle.
+//        updateInventoryList();
+        if (this.isDirty) {
+            return;
+        }
+        // if (document.querySelector('tw-transition-container') == null && typ != 'update') {          
+        //     return;
+        // }
+        this.isDirty = true;
+        HandleWriteInventory(this,typ);
+    }
+}
 
+class UpdateInventory extends HTMLElement {
+    constructor() {
+        super();
+        this.isDirty = false;
+       // this.setAttribute(flagga,false);
+    }
+    connectedCallback(){
+
+/* Om jag vid senare tillfälle vill koppla typ-värde till inventory update.
+        let typ = "undefined";
+        try {
+            typ = this.attributes.type.value;
+        } catch {
+            typ = "undefined";
+        }      
+        */
+        if (this.isDirty) {
+            return;
+        }
+        // if (document.querySelector('tw-transition-container') != null){// && typ != 'update') {          
+        //     return;
+        // }
+        console.log("Uppdaterar inventory");        
+        let typ = "update";
         HandleWriteInventory(this,typ);
 
-
+        // setTimeout(() => {
+        //     HandleWriteInventory(this,typ);
+        //     this.isDirty = true;
+        //     console.log("Uppdaterar inventory delay");
+        //   }, 100)
+        
+//        HandleWriteInventory(this,typ);
     }
 
+}
+
+class TextFX extends HTMLElement {
+    connectedCallback() {
+        var typ = "default_type";
+        var target = "default_target";
+        try{
+            typ = this.attributes.type.value;
+            target = this.attributes.target.value;
+        }
+        catch{
+        }
+
+        /*==== detta fungerar om man vill använda inner HTML. 
+        // (anledningen till att det ej funkar är om JavaScriptet anropas i headern, då har ej This lästs in typ.)
+        setTimeout(() => {
+            SplitByBlank(this);
+          }, 100)
+          */
+        SetupTextFX(this,typ,target);
+    }
 }
 
 
@@ -485,7 +771,8 @@ customElements.define('visual-fx', VisualFX);
 customElements.define('score-bar',ScoreBar);
 customElements.define('type-write',TypeWriter);
 customElements.define('write-inventory',WriteInventory);
-
+customElements.define('update-inventory',UpdateInventory);
+customElements.define('text-fx', TextFX);
 
 function HandleWriteInventory(myElement, typ)
 {
@@ -498,7 +785,7 @@ function HandleWriteInventory(myElement, typ)
         console.log("To update inventory there needs to be an inventory with ID mainInventory");
         return;
     }
-    printInventory(myElement);   
+    printInventory(myElement);
 }
 
 function HandleTypeWrite(myElement, speed){
@@ -530,42 +817,96 @@ function HandleVisualFX(myElement, myName)
         var content = '<div class="circles one"></div><div class="circles three"></div><div class="circles five"></div><div class="circles seven"></div><div class="circles nine"></div>';
 //        var content = '<div class="circles two"></div><div class="circles four"></div><div class="circles six"></div><div class="circles eight"></div>';
         content += contentEndloop;
+//        myElement.innerHTML = "<VFXBgrBox><div>"+content+"</div></VFXBgrBox>";
         myElement.innerHTML = "<div class='centerVFX'>"+content+"</div>";
 
         let moveMe = myElement;
         moveMe.attributes.name.value = 'undefined'; // <-- Före elementet flyttas till story (med appendChild). För att undvika att hypnos-effekten triggas igen i en loop. Alternativ vore att ignorera callbacks för story element, osäker om det skulle funka dock.
         let moveTo = document.querySelector("tw-story");
         if (moveTo != null)
-            moveTo.appendChild(moveMe);
+            moveTo.prepend(moveMe);
 
     }
 }
 
-function HandleScorebar(myElement, myType, myValue)
+function SetupTextFX(callerElement, typ,target)
 {
-    //console.log(window);
+    var tmptmp = callerElement.innerHTML;
+    typ = (typ=="default_type")?"textFX":typ;
+    target = (target=="default_target")?"self":target;
+//    let tmp = 'Typ och target är ${typ} och ${target}';
+//    let tmp = ['typ och target är ',typ,target].join(" ");
+//    console.log(tmp);
 
-    //myElement.innerHTML = window.hypnos;
-    /*
-    if (myValue < 0)
-    {
-        myValue = parseInt(this.innerHTML);
-    }
-*/
+    myElement = document.querySelector(target);
     
-let _hypnocount = ((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur window.variablerna används. Om dom används.
-let _deathcount = ((window.deaths/5)*100).toFixed(0);
+    if (myElement == null){
+        myElement = document.querySelector("#"+target);
+        if (myElement != null)
+            console.log("TARGETS HTML IS: "+myElement.innerHTML);
+    }
+    
+    if (target == "self" && myElement == null)
+    {
+        myElement = callerElement;
+        console.log("Self is triggeredd "+tmptmp);
+    }
+    
+    if (myElement == null){
+        console.log ("TextFX called with invalid target.");
+        return;
+    }
+    
+    let text = myElement.innerText;  // OBS <- 22 jan 2023 Inner text löser google trasnalte problemet. Den tar inte med taggarna google lägger till. Men vilka problem kan uppstå nu? 
+    text = text.replace(/<br>/g, " ¤ ");
+    let textArray = text.split(" ");
+    let replacementStr= "";
+let index = 0;
+    textArray.forEach(element => {
+        index++;
+        let rnd = Math.random() * 3;
+        if (element == "¤"){
+            replacementStr +="<br>";
+        }
+        else{        
+//        replacementStr +="<span class='"+typ+"' style='animation-delay:"+rnd+"s'>"+element+"</span>";
+        replacementStr +="<span class='"+typ+"' style='--rnd-value:"+rnd+"; --index-value:"+index+";'>"+element+"</span>";
+//        replacementStr +="<span class='"+typ+"'>"+element+"</span>";
+        replacementStr += " ";
+        }
+    });
+    myElement.innerHTML = replacementStr;//+"<br>";
+    
+}
+
+function HandleScorebar(myElement, myType, myValue)
+{  
+
+let _hypnocount = 0;//((window.hypnos/5)*100).toFixed(0); // TODO: Se över hur window.variablerna används. Om dom används.
+let _deathcount = 0;//((window.deaths/5)*100).toFixed(0);
 
 let tmpstate = null;
-if (typeof window.statevar.hypnos !== 'undefined'){
-    tmpstate = window.statevar; 
-    console.log("Using state var");
-   // console.log(tmpstate.hypnos);   
+if (window.harlowe != null) {//typeof window.statevar.hypnos !== 'undefined'){
+//    let entr = Object.entries(harlowe.State.variables);
+    tmpstate = harlowe.State.variables;
     _hypnocount = ((tmpstate.hypnos/hypnosMax)*100).toFixed(0);
     _deathcount = ((tmpstate.död/deathMax)*100).toFixed(0); // FIXME: Kan vara problem här. XXX när den är 5 och delas på 5 blir den ju noll. Vilket ej stämmer när Death räknas omvänt.
-    console.log("----------------"+_deathcount );
-    r.style.setProperty('--death-var', (100-_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont!
+
+    let oldDeath = r.style.getPropertyValue('--death-var');
+    let oldHypno = r.style.getPropertyValue('--hypno-var');
+
+    r.style.setProperty('--death-var', (_deathcount)+'%'); // <============== Här modifieras CSS var för hypnos och deathcont! Sätt 100-_deathcount för att få bakvänt som tidigare.
     r.style.setProperty('--hypno-var', _hypnocount+'%');
+
+    // aningen rå lösning för att trigga ljudeffekter när scorebar ändras, jämför CSS styles gamla med nya.    
+    if (oldDeath != "" || oldHypno != ""){ // undvik spela ljud vid restart 1a gången typ.
+        if (oldDeath != r.style.getPropertyValue('--death-var')){
+             playSoundFX(FXsoundStatic.death, "abcd", soundsStatic);
+        }
+        if (oldHypno != r.style.getPropertyValue('--hypno-var')){
+              playSoundFX(FXsoundStatic.hypnos, "abcd", soundsStatic);
+        }
+    }
 } else
 {
     console.log("WARNING: is NOT Using state var");
@@ -574,16 +915,21 @@ if (typeof window.statevar.hypnos !== 'undefined'){
 if (myType == "a" || myType == "A") // to lower vore najs
 {
 //    myElement.innerHTML = ' <borderbar> <scorebar style="width:'+_procent+'%">'+_procent+'%</scorebar></borderbar>';
-        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*hypnosMax)/100)+'</scorebar></borderbar>';
+//        myElement.innerHTML = ' <borderbar><scorebar class="hypno">'+((_hypnocount*hypnosMax)/100)+'</scorebar></borderbar>';
+    myElement.innerHTML = ' <borderbar><scorebar class="hypno"></scorebar></borderbar>';
+
 }
 if (myType == "b" || myType == "B") // to lower vore najs
 {
-//    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';
-    
-      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
+//    myElement.innerHTML = ' <borderbar> <scorebar class="death" style="width:'+_deathcount+'%">'+((_deathcount*5)/100).toFixed(0)+'ggr</scorebar></borderbar>';    
+//      myElement.innerHTML = ' <borderbar><scorebar class="death">'+((_deathcount*deathMax)/100).toFixed(0)+'</scorebar></borderbar>';
+      myElement.innerHTML = ' <borderbar><scorebar class="death"></scorebar></borderbar>';
+
 
 }
-    
+
+// December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
+/*
     if (myType == "update") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
     {
         let e = document.getElementById('updatearea');
@@ -591,29 +937,6 @@ if (myType == "b" || myType == "B") // to lower vore najs
         console.log("Score bar update is called. "+tmp);
 //        e.innerHTML = tmp;
     }
-// XXX delete from inventory from scorebar
-    if (myType == "updateinventory") // December 06 VIKTIGT: Har upptäckt att det funkar utan speciell update. Antagligen att göra med uppdaterade CSS variabler istället för utskrivna värden kanske?
-    {
-        let e = document.getElementById('inventoryUpdate');
-        let tmp = e.innerHTML;
-        console.log('ficklampa is '+window.statevar.ficklampa);
-        console.log('Jordnötter is '+window.statevar.jordnötter);
-        
-        let strTmp = window.statevar.ficklampa?'inherit':'none';
-        let strTmpN = window.statevar.jordnötter?'inherit':'none';
-        r.style.setProperty('--inv-ficklampa',strTmp);
-        r.style.setProperty('--inv-notter',strTmpN);
-
-        let tokig = "Här ska uppdaterad inventory hamna";//'<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>';
-/*
-<inventory id="inventoryUpdate">(if:$ficklampa is 1)[<div class="symbol"><img src="assets/icons/icon_flampa.png"><div class="tooltip">Den är lysande!</div></div>](if:$jordnötter is 1)[<div class="symbol">🥜<div class="tooltip">jordnötter</div></div>](if:$pendel is 1)[<div class="symbol"><img src="assets/icons/icon_pendel.png"><div class="tooltip">Hypnotisörens pendel</div></div>](if:$kniv is 1)[<div class="symbol"><img src="assets/icons/icon_kniv.png"><div class="tooltip">kökskniv</div></div>](if:$nyckelknippa is 1)[<div class="symbol">🗝️<div class="tooltip">nyckelknippa</div></div>](if:$affisch is 1)[<div class="symbol"><img src="assets/icons/icon_affisch.png"><div class="tooltip">Affisch</div></div>](if:$nyckel is 1)[<div class="symbol">🗝️<div class="tooltip">Nyckel</div></div>](if:$koffein is 1)[<div class="symbol">☕<div class="tooltip">Du är <br>coffeinstinn!</div></div>\]</inventory>
-*/              
-        console.log("InventoryUpdate on Score-bar is called with: "+tmp);
-        //printInventory();
-        //e.innerText = tokig;
-    }
-
-    
     if (myType == "updateb")
     {
         let tmpstate = window.statevar;
@@ -622,48 +945,29 @@ if (myType == "b" || myType == "B") // to lower vore najs
         console.log("Update B, this is what i got "+myElement.innerHTML);
         
     }
-
+*/  
 
 }
 
-function printInventoryOld()
-{
-    let allStateVars = window.statevar;
-    let keys = Object.keys(allStateVars);    
-
-    keys.forEach(element => {
-        //console.log('Statevar loop: '+element);
-        if (element == 'ficklampa'){
-            console.log('Hittade ficklampan, den har värde:'+allStateVars[element]); // <-- gud så stört. jag har ju elementet men kan ej få ut värdet typ!
-        }
-        if (element == 'kniv'){
-            console.log('Hittade kniv, den har värde:'+allStateVars[element]);
-        }
-    });
-}
-
-function printInventory_EntryTEST()//printInventoryEntryMethod()
-{
-    let allStateVars = window.statevar;
-    let entr = Object.entries(allStateVars);
-    console.log('söker entry ficklampan');
-    entr.forEach(element => {
-        if (element[1] === 0 || element[1] === 1){
-            console.log(element[0] + 'värde:'+element[1]);}
-        if (element[0] == 'ficklampa'){
-            console.log('Hittade entry ficklampan, den har värde:'+element[1]);
-        }        
-    });
-}
 
 function updateInventoryList(){
-    let allStateVars = window.statevar;
-    let entr = Object.entries(allStateVars);
-    
+//    let allStateVars = window.statevar;
+//    console.log(window); 
+//    let entr = Object.entries(window.statevar);//allStateVars);
+      let entr = Object.entries(harlowe.State.variables);
+//    console.log("HÄR: ");
+//    console.log(JSON.stringify(window.statevar));
+//    console.log(JSON.stringify(entr));
+
     entr.forEach(element => {
         let itm = inventoryList.find(p => p.name === element[0]);
-        if (itm != null)
+        if (itm != null){
+            if (itm.value != element[1]){ // bör inträffa när tex ett objekt lagts till.    <----------------------- HANDELING SOUNDFX ON PICUP. REFACTOR?
+                if (element[1] === 1)
+                    playSoundFX(FXsoundStatic.pickup, "abcd", soundsStatic);
+            }
             itm.value = element[1];
+        }
     });
 
     // inventoryList.forEach(element => {
@@ -673,58 +977,22 @@ function updateInventoryList(){
 
 function printInventory(myElement)
 {
+
     let contentHTML = "";
     let aktiva = inventoryList.filter(p => p.value > 0);
     aktiva.forEach(element => {
 //        console.log(element.name +" Ska vara över 0 "+element.value);
-        contentHTML += "<div class='symbol'><img src='/assets/icons/"+element.icon+"'><div class='tooltip'>"+element.name+"</div></div>"
+        let tooltip = (element.tooltip.length>1)?element.tooltip:element.name;
+        contentHTML += "<div class='symbol'><img src='./assets/icons/"+element.icon+"'><div class='tooltip'>"+tooltip+"</div></div>"
     });
     myElement.innerHTML = contentHTML;
 }
 
-function setupInventoryHTML()
-{
-    console.log("setting upp inventory HTML.");
-//    document.querySelector("tw-story");
-    var inventoryArea = document.querySelector('inventory');
-    if (inventoryArea == null){
-        console.log("Can't setup inventory, Missing inventory-element om page.");
-        return;
-    }
-    let content;
-    inventoryList.forEach(element => {
-        content += "<div class='invItem'>"+element.name+"</div>";
-    });
-    inventoryArea.innerHTML = content;
-}
-
-function updateInventory()
-{
-    var $invItems = $(".symbols");
-    $j_object.each( function(i) { doSomethingHere(); } );
-}
-
-/*
-affisch: 0
-allergi:0
-bruten:0
-död:5
-ficklampa:0
-hypnos:0
-jordnötter:0
-kniv:0
-koffein:0
-källare:0
-köksbrand:1
-nyckel:0
-pendel:0
-personalrum:0
-populära:0
-rösten:0
-sovtid:10
-städare:0
-nyckelknippa:0
-*/
+// function updateInventory()
+// {
+//     var $invItems = $(".symbols");
+//     $j_object.each( function(i) { doSomethingHere(); } );
+// }
 
 //================================== UTILS ============
 
@@ -737,25 +1005,6 @@ function remove_tags(html) {
     html = html.replace(/\$br\$/g, "<br>");
     return html;
 }
-
-// class TMP extends HTMLElement {
-//     connectedCallback(){
-//         if (document.querySelector('tw-transition-container') == null) {          
-//             return;
-//         }
-
-//         let speed = 20;
-//         try {
-//             speed = parseInt(this.attributes.speed.value);
-//         } catch {
-//             if (speed == null)
-//              speed = 20;
-//         }
-
-//         HandleTypeWrite(this,speed);
-//     }
-
-// }
 
 function debuggWriteCaption(){
 try{
@@ -845,4 +1094,7 @@ function lerp (start, end, amt){
 
 
 */
+
+
+
 
