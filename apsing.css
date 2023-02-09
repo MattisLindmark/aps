@@ -257,7 +257,8 @@ scorebar.death{
 
 inventory{
   bottom: 0;
-  background-color: rgba(0,0,0,0.2);
+  background-color: transparent;
+/*  background-color: rgba(0,0,0,0.2);*/
   margin: 1rem;
   padding: 0.2rem;
   border-radius: 5px;
@@ -278,11 +279,15 @@ inventory.topLeft{
 @media (max-width: 750px){
   inventory.topLeft{
     position: fixed;
-    margin-left: auto;
+    margin-left: auto;   
     top: 70px!important;
-    right: 0px;
+    right: -20px;
 /*    max-width: 2.5rem;*/
     z-index: 2;
+  }
+  .symbol > img{
+    width: 50px !important;
+    opacity: .7;
   }
   .symbol > .tooltip
   {
